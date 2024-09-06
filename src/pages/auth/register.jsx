@@ -25,9 +25,9 @@ const AuthRegisterPage = () => {
           <Form.Control type="text" placeholder="Nama Lengkap" />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="username">
-          <Form.Label>Nama Pengguna</Form.Label>
-          <Form.Control type="text" placeholder="Nama Pengguna" />
+        <Form.Group className="mb-3" controlId="email">
+          <Form.Label>E-mail</Form.Label>
+          <Form.Control type="text" placeholder="E-mail" />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="institution">
