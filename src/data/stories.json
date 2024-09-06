@@ -456,7 +456,7 @@
             "text": "Ketikkan perintah SQL untuk menampilkan hewan-hewan yang status konservasinya tidak termasuk dalam kategori 'Least Concern'. Gunakan operator NOT untuk menyelesaikan misi ini.",
             "sql": {
               "type": "exec",
-              "query": "SELECT * FROM hewan WHERE NOT status_konservasi = 'Least concern';"
+              "query": "SELECT * FROM hewan WHERE NOT status_konservasi = 'Least Concern';"
             }
           },
           {
