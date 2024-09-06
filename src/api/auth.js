@@ -1,3 +1,23 @@
+export async function authRegister(name, email, institution, password) {
+  const response = await fetch("http://localhost:5000/auth/register", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      name,
+      email,
+      institution,
+      password,
+    }),
+  });
+
+  const result = await response.json();
+  if (result.status === "failed") {
+    throw new Error(result.message);
+  }
+}
+
 export async function authLogin(email, password) {
   const response = await fetch("http://localhost:5000/auth/login", {
     method: "POST",
@@ -9,16 +29,17 @@ export async function authLogin(email, password) {
       password,
     }),
   });
-  if (!response.ok) {
-    throw new Error("auth: login failed");
+
+  const result = await response.json();
+  if (result.status === "failed") {
+    throw new Error(result.message);
   }
-  const data = await response.json();
-  return data.token;
+  return result.data.token;
 }
 
 export async function authLogout(token) {
   const response = await fetch("http://localhost:5000/auth/logout", {
-    method: "POST",
+    method: "DELETE",
     headers: {
       Authorization: `Bearer ${token}`,
     },

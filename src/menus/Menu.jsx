@@ -17,7 +17,7 @@ export default function Menu() {
 
   useEffect(() => {
     if (!authenticated) {
-      alert("Silahkan login terlebih dahulu sebelum bermain!");
+      alert("ALERT: Silahkan login terlebih dahulu sebelum bermain!");
       navigate("/login");
     }
   }, []);

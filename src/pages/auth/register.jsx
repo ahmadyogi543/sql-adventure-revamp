@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Button, Col, Form, InputGroup, Row } from "react-bootstrap";
 import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 
+import { authRegister } from "../../api/auth";
 import { useAuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import HomeLayout from "../../layouts/HomeLayout";
@@ -21,9 +22,32 @@ const AuthRegisterPage = () => {
     }
   }
 
+  function handleOnSubmit(ev) {
+    ev.preventDefault();
+
+    const form = ev.currentTarget;
+    const name = form["name"].value.trim();
+    const email = form["email"].value.trim();
+    const institution = form["institution"].value.trim();
+    const password = form["password"].value.trim();
+    const repeatPassword = form["repeat_password"].value.trim();
+
+    if (password !== repeatPassword) {
+      alert("ALERT: Pastikan kata sandi dan ulangi kata sandi sama!");
+      return;
+    }
+
+    authRegister(name, email, institution, password)
+      .then(() => {
+        alert("INFO: Akun berhasil didaftarkan, silahkan login!");
+        navigate("/login");
+      })
+      .catch((err) => alert(`ERROR: ${err.message}`));
+  }
+
   useEffect(() => {
     if (authenticated) {
-      alert("Maaf, kamu sudah login. Kembali ke halaman beranda!");
+      alert("ALERT: Maaf, kamu sudah login. Kembali ke halaman beranda!");
       navigate("/");
     }
   }, []);
@@ -31,20 +55,35 @@ const AuthRegisterPage = () => {
   return (
     <HomeLayout>
       <h4 className="fw-bold mb-4">DAFTAR</h4>
-      <Form>
+      <Form onSubmit={handleOnSubmit}>
         <Form.Group className="mb-3" controlId="full-name">
           <Form.Label>Nama Lengkap</Form.Label>
-          <Form.Control type="text" placeholder="Nama Lengkap" />
+          <Form.Control
+            required
+            name="name"
+            type="text"
+            placeholder="Nama Lengkap"
+          />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="email">
           <Form.Label>E-mail</Form.Label>
-          <Form.Control type="text" placeholder="E-mail" />
+          <Form.Control
+            required
+            name="email"
+            type="email"
+            placeholder="E-mail"
+          />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="institution">
           <Form.Label>Institusi</Form.Label>
-          <Form.Control type="text" placeholder="Institusi" />
+          <Form.Control
+            required
+            name="institution"
+            type="text"
+            placeholder="Institusi"
+          />
         </Form.Group>
 
         <Row className="g-3">
@@ -52,6 +91,8 @@ const AuthRegisterPage = () => {
             <Form.Label>Kata Sandi</Form.Label>
             <InputGroup>
               <Form.Control
+                required
+                name="password"
                 type={showPassword ? "text" : "password"}
                 placeholder="Kata Sandi"
               />
@@ -71,6 +112,8 @@ const AuthRegisterPage = () => {
             <Form.Label>Ulangi Kata Sandi</Form.Label>
             <InputGroup>
               <Form.Control
+                required
+                name="repeat_password"
                 type={showRepeatPassword ? "text" : "password"}
                 placeholder="Ulangi Kata Sandi"
               />

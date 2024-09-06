@@ -1,31 +1,26 @@
 import React, { createContext, useContext, useState } from "react";
+import { jwtDecode } from "jwt-decode";
 
 import { authLogin, authLogout } from "../api/auth";
-import { jwtDecode } from "jwt-decode";
+import { saveToken, getToken, removeToken } from "../utils/auth";
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState();
-  const [authenticated, setAuthenticated] = useState(true);
+  const [user, setUser] = useState(getToken() ? jwtDecode(getToken()) : null);
+  const [authenticated, setAuthenticated] = useState(!!getToken());
 
   const login = async (email, password) => {
-    try {
-      const token = await authLogin(email, password);
-      setUser(jwtDecode(token));
-      setAuthenticated(true);
-    } catch (error) {
-      console.error("Login failed", error);
-    }
+    const token = await authLogin(email, password);
+    setUser(jwtDecode(token));
+    setAuthenticated(true);
+    saveToken(token);
   };
 
   const logout = async () => {
-    try {
-      await authLogout();
-      setAuthenticated(false);
-    } catch (error) {
-      console.error("Logout failed", error);
-    }
+    await authLogout(getToken());
+    setAuthenticated(false);
+    removeToken();
   };
 
   return (

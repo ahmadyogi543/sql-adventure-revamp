@@ -1,12 +1,23 @@
 import { Button, Col, Container, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 import { useAuthContext } from "../context/AuthContext";
 
 import Logo from "../assets/images/logo.png";
+import { MdLogout } from "react-icons/md";
 
 const HomeLayout = ({ children }) => {
-  const { authenticated } = useAuthContext();
+  const { authenticated, user, logout } = useAuthContext();
+
+  function handleOnClickLogoutBtn() {
+    logout()
+      .then(() => {
+        alert("INFO: Berhasil keluar, kembali ke beranda!");
+      })
+      .catch((err) => {
+        alert(`ERROR: ${err.message}`);
+      });
+  }
 
   return (
     <Container fluid className="bg-primary-dark flex-column-grow">
@@ -21,7 +32,14 @@ const HomeLayout = ({ children }) => {
           </div>
           {authenticated ? (
             <div className="mt-4 bg-primary-dark p-4 px-5 rounded">
-              <p className="text-white m-0">Hallo, Ahmad Yogi!</p>
+              <p className="text-white m-0">Selamat datang, {user.name}!</p>
+              <Button
+                className="d-block mx-auto mt-3"
+                onClick={handleOnClickLogoutBtn}
+              >
+                <MdLogout className="me-2" size={20} />
+                KELUAR
+              </Button>
             </div>
           ) : (
             <>

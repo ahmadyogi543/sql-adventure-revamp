@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 const AuthLoginPage = () => {
   const navigate = useNavigate();
-  const { authenticated } = useAuthContext();
+  const { authenticated, login } = useAuthContext();
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -16,9 +16,25 @@ const AuthLoginPage = () => {
     setShowPassword((prevSP) => !prevSP);
   }
 
+  function handleOnSubmit(ev) {
+    ev.preventDefault();
+
+    const form = ev.currentTarget;
+    const email = form["email"].value.trim();
+    const password = form["password"].value.trim();
+
+    login(email, password)
+      .then(() => {
+        navigate("/");
+      })
+      .catch((err) => {
+        alert(`ERROR: ${err.message}`);
+      });
+  }
+
   useEffect(() => {
     if (authenticated) {
-      alert("Maaf, kamu sudah login. Kembali ke halaman beranda!");
+      alert("ALERT: Maaf, kamu sudah login. Kembali ke halaman beranda!");
       navigate("/");
     }
   }, []);
@@ -26,10 +42,10 @@ const AuthLoginPage = () => {
   return (
     <HomeLayout>
       <h4 className="fw-bold mb-4">MASUK</h4>
-      <Form>
+      <Form onSubmit={handleOnSubmit} validated={false}>
         <Form.Group className="mb-3" controlId="email">
           <Form.Label>E-mail</Form.Label>
-          <Form.Control type="text" placeholder="E-mail" />
+          <Form.Control type="email" placeholder="E-mail" required />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="password">
