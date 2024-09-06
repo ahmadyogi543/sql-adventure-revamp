@@ -3,9 +3,9 @@ import { Button, Col, Form, InputGroup, Row } from "react-bootstrap";
 import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 
 import { authRegister } from "../../api/auth";
-import { useAuthContext } from "../../context/AuthContext";
-import { useNavigate } from "react-router-dom";
 import HomeLayout from "../../layouts/HomeLayout";
+import { useAuthContext } from "../../context/AuthContext";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const AuthRegisterPage = () => {
   const navigate = useNavigate();
@@ -45,12 +45,10 @@ const AuthRegisterPage = () => {
       .catch((err) => alert(`ERROR: ${err.message}`));
   }
 
-  useEffect(() => {
-    if (authenticated) {
-      alert("ALERT: Maaf, kamu sudah login. Kembali ke halaman beranda!");
-      navigate("/");
-    }
-  }, []);
+  if (authenticated) {
+    alert("ALERT: Maaf, kamu sudah login. Kembali ke halaman beranda!");
+    return <Navigate to="/" />;
+  }
 
   return (
     <HomeLayout>

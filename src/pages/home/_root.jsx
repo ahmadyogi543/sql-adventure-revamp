@@ -8,8 +8,16 @@ import {
 
 import HomeLayout from "../../layouts/HomeLayout";
 import MenuButton from "../../components/MenuButton";
+import { useAuthContext } from "../../context/AuthContext";
+import { Navigate } from "react-router-dom";
 
 const HomeRootPage = () => {
+  const { authenticated, user } = useAuthContext();
+
+  if (authenticated && user.role !== "user") {
+    return <Navigate to="/admin" />;
+  }
+
   return (
     <HomeLayout>
       <h4 className="fw-bold mb-3">MENU</h4>

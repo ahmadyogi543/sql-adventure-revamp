@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import MENUS from "../constants/menus";
 
@@ -7,20 +7,21 @@ import { useMenuContext } from "../context/MenuContext";
 import StageMenu from "./StageMenu";
 import GameplayMenu from "./GameplayMenu";
 import CompleteMenu from "./CompleteMenu";
-import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { useAuthContext } from "../context/AuthContext";
 
 export default function Menu() {
   const { menu } = useMenuContext();
-  const navigate = useNavigate();
-  const { authenticated } = useAuthContext();
+  const { authenticated, user } = useAuthContext();
 
-  useEffect(() => {
-    if (!authenticated) {
-      alert("ALERT: Silahkan login terlebih dahulu sebelum bermain!");
-      navigate("/login");
-    }
-  }, []);
+  if (!authenticated) {
+    alert("ALERT: Silahkan login terlebih dahulu sebelum bermain!");
+    return <Navigate to="/login" />;
+  }
+
+  if (authenticated && user.role !== "user") {
+    return <Navigate to="/admin" />;
+  }
 
   return (
     <>

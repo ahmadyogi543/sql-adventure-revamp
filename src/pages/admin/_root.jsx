@@ -1,9 +1,21 @@
 import { Col, Row } from "react-bootstrap";
-import { Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 
+import { useAuthContext } from "../../context/AuthContext";
 import MenuItemList from "../../components/admin/MenuItemList";
 
 const AdminRootPage = () => {
+  const { authenticated, user } = useAuthContext();
+
+  if (!authenticated) {
+    alert("ALERT: Silahkan login terlebih dahulu sebelum bermain!");
+    return <Navigate to="/login" />;
+  }
+
+  if (user.role !== "admin") {
+    return <Navigate to="/" />;
+  }
+
   return (
     <>
       <Row className="g-0 flex-grow-1">
