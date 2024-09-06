@@ -1,0 +1,159 @@
+{
+    "id": 1,
+    "title": "Menjelajahi Pulau Kembang",
+    "introduction": "Selamat datang di Pulau Kembang! Kamu baru saja tiba di pulau yang penuh dengan keanekaragaman hayati dan berbagai fasilitas menarik. Sebagai pengunjung, kamu akan melakukan perjalanan untuk mengenali berbagai elemen penting di pulau ini.",
+    "missions": [
+      {
+        "id": 1,
+        "title": "Menampilkan Biaya Kunjungan",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Mengetahui biaya kunjungan sangat penting agar kamu dapat memasuki Pulau Kembang."
+          },
+          {
+            "type": "narration",
+            "text": "Mari kita lihat biaya yang dikenakan untuk mengunjungi Pulau Kembang."
+          },
+          {
+            "type": "instruction",
+            "text": "Ketikan query untuk menampilkan informasi tentang biaya kunjungan untuk berbagai hari dan jenis wisatawan yang ada di tabel biaya.",
+            "sql": {
+              "type": "exec",
+              "query": "SELECT * FROM biaya;"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Bagus! Kamu sekarang tahu biaya yang dikenakan untuk mengunjungi Pulau Kembang."
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Menampilkan Jenis Petugas",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Pulau Kembang memiliki berbagai peran petugas yang berbeda-beda."
+          },
+          {
+            "type": "narration",
+            "text": "Sekarang, mari kita lihat peran petugas yang ada di pulau ini."
+          },
+          {
+            "type": "instruction",
+            "text": "Ketikkan query untuk menampilkan semua peran petugas yang berbeda dari tabel petugas. Gunakan operator DISTINCT untuk menampilkan data tanpa duplikasi.",
+            "sql": {
+              "type": "exec",
+              "query": "SELECT DISTINCT tugas FROM petugas;"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Bagus sekali! Kamu sekarang tahu peran petugas yang bekerja di Pulau Kembang ini."
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Menampilkan Fasilitas yang Tersedia",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Pulau Kembang memiliki berbagai fasilitas, namun tidak semuanya dalam kondisi baik."
+          },
+          {
+            "type": "instruction",
+            "text": "Mulailah dengan melihat semua fasilitas pada tabel fasilitas.",
+            "sql": {
+              "type": "exec",
+              "query": "SELECT * FROM fasilitas;"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Kamu telah melihat semua fasilitas di Pulau Kembang."
+          },
+          {
+            "type": "narration",
+            "text": "Sekarang, mari kita cari fasilitas yang tidak layak digunakan untuk pengalaman yang lebih nyaman."
+          },
+          {
+            "type": "instruction",
+            "text": "Ketikkan query untuk menampilkan fasilitas yang tidak layak di Pulau Kembang. Gunakan operator NOT untuk melakukan pencarian ini.",
+            "sql": {
+              "type": "exec",
+              "query": "SELECT * FROM fasilitas WHERE NOT status_kelayakan = 'Layak';"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Bagus! Kamu kini tahu fasilitas yang tidak layak"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Menampilkan Semua Flora yang Ada",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Pulau Kembang dikenal dengan keanekaragaman tumbuhannya."
+          },
+          {
+            "type": "narration",
+            "text": "Untuk memulai petualanganmu, mari kita lihat semua jenis tumbuhan yang menghiasi pulau ini."
+          },
+          {
+            "type": "instruction",
+            "text": "Ketikan query untuk menampilkan daftar semua jenis tumbuhan yang ada di Pulau Kembang yang sudah terangkum pada tabel tumbuhan. Ini akan membantumu memahami keanekaragaman flora yang ada di pulau ini.",
+            "sql": {
+              "type": "exec",
+              "query": "SELECT * FROM tumbuhan;"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Bagus sekali! Kamu sekarang mengetahui berbagai jenis tumbuhan yang ada di Pulau Kembang."
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "title": "Menampilkan Semua Fauna yang Ada",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Selain tumbuhan, Pulau Kembang juga dihuni oleh berbagai spesies hewan."
+          },
+          {
+            "type": "narration",
+            "text": "Sekarang, mari kita lihat apa saja hewan yang ada di pulau ini."
+          },
+          {
+            "type": "instruction",
+            "text": "Ketikkan query untuk menampilkan semua data dari tabel hewan. Ini akan membantu kamu mengetahui berbagai spesies yang mungkin kamu temui selama perjalanan.",
+            "sql": {
+              "type": "exec",
+              "query": "SELECT * FROM hewan;"
+            }
+          },
+          {
+            "type": "instruction",
+            "text": "Sekarang tugas kamu adalah menampilkan hewan yang lama hidupnya kurang dari 5 tahun. Gunakan operator perbandingan < untuk melakukan pencarian ini.",
+            "sql": {
+              "type": "exec",
+              "query": "SELECT * FROM hewan WHERE lama_hidup < 5;"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Hebat! Kamu kini memiliki informasi tentang berbagai spesies hewan yang lama hidupnya kurang dari 5 tahun."
+          }
+        ]
+      }
+    ],
+    "closing": "Selamat! Kamu telah menyelesaikan semua misi di stage ini. Dengan informasi yang kamu kumpulkan, kamu kini siap untuk menjelajahi Pulau Kembang dengan lebih baik. Nikmati petualanganmu dan semoga kamu mendapatkan pengalaman yang tak terlupakan!",
+    "filepath": "test.db"
+  }

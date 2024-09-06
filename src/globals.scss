@@ -1,0 +1,112 @@
+// TODO: put bootstrap customization here...
+$font-family-sans-serif: Nunito, system-ui, -apple-system, "Segoe UI", Roboto,
+  "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif,
+  "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+// colors
+$primary: #4f342b;
+$secondary: #c19452;
+$success: #3b7f52;
+$info: #2b6f82;
+$danger: #9e2b2b;
+$light: #f5e9da;
+$dark: #3b2b28;
+
+// borders
+$border-radius: 0.5rem !default;
+$border-radius-sm: 0.5rem !default;
+$border-radius-lg: 0.5rem !default;
+$border-radius-xl: 0.5rem !default;
+$border-radius-2xl: 0.5rem !default;
+$border-radius-pill: 50rem !default;
+
+@import "../node_modules/bootstrap/scss/_functions";
+@import "../node_modules/bootstrap/scss/_variables";
+
+$custom-theme-colors: (
+  // light
+  "primary-dark": #3f2922,
+  "light-dark": #c6c7c8,
+
+  // custom blue
+  "custom-blue": #1077db,
+  "custom-blue-dark": #1260a7,
+
+  // custom-green
+  "custom-green": #51973f,
+  "custom-green-dark": #427f33,
+  "light-custom-green": #9ebf58,
+  "light-custom-green-dark": #749036,
+
+  // custom yellow
+  "custom-yellow": #d69210,
+  "custom-yellow-dark": #956812,
+
+  // custom orange
+  "custom-orange": #eb8205,
+  "custom-orange-dark": #af6106,
+
+  // disabled
+  "disabled": #788375,
+  "disabled-dark": #3a5333,
+  "light-disabled": #9ba798,
+  "light-disabled-dark": #3a5333
+);
+$theme-colors: map-merge($custom-theme-colors, $theme-colors);
+
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+@each $color in map-keys($map: $theme-colors) {
+  .shadow-card-#{$color} {
+    box-shadow: 4px 4px 0 map-get($map: $theme-colors, $key: "#{$color}-dark");
+  }
+}
+
+// utils
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.cursor-not-allowed {
+  cursor: not-allowed;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-row-grow {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+.flex-column-grow {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.animation-shake {
+  &:hover {
+    animation: shake 0.5s ease-in-out;
+  }
+
+  @keyframes shake {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-5px);
+    }
+    50% {
+      transform: translateX(5px);
+    }
+    75% {
+      transform: translateX(-5px);
+    }
+  }
+}

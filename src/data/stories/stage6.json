@@ -1,0 +1,127 @@
+{
+    "id": 6,
+    "title": "Analisis Populasi Tumbuhan",
+    "introduction": "Pada tahap ini, kamu akan menganalisis data tentang tumbuhan di Pulau Kembang. Setiap analisis yang kamu lakukan akan membantu kita memahami lebih dalam mengenai jumlah dan distribusi tumbuhan yang ada di pulau ini. Siap untuk menggali data dan mendapatkan wawasan lebih mendalam tentang flora Pulau Kembang?",
+    "missions": [
+      {
+        "id": 1,
+        "title": "Menemukan Tumbuhan dengan Jumlah Maksimum",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Untuk memahami tumbuhan mana yang paling dominan di Pulau Kembang, kita perlu mengetahui tumbuhan dengan jumlah terbanyak."
+          },
+          {
+            "type": "instruction",
+            "text": "Ketikkan query SQL untuk menemukan tumbuhan dengan jumlah terbanyak menggunakan operator MAX dan pastikan hasil yang muncul hanya kolom nama dan jumlah_terbanyak. Ubah nama kolom jumlah menggunakan AS menjadi jumlah_terbanyak",
+            "sql": {
+              "type": "exec",
+              "query": "SELECT nama, MAX(jumlah) AS jumlah_terbanyak FROM tumbuhan;"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Selamat! kamu telah berhasil menemukan tumbuhan dengan jumlah maksimum di Pulau Kembang."
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Menemukan Tumbuhan dengan Jumlah Minimum",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Sekarang, mari kita cari tahu tumbuhan dengan jumlah paling sedikit di Pulau Kembang."
+          },
+          {
+            "type": "instruction",
+            "text": "Ketikkan query untuk menemukan tumbuhan dengan jumlah paling sedikit menggunakan operator MIN dan pastikan hasil yang muncul hanya kolom nama dan jumlah_paling_sedikit. Ubah nama kolom jumlah menggunakan AS menjadi jumlah_paling_sedikit.",
+            "sql": {
+              "type": "exec",
+              "query": "SELECT nama, MIN(jumlah) AS jumlah_paling_sedikit FROM tumbuhan;"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Hebat! Kamu telah menemukan tumbuhan dengan jumlah minimum. Ini membantu kita memahami keberagaman flora di pulau ini."
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Menghitung Rata-Rata Jumlah Tumbuhan",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Selanjutnya, kita akan mencari tahu rata-rata jumlah tumbuhan di Pulau Kembang."
+          },
+          {
+            "type": "narration",
+            "text": "Ini akan memberi kita gambaran umum tentang distribusi tumbuhan di pulau."
+          },
+          {
+            "type": "instruction",
+            "text": "Ketikkan query untuk menghitung rata-rata jumlah tumbuhan dengan menggunakan operator AVG.",
+            "sql": {
+              "type": "exec",
+              "query": "SELECT AVG(jumlah) FROM tumbuhan;"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Hebat! kamu kini memiliki informasi tentang rata-rata jumlah hewan di Pulau Kembang."
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Menghitung Jumlah Keseluruhan Tumbuhan",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Selanjutnya, kita akan menghitung jumlah keseluruhan semua tumbuhan di Pulau Kembang untuk memahami total keanekaragaman flora."
+          },
+          {
+            "type": "instruction",
+            "text": "Ketikkan query untuk menghitung jumlah keseluruhan tumbuhan dengan menggunakan operator SUM.",
+            "sql": {
+              "type": "exec",
+              "query": "SELECT SUM(jumlah) FROM tumbuhan;"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Bagus sekali! Kamu telah menghitung jumlah keseluruhan tumbuhan di Pulau Kembang."
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "title": "Menghitung Jumlah Flora yang Ada",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Terakhir, kita akan menghitung berapa banyak jenis tumbuhan yang berbeda di Pulau Kembang."
+          },
+          {
+            "type": "narration",
+            "text": "Dengan mengetahui jumlah jenis tumbuhan yang berbeda, kita bisa memahami lebih baik keragaman flora di pulau ini."
+          },
+          {
+            "type": "instruction",
+            "text": "Ketikkan query untuk menghitung jumlah tumbuhan yang ada dengan menggunakan operator COUNT.",
+            "sql": {
+              "type": "exec",
+              "query": "SELECT COUNT(*) FROM tumbuhan;"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Luar biasa! Kamu telah berhasil mengidentifikasi jumlah jenis tumbuhan yang berbeda di Pulau Kembang."
+          }
+        ]
+      }
+    ],
+    "closing": "Luar biasa! Kamu telah berhasil menganalisis data tumbuhan di Pulau Kembang. Setiap langkah yang kamu ambil telah memberikan wawasan penting mengenai kekayaan flora di pulau ini. Pengetahuan ini sangat berharga untuk memahami kondisi ekosistem dan merencanakan upaya konservasi di masa depan.",
+    "filepath": "test.db"
+  }

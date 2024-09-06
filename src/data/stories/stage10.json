@@ -1,0 +1,139 @@
+{
+    "id": 10,
+    "title": "Mengelola Data",
+    "introduction": "Selamat datang di tahap berikutnya dalam petualangan Anda di Pulau Kembang. Di tahap ini, Anda akan belajar untuk mengelola data penting yang berhubungan dengan petugas, biaya tiket, dan fasilitas yang ada di pulau ini. Setiap misi akan memberikan Anda pengalaman langsung dalam menambahkan, memperbarui, dan menghapus data dari database. Mari kita mulai!",
+    "missions": [
+      {
+        "id": 1,
+        "title": "Menambahkan Data Petugas Baru",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Terdapat petugas baru bernama 'Anis' yang akan bergabung dengan tim sebagai Petugas Kebersihan."
+          },
+          {
+            "type": "narration",
+            "text": "Tugas Anda adalah memasukkan informasi petugas baru ini ke dalam database."
+          },
+          {
+            "type": "instruction",
+            "text": "Tugas Anda adalah memasukkan informasi petugas baru ke dalam tabel Petugas. Petugas baru bernama Anis dan bertugas sebagai Petugas Kebersihan.",
+            "sql": {
+              "type": "run",
+              "query": "INSERT INTO Petugas (nama, tugas) VALUES ( 'Anis', 'Petugas Kebersihan');"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Anda telah berhasil menambahkan data petugas baru ke dalam database."
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Memperbarui Harga Tiket Wisatawan Lokal di Hari Minggu",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Narasi: Harga tiket wisatawan lokal pada hari ‘Minggu’ akan dinaikkan dari ‘10000’ menjadi ‘12000’ untuk mendukung program konservasi."
+          },
+          {
+            "type": "narration",
+            "text": "Fasilitas tersebut adalah Toko Souvenir, yang menyediakan berbagai macam barang kenang-kenangan."
+          },
+          {
+            "type": "instruction",
+            "text": "Ayo perbarui harga tiketnya! Ketikkan perintah SQL untuk memperbarui harga tiket wisatawan lokal pada hari Minggu menjadi 12000 pada tabel biaya di kolom harga",
+            "sql": {
+              "type": "run",
+              "query": "UPDATE Biaya SET harga = 12000 WHERE hari = 'Minggu' AND wisatawan = 'Lokal';"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Bagus sekali! Harga tiket untuk wisatawan lokal pada hari Minggu telah diperbarui."
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Menghapus Data Petugas",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Petugas yang bernama 'Tiwi' telah pindah tugas ke lokasi lain dan tidak lagi bekerja di Pulau Kembang."
+          },
+          {
+            "type": "narration",
+            "text": "Kamu perlu menghapus data petugas ini dari tabel petugas."
+          },
+          {
+            "type": "instruction",
+            "text": "Sekarang mari kita perbarui datanya! Ketikkan perintah SQL untuk memperbarui jumlah `Nipah` dari 19 menjadi 25 pada tabel tumbuhan di kolom jumlah.",
+            "sql": {
+              "type": "run",
+              "query": "DELETE FROM Petugas WHERE nama = 'Tiwi';"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Luar biasa! Kamu telah berhasil menghapus data 'Tiwi' dari database."
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Menghapus Data Biaya",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Tarif 'Hari Libur Nasional' untuk wisatawan lokal tidak lagi berlaku di Pulau Kembang."
+          },
+          {
+            "type": "narration",
+            "text": "Kamu perlu menghapus data biaya ini dari tabel biaya."
+          },
+          {
+            "type": "instruction",
+            "text": "Ketikan perintah SQL untuk menghapus data pada tabel biaya pada kolom hari 'Hari Libur Nasional' dan kolom wisatawan 'Lokal' dari tabel biaya",
+            "sql": {
+              "type": "run",
+              "query": "DELETE FROM Biaya WHERE hari = 'Hari Libur Nasional' AND wisatawan = 'Lokal';"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Luar biasa! Kamu telah berhasil menghapus data 'Hari Libur Nasional' untuk wisatawan lokal dari database."
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "title": "Menghapus Data Fasilitas",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Fasilitas 'Pondok Pandang' sudah tidak ada lagi di Pulau Kembang."
+          },
+          {
+            "type": "narration",
+            "text": "Kamu perlu menghapus data fasilitas ini dari tabel fasilitas."
+          },
+          {
+            "type": "instruction",
+            "text": "Ketikan perintah SQL untuk menghapus data fasilitas pada kolom nama dengan nama fasilitas ‘Pondok Pandang’ dari tabel fasilitas:",
+            "sql": {
+              "type": "run",
+              "query": "DELETE FROM fasilitas WHERE nama = 'Pondok Pandang';"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Bagus sekali! Kamu telah berhasil menghapus data 'Pondok Pandang' dari database."
+          }
+        ]
+      }
+    ],
+    "closing": "Luar biasa! Anda telah menyelesaikan semua misi dalam tahap ini dengan sukses. Anda telah belajar bagaimana menambahkan, memperbarui, dan menghapus data dalam database, keterampilan penting yang akan membantu dalam menjaga informasi tetap akurat dan terkini. Teruslah berlatih dan tingkatkan kemampuan Anda dalam mengelola data.",
+    "filepath": "test.db"
+  }

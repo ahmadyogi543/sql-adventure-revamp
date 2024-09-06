@@ -1,0 +1,139 @@
+{
+    "id": 5,
+    "title": "Penataan Pulau Kembang",
+    "introduction": "Dalam stage ini, kamu akan membantu mengelola berbagai aspek di Pulau Kembang. Kamu akan ditugaskan untuk mengatur data terkait tumbuhan, petugas, biaya, fasilitas, dan hewan untuk memastikan kesejahteraan dan efisiensi pengelolaan pulau. Setiap misi memiliki tujuan khusus yang penting bagi keberlangsungan konservasi dan pengelolaan Pulau Kembang.",
+    "missions": [
+      {
+        "id": 1,
+        "title": "Menyusun Tumbuhan Berdasarkan Nama",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Pengunjung sering tertarik untuk mengetahui berbagai jenis tumbuhan yang ada di Pulau Kembang."
+          },
+          {
+            "type": "narration",
+            "text": "Mengurutkan nama tumbuhan dari A ke Z akan memudahkan dalam penyampaian informasi dan dokumentasi."
+          },
+          {
+            "type": "instruction",
+            "text": "Ketikkan perintah SQL untuk mengurutkan nama tumbuhan dari A ke Z. Gunakan ORDER BY dan ASC untuk menyelesaikan misi ini.",
+            "sql": {
+              "type": "exec",
+              "query": "SELECT * FROM tumbuhan ORDER BY nama ASC;"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Kamu telah berhasil menyusun nama tumbuhan dari A ke Z!"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Menyusun Fasilitas Berdasarkan Jumlah",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Untuk memastikan fasilitas di Pulau Kembang selalu dalam kondisi baik, kita perlu mengetahui jumlah fasilitas yang ada."
+          },
+          {
+            "type": "narration",
+            "text": "Mengurutkan data berdasarkan jumlah fasilitas dari terbesar ke terkecil akan membantu dalam pengelolaan dan pemeliharaan fasilitas."
+          },
+          {
+            "type": "instruction",
+            "text": "Ketikkan perintah SQL untuk mengurutkan fasilitas berdasarkan jumlah dari terbesar ke terkecil.Gunakan ORDER BY dan DESC untuk menyelesaikan misi ini.",
+            "sql": {
+              "type": "exec",
+              "query": "SELECT * FROM fasilitas ORDER BY jumlah DESC;"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Kamu telah berhasil mengurutkan fasilitas berdasarkan jumlah dari terbesar ke terkecil."
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Menemukan Tumbuhan Terbanyak",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Untuk keperluan penelitian dan konservasi, kita perlu mengetahui tumbuhan apa yang paling banyak jumlahnya di Pulau Kembang."
+          },
+          {
+            "type": "narration",
+            "text": "Mengetahui jumlah terbesar akan membantu dalam fokus konservasi."
+          },
+          {
+            "type": "instruction",
+            "text": "Ketikkan perintah SQL untuk mengurutkan tumbuhan berdasarkan jumlah dari terbesar ke terkecil dan batasi hasilnya menjadi 1 teratas.Gunakan ORDER BY, DESC, dan LIMIT untuk menyelesaikan misi ini.",
+            "sql": {
+              "type": "exec",
+              "query": "SELECT * FROM tumbuhan ORDER BY jumlah DESC LIMIT 1;"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Kamu telah menemukan tumbuhan dengan jumlah paling banyak."
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Menentukan Hari dengan Biaya Termurah",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Pengunjung sering mencari hari dengan biaya terendah untuk berkunjung."
+          },
+          {
+            "type": "narration",
+            "text": "Dengan mengetahui hari-hari tersebut, kita bisa mengatur promosi dan strategi marketing yang lebih efektif."
+          },
+          {
+            "type": "instruction",
+            "text": "Ketikkan perintah SQL untuk mengurutkan biaya berdasarkan harga dari terkecil ke terbesar untuk wisatawan lokal dan batasi hasilnya menjadi 1 teratas. Gunakan ORDER BY, DESC, dan LIMIT untuk menyelesaikan misi ini.",
+            "sql": {
+              "type": "exec",
+              "query": "SELECT * FROM biaya WHERE wisatawan = 'Lokal' ORDER BY harga LIMIT 1;"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Kamu telah menemukan hari dengan biaya terendah untuk wisatawan lokal."
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "title": "Menemukan Hewan dengan Jumlah Terbanyak",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Untuk memastikan kesejahteraan hewan, kita perlu mengetahui hewan yang paling banyak jumlahnya."
+          },
+          {
+            "type": "narration",
+            "text": "Ini penting untuk memastikan habitat dan makanan yang cukup untuk hewan-hewan tersebut."
+          },
+          {
+            "type": "instruction",
+            "text": "Ketikkan perintah SQL untuk mengurutkan hewan berdasarkan jumlah dari terbesar ke terkecil dan batasi hasilnya menjadi 1 teratas. Gunakan ORDER BY, DESC, dan LIMIT untuk menyelesaikan misi ini.",
+            "sql": {
+              "type": "exec",
+              "query": "SELECT * FROM hewan ORDER BY jumlah DESC LIMIT 1;"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Kamu telah menemukan hewan dengan jumlah paling banyak."
+          }
+        ]
+      }
+    ],
+    "closing": "Selamat! Kamu telah berhasil menyelesaikan semua misi dalam stage ini. Dengan menyusun dan mengelola data tumbuhan, fasilitas, biaya, dan hewan, kamu telah berkontribusi besar dalam menjaga kesejahteraan dan efisiensi pengelolaan Pulau Kembang.",
+    "filepath": "test.db"
+  }

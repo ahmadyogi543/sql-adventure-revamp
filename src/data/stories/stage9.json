@@ -1,0 +1,131 @@
+{
+    "id": 9,
+    "title": "Pembaruan Data",
+    "introduction": "Selamat datang di tahap ini, Petualang! Di sini, Anda akan mengasah kemampuan untuk memperbarui dan menambahkan data di database. Melalui misi-misi berikut, Anda akan meningkatkan keahlian dalam mengelola informasi yang penting untuk menjaga kelancaran operasional Pulau Kembang. Siap untuk tantangan ini? Mari kita mulai!",
+    "missions": [
+      {
+        "id": 1,
+        "title": "Menambahkan Data Petugas Baru",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Pulau Kembang membutuhkan lebih banyak petugas untuk menjaga dan melayani pengunjung."
+          },
+          {
+            "type": "narration",
+            "text": "Kamu menemukan petugas baru bernama 'Wisnu' yang bertugas sebagai pemandu wisata."
+          },
+          {
+            "type": "instruction",
+            "text": "Tugas Anda adalah memasukkan informasi petugas baru ke dalam tabel Petugas. Petugas baru bernama Wisnu dan bertugas sebagai pemandu wisata.",
+            "sql": {
+              "type": "run",
+              "query": "INSERT INTO Petugas (nama, tugas) VALUES ('Wisnu', 'Pemandu wisata');"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Luar biasa! Kamu telah sukses menambahkan 'Wisnu' sebagai pemandu wisata, pengunjung akan mendapatkan pengalaman yang lebih baik dan pelayanan yang lebih optimal di Pulau Kembang."
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Menambahkan Data Fasilitas Baru",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Fasilitas baru telah dibuka untuk meningkatkan pengalaman pengunjung di tempat ini."
+          },
+          {
+            "type": "narration",
+            "text": "Fasilitas tersebut adalah Toko Souvenir, yang menyediakan berbagai macam barang kenang-kenangan."
+          },
+          {
+            "type": "instruction",
+            "text": "Nah, tugas kamu sekarang adalah memasukkan informasi fasilitas baru ke dalam tabel fasilitas. Adapun fasilitas bernama ‘Toko Souvenir’ berjenis Pendukung Pariwisata, dengan jumlah sebanyak 1 buah dan status kelayakan layak.",
+            "sql": {
+              "type": "run",
+              "query": "INSERT INTO Fasilitas (nama, jumlah, jenis, status_kelayakan) VALUES ('Toko Souvenir', 1, 'Pendukung Pariwisata', 'Layak');"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Anda telah berhasil menambahkan data fasilitas baru."
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Mengupdate Jumlah Tumbuhan",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Kamu menemukan bahwa jumlah Nipah di Pulau Kembang meningkat dari 19 menjadi 25."
+          },
+          {
+            "type": "instruction",
+            "text": "Sekarang mari kita perbarui datanya! Ketikkan perintah SQL untuk memperbarui jumlah `Nipah` dari 19 menjadi 25 pada tabel tumbuhan di kolom jumlah.",
+            "sql": {
+              "type": "run",
+              "query": "UPDATE Tumbuhan SET jumlah = 25 WHERE nama = 'Nipah';"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Hebat! Kamu telah berhasil memperbarui jumlah spesies `Nipah`."
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Memperbarui Data Petugas",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Petugas ‘Cahya’ yang sebelumnya bertugas sebagai ‘Penjaga loket’ kini dipindahkan ke posisi ‘Petugas kebersihan’."
+          },
+          {
+            "type": "narration",
+            "text": "Ini akan memberikan gambaran tentang biaya rata-rata yang dikeluarkan per hari untuk wisatawan mancanegara."
+          },
+          {
+            "type": "instruction",
+            "text": "Ketikkan perintah SQL untuk memperbarui  tugas `Cahya` menjadi `Petugas kebersihan` pada tabel petugas di kolom tugas",
+            "sql": {
+              "type": "run",
+              "query": "UPDATE Petugas SET tugas = 'Petugas kebersihan' WHERE nama = 'Cahya';"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Kerja bagus, Petualang! Tugas petugas `Cahya` telah diperbarui."
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "title": "Memperbarui Harga Tiket Wisatawan Lokal di Hari Minggu",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Harga tiket wisatawan lokal pada hari ‘Minggu’ akan dinaikkan dari ‘10000’ menjadi ‘12000’ untuk mendukung program konservasi."
+          },
+          {
+            "type": "instruction",
+            "text": "Ayo perbarui harga tiketnya! Ketikkan perintah SQL untuk memperbarui harga tiket wisatawan lokal pada hari Minggu menjadi 12000 pada tabel biaya di kolom harga.",
+            "sql": {
+              "type": "run",
+              "query": "UPDATE Biaya SET harga = 12000 WHERE hari = 'Minggu' AND wisatawan = 'Lokal';"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Bagus sekali! Harga tiket untuk wisatawan lokal pada hari Minggu telah diperbarui."
+          }
+        ]
+      }
+    ],
+    "closing": "Luar biasa! Anda telah berhasil menyelesaikan semua misi di tahap ini. Anda sekarang lebih mahir dalam memperbarui dan menambahkan data di database, keterampilan yang sangat penting untuk menjaga informasi tetap akurat dan terkini. Teruslah berlatih dan jangan berhenti belajar. Sampai jumpa di tahap berikutnya!",
+    "filepath": "test.db"
+  }

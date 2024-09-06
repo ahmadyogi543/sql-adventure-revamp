@@ -1,0 +1,135 @@
+{
+    "id": 3,
+    "title": "Analisa Populasi Hewan",
+    "introduction": "Kali ini kamu bertugas memonitor dan menganalisa populasi hewan di Pulau Kembang. Setiap misi yang kamu selesaikan akan membantu kita memahami dan melestarikan keanekaragaman hayati pulau ini. Bersiaplah untuk mengaplikasikan operasi aritmatika dalam analisis datamu!",
+    "missions": [
+      {
+        "id": 1,
+        "title": "Menghitung Total Populasi",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Untuk membantu upaya konservasi, kita perlu mengetahui total populasi saat ini setelah penambahan individu baru."
+          },
+          {
+            "type": "narration",
+            "text": "Mari kita hitung total populasi Elang Laut Perut Putih setelah penambahan 5 individu."
+          },
+          {
+            "type": "instruction",
+            "text": "Ketikkan perintah SQL untuk menghitung total populasi Elang Laut Perut Putih setelah penambahan 5 individu. Gunakan operator aritmatika + untuk menyelesaikan misi ini.",
+            "sql": {
+              "type": "exec",
+              "query": "SELECT jumlah + 5 FROM hewan WHERE nama = 'Elang Laut Perut Putih';"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Kamu telah menghitung total populasi Elang Laut Perut Putih setelah penambahan 5 individu."
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Mengurangi Jumlah Populasi Tertentu",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Mari kita analisis dampak dari penurunan populasi spesies tertentu. Hitung populasi setelah mengurangi 5 kera dari populasi Kera Ekor Panjang."
+          },
+          {
+            "type": "instruction",
+            "text": "Ketikkan perintah SQL untuk mengurangi 5 kera dari jumlah populasi Kera Ekor Panjang. Gunakan operator aritmatika - untuk menyelesaikan misi ini.",
+            "sql": {
+              "type": "exec",
+              "query": "SELECT jumlah - 5 FROM hewan WHERE nama = 'Kera Ekor Panjang';"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Kamu telah berhasil menghitung populasi Kera Ekor Panjang setelah pengurangan."
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Mengalikan Populasi untuk Perkiraan Pertumbuhan",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Untuk memahami potensi pertumbuhan populasi, mari kita hitung perkiraan populasi Elang Bondol dalam 5 tahun jika populasinya bertambah dua kali lipat setiap tahun."
+          },
+          {
+            "type": "instruction",
+            "text": "Ketikkan perintah SQL untuk mengalikan jumlah populasi Elang Bondol menjadi dua kali lipat setiap tahun dalam 5 tahun.  Gunakan operator aritmatika * untuk menyelesaikan misi ini.",
+            "sql": {
+              "type": "exec",
+              "query": "SELECT jumlah * 2 * 5 FROM hewan WHERE nama = 'Elang Bondol';"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Kamu telah menghitung perkiraan populasi Elang Bondol dalam 5 tahun."
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Membagi Populasi Dua Hewan",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Untuk memahami perbedaan populasi antara dua spesies hewan, mari kita bandingkan jumlah populasi spesies 'Bekantan' dan 'Musang Luwak'."
+          },
+          {
+            "type": "narration",
+            "text": "Dengan membagi populasi 'Bekantan' dengan 'Musang Luwak', kita dapat mengetahui seberapa besar populasi 'Bekantan' dibandingkan dengan 'Musang Luwak'"
+          },
+          {
+            "type": "narration",
+            "text": "Dan ini membantu kita memahami distribusi populasi hewan yang lebih baik di Pulau Kembang."
+          },
+          {
+            "type": "instruction",
+            "text": "Ketikkan perintah SQL untuk membagi populasi spesies 'Bekantan' dengan populasi spesies 'Musang Luwak' dengan memanggil atribut jumlah dari tabel hewan. Gunakan operator aritmatika / untuk menyelesaikan misi ini.",
+            "sql": {
+              "type": "exec",
+              "query": "SELECT (SELECT jumlah FROM hewan WHERE nama = 'Bekantan') / (SELECT jumlah FROM hewan WHERE nama = 'Musang Luwak')"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Kamu telah berhasil mengetahui perbandingan populasi 'Bekantan' dengan 'Musang Luwak'!"
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "title": " Menghitung Sisa Populasi setelah Pembagian",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Untuk program penangkaran 'Bekantan', kita perlu membagi populasi mereka menjadi kelompok yang lebih kecil untuk memudahkan pengelolaan."
+          },
+          {
+            "type": "narration",
+            "text": "Mari kita hitung sisa populasi 'Bekantan' setelah dibagi dengan 5 untuk melihat apakah populasinya dapat dibagi rata ke dalam lima kelompok penangkaran."
+          },
+          {
+            "type": "instruction",
+            "text": "Ketikkan perintah SQL untuk menghitung sisa populasi 'Bekantan' setelah dibagi dengan 5. Gunakan operator aritmatika % untuk menyelesaikan misi ini.",
+            "sql": {
+              "type": "exec",
+              "query": "SELECT jumlah % 5 FROM hewan WHERE nama = 'Bekantan';"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Kamu telah menghitung sisa populasi 'Bekantan' setelah dibagi dengan 5."
+          }
+        ]
+      }
+    ],
+    "closing": "Hebat sekali! Setiap langkah yang kamu ambil telah memberikan kita wawasan berharga mengenai populasi hewan di Pulau Kembang. Pengetahuan ini sangat penting untuk upaya konservasi kita ke depan. Terima kasih atas kerja keras dan dedikasimu dalam melestarikan kehidupan liar di pulau ini!",
+    "filepath": "test.db"
+  }

@@ -1,0 +1,139 @@
+{
+    "id": 7,
+    "title": "Biaya Masuk Wisatawan",
+    "introduction": "Dalam tahap ini, kamu akan menganalisis biaya masuk ke Pulau Kembang untuk dua kategori wisatawan: lokal dan mancanegara. Kamu akan mengerjakan misi-misi terpisah untuk masing-masing kategori untuk mendapatkan wawasan yang lebih jelas tentang biaya yang dibayar. Ayo mulai eksplorasi data biaya untuk memahami perbedaan antara wisatawan lokal dan mancanegara!",
+    "missions": [
+      {
+        "id": 1,
+        "title": "Menemukan Harga Termurah untuk Wisatawan Lokal",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Kita akan memulai dengan menemukan harga termurah yang dibayar oleh wisatawan lokal."
+          },
+          {
+            "type": "narration",
+            "text": "Ini akan membantu kita memahami biaya minimum yang dikeluarkan oleh wisatawan lokal."
+          },
+          {
+            "type": "instruction",
+            "text": "Sekarang ketikkan perintah SQL untuk menemukan harga termurah dari data biaya untuk wisatawan lokal. Gunakan operator MIN untuk menyelesaikan misi ini dengan benar.",
+            "sql": {
+              "type": "exec",
+              "query": "SELECT MIN(harga) FROM biaya WHERE wisatawan = 'Lokal';"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Kamu telah menemukan harga terendah yang dibayar oleh wisatawan lokal."
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Total Biaya untuk Wisatawan Mancanegara",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Sekarang, mari kita hitung total biaya yang dibayar oleh wisatawan mancanegara."
+          },
+          {
+            "type": "narration",
+            "text": "Ini akan menunjukkan total pengeluaran untuk semua hari yang tercatat untuk wisatawan mancanegara."
+          },
+          {
+            "type": "instruction",
+            "text": "Ketikkan perintah SQL untuk menghitung total biaya dari data biaya untuk wisatawan mancanegara. Gunakan operator SUM untuk menyelesaikan misi ini dan ubah nama kolom menjadi total_biaya menggunakan AS.",
+            "sql": {
+              "type": "exec",
+              "query": "SELECT SUM(harga) AS total_biaya FROM biaya WHERE wisatawan = 'Mancanegara';"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Kamu telah berhasil menghitung total biaya yang dibayar oleh wisatawan mancanegara."
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Biaya Tertinggi untuk Wisatawan Lokal",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Selanjutnya, mari kita cari harga tertinggi yang dibayar oleh wisatawan lokal."
+          },
+          {
+            "type": "narration",
+            "text": "Ini memberikan gambaran tentang biaya maksimum yang mungkin dikeluarkan oleh wisatawan lokal."
+          },
+          {
+            "type": "instruction",
+            "text": "Ketikkan perintah SQL untuk menemukan harga tertinggi dari data biaya untuk wisatawan lokal. Gunakan operator MAX untuk menyelesaikan misi ini",
+            "sql": {
+              "type": "exec",
+              "query": "SELECT MAX(harga) FROM biaya WHERE wisatawan = 'Lokal';"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Kamu telah menemukan harga tertinggi yang dibayar oleh wisatawan lokal."
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Rata-Rata Biaya untuk Wisatawan Mancanegara",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Kemudian, mari kita hitung rata-rata biaya yang dibayar oleh wisatawan mancanegara."
+          },
+          {
+            "type": "narration",
+            "text": "Ini akan memberikan gambaran tentang biaya rata-rata yang dikeluarkan per hari untuk wisatawan mancanegara."
+          },
+          {
+            "type": "instruction",
+            "text": "Ketikkan perintah SQL untuk menghitung rata-rata biaya dari data biaya untuk wisatawan mancanegara. Gunakan operator AVG untuk menyelesaikan misi ini.",
+            "sql": {
+              "type": "exec",
+              "query": "SELECT AVG(harga) FROM biaya WHERE wisatawan = 'Mancanegara';"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Kamu telah berhasil menghitung rata-rata biaya yang dibayar oleh wisatawan mancanegara."
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "title": "Menghitung Jumlah Biaya yang Berbeda",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Mari kita cari tahu berapa banyak biaya berbeda yang tercatat di Pulau Kembang."
+          },
+          {
+            "type": "narration",
+            "text": "Ini memberikan gambaran tentang variasi biaya secara keseluruhan tanpa memisahkan wisatawan."
+          },
+          {
+            "type": "instruction",
+            "text": "Ketikkan perintah SQL untuk menghitung jumlah biaya yang berbeda di data biaya. Gunakan operator COUNT bersama DISTINCT untuk menyelesaikan misi ini dan mengubah nama kolom hasil menjadi jumlah_biaya_berbeda menggunakan AS.",
+            "sql": {
+              "type": "exec",
+              "query": "SELECT COUNT(DISTINCT harga) AS jumlah_biaya_berbeda FROM biaya;"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Kamu telah berhasil menghitung jumlah biaya yang berbeda yang tercatat di Pulau Kembang."
+          }
+        ]
+      }
+    ],
+    "closing": "Luar biasa! Dengan analisis ini, kita sekarang memiliki pemahaman yang lebih baik tentang biaya masuk untuk wisatawan lokal dan mancanegara di Pulau Kembang. Terima kasih atas usaha dan dedikasimu dalam menggali informasi dari data biaya ini!",
+    "filepath": "test.db"
+  }

@@ -1,0 +1,131 @@
+{
+    "id": 8,
+    "title": "Analisis Data Hewan",
+    "introduction": "Di sini, kamu akan mempelajari cara menganalisis dan mengelompokkan data hewan di Pulau Kembang. Misi-misi ini akan membantu kamu memahami informasi penting tentang hewan yang ada di pulau.",
+    "missions": [
+      {
+        "id": 1,
+        "title": "Menampilkan Seluruh Data Hewan",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Untuk memulai, mari kita lihat semua data hewan yang tersedia."
+          },
+          {
+            "type": "narration",
+            "text": "Ini akan memberi kita gambaran umum tentang informasi yang ada."
+          },
+          {
+            "type": "instruction",
+            "text": "Ketikkan perintah SQL untuk menampilkan seluruh data hewan dari tabel hewan",
+            "sql": {
+              "type": "exec",
+              "query": "SELECT * FROM hewan;"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Kamu telah berhasil menampilkan seluruh data hewan. Ini memberikan dasar yang baik untuk analisis lebih lanjut"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Mengurutkan Nama Hewan Secara Alfabetis",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Sekarang, kita akan mengurutkan nama-nama hewan secara alfabetis untuk memudahkan pencarian dan identifikasi."
+          },
+          {
+            "type": "instruction",
+            "text": "Ketikkan perintah SQL untuk menampilkan nama-nama hewan dari tabel hewan secara berurutan dari A hingga Z. Pastikan kamu menggunakan ORDER BY pada kolom nama.",
+            "sql": {
+              "type": "exec",
+              "query": "SELECT * FROM hewan ORDER BY nama;"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Kamu telah berhasil mengurutkan nama hewan secara alfabet. Ini memudahkan pencarian dan pengelompokan informasi."
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Menampilkan Jenis Makanan dan Menghitung Jumlah Hewan pada Jenis Makanan",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Sekarang, mari kita tampilkan jenis-jenis makanan yang dikonsumsi oleh hewan dan hitung jumlah hewan yang mengonsumsi setiap jenis makanan."
+          },
+          {
+            "type": "instruction",
+            "text": "Ketikkan perintah SQL untuk menampilkan jenis makanan dan jumlah hewan yang mengkonsumsi setiap jenis makanan. Pastikan kamu menggunakan operator COUNT dan GROUP BY pada kolom makanan untuk mendapatkan hasil yang diinginkan",
+            "sql": {
+              "type": "exec",
+              "query": "SELECT makanan, COUNT(*) FROM hewan GROUP BY makanan;"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Selamat! Kamu telah berhasil menampilkan jenis makanan dan menghitung jumlah hewan yang mengonsumsi setiap jenis makanan."
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Mengelompokkan Hewan Berdasarkan Status Konservasi",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Tugas berikutnya adalah mengelompokkan hewan berdasarkan status konservasi mereka dan mengurutkannya dari yang paling banyak ke yang paling sedikit."
+          },
+          {
+            "type": "narration",
+            "text": "Ini akan memberikan gambaran tentang biaya rata-rata yang dikeluarkan per hari untuk wisatawan mancanegara."
+          },
+          {
+            "type": "instruction",
+            "text": "Ketikkan perintah SQL untuk mengelompokkan hewan berdasarkan status konservasi dan mengurutkan hasilnya berdasarkan jumlah hewan dalam masing-masing status dari yang paling banyak ke sedikit. Pastikan kamu menggunakan GROUP BY untuk mengelompokkan dan ORDER BY dengan urutan DESC untuk mengurutkan hasil dari jumlah terbanyak ke jumlah terkecil.",
+            "sql": {
+              "type": "exec",
+              "query": "SELECT status_konservasi, COUNT(*) AS jumlah FROM hewan GROUP BY status_konservasi ORDER BY jumlah DESC;"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Kamu telah berhasil mengelompokkan dan mengurutkan hewan berdasarkan status konservasi mereka."
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "title": "Mengurutkan Hewan Berdasarkan Lama Hidup",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Terakhir, mari kita urutkan hewan berdasarkan lama hidup mereka dari yang terpendek hingga terpanjang."
+          },
+          {
+            "type": "narration",
+            "text": "Ini membantu kita memahami rentang umur di antara hewan."
+          },
+          {
+            "type": "instruction",
+            "text": "Ketikkan perintah SQL untuk menampilkan nama hewan dan lama hidup mereka, diurutkan dari lama hidup terpendek hingga terpanjang. Pastikan kamu menggunakan ORDER BY pada kolom lama_hidup dengan urutan ASC untuk mendapatkan hasil yang diinginkan.",
+            "sql": {
+              "type": "exec",
+              "query": "SELECT nama, lama_hidup FROM hewan ORDER BY lama_hidup ASC;"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Kamu telah berhasil mengurutkan hewan berdasarkan lama hidup mereka."
+          }
+        ]
+      }
+    ],
+    "closing": "Selamat, misi kamu di Stage 8 telah selesai! Dengan menyelesaikan misi ini, kamu telah memperoleh pemahaman yang lebih baik tentang data hewan di Pulau Kembang. Terima kasih atas usaha dan dedikasi kamu dalam menganalisis informasi ini. Teruskan kerja bagusmu dan siap-siap untuk tantangan berikutnya!",
+    "filepath": "test.db"
+  }

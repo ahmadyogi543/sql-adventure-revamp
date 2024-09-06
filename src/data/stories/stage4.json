@@ -1,0 +1,131 @@
+{
+    "id": 4,
+    "title": "Eksplorasi Lanjutan Pulau Kembang",
+    "introduction": "Selamat datang di Eksplorasi Lanjutan Pulau Kembang! Dalam tahap ini, kamu akan menjelajahi data dan informasi yang lebih mendalam tentang berbagai aspek di Pulau Kembang. Setiap misi dirancang untuk meningkatkan pemahaman kamu tentang ekosistem dan pengelolaan Pulau Kembang. Mari kita mulai petualangan ini dan temukan informasi berharga yang bisa membantu dalam pelestarian pulau.",
+    "missions": [
+      {
+        "id": 1,
+        "title": "Menemukan Hewan Berdasarkan Rentang Jumlah",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Pulau Kembang dihuni oleh berbagai spesies hewan dengan populasi yang berbeda."
+          },
+          {
+            "type": "narration",
+            "text": "Sekarang, mari kita fokus pada hewan-hewan yang jumlah populasinya berada dalam direntang 10 dan 30."
+          },
+          {
+            "type": "instruction",
+            "text": "Ketikkan query untuk menampilkan hewan-hewan yang jumlahnya diantara 10 dan 30. Gunakan operator BETWEEN untuk menyelesaikan misi ini.",
+            "sql": {
+              "type": "exec",
+              "query": "SELECT * FROM hewan WHERE jumlah BETWEEN 10 AND 15;"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Bagus sekali! Kamu sekarang tahu hewan-hewan yang populasinya berada dalam rentang yang sudah  ditentukan."
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Menemukan Hewan dengan Kriteria Tertentu",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Kamu ingin mengetahui lebih lanjut tentang hewan-hewan di Pulau Kembang yang tidak termasuk dalam kategori 'Least concern' untuk fokus pada spesies yang lebih membutuhkan perhatian konservasi. Mari kita lihat data hewan terlebih dahulu."
+          },
+          {
+            "type": "instruction",
+            "text": "Ketikkan perintah SQL untuk menampilkan hewan-hewan yang status konservasinya tidak termasuk dalam kategori 'Least Concern'. Gunakan operator NOT untuk menyelesaikan misi ini.",
+            "sql": {
+              "type": "exec",
+              "query": "SELECT * FROM hewan WHERE NOT status_konservasi = 'Least concern';"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Bagus sekali! Kamu telah menemukan hewan yang sesuai dengan kriteria tersebut. Informasi ini penting untuk upaya konservasi di pulau."
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Menemukan Habitat Tumbuhan",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Kamu ingin menemukan tumbuhan yang habitatnya mengandung kata 'pantai'."
+          },
+          {
+            "type": "narration",
+            "text": "Mari kita lakukan pencarian berdasarkan kata tersebut dalam deskripsi habitat tumbuhan."
+          },
+          {
+            "type": "instruction",
+            "text": "Ketikkan perintah SQL untuk menemukan semua tumbuhan yang habitatnya mengandung kata 'pantai'. Gunakan operator LIKE dengan tanda % untuk menyelesaikan misi ini.",
+            "sql": {
+              "type": "exec",
+              "query": "SELECT * FROM tumbuhan WHERE habitat LIKE '%pantai%';"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Kamu telah berhasil menemukan semua tumbuhan yang habitatnya mengandung kata 'pantai'."
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Mencari Nama Tumbuhan",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Saat melakukan pencatatan, kamu lupa nama lengkap tumbuhan tetapi kamu ingat bahwa nama tumbuhan tersebut terdiri dari empat huruf dengan akhirannya adalah 'ai'."
+          },
+          {
+            "type": "narration",
+            "text": "Mari kita lakukan pencarian berdasarkan akhiran nama tersebut dengan menggunakan wildcard _."
+          },
+          {
+            "type": "instruction",
+            "text": "Ketikkan perintah SQL untuk menemukan semua tumbuhan yang namanya terdiri dari empat huruf dengan akhirannya adalah 'ai'. Gunakan operator LIKE dengan tanda _ untuk menyelesaikan misi ini",
+            "sql": {
+              "type": "exec",
+              "query": "SELECT * FROM tumbuhan WHERE nama LIKE '__ai';"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Bagus! Kamu sekarang tahu fasilitas yang status kelayakannya 'Layak' atau 'Tidak layak'."
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "title": "Menemukan Nama Latin Tumbuhan",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Untuk mengenali tumbuhan yang nama latinnya mengandung huruf 'an' di posisi kedua dan ketiga, mari kita lakukan pencarian berdasarkan beberapa huruf yang kita ingat."
+          },
+          {
+            "type": "instruction",
+            "text": "Ketikkan perintah SQL untuk menemukan semua tumbuhan yang nama latinnya memiliki huruf 'an' di urutan kedua dan ketiga. Gunakan operator LIKE dengan tanda _ dan % untuk menyelesaikan misi ini.",
+            "sql": {
+              "type": "exec",
+              "query": "SELECT * FROM tumbuhan WHERE nama_latin LIKE '_an%';"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Kamu telah berhasil menemukan semua tumbuhan yang nama latinnya memiliki huruf 'an' di urutan kedua dan ketiga."
+          }
+        ]
+      }
+    ],
+    "closing": "Selamat! Kamu telah berhasil menyelesaikan semua misi dalam Eksplorasi Lanjutan Pulau Kembang. Semua informasi ini sangat berharga untuk memahami dan melestarikan Pulau Kembang dengan lebih baik. Teruslah menjelajah dan belajar lebih banyak tentang lingkungan sekitar kamu!",
+    "filepath": "test.db"
+  }

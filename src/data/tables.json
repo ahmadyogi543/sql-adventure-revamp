@@ -1,0 +1,18 @@
+[
+  {
+    "table": "flora",
+    "header": ["id", "nama", "spesies", "jumlah", "status_konservasi"],
+    "data": [
+      [1, "Rambai", "Baccaurea motleyana", 20, "Least Concern"],
+      [2, "Jarak", "Jatropha curcas L.", 15, "Least Concern"],
+      [3, "Nipah", "Nypa fruticans", 19, "Least Concern"],
+      [4, "Pandan", "Pandanus sp", 30, "Least Concern"],
+      [5, "Bakung", "Crinum asiaticum", 30, "Least Concern"],
+      [6, "Piai", "Acrosticum aureum", 20, "Least Concern"],
+      [7, "Panggang", "Ficus microcarpa", 20, "Least Concern"],
+      [8, "Pulutan", "Barringtonia sp", 20, "Least Concern"],
+      [9, "Waru", "Hibicus tiliaceus", 20, "Least Concern"],
+      [10, "Rengas", "Gluta renghas", 20, "Near Threatened"]
+    ]
+  }
+]

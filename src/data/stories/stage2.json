@@ -1,0 +1,119 @@
+{
+    "id": 2,
+    "title": "Memahami Populasi Tumbuhan",
+    "introduction": "Selamat datang kembali di Pulau Kembang! Setelah sudah mengenal keragaman hayati yang ada di Pulau kembang di stage sebelumnya, kamu akan berperan sebagai peneliti yang bertugas memonitor dan melindungi tumbuhan di Pulau Kembang. Setiap misi yang kamu selesaikan akan membantu menjaga keseimbangan ekosistem dan memastikan kelangsungan hidup tumbuhan-tumbuhan penting ini. Bersiaplah untuk memulai perjalananmu dalam upaya konservasi yang mulia ini!",
+    "missions": [
+      {
+        "id": 1,
+        "title": "Memeriksa Jumlah Tumbuhan",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Mari kita periksa tumbuhan dengan jumlah lebih dari 25 di Pulau Kembang untuk mengetahui seberapa banyak populasi tumbuhan yang dominan."
+          },
+          {
+            "type": "instruction",
+            "text": "Sekarang ketikkan perintah SQL untuk memilih tumbuhan dengan jumlah lebih dari 25. Gunakan operator perbandingan > untuk melakukan pencarian ini.",
+            "sql": {
+              "type": "exec",
+              "query": "SELECT * FROM Tumbuhan WHERE jumlah > 25;"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Kamu telah menemukan tumbuhan dengan jumlah lebih dari 25."
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Mencari Tumbuhan dengan Status Konservasi Tertentu",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Temukan tumbuhan dengan status konservasi 'Near Threatened' di Pulau Kembang agar kita bisa memberi perhatian khusus pada konservasi mereka."
+          },
+          {
+            "type": "instruction",
+            "text": "Ketikkan perintah SQL untuk memilih tumbuhan dengan status konservasi 'Near Threatened'. Gunakan operator perbandingan = untuk melakukan pencarian ini.",
+            "sql": {
+              "type": "exec",
+              "query": "SELECT * FROM Tumbuhan WHERE status_konservasi = 'Near Threatened';"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Kamu telah menemukan tumbuhan dengan status konservasi 'Near Threatened'."
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Mengidentifikasi Tumbuhan Berjumlah Sedikit",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Identifikasi tumbuhan yang jumlahnya kurang dari atau sama dengan 15 di Pulau Kembang untuk memastikan kelangsungan hidup mereka."
+          },
+          {
+            "type": "instruction",
+            "text": "Ketikkan perintah SQL untuk memilih tumbuhan dengan jumlah kurang dari atau sama dengan 15.",
+            "sql": {
+              "type": "exec",
+              "query": "SELECT * FROM Tumbuhan WHERE jumlah <= 15;"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Kamu telah mengidentifikasi tumbuhan yang jumlahnya sedikit."
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Menemukan Tumbuhan dengan Populasi Besar",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Cari tumbuhan dengan jumlah minimal 30 di Pulau Kembang untuk mengetahui seberapa banyak tumbuhan yang memiliki populasi sedang dan lebih."
+          },
+          {
+            "type": "instruction",
+            "text": "Ketikkan perintah SQL untuk memilih tumbuhan dengan jumlah minimal 30. Gunakan operator perbandingan >= untuk melakukan pencarian ini.",
+            "sql": {
+              "type": "exec",
+              "query": "SELECT * FROM Tumbuhan WHERE jumlah >= 30;"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Kamu telah menemukan tumbuhan dengan jumlah minimal 30."
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "title": "Menghitung Tumbuhan Berdasarkan Status Konservasi",
+        "dialogs": [
+          {
+            "type": "narration",
+            "text": "Temukan tumbuhan dengan status konservasi selain 'Least Concern' agar kita bisa fokus pada upaya pelestarian mereka."
+          },
+          {
+            "type": "instruction",
+            "text": "Ketikkan perintah SQL untuk memilih tumbuhan dengan status konservasi bukan 'Least Concern'. Gunakan operator perbandingan <> untuk melakukan pencarian ini.",
+            "sql": {
+              "type": "exec",
+              "query": "SELECT * FROM Tumbuhan WHERE status_konservasi <> 'Least Concern';"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Kamu telah menemukan tumbuhan dengan status konservasi selain 'Least Concern'."
+          }
+        ]
+      }
+    ],
+    "closing": "Luar biasa! Kamu telah menyelesaikan semua misi di stage ini. Setiap langkah yang kamu ambil telah berkontribusi pada perlindungan dan pelestarian tumbuhan di Pulau Kembang. Kerja kerasmu tidak hanya membantu penelitian ilmiah, tetapi juga menjaga keanekaragaman hayati untuk generasi mendatang. Terima kasih atas dedikasi dan semangat konservasimu!",
+    "filepath": "test.db"
+  }
