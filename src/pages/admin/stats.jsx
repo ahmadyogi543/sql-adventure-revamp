@@ -11,7 +11,7 @@ import { formatDate } from "../../utils/formatDate";
 const body = [
   {
     id: 1,
-    username: "ahmadyogi543",
+    email: "ahmadyogi543",
     name: "Ahmad Yogi",
     institution: "Universitas Lambung Mangkurat",
     score: 100,
@@ -21,7 +21,7 @@ const body = [
 
 const headers = [
   { title: "No.", prop: "id" },
-  { title: "Nama Pengguna", prop: "username", isFilterable: true },
+  { title: "E-mail", prop: "email", isFilterable: true },
   { title: "Nama", prop: "name", isFilterable: true },
   { title: "Institusi", prop: "institution", isFilterable: true },
   { title: "Skor", prop: "score", isFilterable: true },
