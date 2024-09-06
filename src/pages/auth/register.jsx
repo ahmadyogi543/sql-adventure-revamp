@@ -1,10 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Col, Form, InputGroup, Row } from "react-bootstrap";
 import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 
+import { useAuthContext } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 import HomeLayout from "../../layouts/HomeLayout";
 
 const AuthRegisterPage = () => {
+  const navigate = useNavigate();
+  const { authenticated } = useAuthContext();
+
   const [showPassword, setShowPassword] = useState(false);
   const [showRepeatPassword, setShowRepeatPassword] = useState(false);
 
@@ -15,6 +20,13 @@ const AuthRegisterPage = () => {
       setShowRepeatPassword((prevRSP) => !prevRSP);
     }
   }
+
+  useEffect(() => {
+    if (authenticated) {
+      alert("Maaf, kamu sudah login. Kembali ke halaman beranda!");
+      navigate("/");
+    }
+  }, []);
 
   return (
     <HomeLayout>

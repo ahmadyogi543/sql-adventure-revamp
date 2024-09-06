@@ -1,13 +1,13 @@
-import { Col, Row } from 'react-bootstrap';
+import { Col, Row } from "react-bootstrap";
 import {
   IoIosJournal,
   IoIosListBox,
   IoLogoGameControllerA,
   IoMdSettings,
-} from 'react-icons/io';
+} from "react-icons/io";
 
-import HomeLayout from '../../layouts/HomeLayout';
-import MenuButton from '../../components/MenuButton';
+import HomeLayout from "../../layouts/HomeLayout";
+import MenuButton from "../../components/MenuButton";
 
 const HomeRootPage = () => {
   return (

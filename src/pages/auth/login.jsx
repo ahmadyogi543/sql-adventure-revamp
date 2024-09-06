@@ -1,15 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Form, InputGroup } from "react-bootstrap";
 import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 
 import HomeLayout from "../../layouts/HomeLayout";
+import { useAuthContext } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const AuthLoginPage = () => {
+  const navigate = useNavigate();
+  const { authenticated } = useAuthContext();
+
   const [showPassword, setShowPassword] = useState(false);
 
   function toggleShowPassword() {
     setShowPassword((prevSP) => !prevSP);
   }
+
+  useEffect(() => {
+    if (authenticated) {
+      alert("Maaf, kamu sudah login. Kembali ke halaman beranda!");
+      navigate("/");
+    }
+  }, []);
 
   return (
     <HomeLayout>

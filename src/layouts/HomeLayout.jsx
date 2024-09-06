@@ -1,9 +1,13 @@
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
+import { useAuthContext } from "../context/AuthContext";
+
 import Logo from "../assets/images/logo.png";
 
 const HomeLayout = ({ children }) => {
+  const { authenticated } = useAuthContext();
+
   return (
     <Container fluid className="bg-primary-dark flex-column-grow">
       <Row className="flex-grow-1">
@@ -15,19 +19,27 @@ const HomeLayout = ({ children }) => {
               Berkonteks Lingkungan Lahan Basah Kalimantan Selatan
             </p>
           </div>
-          <div className="mt-4">
-            <Link to="/login">
-              <Button className="me-2" variant="secondary">
-                <small className="fw-bold text-primary">MASUK</small>
-              </Button>
-            </Link>
+          {authenticated ? (
+            <div className="mt-4 bg-primary-dark p-4 px-5 rounded">
+              <p className="text-white m-0">Hallo, Ahmad Yogi!</p>
+            </div>
+          ) : (
+            <>
+              <div className="mt-4">
+                <Link to="/login">
+                  <Button className="me-2" variant="secondary">
+                    <small className="fw-bold text-primary">MASUK</small>
+                  </Button>
+                </Link>
 
-            <Link to="/register">
-              <Button variant="outline-secondary">
-                <small className="fw-bold">DAFTAR</small>
-              </Button>
-            </Link>
-          </div>
+                <Link to="/register">
+                  <Button variant="outline-secondary">
+                    <small className="fw-bold">DAFTAR</small>
+                  </Button>
+                </Link>
+              </div>
+            </>
+          )}
         </Col>
         <Col className="d-flex flex-column bg-secondary text-primary p-5">
           {children}
