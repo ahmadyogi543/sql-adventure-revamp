@@ -39,7 +39,7 @@ const AdminUsersPage = () => {
         setBody(data.users.map((user, index) => ({ ...user, id: index + 1 })))
       )
       .catch((err) => {
-        alert(`Kesalahan: terjadi gangguan pada sistem`);
+        alert(`Kesalahan: terjadi gangguan pada sistem!`);
         console.error(err);
       });
   }, []);

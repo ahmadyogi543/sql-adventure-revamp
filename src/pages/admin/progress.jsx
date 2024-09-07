@@ -3,17 +3,9 @@ import { TbReload } from "react-icons/tb";
 
 import AdminDataTableLayout from "../../layouts/AdminDataTableLayout";
 import AdminLayout from "../../layouts/AdminLayout";
-
-// TODO: integrate data from API
-const body = [
-  {
-    id: 1,
-    email: "ahmadyogi543@gmail.com",
-    name: "Ahmad Yogi",
-    institution: "Universitas Lambung Mangkurat",
-    progress: 30,
-  },
-];
+import { useAuthContext } from "../../context/AuthContext";
+import { getAllUsersProgress } from "../../api/progress";
+import { useEffect, useState } from "react";
 
 const headers = [
   { title: "No.", prop: "id" },
@@ -37,6 +29,46 @@ const headers = [
 ];
 
 const AdminProgressPage = () => {
+  const { token } = useAuthContext();
+  const [body, setBody] = useState([]);
+
+  useEffect(() => {
+    function calculateProgress(data) {
+      const totalStages = 10;
+
+      if (!data.values || data.values.length === 0) {
+        return 0;
+      }
+
+      let overallProgress = 0;
+      data.values.forEach((stage) => {
+        let noOfMissions = stage.no_of_missions;
+        let missionsAttempted = stage.missions_attempted.length;
+
+        let stageProgress = (missionsAttempted / noOfMissions) * 100;
+        overallProgress += stageProgress;
+      });
+
+      return overallProgress / totalStages;
+    }
+
+    getAllUsersProgress(token)
+      .then((data) => {
+        const body = data.users_progress.map((up, index) => ({
+          id: index + 1,
+          name: up.user_name,
+          email: up.user_email,
+          institution: up.user_institution,
+          progress: calculateProgress(up),
+        }));
+        setBody(body);
+      })
+      .catch((err) => {
+        alert("Kesalahan: terjadi gangguan pada sistem!");
+        console.error(err);
+      });
+  }, []);
+
   return (
     <AdminLayout title="PROGRESS">
       <AdminDataTableLayout headers={headers} body={body} />
