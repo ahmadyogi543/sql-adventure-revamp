@@ -49,7 +49,7 @@ const AdminProgressPage = () => {
         overallProgress += stageProgress;
       });
 
-      return overallProgress / totalStages;
+      return (overallProgress / totalStages).toFixed(2);
     }
 
     getAllUsersProgress(token)

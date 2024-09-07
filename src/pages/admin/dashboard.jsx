@@ -1,64 +1,44 @@
-import { Col, Row } from 'react-bootstrap';
-import { FaChartPie, FaUsers } from 'react-icons/fa';
+import { Col, Row } from "react-bootstrap";
+import { FaChartPie, FaUsers } from "react-icons/fa";
 
-import AdminLayout from '../../layouts/AdminLayout';
-import DashboardCard from '../../components/admin/DashboardCard';
-import DashboardCard2 from '../../components/admin/DashboardCard2';
+import AdminLayout from "../../layouts/AdminLayout";
+import DashboardCard from "../../components/admin/DashboardCard";
+import DashboardCard2 from "../../components/admin/DashboardCard2";
+import { useEffect, useState } from "react";
+import { getDashboardData } from "../../api/admin";
+import { useAuthContext } from "../../context/AuthContext";
 
-const DashboardCard2Content = () => (
-  <>
-    <Row>
-      <Col>
-        <small>STAGE 1: -</small>
-      </Col>
-      <Col>
-        <small>STAGE 6: -</small>
-      </Col>
-    </Row>
-    <Row>
-      <Col>
-        <small>STAGE 2: -</small>
-      </Col>
-      <Col>
-        <small>STAGE 7: -</small>
-      </Col>
-    </Row>
-    <Row>
-      <Col>
-        <small>STAGE 3: -</small>
-      </Col>
-      <Col>
-        <small>STAGE 8: -</small>
-      </Col>
-    </Row>
-    <Row>
-      <Col>
-        <small>STAGE 4: -</small>
-      </Col>
-      <Col>
-        <small>STAGE 9: -</small>
-      </Col>
-    </Row>
-    <Row>
-      <Col>
-        <small>STAGE 5: -</small>
-      </Col>
-      <Col>
-        <small>STAGE 10: -</small>
-      </Col>
-    </Row>
-  </>
-);
+const INITIAL_DATA = {
+  no_of_users: 0,
+  no_of_users_done: 0,
+  scores: {
+    lowest: [],
+    average: [],
+    highest: [],
+  },
+};
 
 const AdminDashboardPage = () => {
+  const { token } = useAuthContext();
+  const [data, setData] = useState(INITIAL_DATA);
+
+  useEffect(() => {
+    getDashboardData(token)
+      .then((data) => setData(data))
+      .catch((err) => {
+        alert("Kesalahan: terjadi gangguan pada sistem!");
+        console.error(err);
+      });
+  }, []);
+
   return (
     <AdminLayout title="DASHBOARD">
-      <Row className="g-3 mb-3">
+      <Row className="g-2 mb-2">
         <Col md={6}>
           <DashboardCard
             icon={<FaUsers size={28} />}
             title="JUMLAH PENGGUNA"
-            subtitle="35 PENGGUNA"
+            subtitle={`${data.no_of_users} PENGGUNA`}
             variant="primary text-white"
           />
         </Col>
@@ -66,25 +46,43 @@ const AdminDashboardPage = () => {
           <DashboardCard
             icon={<FaChartPie size={28} />}
             title="STATUS PENGGUNA"
-            subtitle="20/35 SELESAI"
+            subtitle={`${data.no_of_users_done}/${data.no_of_users} SELESAI`}
             variant="warning"
           />
         </Col>
       </Row>
-      <Row className="g-3">
+      <Row className="g-2">
         <Col md={4}>
           <DashboardCard2 title="SKOR RATA-RATA" variant="info text-white">
-            <DashboardCard2Content />
+            <Row>
+              {data.scores.average.map((value, index) => (
+                <Col key={`scores-average-item-${index}`} md={6}>
+                  STAGE {index + 1}: {value}
+                </Col>
+              ))}
+            </Row>
           </DashboardCard2>
         </Col>
         <Col>
           <DashboardCard2 title="SKOR TERTINGGI" variant="success text-white">
-            <DashboardCard2Content />
+            <Row>
+              {data.scores.highest.map((value, index) => (
+                <Col key={`scores-highest-item-${index}`} md={6}>
+                  STAGE {index + 1}: {value}
+                </Col>
+              ))}
+            </Row>
           </DashboardCard2>
         </Col>
         <Col>
           <DashboardCard2 title="SKOR TERENDAH" variant="danger text-white">
-            <DashboardCard2Content />
+            <Row>
+              {data.scores.lowest.map((value, index) => (
+                <Col key={`scores-lowest-item-${index}`} md={6}>
+                  STAGE {index + 1}: {value}
+                </Col>
+              ))}
+            </Row>
           </DashboardCard2>
         </Col>
       </Row>
