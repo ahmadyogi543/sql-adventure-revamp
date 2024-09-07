@@ -1,4 +1,12 @@
-import { Col, Dropdown, DropdownButton, Row, Table } from "react-bootstrap";
+import { useState } from "react";
+import {
+  Col,
+  Dropdown,
+  DropdownButton,
+  Form,
+  Row,
+  Table,
+} from "react-bootstrap";
 import {
   DatatableWrapper,
   Filter,
@@ -8,14 +16,18 @@ import {
   TableHeader,
 } from "react-bs-datatable";
 
-const AdminDataTableLayout2 = ({ body, headers }) => {
+const AdminDataTableLayout2 = ({ body, headers, onTopicChange }) => {
+  function handleOnChange(ev) {
+    onTopicChange(ev.target.value);
+  }
+
   return (
     <DatatableWrapper
       body={body}
       headers={headers}
       paginationOptionsProps={{
         initialState: {
-          rowsPerPage: 10,
+          rowsPerPage: 5,
           options: [5, 10, 15, 20],
         },
       }}
@@ -25,19 +37,20 @@ const AdminDataTableLayout2 = ({ body, headers }) => {
           lg={6}
           className="d-flex align-items-center justify-content-center justify-content-lg-start mb-lg-0 mb-3"
         >
-          <p className="m-0 me-2">Pilih tahapan:</p>
-          <DropdownButton title="Tahapan 1" variant="outline-primary">
-            <Dropdown.Item>Tahapan 1</Dropdown.Item>
-            <Dropdown.Item>Tahapan 2</Dropdown.Item>
-            <Dropdown.Item>Tahapan 3</Dropdown.Item>
-            <Dropdown.Item>Tahapan 4</Dropdown.Item>
-            <Dropdown.Item>Tahapan 5</Dropdown.Item>
-            <Dropdown.Item>Tahapan 6</Dropdown.Item>
-            <Dropdown.Item>Tahapan 7</Dropdown.Item>
-            <Dropdown.Item>Tahapan 8</Dropdown.Item>
-            <Dropdown.Item>Tahapan 9</Dropdown.Item>
-            <Dropdown.Item>Tahapan 10</Dropdown.Item>
-          </DropdownButton>
+          <p className="m-0 me-2">Pilih topik:</p>
+          <Form.Select onChange={handleOnChange} style={{ width: 120 }}>
+            <option value="0">---</option>
+            <option value="1">Topik 1</option>
+            <option value="2">Topik 2</option>
+            <option value="3">Topik 3</option>
+            <option value="4">Topik 4</option>
+            <option value="5">Topik 5</option>
+            <option value="6">Topik 6</option>
+            <option value="7">Topik 7</option>
+            <option value="8">Topik 8</option>
+            <option value="9">Topik 9</option>
+            <option value="10">Topik 10</option>
+          </Form.Select>
         </Col>
         <Col
           lg={6}

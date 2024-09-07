@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Button, ProgressBar } from "react-bootstrap";
 import { TbReload } from "react-icons/tb";
 
@@ -5,7 +6,6 @@ import AdminDataTableLayout from "../../layouts/AdminDataTableLayout";
 import AdminLayout from "../../layouts/AdminLayout";
 import { useAuthContext } from "../../context/AuthContext";
 import { getAllUsersProgress } from "../../api/progress";
-import { useEffect, useState } from "react";
 
 const headers = [
   { title: "No.", prop: "id" },

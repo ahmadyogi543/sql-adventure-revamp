@@ -1,23 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Modal, Table } from "react-bootstrap";
 import { FaList } from "react-icons/fa";
 
 import AdminDataTableLayout2 from "../../layouts/AdminDataTableLayout2";
 import AdminLayout from "../../layouts/AdminLayout";
+import { useAuthContext } from "../../context/AuthContext";
+import { getAllUsersProgress } from "../../api/progress";
 
 import { formatDate } from "../../utils/formatDate";
 
 // TODO: integrate data from API
-const body = [
-  {
-    id: 1,
-    email: "ahmadyogi543",
-    name: "Ahmad Yogi",
-    institution: "Universitas Lambung Mangkurat",
-    score: 100,
-    lastAttempted: formatDate(new Date("2024-12-20 12:00:00")),
-  },
-];
+// const body = [
+//   {
+//     id: 1,
+//     email: "ahmadyogi543",
+//     name: "Ahmad Yogi",
+//     institution: "Universitas Lambung Mangkurat",
+//     score: 100,
+//     lastAttempted: formatDate(new Date("2024-12-20 12:00:00")),
+//   },
+// ];
 
 const headers = [
   { title: "No.", prop: "id" },
@@ -29,19 +31,75 @@ const headers = [
   {
     title: "Aksi",
     prop: "action",
-    cell: () => <MissionDetail />,
+    cell: (row) => <MissionDetail data={row.action} />,
   },
 ];
 
 const AdminStatsPage = () => {
+  const { token } = useAuthContext();
+  const [body, setBody] = useState([]);
+  const [data, setData] = useState([]);
+
+  function handleOnTopicChange(topic) {
+    if (topic === "0") {
+      setBody([]);
+    } else {
+      const filteredData = data.map((user) => ({
+        ...user,
+        values:
+          user.values.length === 0
+            ? []
+            : user.values.filter((stage) => stage.stage_id === parseInt(topic)),
+      }));
+      const body = filteredData.map((up, index) => ({
+        id: index + 1,
+        name: up.user_name,
+        email: up.user_email,
+        institution: up.user_institution,
+        score:
+          up.values.length !== 0
+            ? up.values.find((v) => v.stage_id === parseInt(topic))
+              ? up.values.find((v) => v.stage_id === parseInt(topic)).score
+              : "-"
+            : "-",
+        lastAttempted:
+          up.values.length !== 0
+            ? up.values[0].last_attempted !== null
+              ? formatDate(new Date(up.values[0].last_attempted))
+              : "-"
+            : "-",
+        action: up.values.find((v) => v.stage_id === parseInt(topic))
+          ? up.values.find((v) => v.stage_id === parseInt(topic))
+              .missions_attempted
+          : [],
+      }));
+      setBody(body);
+    }
+  }
+
+  useEffect(() => {
+    getAllUsersProgress(token)
+      .then((data) => {
+        setData(data.users_progress);
+      })
+      .catch((err) => {
+        alert("Kesalahan: terjadi gangguan pada sistem!");
+        console.error(err);
+      });
+  }, []);
+
   return (
     <AdminLayout title="STATISTIK">
-      <AdminDataTableLayout2 headers={headers} body={body} />
+      <AdminDataTableLayout2
+        headers={headers}
+        body={body}
+        onTopicChange={handleOnTopicChange}
+      />
     </AdminLayout>
   );
 };
 
-const MissionDetail = () => {
+const MissionDetail = ({ data }) => {
   const [show, setShow] = useState(false);
 
   function toggleShow() {
@@ -72,45 +130,17 @@ const MissionDetail = () => {
                   <th>Misi</th>
                   <th>Percobaan</th>
                   <th>Terakhir Mencoba</th>
-                  <th>Skor</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Mengenal Hewan</td>
-                  <td>4</td>
-                  <td>{formatDate(new Date("2022-05-22 08:55:24"))}</td>
-                  <td>{"[20, 60, 80, 100]"}</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Mengenal Tumbuhan</td>
-                  <td>2</td>
-                  <td>{formatDate(new Date("2022-05-22 08:58:24"))}</td>
-                  <td>{"80, 100]"}</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>Mengenal Alam</td>
-                  <td>1</td>
-                  <td>{formatDate(new Date("2022-05-22 09:01:24"))}</td>
-                  <td>{"[80]"}</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>Mengenal Petugas</td>
-                  <td>3</td>
-                  <td>{formatDate(new Date("2022-05-22 09:05:24"))}</td>
-                  <td>{"[80, 80, 100]"}</td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td>Mengenal Warga</td>
-                  <td>3</td>
-                  <td>{formatDate(new Date("2022-05-22 09:10:24"))}</td>
-                  <td>{"[80, 80, 100]"}</td>
-                </tr>
+                {data.map((d) => (
+                  <tr key={`missions-attempted-${d.mission_id}`}>
+                    <td>{d.mission_id}</td>
+                    <td>{d.mission_name}</td>
+                    <td>{d.attempt}</td>
+                    <td>{formatDate(new Date(d.last_attempted))}</td>
+                  </tr>
+                ))}
               </tbody>
             </Table>
           </div>
