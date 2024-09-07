@@ -1,5 +1,7 @@
+import config from "../config";
+
 export async function getAllUsers(token) {
-  const response = await fetch("http://localhost:5000/users", {
+  const response = await fetch(`https:/${config.API_URL}/users`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -13,7 +15,7 @@ export async function getAllUsers(token) {
 }
 
 export async function deleteOneUser(token, id) {
-  const response = await fetch(`http://localhost:5000/users/${id}`, {
+  const response = await fetch(`https:/${config.API_URL}/users/${id}`, {
     method: "DELETE",
     headers: {
       Authorization: `Bearer ${token}`,

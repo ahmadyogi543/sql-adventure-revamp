@@ -1,5 +1,7 @@
+import config from "../config";
+
 export async function getAllUsersProgress(token) {
-  const response = await fetch("http://localhost:5000/users/progress", {
+  const response = await fetch(`https:/${config.API_URL}/users/progress`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
