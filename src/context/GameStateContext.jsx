@@ -23,6 +23,13 @@ export function GameStateContextProvider({ children }) {
     dialog: 0,
   });
 
+  // score
+  const [score, setScore] = useState(0);
+  const incrementScore = (value) => setScore((prev) => prev + value);
+  const [decrementScore, setDecrementScore] = useState(0);
+  const incrementDecrementScore = (value) =>
+    setDecrementScore((prev) => prev + value);
+
   // functions to change state of the game
   const start = () => setState(GAMESTATES.START);
   const narration = () => setState(GAMESTATES.NARRATION);
@@ -64,6 +71,12 @@ export function GameStateContextProvider({ children }) {
         // dialog
         dialog,
         setDialog,
+
+        // score
+        score,
+        incrementScore,
+        decrementScore,
+        incrementDecrementScore,
 
         // results utils
         results,

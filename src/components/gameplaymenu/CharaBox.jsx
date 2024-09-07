@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Button, OverlayTrigger, Popover, Spinner } from "react-bootstrap";
 
 import { useGameStateContext } from "../../context/GameStateContext";
-import AppCard from "../AppCard";
+import { useMenuContext } from "../../context/MenuContext";
 
 const TIMEOUT = 5000;
 
@@ -22,6 +22,9 @@ export default function CharaBox({ title, missions }) {
     resetDialogIndex,
   } = useGameStateContext();
   const { setDialog } = useGameStateContext();
+  const { score, decrementScore, incrementScore, incrementDecrementScore } =
+    useGameStateContext();
+  const { toStageMenu } = useMenuContext();
 
   const mission = missions[missionIndex];
   const dialogs = mission.dialogs;
@@ -39,8 +42,12 @@ export default function CharaBox({ title, missions }) {
       if (!isMissionIndexAtLast) {
         resetDialogIndex();
         incrementMissionIndex();
+
+        // POST attempt
       } else {
         done();
+
+        // POST update users progress with score
       }
     }, TIMEOUT);
 
@@ -77,10 +84,46 @@ export default function CharaBox({ title, missions }) {
     // and change the state of the game to narration
     incrementDialogIndex();
     narration();
+
+    // add score
+    let instructionCount = 0;
+
+    missions.forEach((mission) => {
+      mission.dialogs.forEach((dialog) => {
+        if (dialog.type === "instruction") {
+          instructionCount++;
+        }
+      });
+    });
+
+    incrementScore(100 / instructionCount - decrementScore);
+    incrementDecrementScore(0);
   }, [state]);
+
+  useEffect(() => {
+    // add score
+    let instructionCount = 0;
+
+    missions.forEach((mission) => {
+      mission.dialogs.forEach((dialog) => {
+        if (dialog.type === "instruction") {
+          instructionCount++;
+        }
+      });
+    });
+
+    if (Math.floor(100 / instructionCount - decrementScore) <= 0) {
+      alert(
+        "ALERT: Maaf kamu terlalu banyak melakukan kesalahan, silahkan ulang kembali!"
+      );
+      toStageMenu();
+    }
+  }, [decrementScore]);
 
   return (
     <div className="flex-grow-1 position-relative">
+      {score}
+      {decrementScore}
       <h5 className="rounded fw-bold text-primary text-decoration-underline">
         TOPIK: {title.toUpperCase()}
       </h5>

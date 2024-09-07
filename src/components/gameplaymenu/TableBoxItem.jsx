@@ -14,12 +14,17 @@ export default function TableBoxItem({
 }) {
   const [done, setDone] = useState(false);
   const { answered } = useGameStateContext();
+  const { incrementDecrementScore } = useGameStateContext();
 
   useEffect(() => {
     if (!done) return;
     scrollToBottom();
 
-    if (!correct) return;
+    if (!correct) {
+      // minus 3 the score thing
+      incrementDecrementScore(3);
+      return;
+    }
     answered();
   }, [done]);
 

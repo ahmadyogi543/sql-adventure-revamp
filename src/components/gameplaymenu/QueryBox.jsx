@@ -6,7 +6,7 @@ import { checkAnswer } from "../../utils/gameplay";
 
 import AppButton from "../AppButton";
 
-export default function QueryBox({ exec, run, check, validate }) {
+export default function QueryBox({ exec, check, validate }) {
   const [userQuery, setUserQuery] = useState("");
   const { appendResults } = useGameStateContext();
   const { isStateInstruction } = useGameStateContext();

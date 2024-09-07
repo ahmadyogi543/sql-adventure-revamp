@@ -39,12 +39,7 @@ export default function GameplayMenu() {
               </Row>
               <Row>
                 <Col md={12} className="mt-3">
-                  <QueryBox
-                    exec={exec}
-                    run={run}
-                    check={check}
-                    validate={validate}
-                  />
+                  <QueryBox exec={exec} check={check} validate={validate} />
                 </Col>
               </Row>
             </div>
