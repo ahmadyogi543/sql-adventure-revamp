@@ -122,8 +122,6 @@ export default function CharaBox({ title, missions }) {
 
   return (
     <div className="flex-grow-1 position-relative">
-      {score}
-      {decrementScore}
       <h5 className="rounded fw-bold text-primary text-decoration-underline">
         TOPIK: {title.toUpperCase()}
       </h5>
