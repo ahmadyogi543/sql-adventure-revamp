@@ -1,7 +1,7 @@
 import config from "../config";
 
 export async function authRegister(name, email, institution, password) {
-  const response = await fetch(`https://${config.API_URL}/auth/register`, {
+  const response = await fetch(`${config.API_URL}/auth/register`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -21,7 +21,7 @@ export async function authRegister(name, email, institution, password) {
 }
 
 export async function authLogin(email, password) {
-  const response = await fetch(`https://${config.API_URL}/auth/login`, {
+  const response = await fetch(`${config.API_URL}/auth/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -40,7 +40,7 @@ export async function authLogin(email, password) {
 }
 
 export async function authLogout(token) {
-  const response = await fetch(`https://${config.API_URL}/auth/logout`, {
+  const response = await fetch(`${config.API_URL}/auth/logout`, {
     method: "DELETE",
     headers: {
       Authorization: `Bearer ${token}`,

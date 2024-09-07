@@ -1,7 +1,7 @@
 import config from "../config";
 
 export async function getDashboardData(token) {
-  const response = await fetch(`https://${config.API_URL}/admin/dashboard`, {
+  const response = await fetch(`${config.API_URL}/admin/dashboard`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
