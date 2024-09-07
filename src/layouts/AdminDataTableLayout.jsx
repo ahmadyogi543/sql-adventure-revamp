@@ -15,7 +15,7 @@ const AdminDataTableLayout = ({ body, headers }) => {
       headers={headers}
       paginationOptionsProps={{
         initialState: {
-          rowsPerPage: 10,
+          rowsPerPage: 5,
           options: [5, 10, 15, 20],
         },
       }}

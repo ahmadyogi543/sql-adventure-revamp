@@ -4,17 +4,9 @@ import { FaTrashCan } from "react-icons/fa6";
 
 import AdminDataTableLayout from "../../layouts/AdminDataTableLayout";
 import AdminLayout from "../../layouts/AdminLayout";
-
-// TODO: integrate data from API
-const body = [
-  {
-    id: 1,
-    email: "ahmadyogi543@gmail.com",
-    name: "Ahmad Yogi",
-    institution: "Universitas Lambung Mangkurat",
-    done: false,
-  },
-];
+import { getAllUsers } from "../../api/users";
+import { useAuthContext } from "../../context/AuthContext";
+import { useEffect, useState } from "react";
 
 const headers = [
   { title: "No.", prop: "id" },
@@ -38,6 +30,20 @@ const headers = [
 ];
 
 const AdminUsersPage = () => {
+  const { token } = useAuthContext();
+  const [body, setBody] = useState([]);
+
+  useEffect(() => {
+    getAllUsers(token)
+      .then((data) =>
+        setBody(data.users.map((user, index) => ({ ...user, id: index + 1 })))
+      )
+      .catch((err) => {
+        alert(`Kesalahan: terjadi gangguan pada sistem`);
+        console.error(err);
+      });
+  }, []);
+
   return (
     <AdminLayout title="PENGGUNA">
       <AdminDataTableLayout headers={headers} body={body} />

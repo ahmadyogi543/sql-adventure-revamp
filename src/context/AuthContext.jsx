@@ -7,11 +7,13 @@ import { saveToken, getToken, removeToken } from "../utils/auth";
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
+  const [token, setToken] = useState(getToken() ? getToken() : "");
   const [user, setUser] = useState(getToken() ? jwtDecode(getToken()) : null);
   const [authenticated, setAuthenticated] = useState(!!getToken());
 
   const login = async (email, password) => {
     const token = await authLogin(email, password);
+    setToken(token);
     setUser(jwtDecode(token));
     setAuthenticated(true);
     saveToken(token);
@@ -19,12 +21,13 @@ export const AuthProvider = ({ children }) => {
 
   const logout = async () => {
     await authLogout(getToken());
+    setToken("");
     setAuthenticated(false);
     removeToken();
   };
 
   return (
-    <AuthContext.Provider value={{ authenticated, user, login, logout }}>
+    <AuthContext.Provider value={{ authenticated, user, token, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
