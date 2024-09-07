@@ -11,3 +11,16 @@ export async function getAllUsers(token) {
   }
   return result.data;
 }
+
+export async function deleteOneUser(token, id) {
+  const response = await fetch(`http://localhost:5000/users/${id}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  if (response.status !== 204) {
+    throw new Error(result.message);
+  }
+}
