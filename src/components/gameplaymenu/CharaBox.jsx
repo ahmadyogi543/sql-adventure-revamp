@@ -174,7 +174,7 @@ export default function CharaBox({ id, title, missions }) {
           className="d-block position-absolute"
           src="/images/chara.png"
           alt="chara"
-          width={240}
+          width={220}
           style={{
             bottom: -24,
           }}

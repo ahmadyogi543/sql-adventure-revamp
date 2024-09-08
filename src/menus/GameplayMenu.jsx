@@ -63,20 +63,49 @@ export default function GameplayMenu() {
                 </Col>
               </Row>
             </div>
-            <div className="flex-center gap-4 py-2 mt-2 bg-primary text-secondary rounded">
-              <div className="small text-decoration-underline">
+            <pre
+              className="small m-0 px-4 py-2 font-sans bg-primary-dark text-secondary rounded"
+              style={{ fontFamily: "Nunito" }}
+            >
+              <span className="me-4 text-decoration-underline">
+                {"biaya (id, hari, wisatawan, harga)"}
+              </span>
+              <span className="me-4 text-decoration-underline">
+                {"petugas (id, nama, tugas, lama_bekerja)"}
+              </span>
+              <span className="me-4 text-decoration-underline">
+                {"fasilitas (id, nama, jumlah, jenis, status_kelayakan)"}
+              </span>
+              <span className="me-4 text-decoration-underline">
+                {
+                  "tumbuhan (id, nama, nama_latin, habitat, jumlah, status_konservasi)"
+                }
+              </span>
+              <span className="me-4 text-decoration-underline">
+                {
+                  "hewan (id, nama, nama_latin, jumlah, makanan, habitat, lama_hidup, status_konservasi)"
+                }
+              </span>
+            </pre>
+            {/* <div className="small text-decoration-underline">
                 {"biaya (id, hari, wisatawan, harga)"}
               </div>
               <div className="small text-decoration-underline">
                 {"petugas (id, nama, tugas, lama_bekerja)"}
               </div>
               <div className="small text-decoration-underline">
-                {"fasilitas (id, nama, jumlah, jenis, status)"}
+                {"fasilitas (id, nama, jumlah, jenis, status_kelayakan)"}
               </div>
               <div className="small text-decoration-underline">
-                {"tumbuhan (id, nama, nama_latin, habitat, jumlah, status)"}
+                {
+                  "tumbuhan (id, nama, nama_latin, habitat, jumlah, status_konservasi)"
+                }
               </div>
-            </div>
+              <div className="small text-decoration-underline">
+                {
+                  "hewan (id, nama, nama_latin, jumlah, makanan, habitat, lama_hidup, status_konservasi)"
+                }
+              </div> */}
             <IntroBox
               stageId={story.id}
               title={story.title}
