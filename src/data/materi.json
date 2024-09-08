@@ -1,0 +1,99 @@
+[
+    {
+      "id": 1,
+      "title": "SELECT"
+    },
+    {
+      "id": 2,
+      "title": "SELECT DISTINCT"
+    },
+    {
+      "id": 3,
+      "title": "WHERE"
+    },
+    {
+      "id": 4,
+      "title": "ORDER BY"
+    },
+    {
+      "id": 5,
+      "title": "AND"
+    },
+    {
+      "id": 6,
+      "title": "OR"
+    },
+    {
+      "id": 7,
+      "title": "NOT"
+    },
+    {
+      "id": 8,
+      "title": "INSERT"
+    },
+    {
+      "id": 9,
+      "title": "NULL VALUES"
+    },
+    {
+      "id": 10,
+      "title": "UPDATE"
+    },
+    {
+        "id": 11,
+        "title": "DELETE"
+    },
+    {
+        "id": 12,
+        "title": "MIN AND MAX"
+    },
+    {
+        "id": 13,
+        "title": "COUNT"
+    },
+    {
+        "id": 14,
+        "title": "SUM"
+    },
+    {
+        "id": 15,
+        "title": "AVG"
+    },
+    {
+        "id": 16,
+        "title": "LIKE"
+    },
+    {
+        "id": 17,
+        "title": "WILDCARD"
+    },
+    {
+        "id": 18,
+        "title": "IN"
+    },
+    {
+        "id": 19,
+        "title": "BETWEEN"
+    },
+    {
+        "id": 20,
+        "title": "ALIASES"
+    },
+    {
+        "id": 21,
+        "title": "OPERATOR PERBANDINGAN"
+    },
+    {
+        "id": 22,
+        "title": "OPERATOR ARITMATIKA"
+    },
+    {
+        "id": 23,
+        "title": "LIMIT"
+    },
+    {
+        "id": 24,
+        "title": "GROUP BY"
+    }
+  ]
+  
