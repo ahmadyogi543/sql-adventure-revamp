@@ -6,14 +6,15 @@ import { useMenuContext } from "../../context/MenuContext";
 
 import AppButton from "../AppButton";
 
-export default function IntroBox({ title, introduction, closing }) {
+export default function IntroBox({ stageId, title, introduction, closing }) {
   const { narration } = useGameStateContext();
   const { isStateStart, isStateDone } = useGameStateContext();
+  const { score } = useGameStateContext();
   const { toCompleteMenu } = useMenuContext();
 
   const handleOnHide = () => {
     if (isStateDone) {
-      toCompleteMenu();
+      toCompleteMenu({ data: { score, id: stageId } });
     } else {
       narration();
     }

@@ -29,6 +29,7 @@ export function GameStateContextProvider({ children }) {
   const [decrementScore, setDecrementScore] = useState(0);
   const incrementDecrementScore = (value) =>
     setDecrementScore((prev) => prev + value);
+  const resetDecrementScore = (value) => setDecrementScore(0);
 
   // functions to change state of the game
   const start = () => setState(GAMESTATES.START);
@@ -77,6 +78,7 @@ export function GameStateContextProvider({ children }) {
         incrementScore,
         decrementScore,
         incrementDecrementScore,
+        resetDecrementScore,
 
         // results utils
         results,

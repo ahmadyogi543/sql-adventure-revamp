@@ -57,7 +57,7 @@ const AdminDashboardPage = () => {
             <Row>
               {data.scores.average.map((value, index) => (
                 <Col key={`scores-average-item-${index}`} md={6}>
-                  TOPIK {index + 1}: {value}
+                  TOPIK {index + 1}: {Math.floor(value)}
                 </Col>
               ))}
             </Row>
@@ -68,7 +68,7 @@ const AdminDashboardPage = () => {
             <Row>
               {data.scores.highest.map((value, index) => (
                 <Col key={`scores-highest-item-${index}`} md={6}>
-                  TOPIK {index + 1}: {value}
+                  TOPIK {index + 1}: {Math.floor(value)}
                 </Col>
               ))}
             </Row>
@@ -79,7 +79,7 @@ const AdminDashboardPage = () => {
             <Row>
               {data.scores.lowest.map((value, index) => (
                 <Col key={`scores-lowest-item-${index}`} md={6}>
-                  TOPIK {index + 1}: {value}
+                  TOPIK {index + 1}: {Math.floor(value)}
                 </Col>
               ))}
             </Row>

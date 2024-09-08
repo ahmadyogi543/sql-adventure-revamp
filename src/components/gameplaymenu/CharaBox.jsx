@@ -3,10 +3,13 @@ import { Button, OverlayTrigger, Popover, Spinner } from "react-bootstrap";
 
 import { useGameStateContext } from "../../context/GameStateContext";
 import { useMenuContext } from "../../context/MenuContext";
+import { attemptMission, attemptStage } from "../../api/progress";
+import { useAuthContext } from "../../context/AuthContext";
 
 const TIMEOUT = 5000;
 
-export default function CharaBox({ title, missions }) {
+export default function CharaBox({ id, title, missions }) {
+  const { token, user } = useAuthContext();
   const { state, narration, instruction, done } = useGameStateContext();
   const {
     isStateStart,
@@ -22,7 +25,7 @@ export default function CharaBox({ title, missions }) {
     resetDialogIndex,
   } = useGameStateContext();
   const { setDialog } = useGameStateContext();
-  const { score, decrementScore, incrementScore, incrementDecrementScore } =
+  const { score, decrementScore, incrementScore, resetDecrementScore } =
     useGameStateContext();
   const { toStageMenu } = useMenuContext();
 
@@ -42,13 +45,15 @@ export default function CharaBox({ title, missions }) {
       if (!isMissionIndexAtLast) {
         resetDialogIndex();
         incrementMissionIndex();
-
-        // POST attempt
       } else {
         done();
 
         // POST update users progress with score
       }
+      attemptStage(token, user.id, id, missions.length, score).catch((err) => {
+        alert("Kesalahan: terjadi gangguan pada sistem!");
+        console.error(err);
+      });
     }, TIMEOUT);
 
     return () => clearTimeout(timer);
@@ -79,13 +84,12 @@ export default function CharaBox({ title, missions }) {
   // in the query box (which where the game state become answered)
   useEffect(() => {
     if (!isStateAnswered) return;
-
     // what we do is to increment the dialog index
     // and change the state of the game to narration
     incrementDialogIndex();
     narration();
 
-    // add score
+    // increment score
     let instructionCount = 0;
 
     missions.forEach((mission) => {
@@ -97,7 +101,7 @@ export default function CharaBox({ title, missions }) {
     });
 
     incrementScore(100 / instructionCount - decrementScore);
-    incrementDecrementScore(0);
+    resetDecrementScore(0);
   }, [state]);
 
   useEffect(() => {
@@ -153,7 +157,11 @@ export default function CharaBox({ title, missions }) {
                   </Button>
                 ) : (
                   <div className="d-flex align-items-center">
-                    <span className="text-muted me-2">memuat misi baru...</span>
+                    <span className="text-muted me-2">
+                      {!isMissionIndexAtLast
+                        ? "memuat misi baru..."
+                        : "menyelesaikan topik..."}
+                    </span>
                     <Spinner size="sm" variant="custom-green" />
                   </div>
                 )}

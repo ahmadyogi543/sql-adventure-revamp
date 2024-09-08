@@ -5,12 +5,18 @@ import { useGameStateContext } from "../../context/GameStateContext";
 import { checkAnswer } from "../../utils/gameplay";
 
 import AppButton from "../AppButton";
+import { useAuthContext } from "../../context/AuthContext";
+import { attemptMission } from "../../api/progress";
 
-export default function QueryBox({ exec, check, validate }) {
+export default function QueryBox({ stageId, missions, exec, check, validate }) {
   const [userQuery, setUserQuery] = useState("");
   const { appendResults } = useGameStateContext();
   const { isStateInstruction } = useGameStateContext();
   const { dialog } = useGameStateContext();
+  const { missionIndex } = useGameStateContext();
+  const { token, user } = useAuthContext();
+
+  const mission = missions[missionIndex];
 
   const handleOnSubmit = () => {
     const results = checkAnswer(
@@ -25,6 +31,13 @@ export default function QueryBox({ exec, check, validate }) {
     appendResults(results);
 
     setUserQuery("");
+
+    attemptMission(token, user.id, stageId, mission.id, mission.title).catch(
+      (err) => {
+        alert("Kesalahan: terjadi gangguan pada sistem!");
+        console.error(err);
+      }
+    );
   };
 
   return (
