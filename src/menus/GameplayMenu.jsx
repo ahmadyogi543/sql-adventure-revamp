@@ -64,7 +64,7 @@ export default function GameplayMenu() {
               </Row>
             </div>
             <pre
-              className="small m-0 px-4 py-2 font-sans bg-primary-dark text-secondary rounded"
+              className="small m-0 px-4 py-2 font-sans bg-primary-dark text-secondary rounded prescroll"
               style={{ fontFamily: "Nunito" }}
             >
               <span className="me-4 text-decoration-underline">
@@ -81,7 +81,7 @@ export default function GameplayMenu() {
                   "tumbuhan (id, nama, nama_latin, habitat, jumlah, status_konservasi)"
                 }
               </span>
-              <span className="me-4 text-decoration-underline">
+              <span className="text-decoration-underline">
                 {
                   "hewan (id, nama, nama_latin, jumlah, makanan, habitat, lama_hidup, status_konservasi)"
                 }

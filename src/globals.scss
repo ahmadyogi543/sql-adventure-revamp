@@ -110,3 +110,7 @@ $theme-colors: map-merge($custom-theme-colors, $theme-colors);
     }
   }
 }
+
+.prescroll::-webkit-scrollbar {
+  display: none;
+}
