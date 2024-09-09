@@ -1,5 +1,11 @@
+import HomeLayout from "../../layouts/HomeLayout";
+
 const HomeSettingsPage = () => {
-  return <div>HomeSettingsPage</div>;
+  return (
+    <HomeLayout>
+      <p>Coming Soon...</p>
+    </HomeLayout>
+  );
 };
 
 export default HomeSettingsPage;
