@@ -4,6 +4,7 @@ import HomeLearnPage from "../../pages/home/learn";
 import HomeLeadboardPage from "../../pages/home/leaderboard";
 import HomeSettingsPage from "../../pages/home/settings";
 import HomeAboutPage from "../../pages/home/about";
+import LearnSlugPage from "../../pages/home/learn-slug";
 
 export const routes = [
   {
@@ -17,6 +18,10 @@ export const routes = [
   {
     path: "/learn",
     element: <HomeLearnPage />,
+  },
+  {
+    path: "/learn/:slug",
+    element: <LearnSlugPage />,
   },
   {
     path: "/leaderboard",

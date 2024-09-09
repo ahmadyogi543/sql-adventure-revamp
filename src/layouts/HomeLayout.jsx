@@ -1,5 +1,5 @@
 import { Button, Col, Container, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import { useAuthContext } from "../context/AuthContext";
 
@@ -7,6 +7,7 @@ import Logo from "../assets/images/logo.png";
 import { MdLogout } from "react-icons/md";
 
 const HomeLayout = ({ children }) => {
+  const location = useLocation();
   const { authenticated, user, logout } = useAuthContext();
 
   function handleOnClickLogoutBtn() {
@@ -46,17 +47,29 @@ const HomeLayout = ({ children }) => {
           ) : (
             <>
               <div className="mt-4">
-                <Link to="/login">
-                  <Button className="me-2" variant="secondary">
-                    <small className="fw-bold text-primary">MASUK</small>
-                  </Button>
-                </Link>
+                {location.pathname === "/" ? (
+                  <>
+                    <Link to="/login">
+                      <Button className="me-2" variant="secondary">
+                        <small className="fw-bold text-primary">MASUK</small>
+                      </Button>
+                    </Link>
 
-                <Link to="/register">
-                  <Button variant="outline-secondary">
-                    <small className="fw-bold">DAFTAR</small>
-                  </Button>
-                </Link>
+                    <Link to="/register">
+                      <Button variant="outline-secondary">
+                        <small className="fw-bold">DAFTAR</small>
+                      </Button>
+                    </Link>
+                  </>
+                ) : (
+                  <>
+                    <Link to="/">
+                      <Button variant="outline-secondary">
+                        <small className="fw-bold">KEMBALI</small>
+                      </Button>
+                    </Link>
+                  </>
+                )}
               </div>
             </>
           )}
