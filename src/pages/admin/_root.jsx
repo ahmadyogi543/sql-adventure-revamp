@@ -12,7 +12,7 @@ const AdminRootPage = () => {
     return <Navigate to="/login" />;
   }
 
-  if (user.role !== "admin") {
+  if (user && user.role !== "admin") {
     return <Navigate to="/" />;
   }
 

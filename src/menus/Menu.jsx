@@ -19,7 +19,7 @@ export default function Menu() {
     return <Navigate to="/login" />;
   }
 
-  if (authenticated && user.role !== "user") {
+  if (authenticated && user && user.role !== "user") {
     return <Navigate to="/admin" />;
   }
 

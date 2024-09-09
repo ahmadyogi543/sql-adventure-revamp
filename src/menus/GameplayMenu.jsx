@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
+import { FaQuestion, FaTable } from "react-icons/fa";
 
 import STORIES from "../data/stories.json";
 
@@ -14,6 +15,7 @@ import TableBox from "../components/gameplaymenu/TableBox";
 import QueryBox from "../components/gameplaymenu/QueryBox";
 import useSQLExecutor from "../hooks/useSQLExecutor";
 import { attemptStage } from "../api/progress";
+import { FaTableList } from "react-icons/fa6";
 
 export default function GameplayMenu() {
   const { payload } = useMenuContext();
@@ -63,49 +65,39 @@ export default function GameplayMenu() {
                 </Col>
               </Row>
             </div>
-            <pre
-              className="small m-0 px-4 py-2 font-sans bg-primary-dark text-secondary rounded prescroll"
-              style={{ fontFamily: "Nunito" }}
-            >
-              <span className="me-4 text-decoration-underline">
-                {"biaya (id, hari, wisatawan, harga)"}
-              </span>
-              <span className="me-4 text-decoration-underline">
-                {"petugas (id, nama, tugas, lama_bekerja)"}
-              </span>
-              <span className="me-4 text-decoration-underline">
-                {"fasilitas (id, nama, jumlah, jenis, status_kelayakan)"}
-              </span>
-              <span className="me-4 text-decoration-underline">
-                {
-                  "tumbuhan (id, nama, nama_latin, habitat, jumlah, status_konservasi)"
-                }
-              </span>
-              <span className="text-decoration-underline">
-                {
-                  "hewan (id, nama, nama_latin, jumlah, makanan, habitat, lama_hidup, status_konservasi)"
-                }
-              </span>
-            </pre>
-            {/* <div className="small text-decoration-underline">
-                {"biaya (id, hari, wisatawan, harga)"}
+            <div className="d-flex mx-2 mb-2 gap-2">
+              <div
+                className="flex-center p-2 bg-primary-dark text-secondary rounded px-3 cursor-pointer"
+                title="Definisi tabel"
+              >
+                {/* <FaQuestion className="m-0 text-primary" /> */}
+                <FaTableList className="m-0" />
               </div>
-              <div className="small text-decoration-underline">
-                {"petugas (id, nama, tugas, lama_bekerja)"}
-              </div>
-              <div className="small text-decoration-underline">
-                {"fasilitas (id, nama, jumlah, jenis, status_kelayakan)"}
-              </div>
-              <div className="small text-decoration-underline">
-                {
-                  "tumbuhan (id, nama, nama_latin, habitat, jumlah, status_konservasi)"
-                }
-              </div>
-              <div className="small text-decoration-underline">
-                {
-                  "hewan (id, nama, nama_latin, jumlah, makanan, habitat, lama_hidup, status_konservasi)"
-                }
-              </div> */}
+              <pre
+                className="small m-0 px-4 py-2 font-sans bg-primary-dark text-secondary rounded prescroll"
+                style={{ fontFamily: "Nunito" }}
+              >
+                <span className="me-4 text-decoration-underline">
+                  {"biaya (id, hari, wisatawan, harga)"}
+                </span>
+                <span className="me-4 text-decoration-underline">
+                  {"petugas (id, nama, tugas, lama_bekerja)"}
+                </span>
+                <span className="me-4 text-decoration-underline">
+                  {"fasilitas (id, nama, jumlah, jenis, status_kelayakan)"}
+                </span>
+                <span className="me-4 text-decoration-underline">
+                  {
+                    "tumbuhan (id, nama, nama_latin, habitat, jumlah, status_konservasi)"
+                  }
+                </span>
+                <span className="text-decoration-underline">
+                  {
+                    "hewan (id, nama, nama_latin, jumlah, makanan, habitat, lama_hidup, status_konservasi)"
+                  }
+                </span>
+              </pre>
+            </div>
             <IntroBox
               stageId={story.id}
               title={story.title}

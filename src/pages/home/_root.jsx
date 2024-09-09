@@ -14,7 +14,7 @@ import { Navigate } from "react-router-dom";
 const HomeRootPage = () => {
   const { authenticated, user } = useAuthContext();
 
-  if (authenticated && user.role !== "user") {
+  if (authenticated && user && user.role !== "user") {
     return <Navigate to="/admin" />;
   }
 

@@ -32,7 +32,9 @@ const HomeLayout = ({ children }) => {
           </div>
           {authenticated ? (
             <div className="mt-4 bg-primary-dark p-4 px-5 rounded">
-              <p className="text-white m-0">Selamat datang, {user.name}!</p>
+              <p className="text-white m-0">
+                Selamat datang, {user ? user.name : "Pengguna"}!
+              </p>
               <Button
                 className="d-block mx-auto mt-3"
                 onClick={handleOnClickLogoutBtn}

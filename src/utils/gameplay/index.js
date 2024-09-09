@@ -90,8 +90,12 @@ export function checkAnswer(
 
     // compare the columns of dialog and user query result
     if (
-      JSON.stringify(userResult.data.columns) !==
+      JSON.stringify(userResult.data.columns)
+        .toLowerCase()
+        .replace(/\s+/g, "") !==
       JSON.stringify(dialogResult.data.columns)
+        .toLowerCase()
+        .replace(/\s+/g, "")
     ) {
       return getCheckAnswerResult(
         false,
