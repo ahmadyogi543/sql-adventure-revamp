@@ -5,7 +5,7 @@ import { useAuthContext } from "../context/AuthContext";
 import { useEffect, useState } from "react";
 import { getStageData } from "../api/progress";
 import { Link } from "react-router-dom";
-import objectives from "../data/objective.json"; // Import objective.json
+import objectives from "../data/objective.json"; 
 
 const StageMenu = () => {
   const { token, user } = useAuthContext();
@@ -19,7 +19,6 @@ const StageMenu = () => {
     // Mengambil data stage dari API
     getStageData(token, user.id)
       .then((data) => {
-        // Gabungkan data stage dengan tujuan dari objective.json
         const dataWithObjectives = data.map((stage) => {
           const objective = objectives.find((obj) => obj.id === stage.id);
           return { ...stage, tujuan: objective?.tujuan || "Tidak ada tujuan." };
@@ -35,7 +34,7 @@ const StageMenu = () => {
   const handleKlikStage = (stage) => {
     if (stage.unlock) {
       setStageTerpilih(stage);
-      setTujuan(stage.tujuan); // Set tujuan dari stage yang diklik
+      setTujuan(stage.tujuan); 
       setTampilkanModal(true);
     } else {
       alert("Topik ini belum terbuka!");
