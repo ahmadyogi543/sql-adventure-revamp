@@ -43,6 +43,7 @@ export default function QueryBox({ stageId, missions, exec, check, validate }) {
   return (
     <div className="d-flex position-relative" style={{ zIndex: 100 }}>
       <Form.Control
+        id="query"
         as="textarea"
         className="resize-none me-3 p-3"
         placeholder="Tulis query di sini..."

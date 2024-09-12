@@ -10,6 +10,10 @@
         "dialogs": [
           {
             "type": "narration",
+            "text": "Sebelum memulai, mari mengenal bagian antarmuka dan komponen permainan!"
+          },
+          {
+            "type": "narration",
             "text": "Mengetahui biaya kunjungan sangat penting agar kamu dapat memasuki Pulau Kembang."
           },
           {

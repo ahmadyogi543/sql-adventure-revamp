@@ -1,10 +1,36 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, OverlayTrigger, Popover, Spinner } from "react-bootstrap";
 
 import { useGameStateContext } from "../../context/GameStateContext";
 import { useMenuContext } from "../../context/MenuContext";
-import { attemptMission, attemptStage } from "../../api/progress";
+import { attemptStage } from "../../api/progress";
 import { useAuthContext } from "../../context/AuthContext";
+import Joyride, { STATUS } from "react-joyride";
+
+const STEPS = [
+  {
+    target: "#query",
+    content: "Di sini kamu dapat menulis perintah sesuai dengan arahan",
+    disableBeacon: true,
+  },
+  {
+    target: "#table",
+    content:
+      "Di sini kamu dapat melihat definisi dari tabel yang akan digunakan dalam permainan",
+    disableBeacon: true,
+  },
+  {
+    target: "#output",
+    content: "Di sini akan tampil output dari perintah yang kamu ketikkan",
+    disableBeacon: true,
+  },
+  {
+    target: "#root",
+    content:
+      "Bagus! Setelah mengenal bagian antarmuka dan komponen permainan, mari kita mulai!",
+    disableBeacon: true,
+  },
+];
 
 const TIMEOUT = 5000;
 
@@ -28,6 +54,7 @@ export default function CharaBox({ id, title, missions }) {
   const { score, decrementScore, incrementScore, resetDecrementScore } =
     useGameStateContext();
   const { toStageMenu } = useMenuContext();
+  const [showJoyride, setShowJoyride] = useState(false);
 
   const mission = missions[missionIndex];
   const dialogs = mission.dialogs;
@@ -39,6 +66,10 @@ export default function CharaBox({ id, title, missions }) {
   // this useEffect will trigger to detect if the dialog is the last one
   // then it will set a timer 2 or 3 seconds or so to change to the next mission
   useEffect(() => {
+    if (id === 1 && dialogIndex === 1) {
+      setShowJoyride(true);
+    }
+
     if (!isDialogIndexAtLast) return;
 
     const timer = setTimeout(() => {
@@ -133,7 +164,7 @@ export default function CharaBox({ id, title, missions }) {
         MISI {missionIndex + 1}: {mission.title.toUpperCase()}
       </p>
       <OverlayTrigger
-        show={isStateNarration || isStateInstruction}
+        show={(isStateNarration || isStateInstruction) && !showJoyride}
         placement="right"
         overlay={
           <Popover id="popover-basic">
@@ -171,6 +202,7 @@ export default function CharaBox({ id, title, missions }) {
         }
       >
         <img
+          id="chara"
           className="d-block position-absolute"
           src="/images/chara.png"
           alt="chara"
@@ -180,6 +212,32 @@ export default function CharaBox({ id, title, missions }) {
           }}
         />
       </OverlayTrigger>
+      {showJoyride && (
+        <Joyride
+          callback={(data) => {
+            const { status, action } = data;
+
+            if (status === STATUS.FINISHED || status === STATUS.SKIPPED) {
+              // Call the function when the tour is finished or skipped
+              setShowJoyride(false);
+            }
+          }}
+          hideCloseButton
+          locale={{ next: "LANJUT", last: "SELESAI" }}
+          hideBackButton
+          styles={{
+            buttonNext: { backgroundColor: "#51973f" },
+            buttonBack: { color: "#51973f" },
+            beaconInner: { backgroundColor: "#51973f" },
+            beaconOuter: {
+              borderColor: " #51973f",
+              backgroundColor: "rgba(0,0,0,0)",
+            },
+          }}
+          continuous
+          steps={STEPS}
+        />
+      )}
     </div>
   );
 }

@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
-import { FaQuestion, FaTable } from "react-icons/fa";
 
 import STORIES from "../data/stories.json";
 
@@ -15,7 +14,6 @@ import TableBox from "../components/gameplaymenu/TableBox";
 import QueryBox from "../components/gameplaymenu/QueryBox";
 import useSQLExecutor from "../hooks/useSQLExecutor";
 import { attemptStage } from "../api/progress";
-import { FaTableList } from "react-icons/fa6";
 
 export default function GameplayMenu() {
   const { payload } = useMenuContext();
@@ -49,7 +47,7 @@ export default function GameplayMenu() {
                     missions={story.missions}
                   />
                 </Col>
-                <Col className="d-flex flex-column" md={6}>
+                <Col id="output" className="d-flex flex-column" md={6}>
                   <TableBox />
                 </Col>
               </Row>
@@ -67,6 +65,7 @@ export default function GameplayMenu() {
             </div>
             <div>
               <pre
+                id="table"
                 className="small m-0 px-4 py-2 font-sans bg-primary-dark text-custom-yellow-light rounded prescroll"
                 style={{ fontFamily: "Nunito" }}
               >
