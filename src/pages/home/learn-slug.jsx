@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import remarkGfm from "remark-gfm";
 import ReactMarkdown from "react-markdown";
-import HomeLayout from "../../layouts/HomeLayout";
 import GameplayMenuLayout from "../../layouts/GameplayMenuLayout";
-import { Button } from "react-bootstrap";
+import { Button, Table} from "react-bootstrap";
 
 const LearnSlugPage = () => {
   const { slug } = useParams();
@@ -33,8 +32,12 @@ const LearnSlugPage = () => {
         <ReactMarkdown
           children={md}
           className="bg-white p-5 rounded border"
+          components={{
+            table: ({ node, ... props })=> <Table striped { ... props} />,
+          }}
           remarkPlugins={[remarkGfm]}
         />
+  
       </div>
       <footer className="flex-center text-primary py-3">
         <div className="d-flex align-items-center small">

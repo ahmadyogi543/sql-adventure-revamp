@@ -1,43 +1,43 @@
 [
   {
     "id": 1,
+    "title": "KONSEP SQL",
+    "slug": "sql"
+  },
+  {
+    "id": 2,
     "title": "SELECT",
     "slug": "select"
   },
   {
-    "id": 2,
-    "title": "SELECT DISTINCT",
+    "id": 3,
+    "title": "DISTINCT",
     "slug": "select_distinct"
   },
   {
-    "id": 3,
+    "id": 4,
     "title": "WHERE",
     "slug": "where"
   },
   {
-    "id": 4,
+    "id": 5,
     "title": "ORDER BY",
     "slug": "order_by"
   },
   {
-    "id": 5,
+    "id": 6,
     "title": "AND",
     "slug": "and"
   },
   {
-    "id": 6,
+    "id": 7,
     "title": "OR",
     "slug": "or"
   },
   {
-    "id": 7,
+    "id": 8,
     "title": "NOT",
     "slug": "not"
-  },
-  {
-    "id": 8,
-    "title": "INSERT",
-    "slug": "insert"
   },
   {
     "id": 9,
@@ -46,77 +46,82 @@
   },
   {
     "id": 10,
-    "title": "UPDATE",
-    "slug": "update"
-  },
-  {
-    "id": 11,
-    "title": "DELETE",
-    "slug": "delete"
-  },
-  {
-    "id": 12,
     "title": "MIN AND MAX",
     "slug": "min_and_max"
   },
   {
-    "id": 13,
+    "id": 11,
     "title": "COUNT",
     "slug": "count"
   },
   {
-    "id": 14,
+    "id": 12,
     "title": "SUM",
     "slug": "sum"
   },
   {
-    "id": 15,
-    "title": "AVG",
+    "id": 13,
+    "title": "AVERAGE / AVG",
     "slug": "avg"
   },
   {
-    "id": 16,
+    "id": 14,
     "title": "LIKE",
     "slug": "like"
   },
   {
-    "id": 17,
-    "title": "WILDCARD",
-    "slug": "wildcard"
-  },
-  {
-    "id": 18,
+    "id": 15,
     "title": "IN",
     "slug": "in"
   },
   {
-    "id": 19,
+    "id": 16,
     "title": "BETWEEN",
     "slug": "between"
   },
   {
-    "id": 20,
+    "id": 17,
     "title": "ALIASES",
     "slug": "aliases"
   },
   {
-    "id": 21,
-    "title": "OPERATOR PERBANDINGAN",
-    "slug": "operator_perbandingan"
-  },
-  {
-    "id": 22,
-    "title": "OPERATOR ARITMATIKA",
-    "slug": "operator_aritmatika"
-  },
-  {
-    "id": 23,
+    "id": 18,
     "title": "LIMIT",
     "slug": "limit"
   },
   {
-    "id": 24,
+    "id": 19,
+    "title": "OPERATOR PERBANDINGAN",
+    "slug": "operator_perbandingan"
+  },
+  {
+    "id": 20,
+    "title": "OPERATOR ARITMATIKA",
+    "slug": "operator_aritmatika"
+  },
+  {
+    "id": 21,
     "title": "GROUP BY",
     "slug": "group_by"
+  },
+  {
+    "id": 22,
+    "title": "SUBQUERY",
+    "slug": "subquery"
+  },
+  {
+    "id": 23,
+    "title": "INSERT",
+    "slug": "insert"
+  },
+  {
+    "id": 24,
+    "title": "UPDATE",
+    "slug": "update"
+  },
+  {
+    "id": 25,
+    "title": "DELETE",
+    "slug": "delete"
   }
 ]
