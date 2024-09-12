@@ -1,127 +1,127 @@
 [
   {
     "id": 1,
-    "title": "KONSEP SQL",
-    "slug": "sql"
+    "slug": "sql",
+    "imageUrl": "/images/learn-cards/1.png"
   },
   {
     "id": 2,
-    "title": "SELECT",
-    "slug": "select"
+    "slug": "select",
+    "imageUrl": "/images/learn-cards/2.png"
   },
   {
     "id": 3,
-    "title": "DISTINCT",
-    "slug": "select_distinct"
+    "slug": "select_distinct",
+    "imageUrl": "/images/learn-cards/3.png"
   },
   {
     "id": 4,
-    "title": "WHERE",
-    "slug": "where"
+    "slug": "where",
+    "imageUrl": "/images/learn-cards/4.png"
   },
   {
     "id": 5,
-    "title": "ORDER BY",
-    "slug": "order_by"
+    "slug": "order_by",
+    "imageUrl": "/images/learn-cards/5.png"
   },
   {
     "id": 6,
-    "title": "AND",
-    "slug": "and"
+    "slug": "and",
+    "imageUrl": "/images/learn-cards/6.png"
   },
   {
     "id": 7,
-    "title": "OR",
-    "slug": "or"
+    "slug": "or",
+    "imageUrl": "/images/learn-cards/7.png"
   },
   {
     "id": 8,
-    "title": "NOT",
-    "slug": "not"
+    "slug": "not",
+    "imageUrl": "/images/learn-cards/8.png"
   },
   {
     "id": 9,
-    "title": "NULL VALUES",
-    "slug": "null_values"
+    "slug": "null_values",
+    "imageUrl": "/images/learn-cards/9.png"
   },
   {
     "id": 10,
-    "title": "MIN AND MAX",
-    "slug": "min_max"
+    "slug": "min_max",
+    "imageUrl": "/images/learn-cards/10.png"
   },
   {
     "id": 11,
-    "title": "COUNT",
-    "slug": "count"
+    "slug": "count",
+    "imageUrl": "/images/learn-cards/11.png"
   },
   {
     "id": 12,
-    "title": "SUM",
-    "slug": "sum"
+    "slug": "sum",
+    "imageUrl": "/images/learn-cards/12.png"
   },
   {
     "id": 13,
-    "title": "AVERAGE / AVG",
-    "slug": "avg"
+    "slug": "avg",
+    "imageUrl": "/images/learn-cards/13.png"
   },
   {
     "id": 14,
-    "title": "LIKE",
-    "slug": "like"
+    "slug": "like",
+    "imageUrl": "/images/learn-cards/14.png"
   },
   {
     "id": 15,
-    "title": "IN",
-    "slug": "in"
+    "slug": "in",
+    "imageUrl": "/images/learn-cards/15.png"
   },
   {
     "id": 16,
-    "title": "BETWEEN",
-    "slug": "between"
+    "slug": "between",
+    "imageUrl": "/images/learn-cards/16.png"
   },
   {
     "id": 17,
-    "title": "ALIASES",
-    "slug": "aliases"
+    "slug": "aliases",
+    "imageUrl": "/images/learn-cards/17.png"
   },
   {
     "id": 18,
-    "title": "LIMIT",
-    "slug": "limit"
+    "slug": "limit",
+    "imageUrl": "/images/learn-cards/18.png"
   },
   {
     "id": 19,
-    "title": "OPERATOR PERBANDINGAN",
-    "slug": "operator_perbandingan"
+    "slug": "operator_perbandingan",
+    "imageUrl": "/images/learn-cards/19.png"
   },
   {
     "id": 20,
-    "title": "OPERATOR ARITMATIKA",
-    "slug": "operator_aritmatika"
+    "slug": "operator_aritmatika",
+    "imageUrl": "/images/learn-cards/20.png"
   },
   {
     "id": 21,
-    "title": "GROUP BY",
-    "slug": "group_by"
+    "slug": "group_by",
+    "imageUrl": "/images/learn-cards/21.png"
   },
   {
     "id": 22,
-    "title": "SUBQUERY",
-    "slug": "subquery"
+    "slug": "subquery",
+    "imageUrl": "/images/learn-cards/22.png"
   },
   {
     "id": 23,
-    "title": "INSERT",
-    "slug": "insert"
+    "slug": "insert",
+    "imageUrl": "/images/learn-cards/23.png"
   },
   {
     "id": 24,
-    "title": "UPDATE",
-    "slug": "update"
+    "slug": "update",
+    "imageUrl": "/images/learn-cards/24.png"
   },
   {
     "id": 25,
-    "title": "DELETE",
-    "slug": "delete"
+    "slug": "delete",
+    "imageUrl": "/images/learn-cards/25.png"
   }
 ]

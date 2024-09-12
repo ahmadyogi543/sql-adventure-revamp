@@ -1,7 +1,6 @@
+// HomeLearnPage.jsx
 import { Col, Container, Row } from "react-bootstrap";
-
 import MATERI from "../../data/materi.json";
-
 import GameplayMenuLayout from "../../layouts/GameplayMenuLayout";
 import LearnItem from "../../components/learnmenu/learnItem";
 import { Link } from "react-router-dom";
@@ -13,22 +12,13 @@ const HomeLearnPage = () => {
         <Row className="mb-3 g-4">
           {MATERI.map((materi) => (
             <Col key={`materi-item-${materi.id}`} md={3}>
-              <Link
-                className="text-decoration-none"
-                to={`/learn/${materi.slug}`}
-              >
-                <LearnItem title={materi.title} no={materi.id} />
+              <Link className="text-decoration-none" to={`/learn/${materi.slug}`}>
+                <LearnItem title={materi.title} imageUrl={materi.imageUrl} />
               </Link>
             </Col>
           ))}
         </Row>
       </Container>
-      <footer className="flex-center text-primary py-3">
-        <div className="d-flex align-items-center small">
-          <span className="fw-bold me-2">SQL Adventure</span>
-          <span className="opacity-75">© 2024 PDWM Pilkom</span>
-        </div>
-      </footer>
     </GameplayMenuLayout>
   );
 };

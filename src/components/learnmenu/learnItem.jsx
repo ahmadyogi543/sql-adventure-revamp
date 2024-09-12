@@ -1,20 +1,18 @@
+// learnItem.jsx
 import React from "react";
-import AppCard from "../AppCard";
 
-export default function LearnItem({ title = "" }) {
+export default function LearnItem({ title = "", imageUrl = "" }) {
   return (
-    <div>
-      <AppCard
-        className="p-4 cursor-pointer position-relative mt-1"
-        variant="primary"
-      >
-        <AppCard
-          className="d-flex flex-center px-3 py-2 text-white text-center"
-          variant="custom-yellow"
-        >
-          <span>{title}</span>
-        </AppCard>
-      </AppCard>
+    <div className="cursor-pointer">
+      <img
+        src={imageUrl}
+        alt={title}
+        className="img-fluid rounded"
+        style={{ width: "100%", height: "auto" }}
+      />
+      <div className="mt-2 text-center">
+        <span>{title}</span>
+      </div>
     </div>
   );
 }
