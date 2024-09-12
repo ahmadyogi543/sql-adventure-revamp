@@ -56,6 +56,7 @@ export default function TableBox() {
               data={result.data}
               message={result.message}
               query={result.query}
+              isTrueError={result.isTrueError || false}
               scrollToBottom={scrollToBottom}
             />
           ))}

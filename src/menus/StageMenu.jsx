@@ -5,7 +5,7 @@ import { useAuthContext } from "../context/AuthContext";
 import { useEffect, useState } from "react";
 import { getStageData } from "../api/progress";
 import { Link } from "react-router-dom";
-import objectives from "../data/objective.json"; 
+import objectives from "../data/objective.json";
 
 const StageMenu = () => {
   const { token, user } = useAuthContext();
@@ -34,7 +34,7 @@ const StageMenu = () => {
   const handleKlikStage = (stage) => {
     if (stage.unlock) {
       setStageTerpilih(stage);
-      setTujuan(stage.tujuan); 
+      setTujuan(stage.tujuan);
       setTampilkanModal(true);
     } else {
       alert("Topik ini belum terbuka!");
@@ -77,9 +77,13 @@ const StageMenu = () => {
         {/* Modal untuk memilih Belajar atau Bermain */}
         <Modal show={tampilkanModal} onHide={handleTutup} centered>
           <Modal.Header closeButton>
-            <Modal.Title>{stageTerpilih?.title || "Informasi Topik"}</Modal.Title>
+            <Modal.Title>
+              {stageTerpilih?.title || "Informasi Topik"}
+            </Modal.Title>
           </Modal.Header>
-          <Modal.Body className="mx-auto text-center"> {/* Menambahkan text-center */}
+          <Modal.Body className="mx-auto text-center">
+            {" "}
+            {/* Menambahkan text-center */}
             {/* Menampilkan tujuan dari stage yang dipilih */}
             {tujuan && <p className="mb-4">{tujuan}</p>}
             <p>Apakah Anda ingin belajar atau bermain?</p>
@@ -89,7 +93,7 @@ const StageMenu = () => {
               <Button variant="outline-primary">BELAJAR</Button>
             </Link>
             <Button
-              variant="outline-primary"
+              variant="primary"
               onClick={() => {
                 toGameplayMenu({ data: stageTerpilih });
                 handleTutup();

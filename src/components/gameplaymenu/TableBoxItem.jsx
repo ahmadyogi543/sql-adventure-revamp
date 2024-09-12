@@ -10,6 +10,7 @@ export default function TableBoxItem({
   data,
   message,
   query,
+  isTrueError,
   scrollToBottom,
 }) {
   const [done, setDone] = useState(false);
@@ -20,9 +21,12 @@ export default function TableBoxItem({
     if (!done) return;
     scrollToBottom();
 
-    if (!correct) {
+    if (isTrueError) {
       // minus 3 the score thing
       incrementDecrementScore(3);
+    }
+
+    if (!correct) {
       return;
     }
     answered();

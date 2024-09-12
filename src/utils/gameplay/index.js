@@ -1,8 +1,15 @@
-const getCheckAnswerResult = (correct, data, message, query) => ({
+const getCheckAnswerResult = (
   correct,
   data,
   message,
   query,
+  isTrueError = false
+) => ({
+  correct,
+  data,
+  message,
+  query,
+  isTrueError,
 });
 
 export function checkAnswer(
@@ -72,7 +79,7 @@ export function checkAnswer(
       return getCheckAnswerResult(
         false,
         null,
-        "Kesalahan: sistem sedang tidak baik-baik saaja!",
+        "Kesalahan: sistem sedang tidak baik-baik saja!",
         userQuery
       );
     }
@@ -84,7 +91,8 @@ export function checkAnswer(
         false,
         null,
         `Kesalahan: ${userResult.message}`,
-        userQuery
+        userQuery,
+        true
       );
     }
 
@@ -95,7 +103,8 @@ export function checkAnswer(
           false,
           null,
           "Maaf, output tabel tidak sesuai!",
-          userQuery
+          userQuery,
+          true
         );
       }
       return getCheckAnswerResult(
@@ -105,8 +114,6 @@ export function checkAnswer(
         userQuery
       );
     }
-
-    console.log(userResult);
 
     // compare the columns of dialog and user query result
     if (
@@ -121,7 +128,8 @@ export function checkAnswer(
         false,
         userResult.data,
         "Maaf, kolom pada tabel tidak sesuai!",
-        userQuery
+        userQuery,
+        true
       );
     }
 
@@ -137,7 +145,8 @@ export function checkAnswer(
         false,
         userResult.data,
         "Maaf, beberapa baris data pada tabel tidak ada!",
-        userQuery
+        userQuery,
+        true
       );
     }
 
@@ -146,7 +155,8 @@ export function checkAnswer(
         false,
         userResult.data,
         "Maaf, terdapat kelebihan baris data pada tabel!",
-        userQuery
+        userQuery,
+        true
       );
     }
 
@@ -166,7 +176,6 @@ export function checkAnswer(
     }
 
     const userResult = validate(userQuery, dialogValidationQuery, isDelete);
-    console.log(dialogValidationQuery);
 
     // check if dialog and user result is not null
     if (!userResult) {
@@ -174,7 +183,8 @@ export function checkAnswer(
         false,
         null,
         "Kesalahan: sistem sedang tidak baik-baik saaja!",
-        userQuery
+        userQuery,
+        true
       );
     }
 
@@ -185,7 +195,8 @@ export function checkAnswer(
         false,
         null,
         `Kesalahan: ${userResult.message}`,
-        userQuery
+        userQuery,
+        true
       );
     }
 
