@@ -1,79 +1,66 @@
-## Fungsi MIN() dan MAX()
+## Fungsi MIN dan MAX
 
-Fungsi `MIN()` dan `MAX()` digunakan untuk mendapatkan nilai terkecil dan terbesar dari kolom yang dipilih dalam tabel SQL.
+Fungsi agregat `MIN` dan `MAX` digunakan untuk menemukan nilai terkecil (minimum) dan terbesar (maksimum) dalam suatu kolom. Fungsi ini berguna ketika kamu ingin mengetahui nilai ekstrem dalam dataset.
 
-Berikut adalah contoh data dari tabel Produk yang digunakan dalam contoh nanti:
-
-### Tabel Produk
-
-| IDProduk | NamaProduk                   | IDSuplaier | IDKategori | Unit             | Harga |
-|----------|------------------------------|------------|------------|------------------|-------|
-| 1        | Chais                        | 1          | 1          | 10 kotak x 20 tas | 18    |
-| 2        | Chang                        | 1          | 1          | 24 - 12 oz botol  | 19    |
-| 3        | Aniseed Syrup                | 1          | 2          | 12 - 550 ml botol | 10    |
-| 4        | Chef Anton's Cajun Seasoning | 2          | 2          | 48 - 6 oz toples  | 22    |
-| 5        | Chef Anton's Gumbo Mix       | 2          | 2          | 36 kotak          | 21.35 |
-
-Menggunakan Fungsi MIN()
----
-Fungsi `MIN()` digunakan untuk menemukan nilai terkecil dalam kolom tertentu.
-
-Contoh: **Menemukan harga terendah dalam kolom Harga**
-
+### Sintaks
 ```sql
-SELECT MIN(Harga) FROM Produk;
+SELECT MIN(kolom) FROM nama_tabel;
+SELECT MAX(kolom) FROM nama_tabel;
 ```
+### Database 1
 
-**Hasil:**
- Menampilkan harga terendah dari tabel `Produk`. Hasilnya adalah `10`.
+Berikut adalah data dari tabel Biaya yang akan digunakan pada contoh 1:
 
-Menggunakan Fungsi MAX()
----
-Fungsi `MAX()` digunakan untuk menemukan nilai terbesar dalam kolom tertentu.
+**Tabel Biaya**
 
-Contoh: **Menemukan harga tertinggi dalam kolom Harga**
+| id | hari  | wisatawan | harga  |
+|----|-------|-----------|--------|
+| 1  | Senin | Dewasa    | 50000  |
+| 2  | Selasa| Anak-Anak | 30000  |
+| 3  | Rabu  | Pelajar   | 40000  |
+| 4  | Kamis | Dewasa    | 55000  |
+| 5  | Jumat | Lansia    | 45000  |
 
+
+**Contoh 1:**
+Cari harga minimum pada tabel biaya.
 ```sql
-SELECT MAX(Harga) FROM Produk;
+SELECT MIN(harga) FROM biaya;
 ```
+**Hasil Query:**
 
-**Hasil:** Menampilkan harga tertinggi dari tabel `Produk`. Hasilnya adalah `22`.
+|MIN(harga)|
+|----------|
+|30000     |
 
-Memberikan Nama Kolom (Alias)
----
-Untuk memberikan nama deskriptif pada kolom hasil dari fungsi `MIN()` atau `MAX()`, gunakan kata kunci `AS`.
 
-Contoh: **Memberikan nama kolom `SmallestHarga` pada hasil fungsi `MIN()`**
+### Database 2
 
+Berikut adalah data dari tabel Fasilitas yang akan digunakan pada contoh 2:
+
+**Tabel Fasilitas**
+
+| id | nama             | jumlah | jenis             | status_kelayakan |
+|----|------------------|--------|-------------------|------------------|
+| 1  | Tempat Istirahat | 10     | Umum              | Layak            |
+| 2  | Toilet Umum      | 15     | Umum              | Layak            |
+| 3  | Jembatan Gantung | 1      | Fasilitas Khusus  | Tidak Layak      |
+| 4  | Tempat Sampah    | 20     | Umum              | Layak            |
+| 5  | Menara Pengamat  | 2      | Fasilitas Khusus  | Layak            |
+
+**Contoh 2:**
+Cari jumlah maksimum pada tabel fasilitas.
 ```sql
-SELECT MIN(Harga) AS [SmallestHarga] FROM Produk;
+SELECT MAX(jumlah) FROM fasilitas;
 ```
+**Hasil Query:**
 
-**Hasil:** 
+|MAX(jumlah)|
+|-----------|
+|20         |
 
-   | SmallestHarga |
-   |---------------|
-   | 10            |
 
-Menampilkan harga terendah dengan kolom hasil bernama `SmallestHarga`. Hasilnya adalah `10`.
+### Latihan
+1. Cari `lama_hidup` minimum pada tabel `hewan`.
+2. Cari `jumlah` maksimum pada tabel `tumbuhan`.
 
-Menggunakan MIN() dengan GROUP BY
----
-
-Fungsi `MIN()` dapat digabungkan dengan klausa `GROUP BY` untuk mengelompokkan data dan menampilkan nilai terkecil untuk setiap kelompok.
-
-Contoh: **Menampilkan harga terkecil untuk setiap kategori dalam tabel `Produk`**
-
-```sql
-SELECT MIN(Harga) AS [SmallestHarga], CategoryID
-FROM Produk
-GROUP BY CategoryID;
-```
-
-**Hasil:** 
-| SmallestHarga | IDKategori |
-   |---------------|------------|
-   | 18            | 1          |
-   | 10            | 2          |
-
-Menampilkan harga terkecil untuk setiap `CategoryID`.

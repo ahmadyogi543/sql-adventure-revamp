@@ -1,84 +1,61 @@
-## SQL OR
+## OR
 
-Klausa `WHERE` dapat berisi satu atau banyak operator `OR`. Operator `OR` digunakan untuk memfilter data berdasarkan lebih dari satu kondisi, di mana hanya salah satu kondisi yang perlu terpenuhi.
+`OR` adalah operator yang digunakan untuk menggabungkan dua atau lebih kondisi di dalam klausa `WHERE`, tetapi hanya salah satu kondisi yang perlu benar agar baris data ditampilkan. Misalnya, jika kita ingin menampilkan petugas yang memiliki lama bekerja lebih dari 5 tahun atau bertugas sebagai "Pemandu Wisata", kita bisa menggunakan `OR` untuk menggabungkan kondisi tersebut.
 
-Penulisan Query:
-
+### Sintaks:
 ```sql
-SELECT kolom1, kolom2, ...
-FROM nama_tabel
-WHERE condition1 OR condition2 OR condition3 ...;
+SELECT kolom1 FROM nama_tabel WHERE kondisi1 OR kondisi2;
+```
+### Database 1
+
+Berikut adalah data dari tabel Hewan yang akan digunakan pada contoh 1:
+
+**Tabel Hewan**
+| id  | nama                 | nama_latin              | jumlah | makanan         | habitat        | lama_hidup (tahun) | status_konservasi |
+|-----|----------------------|-------------------------|--------|-----------------|----------------|-------------------|-------------------|
+| 1   | Bekantan             | Nasalis larvatus        | 120    | Daun, Buah      | Hutan Mangrove | 13                | Terancam Punah     |
+| 2   | Orangutan Kalimantan | Pongo pygmaeus          | 90     | Buah            | Hutan Hujan    | 45                | Terancam Punah     |
+| 3   | Buaya Sinyulong      | Tomistoma schlegelii    | 40     | Ikan            | Sungai         | 70                | Terancam Punah     |
+| 4   | Kucing Hutan         | Prionailurus bengalensis| 30     | Daging          | Hutan Tropis   | 15                | Dilindungi         |
+| 5   | Rusa Sambar          | Rusa unicolor           | 60     | Rumput          | Padang Rumput  | 20                | Dilindungi         |
+
+### Contoh 1:
+Ambil data dari tabel `hewan` di mana `jumlah` kurang dari 50 atau `status_konservasi` adalah "Langka".
+```sql
+SELECT * FROM hewan WHERE jumlah < 50 OR status_konservasi = 'Langka';
 ```
 
-- **`kolom1, kolom2, ...`**: Kolom-kolom yang ingin ditampilkan dalam hasil query.
-- **`nama_tabel`**: Menentukan nama tabel dari mana data akan diambil.
-- **`WHERE condition1 OR condition2 OR condition3 ...`**: Menetapkan kondisi-kondisi yang harus dipenuhi untuk baris yang ingin ditampilkan. Salah satu dari kondisi-kondisi tersebut harus terpenuhi agar baris tersebut termasuk dalam hasil query.
+**Hasil:**
+| id  | nama            | nama_latin            | jumlah | makanan | habitat       | lama_hidup (tahun) | status_konservasi |
+|-----|-----------------|-----------------------|--------|---------|---------------|--------------------|-------------------|
+| 3   | Buaya Sinyulong | Tomistoma schlegelii  | 40     | Ikan    | Sungai        | 70                 | Terancam Punah    |
+| 4   | Kucing Hutan    | Prionailurus bengalensis | 30     | Daging  | Hutan Tropis  | 15                 | Dilindungi        |
 
-#### OR vs AND
+### Database 2
 
-- Operator OR menampilkan data jika salah satu dari kondisi BENAR.
-- Operator AND menampilkan data jika semua kondisi BENAR.
+Berikut adalah data dari tabel Tumbuhan yang akan digunakan pada contoh 2:
 
-Berikut ini merupakan tabel Pelanggan yang digunakan dalam contoh yang akan diberikan:
- ### Tabel Pelanggan
+**Tabel Tumbuhan**
+| id  | nama           | nama_latin              | habitat      | jumlah | status_konservasi |
+|-----|----------------|-------------------------|--------------|--------|-------------------|
+| 1   | Pohon Ulin     | Eusideroxylon zwageri    | Hutan Tropis | 150    | Terancam Punah     |
+| 2   | Meranti Merah  | Shorea leprosula         | Hutan Tropis | 200    | Dilindungi         |
+| 3   | Anggrek Hitam  | Coelogyne pandurata      | Tepi Hutan   | 100    | Terancam Punah     |
+| 4   | Bakau          | Rhizophora apiculata     | Pesisir      | 500    | Dilindungi         |
+| 5   | Ramin          | Gonystylus bancanus      | Hutan Rawa   | 80     | Langka             |
 
-| IDpelanggan | NamaPelanggan                | NamaKontak        | Alamat                 | Kota         | KodePos | Negara |
-|-------------|-------------------------------|-------------------|-------------------------|--------------|---------|--------|
-| 1           | Alfreds Futterkiste           | Maria Anders      | Obere Str. 57           | Berlin       | 12209   | Germany|
-| 2           | Ana Trujillo Emparedados y helados | Ana Trujillo | Avda. de la Constitución 2222 | México D.F. | 05021  | Mexico |
-| 3           | Antonio Moreno Taquería      | Antonio Moreno    | Mataderos 2312          | México D.F.  | 05023   | Mexico |
-| 4           | Around the Horn              | Thomas Hardy      | 120 Hanover Sq.         | London       | WA1 1DP | UK     |
-| 5           | Berglunds snabbköp            | Christina Berglund| Berguvsvägen 8          | Luleå        | S-958 22| Sweden |
-| 6           | Giovanni's Italian          | Giovanni Rossi    | Via Roma 20             | Berlin       | 12345   | Norway |
-
-Semua Kondisi Salah Satu Harus Benar
----
-
-Pernyataan SQL berikut memilih semua data dari Pelanggan di mana kota adalah "Berlin", nama pelanggan dimulai dengan huruf "G" atau negara adalah "Norway":
-
+### Contoh 2:
+Ambil data dari tabel `tumbuhan` di mana `habitat` adalah "Hutan Rawa" atau `jumlah` lebih dari 300.
 ```sql
-SELECT * FROM Pelanggan
-WHERE Kota = 'Berlin' OR NamaPelanggan LIKE 'G%' OR Negara = 'Norway';
-```
-### Hasil Query
-| IDpelanggan | NamaPelanggan                | NamaKontak        | Alamat                 | Kota         | KodePos | Negara |
-|-------------|-------------------------------|-------------------|-------------------------|--------------|---------|--------|
-| 1           | Alfreds Futterkiste           | Maria Anders      | Obere Str. 57           | Berlin       | 12209   | Germany|
-| 6           | Giovanni's Italian            | Giovanni Rossi    | Via Roma 20             | Berlin       | 12345   | Norway |
-
-**Penjelasan:**
-
-- Baris dengan `IDpelanggan` 1 dipilih karena `Kota` adalah "Berlin".
-- Baris dengan `IDpelanggan` 6 dipilih karena `Kota` adalah "Berlin" dan `Negara` adalah "Norway".
-- Baris dengan `IDpelanggan` 2, 3, 4, dan 5 tidak memenuhi kondisi mana pun dan tidak termasuk dalam hasil query.
-
-Menggabungkan AND dan OR
----
-
-Pernyataan SQL berikut memilih semua pelanggan dari Mexico yang namanya dimulai dengan "A" atau "B". Pastikan menggunakan tanda kurung untuk mendapatkan hasil yang benar:
-
-```sql
-SELECT * FROM Pelanggan
-WHERE Negara = 'Mexico' AND (NamaPelanggan LIKE 'A%' OR NamaPelanggan LIKE 'B%');
+SELECT * FROM tumbuhan WHERE habitat = 'Hutan Rawa' OR jumlah > 300;
 ```
 
-### Hasil Query
+**Hasil:**
+| id  | nama         | nama_latin            | habitat       | jumlah | status_konservasi |
+|-----|--------------|-----------------------|---------------|--------|-------------------|
+| 4   | Bakau        | Rhizophora apiculata  | Pesisir       | 500    | Dilindungi        |
+| 5   | Ramin        | Gonystylus bancanus   | Hutan Rawa    | 80     | Langka            |
 
-| IDpelanggan | NamaPelanggan                        | NamaKontak    | Alamat                   | Kota       | KodePos | Negara |
-|-------------|--------------------------------------|---------------|--------------------------|------------|---------|--------|
-| 2           | Ana Trujillo Emparedados y helados   | Ana Trujillo  | Avda. de la Constitución 2222 | México D.F. | 05021   | Mexico |
-| 3           | Antonio Moreno Taquería             | Antonio Moreno| Mataderos 2312           | México D.F. | 05023   | Mexico |
-
-Tanpa tanda kurung, pernyataan berikut akan menghasilkan hasil yang berbeda, memilih semua pelanggan dari Mexico yang nama pelanggannya dimulai dengan "A", atau pelanggan yang nama pelanggannya dimulai dengan "B", tanpa mempedulikan negara:
-
-```sql
-SELECT * FROM Pelanggan
-WHERE Negara = 'Mexico' AND NamaPelanggan LIKE 'A%' OR NamaPelanggan LIKE 'B%';
-```
-
-### Hasil Query
-| IDpelanggan | NamaPelanggan                        | NamaKontak    | Alamat                   | Kota       | KodePos | Negara |
-|-------------|--------------------------------------|---------------|--------------------------|------------|---------|--------|
-| 2           | Ana Trujillo Emparedados y helados   | Ana Trujillo  | Avda. de la Constitución 2222 | México D.F. | 05021   | Mexico |
-| 3           | Antonio Moreno Taquería             | Antonio Moreno| Mataderos 2312           | México D.F. | 05023   | Mexico |
-| 5           | Berglunds snabbköp                   | Christina Berglund | Berguvsvägen 8       | Luleå      | S-958 22| Sweden |
+### Latihan:
+1. Ambil data dari tabel `hewan` di mana `lama_hidup` lebih dari 50 tahun atau `habitat` adalah "Padang Rumput".
+2. Ambil data dari tabel `tumbuhan` di mana `status_konservasi` adalah "Langka" atau `jumlah` lebih dari 150.

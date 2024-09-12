@@ -1,79 +1,57 @@
-## Fungsi AVG()
+# AVERAGE / AVG  
+AVG adalah fungsi agregat yang digunakan untuk menghitung nilai rata-rata dari suatu kolom numerik. Misalnya, jika kita ingin mengetahui rata-rata harga tiket, kita bisa menggunakan fungsi AVG.
 
-Fungsi **AVG()** digunakan untuk menghitung nilai rata-rata dari kolom numerik dalam sebuah tabel. Ini berguna untuk mengetahui nilai rata-rata dari sekumpulan data seperti harga, jumlah, atau nilai lainnya.
+## Sintaks:
+SELECT AVG(kolom) FROM nama_tabel;
 
-### Penulisan Query
+### Database 1
+
+Berikut adalah data dari tabel Biaya yang akan digunakan pada contoh 1:
+
+**Tabel Biaya**
+
+| id  | hari   | wisatawan   | harga |
+| --- | ------ | ----------- | ----- |
+| 1   | Senin  | Dewasa      | 50000 |
+| 2   | Selasa | Anak-Anak   | 30000 |
+| 3   | Rabu   | Pelajar     | 40000 |
+| 4   | Kamis  | Dewasa      | 55000 |
+| 5   | Jumat  | Lansia      | 45000 |
+
+## Contoh 1:
+Hitung rata-rata harga dari tabel biaya.
 ```sql
-SELECT AVG(nama_kolom) 
-FROM nama_tabel 
-WHERE kondisi;
+SELECT AVG(harga) FROM biaya;
 ```
+### Hasil Query:
+|AVG(harga)|
+|----------|
+|44000     |
 
-- **nama_kolom**: Nama kolom yang ingin dihitung rata-ratanya.
-- **nama_tabel**: Nama tabel dari mana data akan diambil.
-- **kondisi**: Kondisi yang harus dipenuhi untuk menghitung rata-rata data (opsional).
+### Database 2
 
-### Contoh Database
+Berikut adalah data dari tabel Hewan yang akan digunakan pada contoh 2:
 
-Berikut adalah contoh data dari tabel **Produk** yang akan digunakan:
+**Tabel Hewan**
+| id  | nama                 | nama_latin              | jumlah | makanan         | habitat        | lama_hidup (tahun) | status_konservasi |
+|-----|----------------------|-------------------------|--------|-----------------|----------------|-------------------|-------------------|
+| 1   | Bekantan             | Nasalis larvatus        | 120    | Daun, Buah      | Hutan Mangrove | 13                | Terancam Punah     |
+| 2   | Orangutan Kalimantan | Pongo pygmaeus          | 90     | Buah            | Hutan Hujan    | 45                | Terancam Punah     |
+| 3   | Buaya Sinyulong      | Tomistoma schlegelii    | 40     | Ikan            | Sungai         | 70                | Terancam Punah     |
+| 4   | Kucing Hutan         | Prionailurus bengalensis| 30     | Daging          | Hutan Tropis   | 15                | Dilindungi         |
+| 5   | Rusa Sambar          | Rusa unicolor           | 60     | Rumput          | Padang Rumput  | 20                | Dilindungi         |
 
-#### Tabel Produk (Bahasa Indonesia)
-
-| ID_Produk | Nama_Produk                        | ID_Pemasok | ID_Kategori | Unit                  | Harga |
-|-----------|------------------------------------|------------|-------------|-----------------------|-------|
-| 1         | Chais                              | 1          | 1           | 10 kotak x 20 kantong | 18    |
-| 2         | Chang                              | 1          | 1           | 24 - 12 botol oz      | 19    |
-| 3         | Sirup Adas                         | 1          | 2           | 12 - 550 ml botol     | 10    |
-| 4         | Bumbu Cajun Chef Anton             | 2          | 2           | 48 - 6 oz toples      | 22    |
-| 5         | Campuran Gumbo Chef Anton          | 2          | 2           | 36 kotak              | 21.35 |
-
----
-
-### 1. Menghitung Rata-rata Semua Baris (AVG(kolom))
-
-Operator **AVG(kolom)** digunakan untuk menghitung rata-rata dari nilai numerik di kolom tertentu. Ini termasuk semua nilai dalam kolom, kecuali **NULL**.
-
-#### Contoh:
-Misalkan Anda ingin mengetahui rata-rata harga dari semua produk di tabel **Produk**.
-
-**Penulisan Query**:
+## Contoh 2:
+Hitung rata-rata jumlah pada tabel hewan.
 ```sql
-SELECT AVG(Harga) 
-FROM Produk;
+SELECT AVG(jumlah) FROM hewan;
 ```
+### Hasil Query:
+|AVG(jumlah)|
+|-----------|
+|68         |
 
-**Hasil:**
 
-| AVG(Harga) |
-|------------|
-| 18.27      |
-
-Perintah ini menghitung rata-rata harga dari semua produk dalam tabel **Produk**. Hasilnya adalah **18.27**.
-
----
-
-### 2. Menggunakan AVG dengan Klausa WHERE
-
-Anda dapat menambahkan klausa **WHERE** untuk menghitung rata-rata dari baris yang memenuhi kondisi tertentu. Ini berguna saat Anda ingin fokus pada subset data yang spesifik.
-
-#### Contoh:
-Untuk menghitung rata-rata harga produk dalam **Kategori 1**, Anda bisa menggunakan perintah berikut:
-
-**Penulisan Query**:
-```sql
-SELECT AVG(Harga) 
-FROM Produk 
-WHERE ID_Kategori = 1;
-```
-
-**Hasil:**
-
-| AVG(Harga) |
-|------------|
-| 18.5       |
-
-Perintah ini menghitung rata-rata harga produk yang berada di **Kategori 1**. Hasilnya adalah **18.5**.
-
----
-
-Dengan materi ini, Anda bisa mempelajari cara menghitung nilai rata-rata dari data numerik dalam SQL menggunakan fungsi **AVG()**, baik untuk seluruh data di tabel atau subset data yang memenuhi kondisi tertentu dengan klausa **WHERE**.
+## Latihan:
+1. Hitung rata-rata lama_bekerja pada tabel petugas.
+2. Hitung rata-rata jumlah pada tabel tumbuhan.

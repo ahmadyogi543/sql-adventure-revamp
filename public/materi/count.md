@@ -1,100 +1,58 @@
-## Fungsi COUNT()
+# COUNT 
+COUNT adalah fungsi agregat yang digunakan untuk menghitung jumlah baris dalam hasil kueri. 
+Misalnya, jika kamu ingin mengetahui berapa banyak petugas yang terdaftar dalam tabel petugas, kamu bisa menggunakan fungsi COUNT.
 
-Fungsi **COUNT()** digunakan untuk menghitung jumlah baris yang memenuhi kriteria tertentu dalam sebuah tabel. Fungsi ini sering digunakan untuk mengetahui jumlah data yang ada atau yang sesuai dengan kondisi tertentu.
+## Sintaks:
+SELECT COUNT(kolom) FROM nama_tabel;
 
-### Penulisan Query:
+### Database 1
+
+Berikut adalah data dari tabel Petugas yang akan digunakan pada contoh 1:
+
+**Tabel Petugas**
+
+| id | nama | tugas                | lama_bekerja (tahun) |
+|----|------|----------------------|----------------------|
+| 1  | Budi | Pemandu Wisata       | 5                    |
+| 2  | Siti | Penjaga Gerbang      | 3                    |
+| 3  | Agus | Perawat Hewan        | 7                    |
+| 4  | Wati | Teknisi Fasilitas    | 4                    |
+| 5  | Rudi | Administrasi         | 6                    |
+
+## Contoh 1:
+Hitung jumlah baris di tabel petugas.
 ```sql
-SELECT COUNT(nama_kolom) 
-FROM nama_tabel 
-WHERE kondisi;
+SELECT COUNT(*) FROM petugas;
 ```
-
-- **nama_kolom** adalah kolom yang ingin dihitung.
-- **nama_tabel** adalah nama tabel tempat data diambil.
-- **kondisi** adalah syarat atau kriteria yang ingin diterapkan.
-
-### Contoh Database
-
-Berikut adalah contoh data dari tabel **Produk** yang akan digunakan:
-
-| IDProduk | NamaProduk                  | SupplierID | CategoryID | Unit                | Harga |
-|----------|-----------------------------|------------|------------|---------------------|-------|
-| 1        | Chais                       | 1          | 1          | 10 boxes x 20 bags  | 18    |
-| 2        | Chang                       | 1          | 1          | 24 - 12 oz bottles  | 19    |
-| 3        | Aniseed Syrup               | 1          | 2          | 12 - 550 ml bottles | 10    |
-| 4        | Chef Anton's Cajun Seasoning| 2          | 2          | 48 - 6 oz jars      | 22    |
-| 5        | Chef Anton's Gumbo Mix      | 2          | 2          | 36 boxes            | 21.35 |
-
----
-
-### 1. Menghitung Jumlah Semua Baris (COUNT())
-
-Fungsi **COUNT()** digunakan untuk menghitung semua baris dalam sebuah tabel, termasuk yang memiliki nilai **NULL**. Ini adalah cara paling umum untuk menghitung total jumlah baris dalam tabel.
-
-#### Contoh:
-Misalkan Anda ingin mengetahui jumlah total baris dalam tabel **Produk**.
-
-#### Penulisan Query:
-```sql
-SELECT COUNT(*) 
-FROM Produk;
-```
-
-**Hasil:**
-
-| COUNT(*) |
+### Hasil Query:
+|COUNT(*)  |
 |----------|
-| 5        |
+|5         |
 
-Perintah ini akan menghitung semua baris dalam tabel **Produk** dan menampilkan hasilnya sebagai **5**.
+### Database 2
 
----
+Berikut adalah data dari tabel Fasilitas yang akan digunakan pada contoh 2:
 
-### 2. Menghitung Jumlah Baris pada Kolom Tertentu (COUNT(kolom))
+**Tabel Fasilitas**
 
-Anda juga dapat menghitung jumlah baris pada kolom tertentu, tetapi nilai **NULL** tidak akan dihitung. Ini berguna jika Anda ingin menghindari penghitungan nilai **NULL** dalam perhitungan.
+| id | nama             | jumlah | jenis             | status_kelayakan |
+|----|------------------|--------|-------------------|------------------|
+| 1  | Tempat Istirahat | 10     | Umum              | Layak            |
+| 2  | Toilet Umum      | 15     | Umum              | Layak            |
+| 3  | Jembatan Gantung | 1      | Fasilitas Khusus  | Tidak Layak      |
+| 4  | Tempat Sampah    | 20     | Umum              | Layak            |
+| 5  | Menara Pengamat  | 2      | Fasilitas Khusus  | Layak            |
 
-#### Contoh:
-Untuk menghitung berapa banyak produk di mana **NamaProduk** tidak **NULL**, Anda dapat menggunakan perintah berikut:
-
-#### Penulisan Query:
+## Contoh 2:
+Hitung jumlah fasilitas yang berstatus Layak pada tabel fasilitas.
 ```sql
-SELECT COUNT(NamaProduk) 
-FROM Produk;
+SELECT COUNT(*) FROM fasilitas WHERE status_kelayakan = 'Layak';
 ```
+### Hasil Query:
+|COUNT(*)  |
+|----------|
+|4         |
 
-**Hasil:**
-
-| COUNT(NamaProduk) |
-|-------------------|
-| 5                 |
-
-Perintah ini akan menghitung jumlah baris di kolom **NamaProduk** yang tidak **NULL**, dan hasilnya adalah **5**.
-
----
-
-### 3. Menggunakan COUNT dengan Klausa WHERE
-
-Anda dapat menambahkan klausa **WHERE** untuk menghitung hanya baris yang memenuhi kondisi tertentu. Ini berguna ketika Anda hanya ingin menghitung baris yang memenuhi syarat tertentu.
-
-#### Contoh:
-Untuk menghitung jumlah produk di mana **Harga** lebih dari 20, Anda dapat menggunakan perintah berikut:
-
-#### Penulisan Query:
-```sql
-SELECT COUNT(IDProduk) 
-FROM Produk 
-WHERE Harga > 20;
-```
-
-**Hasil:**
-
-| COUNT(IDProduk) |
-|-----------------|
-| 3               |
-
-Perintah ini akan menghitung jumlah produk dengan harga lebih dari 20, dan hasilnya adalah **3**.
-
----
-
-Dengan mempelajari materi ini, Anda dapat mempelajari cara menghitung jumlah baris dalam tabel SQL menggunakan fungsi **COUNT()**, baik untuk menghitung total semua baris, menghitung baris dengan nilai tidak **NULL**, maupun menghitung baris yang memenuhi kriteria tertentu menggunakan klausa **WHERE**.
+## Latihan:
+1. Hitung jumlah hewan yang berstatus konservasi "Terancam Punah".
+2. Hitung jumlah tumbuhan yang memiliki habitat di "Hutan Tropis".

@@ -1,145 +1,63 @@
-## SQL NOT
+## NOT
 
-Operator `NOT` digunakan untuk menghasilkan hasil yang berlawanan atau negatif dari suatu kondisi. Operator ini sering digunakan bersama dengan operator lain untuk membalikkan hasil yang ditampilkan oleh query SQL.
+`NOT` adalah operator yang digunakan untuk membalikkan kondisi yang ditentukan. Jika suatu kondisi benar, `NOT` akan membuatnya menjadi salah, dan sebaliknya. Ini berguna ketika kamu ingin menampilkan baris yang tidak memenuhi kondisi tertentu. Misalnya, jika kita ingin menampilkan semua petugas yang tidak bertugas sebagai "Pemandu Wisata", kita bisa menggunakan `NOT`.
 
-Penulisan Query:
-
+### Sintaks:
 ```sql
-SELECT column1, column2, ...
-FROM table_name
-WHERE NOT condition;
+SELECT kolom1 FROM nama_tabel WHERE NOT kondisi;
 ```
+### Database 1
 
-Berikut ini merupakan tabel `Pelanggan` yang digunakan dalam contoh yang akan diberikan:
+Berikut adalah data dari tabel Tumbuhan yang akan digunakan pada contoh 1:
 
-### Tabel Pelanggan
+**Tabel Tumbuhan**
+| id  | nama           | nama_latin              | habitat      | jumlah | status_konservasi |
+|-----|----------------|-------------------------|--------------|--------|-------------------|
+| 1   | Pohon Ulin     | Eusideroxylon zwageri    | Hutan Tropis | 150    | Terancam Punah     |
+| 2   | Meranti Merah  | Shorea leprosula         | Hutan Tropis | 200    | Dilindungi         |
+| 3   | Anggrek Hitam  | Coelogyne pandurata      | Tepi Hutan   | 100    | Terancam Punah     |
+| 4   | Bakau          | Rhizophora apiculata     | Pesisir      | 500    | Dilindungi         |
+| 5   | Ramin          | Gonystylus bancanus      | Hutan Rawa   | 80     | Langka             |
 
-| IDpelanggan | NamaPelanggan                                | NamaKontak   | Alamat                 | Kota         | KodePos | Negara |
-|-------------|----------------------------------------------|--------------|------------------------|--------------|---------|--------|
-| 1           | Alfreds Futterkiste                         | Maria Anders | Obere Str. 57          | Berlin       | 12209   | Germany|
-| 2           | Ana Trujillo Emparedados y helados          | Ana Trujillo | Avda. de la Constitución 2222 | México D.F. | 05021   | Mexico |
-| 3           | Antonio Moreno Taquería                     | Antonio Moreno | Mataderos 2312        | México D.F.  | 05023   | Mexico |
-| 4           | Around the Horn                            | Thomas Hardy | 120 Hanover Sq.        | London       | WA1 1DP | UK     |
-| 5           | Berglunds snabbköp                          | Christina Berglund | Berguvsvägen 8     | Luleå        | S-958 22 | Sweden |
-
-Menggunakan NOT dalam Klausa WHERE
----
-Operator `NOT` digunakan untuk membalikkan kondisi yang ditentukan. Ini berguna ketika Anda ingin mengecualikan data yang memenuhi kondisi tertentu.
-
-Contoh:
-Misalkan Anda ingin memilih semua pelanggan yang bukan dari `Germany`.
-
-**Kode SQL:**
+### Contoh 1:
+Ambil data dari tabel `tumbuhan` di mana `status_konservasi` bukan "Dilindungi".
 ```sql
-SELECT * FROM Pelanggan
-WHERE NOT Negara = 'Germany';
+SELECT * FROM tumbuhan WHERE NOT status_konservasi = 'Dilindungi';
 ```
 
 **Hasil:**
+| id  | nama           | nama_latin            | habitat       | jumlah | status_konservasi |
+|-----|----------------|-----------------------|---------------|--------|-------------------|
+| 1   | Pohon Ulin     | Eusideroxylon zwageri | Hutan Tropis  | 150    | Terancam Punah    |
+| 3   | Anggrek Hitam  | Coelogyne pandurata   | Tepi Hutan    | 100    | Terancam Punah    |
+| 5   | Ramin          | Gonystylus bancanus   | Hutan Rawa    | 80     | Langka            |
 
-| IDpelanggan | NamaPelanggan                                | NamaKontak   | Alamat                 | Kota         | KodePos | Negara |
-|-------------|----------------------------------------------|--------------|------------------------|--------------|---------|--------|
-| 2           | Ana Trujillo Emparedados y helados          | Ana Trujillo | Avda. de la Constitución 2222 | México D.F. | 05021   | Mexico |
-| 3           | Antonio Moreno Taquería                     | Antonio Moreno | Mataderos 2312        | México D.F.  | 05023   | Mexico |
-| 4           | Around the Horn                            | Thomas Hardy | 120 Hanover Sq.        | London       | WA1 1DP | UK     |
-| 5           | Berglunds snabbköp                          | Christina Berglund | Berguvsvägen 8     | Luleå        | S-958 22 | Sweden |
 
-NOT LIKE
----
-Operator `NOT LIKE` digunakan untuk menampilkan data yang tidak sesuai dengan pola pencarian yang ditentukan.
+### Database 2
 
-Contoh:
-Untuk memilih pelanggan yang namanya tidak dimulai dengan huruf "A".
+Berikut adalah data dari tabel Hewan yang akan digunakan pada contoh 2:
 
-**Kode SQL:**
+**Tabel Hewan**
+| id  | nama                 | nama_latin              | jumlah | makanan         | habitat        | lama_hidup (tahun) | status_konservasi |
+|-----|----------------------|-------------------------|--------|-----------------|----------------|-------------------|-------------------|
+| 1   | Bekantan             | Nasalis larvatus        | 120    | Daun, Buah      | Hutan Mangrove | 13                | Terancam Punah     |
+| 2   | Orangutan Kalimantan | Pongo pygmaeus          | 90     | Buah            | Hutan Hujan    | 45                | Terancam Punah     |
+| 3   | Buaya Sinyulong      | Tomistoma schlegelii    | 40     | Ikan            | Sungai         | 70                | Terancam Punah     |
+| 4   | Kucing Hutan         | Prionailurus bengalensis| 30     | Daging          | Hutan Tropis   | 15                | Dilindungi         |
+| 5   | Rusa Sambar          | Rusa unicolor           | 60     | Rumput          | Padang Rumput  | 20                | Dilindungi         |
+
+### Contoh 2:
+Ambil data dari tabel `hewan` di mana `lama_hidup` bukan lebih dari 20 tahun.
 ```sql
-SELECT * FROM Pelanggan
-WHERE NamaPelanggan NOT LIKE 'A%';
+SELECT * FROM hewan WHERE NOT lama_hidup > 20;
 ```
 
 **Hasil:**
+| id  | nama            | nama_latin            | jumlah | makanan | habitat       | lama_hidup (tahun) | status_konservasi |
+|-----|-----------------|-----------------------|--------|---------|---------------|--------------------|-------------------|
+| 1   | Bekantan        | Nasalis larvatus      | 120    | Daun, Buah | Hutan Mangrove | 13                 | Terancam Punah    |
+| 4   | Kucing Hutan     | Prionailurus bengalensis | 30     | Daging  | Hutan Tropis  | 15                 | Dilindungi        |
 
-| IDpelanggan | NamaPelanggan           | NamaKontak   | Alamat       | Kota        | KodePos | Negara |
-|-------------|-------------------------|--------------|--------------|-------------|---------|--------|
-| 5           | Berglunds snabbköp       | Christina Berglund | Berguvsvägen 8 | Luleå    | S-958 22 | Sweden |
-
-NOT BETWEEN
----
-Operator `NOT BETWEEN` digunakan untuk menampilkan data yang tidak berada dalam rentang nilai tertentu.
-
-Contoh:
-Untuk memilih pelanggan dengan `IDpelanggan` yang tidak berada di antara 1 dan 4.
-
-**Kode SQL:**
-```sql
-SELECT * FROM Pelanggan
-WHERE IDpelanggan NOT BETWEEN 1 AND 4;
-```
-
-**Output:**
-
-| IDpelanggan | NamaPelanggan           | NamaKontak   | Alamat       | Kota        | KodePos | Negara |
-|-------------|-------------------------|--------------|--------------|-------------|---------|--------|
-| 5           | Berglunds snabbköp       | Christina Berglund | Berguvsvägen 8 | Luleå    | S-958 22 | Sweden |
-
-NOT IN
----
-Operator `NOT IN` digunakan untuk menampilkan data yang tidak termasuk dalam daftar nilai tertentu.
-
-Contoh:
-Untuk memilih pelanggan yang tidak berada di kota 'London' atau 'Luleå'.
-
-**Kode SQL:**
-```sql
-SELECT * FROM Pelanggan
-WHERE Kota NOT IN ('London', 'Luleå');
-```
-
-**Hasil:**
-
-| IDpelanggan | NamaPelanggan                                | NamaKontak   | Alamat                 | Kota         | KodePos | Negara |
-|-------------|----------------------------------------------|--------------|------------------------|--------------|---------|--------|
-| 1           | Alfreds Futterkiste                         | Maria Anders | Obere Str. 57          | Berlin       | 12209   | Germany|
-| 2           | Ana Trujillo Emparedados y helados          | Ana Trujillo | Avda. de la Constitución 2222 | México D.F. | 05021   | Mexico |
-| 3           | Antonio Moreno Taquería                     | Antonio Moreno | Mataderos 2312        | México D.F.  | 05023   | Mexico |
-
-NOT Greater Than
----
-Operator `NOT Greater Than` digunakan untuk menampilkan data yang tidak lebih besar dari nilai tertentu.
-
-Contoh:
-Untuk memilih pelanggan dengan `IDpelanggan` yang tidak lebih besar dari 3.
-
-**Kode SQL:**
-```sql
-SELECT * FROM Pelanggan
-WHERE NOT IDpelanggan > 3;
-```
-
-**Hasil:**
-
-| IDpelanggan | NamaPelanggan            | NamaKontak   | Alamat       | Kota        | KodePos | Negara |
-|-------------|--------------------------|--------------|--------------|-------------|---------|--------|
-| 1           | Alfreds Futterkiste      | Maria Anders | Obere Str. 57 | Berlin      | 12209   | Germany|
-| 2           | Ana Trujillo Emparedados y helados | Ana Trujillo | Avda. de la Constitución 2222 | México D.F. | 05021   | Mexico |
-| 3           | Antonio Moreno Taquería  | Antonio Moreno | Mataderos 2312 | México D.F.  | 05023   | Mexico |
-
-NOT Less Than
----
-Operator `NOT Less Than` digunakan untuk menampilkan data yang tidak kurang dari nilai tertentu.
-
-Contoh:
-Untuk memilih pelanggan dengan `IDpelanggan` yang tidak kurang dari 4.
-
-**Kode SQL:**
-```sql
-SELECT * FROM Pelanggan
-WHERE NOT IDpelanggan < 4;
-```
-
-**Hasil:**
-
-| IDpelanggan | NamaPelanggan            | NamaKontak   | Alamat       | Kota        | KodePos | Negara |
-|-------------|--------------------------|--------------|--------------|-------------|---------|--------|
-| 4           | Around the Horn          | Thomas Hardy | 120 Hanover Sq. | London     | WA1 1DP | UK     |
-| 5           | Berglunds snabbköp        | Christina Berglund | Berguvsvägen 8 | Luleå    | S-958 22 | Sweden |
+### Latihan:
+1. Ambil data dari tabel `hewan` di mana `habitat` bukan "Hutan Tropis".
+2. Ambil data dari tabel `tumbuhan` di mana `jumlah` bukan lebih dari 100.

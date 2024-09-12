@@ -1,125 +1,64 @@
-## Operator BETWEEN
+## BETWEEN  
+BETWEEN digunakan untuk memilih nilai dalam rentang tertentu. Operator ini sering digunakan untuk nilai numerik, tetapi bisa juga digunakan untuk tanggal. Misalnya, jika kita ingin menampilkan data petugas yang memiliki lama bekerja antara 3 hingga 6 tahun, kita bisa menggunakan BETWEEN.
 
-Operator **BETWEEN** digunakan untuk memilih nilai dalam rentang tertentu, baik berupa angka, teks, maupun tanggal. Operator ini mempermudah pencarian data yang berada di antara dua nilai tertentu.
-
-### Penulisan Query:
+### Sintaks:
 ```sql
-SELECT nama_kolom
-FROM nama_tabel
-WHERE nama_kolom BETWEEN nilai1 AND nilai2;
+SELECT kolom FROM nama_tabel WHERE kolom BETWEEN nilai1 AND nilai2;
+```
+### Database 1
+
+Berikut adalah data dari tabel Petugas yang akan digunakan pada contoh 1:
+
+**Tabel Petugas**
+
+| id | nama | tugas                | lama_bekerja (tahun) |
+|----|------|----------------------|----------------------|
+| 1  | Budi | Pemandu Wisata       | 5                    |
+| 2  | Siti | Penjaga Gerbang      | 3                    |
+| 3  | Agus | Perawat Hewan        | 7                    |
+| 4  | Wati | Teknisi Fasilitas    | 4                    |
+| 5  | Rudi | Administrasi         | 6                    |
+
+
+### Contoh 1:
+Pilih petugas yang telah bekerja antara 4 hingga 7 tahun.
+```sql
+SELECT nama, lama_bekerja FROM petugas WHERE lama_bekerja BETWEEN 4 AND 7;
 ```
 
-- **nama_kolom**: Nama kolom yang ingin dipilih datanya.
-- **nama_tabel**: Nama tabel yang menjadi sumber data.
-- **nilai1** dan **nilai2**: Rentang nilai yang akan dicari.
+#### Hasil Query:
+| nama | lama_bekerja |
+| ---- | ------------ |
+| Wati | 4            |
+| Rudi | 6            |
+| Agus | 7            |
 
-### Tabel Pengguna
+### Database 2
 
-Berikut adalah contoh data dari tabel **Pengguna** yang akan digunakan dalam penjelasan:
+Berikut adalah data dari tabel Tumbuhan yang akan digunakan pada contoh 2:
 
-| ID_Pelanggan | NamaPelanggan                      | NamaKontak        | Alamat                       | Kota        | KodePos  | Negara  |
-|--------------|------------------------------------|-------------------|------------------------------|-------------|----------|---------|
-| 1            | Alfreds Futterkiste                | Maria Anders      | Obere Str. 57                | Berlin      | 12209    | Germany |
-| 2            | Ana Trujillo Emparedados y Helados | Ana Trujillo      | Avda. de la Constitución 2222 | México D.F. | 5021     | Mexico  |
-| 3            | Antonio Moreno Taquería            | Antonio Moreno    | Mataderos 2312               | México D.F. | 5023     | Mexico  |
-| 4            | Around the Horn                    | Thomas Hardy      | 120 Hanover Sq.              | London      | WA1 1DP  | UK      |
-| 5            | Berglunds Snabbköp                 | Christina Berglund| Berguvsvägen 8               | Luleå       | S-958 22 | Sweden  |
+**Tabel Tumbuhan**
+| id  | nama           | nama_latin              | habitat      | jumlah | status_konservasi |
+|-----|----------------|-------------------------|--------------|--------|-------------------|
+| 1   | Pohon Ulin     | Eusideroxylon zwageri    | Hutan Tropis | 150    | Terancam Punah     |
+| 2   | Meranti Merah  | Shorea leprosula         | Hutan Tropis | 200    | Dilindungi         |
+| 3   | Anggrek Hitam  | Coelogyne pandurata      | Tepi Hutan   | 100    | Terancam Punah     |
+| 4   | Bakau          | Rhizophora apiculata     | Pesisir      | 500    | Dilindungi         |
+| 5   | Ramin          | Gonystylus bancanus      | Hutan Rawa   | 80     | Langka             |
 
----
-
-### 1. Memilih Nilai Menggunakan BETWEEN
-
-Operator **BETWEEN** digunakan untuk memilih nilai yang berada dalam rentang yang ditentukan. Misalnya, kita ingin memilih semua pelanggan yang berada di antara **ID_Pelanggan** 2 dan 4.
-
-#### Contoh:
+### Contoh 2:
+Pilih tumbuhan yang jumlahnya antara 100 hingga 500.
 ```sql
-SELECT *
-FROM Pengguna
-WHERE ID_Pelanggan BETWEEN 2 AND 4;
+SELECT nama, jumlah FROM tumbuhan WHERE jumlah BETWEEN 100 AND 500;
 ```
 
-**Hasil:**
+#### Hasil Query:
+| nama           | jumlah |
+| -------------- | ------ |
+| Meranti Merah  | 200    |
+| Anggrek Hitam  | 100    |
+| Bakau          | 500    |
 
-| ID_Pelanggan | NamaPelanggan                      | NamaKontak        | Alamat                       | Kota        | KodePos  | Negara  |
-|--------------|------------------------------------|-------------------|------------------------------|-------------|----------|---------|
-| 2            | Ana Trujillo Emparedados y Helados | Ana Trujillo      | Avda. de la Constitución 2222 | México D.F. | 5021     | Mexico  |
-| 3            | Antonio Moreno Taquería            | Antonio Moreno    | Mataderos 2312               | México D.F. | 5023     | Mexico  |
-| 4            | Around the Horn                    | Thomas Hardy      | 120 Hanover Sq.              | London      | WA1 1DP  | UK      |
-
-Perintah ini menampilkan semua pelanggan dengan **ID_Pelanggan** di antara 2 dan 4, termasuk nilai batasnya.
-
----
-
-### 2. Menggunakan NOT BETWEEN
-
-Operator **NOT BETWEEN** digunakan untuk memilih data yang berada di luar rentang nilai yang ditentukan.
-
-#### Contoh:
-```sql
-SELECT *
-FROM Pengguna
-WHERE ID_Pelanggan NOT BETWEEN 2 AND 4;
-```
-
-**Hasil:**
-
-| ID_Pelanggan | NamaPelanggan         | NamaKontak        | Alamat          | Kota   | KodePos | Negara  |
-|--------------|-----------------------|-------------------|-----------------|--------|---------|---------|
-| 1            | Alfreds Futterkiste    | Maria Anders      | Obere Str. 57   | Berlin | 12209   | Germany |
-| 5            | Berglunds Snabbköp     | Christina Berglund| Berguvsvägen 8  | Luleå  | S-958 22| Sweden  |
-
-Perintah ini menampilkan semua pelanggan dengan **ID_Pelanggan** di luar rentang 2 hingga 4.
-
----
-
-### 3. BETWEEN dengan Kondisi Tambahan (IN)
-
-Kombinasi **BETWEEN** dan **IN** dapat digunakan untuk memilih data dalam rentang yang ditentukan dengan kondisi tambahan, seperti memilih data berdasarkan kategori tertentu.
-
-#### Contoh:
-Misalkan Anda ingin memilih pelanggan dengan **ID_Pelanggan** di antara 2 dan 4 serta kota yang berada di **Mexico** atau **UK**.
-
-```sql
-SELECT *
-FROM Pengguna
-WHERE ID_Pelanggan BETWEEN 2 AND 4
-AND Kota IN ('México D.F.', 'London');
-```
-
-**Hasil:**
-
-| ID_Pelanggan | NamaPelanggan                      | NamaKontak        | Alamat                       | Kota        | KodePos  | Negara  |
-|--------------|------------------------------------|-------------------|------------------------------|-------------|----------|---------|
-| 2            | Ana Trujillo Emparedados y Helados | Ana Trujillo      | Avda. de la Constitución 2222 | México D.F. | 5021     | Mexico  |
-| 4            | Around the Horn                    | Thomas Hardy      | 120 Hanover Sq.              | London      | WA1 1DP  | UK      |
-
-Perintah ini menampilkan semua pelanggan dengan **ID_Pelanggan** antara 2 dan 4 yang berasal dari kota **México D.F.** atau **London**.
-
----
-
-### 4. Menggunakan BETWEEN dengan Teks dan ORDER BY
-
-Operator **BETWEEN** juga dapat digunakan untuk memilih data teks yang berada dalam rentang alfabetis tertentu. Data yang dipilih dapat diurutkan secara alfabetis menggunakan **ORDER BY**.
-
-#### Contoh:
-Memilih pelanggan dengan **NamaPelanggan** secara alfabetis antara 'Alfreds Futterkiste' dan 'Berglunds Snabbköp', kemudian mengurutkannya berdasarkan **NamaPelanggan**.
-
-```sql
-SELECT *
-FROM Pengguna
-WHERE NamaPelanggan BETWEEN 'Alfreds Futterkiste' AND 'Berglunds Snabbköp'
-ORDER BY NamaPelanggan;
-```
-
-**Hasil:**
-
-| ID_Pelanggan | NamaPelanggan         | NamaKontak        | Alamat          | Kota   | KodePos | Negara  |
-|--------------|-----------------------|-------------------|-----------------|--------|---------|---------|
-| 1            | Alfreds Futterkiste    | Maria Anders      | Obere Str. 57   | Berlin | 12209   | Germany |
-| 5            | Berglunds Snabbköp     | Christina Berglund| Berguvsvägen 8  | Luleå  | S-958 22| Sweden  |
-
-Perintah ini akan memilih data pelanggan berdasarkan nama yang berada dalam rentang alfabetis yang ditentukan dan mengurutkannya berdasarkan nama pelanggan.
-
----
-
-Dengan materi ini, Anda dapat memahami cara menggunakan operator **BETWEEN** untuk memilih data dalam rentang yang ditentukan, baik berupa angka, teks, atau kondisi gabungan.
+### Latihan:
+1. Pilih data harga tiket yang berada antara 30.000 hingga 50.000.
+2. Pilih hewan yang memiliki lama hidup antara 10 hingga 20 tahun.

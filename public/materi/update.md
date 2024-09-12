@@ -1,49 +1,69 @@
-## SQL Update
+## UPDATE  
+`UPDATE` adalah perintah SQL yang digunakan untuk mengubah atau memperbarui data yang sudah ada di dalam tabel. Misalnya, jika ada perubahan data, seperti promosi petugas atau perubahan jumlah fasilitas, kita bisa menggunakan perintah `UPDATE` untuk memperbarui kolom tertentu.
 
-Pernyataan `UPDATE` digunakan untuk mengubah catatan yang ada dalam suatu tabel.
-
-Penulisan Query:
-
+### Sintaks:
 ```sql
-UPDATE nama_tabel 
-SET column1 = nilai1, column2 = nilai2 
-WHERE condition;
-```
-- nama_tabel: Nama tabel yang ingin Anda perbarui.
-- kolom1, kolom2: Nama kolom yang ingin Anda perbarui.
-- nilai1, nilai2: Nilai baru yang akan diterapkan ke kolom tersebut.
-- kondisi: Kondisi yang menentukan baris mana yang akan diperbarui.
-
-**Catatan Penting:** Berhati-hatilah saat ingin memperbarui data dalam tabel! Perhatikan penggunaan `WHERE` dalam pernyataan `UPDATE`. `WHERE` tersebut menentukan data mana saja yang harus diperbarui. Jika Anda menghilangkan `WHERE`, semua data dalam tabel akan diperbarui!
-
-Berikut ini merupakan tabel Pelanggan yang digunakan dalam contoh yang akan diberikan:
-
-#### Tabel Pelanggan
-
-| IDPelanggan | NamaPelanggan                                | NamaKontak       | Alamat                         | Kota         | KodePos | Negara |
-|-------------|----------------------------------------------|------------------|--------------------------------|--------------|---------|--------|
-| 1           | Alfreds Futterkiste                         | Maria Anders     | Obere Str. 57                  | Berlin       | 12209   | Germany|
-| 2           | Ana Trujillo Emparedados y helados          | Ana Trujillo     | Avda. de la Constitución 2222  | México D.F.  | 05021   | Mexico |
-| 3           | Antonio Moreno Taquería                     | Antonio Moreno   | Mataderos 2312                 | México D.F.  | 05023   | Mexico |
-| 4           | Around the Horn                             | Thomas Hardy     | 120 Hanover Sq.                | London       | WA1 1DP | UK     |
-| 5           | Berglunds snabbköp                          | Christina Berglund | Berguvsvägen 8               | Luleå        | S-958 22| Sweden |
-
-Contoh:
-
-Pernyataan SQL berikut akan memperbarui `NamaKontak` menjadi "Juan" untuk semua data yang negaranya adalah "Mexico":
-
-```sql
-UPDATE Pelanggan 
-SET NamaKontak='Juan' 
-WHERE Negara='Mexico';
+UPDATE nama_tabel SET kolom1 = nilai1 WHERE kondisi;
 ```
 
-Setelah query berhasil dijalankan, maka data pada tabel Pelanggan akan terperbarui. Berikut adalah hasilnya:
+### Database 1
 
-| IDPelanggan | NamaPelanggan                                | NamaKontak | Alamat                         | Kota         | KodePos | Negara |
-|-------------|----------------------------------------------|------------|--------------------------------|--------------|---------|--------|
-| 1           | Alfreds Futterkiste                         | Maria Anders| Obere Str. 57                  | Berlin       | 12209   | Germany|
-| 2           | Ana Trujillo Emparedados y helados          | Juan       | Avda. de la Constitución 2222  | México D.F.  | 05021   | Mexico |
-| 3           | Antonio Moreno Taquería                     | Juan       | Mataderos 2312                 | México D.F.  | 05023   | Mexico |
-| 4           | Around the Horn                             | Thomas Hardy| 120 Hanover Sq.                | London       | WA1 1DP | UK     |
-| 5           | Berglunds snabbköp                          | Christina Berglund | Berguvsvägen 8               | Luleå        | S-958 22| Sweden |
+Berikut adalah data dari tabel Fasilitas yang akan digunakan pada contoh 1:
+
+**Tabel Fasilitas**
+
+| id | nama             | jumlah | jenis             | status_kelayakan |
+|----|------------------|--------|-------------------|------------------|
+| 1  | Tempat Istirahat | 10     | Umum              | Layak            |
+| 2  | Toilet Umum      | 15     | Umum              | Layak            |
+| 3  | Jembatan Gantung | 1      | Fasilitas Khusus  | Tidak Layak      |
+| 4  | Tempat Sampah    | 20     | Umum              | Layak            |
+| 5  | Menara Pengamat  | 2      | Fasilitas Khusus  | Layak            |
+
+### Contoh 1:
+Perbarui jumlah **Jembatan Gantung** pada tabel **fasilitas** menjadi 2.
+```sql
+UPDATE fasilitas SET jumlah = 2 WHERE nama = 'Jembatan Gantung';
+```
+
+#### Hasil Tabel **fasilitas** setelah query:
+| id  | nama            | jumlah | jenis             | status_kelayakan |
+| --- | --------------- | ------ | ----------------- | ---------------- |
+| 1   | Tempat Istirahat | 10     | Umum              | Layak            |
+| 2   | Toilet Umum      | 15     | Umum              | Layak            |
+| 3   | Jembatan Gantung | 2      | Fasilitas Khusus  | Tidak Layak      |
+| 4   | Tempat Sampah    | 20     | Umum              | Layak            |
+| 5   | Menara Pengamat  | 2      | Fasilitas Khusus  | Layak            |
+
+### Database 2
+
+Berikut adalah data dari tabel Petugas yang akan digunakan pada contoh 2:
+
+**Tabel Petugas**
+
+| id | nama | tugas                | lama_bekerja (tahun) |
+|----|------|----------------------|----------------------|
+| 1  | Budi | Pemandu Wisata       | 5                    |
+| 2  | Siti | Penjaga Gerbang      | 3                    |
+| 3  | Agus | Perawat Hewan        | 7                    |
+| 4  | Wati | Teknisi Fasilitas    | 4                    |
+| 5  | Rudi | Administrasi         | 6                    |
+
+### Contoh 2:
+Perbarui lama bekerja **Agus** di tabel **petugas** menjadi 8 tahun.
+```sql
+UPDATE petugas SET lama_bekerja = 8 WHERE nama = 'Agus';
+```
+
+#### Hasil Tabel **petugas** setelah query:
+| id  | nama  | tugas             | lama_bekerja |
+| --- | ----- | ----------------- | ------------ |
+| 1   | Budi  | Pemandu Wisata    | 5            |
+| 2   | Siti  | Penjaga Gerbang   | 3            |
+| 3   | Agus  | Perawat Hewan     | 8            |
+| 4   | Wati  | Teknisi Fasilitas | 4            |
+| 5   | Rudi  | Administrasi      | 6            |
+
+### Latihan:
+1. Perbarui **harga** dari tabel **biaya** yang berhubungan dengan **Pelajar** menjadi 45.000.
+2. Perbarui **status_kelayakan** pada tabel **fasilitas** menjadi 'Layak' untuk semua fasilitas yang berjenis **Fasilitas Khusus**.

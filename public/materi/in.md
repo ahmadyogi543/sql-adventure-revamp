@@ -1,152 +1,63 @@
+## IN  
+IN digunakan dalam klausa WHERE untuk menentukan beberapa nilai dalam satu pernyataan. Daripada menggunakan beberapa kondisi OR, kita bisa menyederhanakannya dengan IN. Misalnya, jika kita ingin menampilkan petugas yang tugasnya adalah "Pemandu Wisata" atau "Penjaga Gerbang", kita bisa menggunakan IN.
 
-## Operator IN
-
-Operator **IN** digunakan untuk memeriksa apakah suatu nilai terdapat dalam sekumpulan nilai yang ditentukan di dalam klausa **WHERE**. Ini merupakan alternatif yang lebih efisien daripada menggunakan beberapa kondisi **OR**.
-
-### Penulisan Query
+### Sintaks:
 ```sql
-SELECT nama_kolom(s)
-FROM nama_tabel
-WHERE nama_kolom IN (nilai1, nilai2, ...);
+SELECT kolom FROM nama_tabel WHERE kolom IN (nilai1, nilai2, ...);
 ```
 
-- **nama_kolom**: Nama kolom yang akan diperiksa nilainya.
-- **nama_tabel**: Nama tabel tempat data akan diambil.
-- **nilai1, nilai2, ...**: Nilai yang akan diperiksa, bisa berupa string atau angka.
+### Database 1
 
-### Contoh Penggunaan IN
+Berikut adalah data dari tabel Petugas yang akan digunakan pada contoh 1:
 
-Berikut adalah tabel yang akan digunakan untuk materi ini:
+**Tabel Petugas**
 
-| IDPelanggan | NamaPelanggan                  | NamaKontak       | Alamat                     | Kota        | KodePos | Negara  |
-|-------------|--------------------------------|------------------|----------------------------|-------------|---------|---------|
-| 1           | Alfreds Futterkiste            | Maria Anders     | Obere Str. 57              | Berlin      | 12209   | Germany |
-| 2           | Ana Trujillo Emparedados y helados | Ana Trujillo    | Avda. de la Constitución 2222 | México D.F. | 5021    | Mexico  |
-| 3           | Antonio Moreno Taquería        | Antonio Moreno   | Mataderos 2312             | México D.F. | 5023    | Mexico  |
-| 4           | Around the Horn                | Thomas Hardy     | 120 Hanover Sq.            | London      | WA1 1DP | UK      |
-| 5           | Berglunds snabbköp             | Christina Berglund | Berguvsvägen 8            | Luleå       | S-958 22| Sweden  |
+| id | nama | tugas                | lama_bekerja (tahun) |
+|----|------|----------------------|----------------------|
+| 1  | Budi | Pemandu Wisata       | 5                    |
+| 2  | Siti | Penjaga Gerbang      | 3                    |
+| 3  | Agus | Perawat Hewan        | 7                    |
+| 4  | Wati | Teknisi Fasilitas    | 4                    |
+| 5  | Rudi | Administrasi         | 6                    |
 
-
-Misalkan Anda ingin mengembalikan semua pelanggan yang berasal dari 'Germany', 'France', atau 'UK'. Maka, query yang digunakan adalah sebagai berikut:
-
-**Penulisan Query**:
+### Contoh 1:
+Pilih nama petugas yang bertugas sebagai Pemandu Wisata atau Teknisi Fasilitas.
 ```sql
-SELECT * 
-FROM Pelanggan 
-WHERE Negara IN ('Germany', 'France', 'UK');
+SELECT nama FROM petugas WHERE tugas IN ('Pemandu Wisata', 'Teknisi Fasilitas');
 ```
 
-#### Hasil Tabel:
+#### Hasil Query:
+| nama |
+| ---- |
+| Budi |
+| Wati |
 
-| IDPelanggan | NamaPelanggan           | NamaKontak    | Alamat              | Kota   | KodePos | Negara   |
-|-------------|-------------------------|---------------|---------------------|--------|---------|----------|
-| 1           | Alfreds Futterkiste      | Maria Anders  | Obere Str. 57        | Berlin | 12209   | Germany  |
-| 4           | Around the Horn          | Thomas Hardy  | 120 Hanover Sq.      | London | WA1 1DP | UK       |
-| 5           | Berglunds snabbköp       | Christina B.  | Berguvsvägen 8       | Luleå  | S-95822 | Sweden   |
+### Database 2
 
-Query di atas mengembalikan semua pelanggan yang berada di negara yang disebutkan dalam klausa **IN**.
+Berikut adalah data dari tabel Hewan yang akan digunakan pada contoh 2:
 
----
+**Tabel Hewan**
+| id  | nama                 | nama_latin              | jumlah | makanan         | habitat        | lama_hidup (tahun) | status_konservasi |
+|-----|----------------------|-------------------------|--------|-----------------|----------------|-------------------|-------------------|
+| 1   | Bekantan             | Nasalis larvatus        | 120    | Daun, Buah      | Hutan Mangrove | 13                | Terancam Punah     |
+| 2   | Orangutan Kalimantan | Pongo pygmaeus          | 90     | Buah            | Hutan Hujan    | 45                | Terancam Punah     |
+| 3   | Buaya Sinyulong      | Tomistoma schlegelii    | 40     | Ikan            | Sungai         | 70                | Terancam Punah     |
+| 4   | Kucing Hutan         | Prionailurus bengalensis| 30     | Daging          | Hutan Tropis   | 15                | Dilindungi         |
+| 5   | Rusa Sambar          | Rusa unicolor           | 60     | Rumput          | Padang Rumput  | 20                | Dilindungi         |
 
-## Operator NOT IN
 
-Operator **NOT IN** digunakan untuk mengembalikan semua baris di mana nilai kolom **tidak** ada dalam sekumpulan nilai yang ditentukan.
-
-### Penulisan Query
+### Contoh 2:
+Pilih data hewan yang memiliki habitat di Hutan Tropis atau Sungai.
 ```sql
-SELECT nama_kolom(s)
-FROM nama_tabel
-WHERE nama_kolom NOT IN (nilai1, nilai2, ...);
+SELECT nama, habitat FROM hewan WHERE habitat IN ('Hutan Tropis', 'Sungai');
 ```
 
-- **nama_kolom**: Nama kolom yang akan diperiksa nilainya.
-- **nilai1, nilai2, ...**: Nilai yang **tidak** boleh ada dalam hasil query.
+#### Hasil Query:
+| nama           | habitat       |
+| -------------- | ------------- |
+| Buaya Sinyulong | Sungai        |
+| Kucing Hutan    | Hutan Tropis  |
 
-### Contoh Penggunaan NOT IN
-
-Misalkan Anda ingin mengembalikan semua pelanggan yang **bukan** berasal dari 'Germany', 'France', atau 'UK'. Maka, query yang digunakan adalah sebagai berikut:
-
-**Penulisan Query**:
-```sql
-SELECT * 
-FROM Pelanggan 
-WHERE Negara NOT IN ('Germany', 'France', 'UK');
-```
-
-#### Hasil Tabel:
-
-| IDPelanggan | NamaPelanggan                    | NamaKontak         | Alamat                     | Kota        | KodePos | Negara   |
-|-------------|----------------------------------|--------------------|----------------------------|-------------|---------|----------|
-| 2           | Ana Trujillo Emparedados y helados | Ana Trujillo       | Avda. de la Constitución 2222 | México D.F. | 5021    | Mexico   |
-| 3           | Antonio Moreno Taquería            | Antonio Moreno     | Mataderos 2312              | México D.F. | 5023    | Mexico   |
-| 5           | Berglunds snabbköp                 | Christina Berglund | Berguvsvägen 8              | Luleå       | S-95822 | Sweden   |
-
-Hasil di atas menunjukkan semua pelanggan yang **tidak** berasal dari negara yang disebutkan dalam klausa **NOT IN**.
-
----
-
-## Operator IN dengan Subquery
-
-Operator **IN** juga dapat digunakan dengan subquery untuk memeriksa apakah suatu nilai ada di dalam hasil dari query lain.
-
-### Penulisan Query
-```sql
-SELECT nama_kolom(s)
-FROM nama_tabel
-WHERE nama_kolom IN (SELECT nama_kolom FROM another_table WHERE condition);
-```
-
-- **another_table**: Nama tabel lain yang akan digunakan dalam subquery.
-- **condition**: Kondisi yang harus dipenuhi dalam subquery.
-
-### Contoh Penggunaan IN dengan Subquery
-
-Misalkan Anda ingin mengembalikan semua pelanggan yang telah melakukan pesanan di tabel **Pesanan**.
-
-**Penulisan Query**:
-```sql
-SELECT * 
-FROM Pelanggan 
-WHERE IDPelanggan IN (SELECT IDPelanggan FROM Pesanan);
-```
-
-#### Hasil Tabel:
-
-| IDPelanggan | NamaPelanggan           | NamaKontak     | Alamat              | Kota   | KodePos | Negara   |
-|-------------|-------------------------|----------------|---------------------|--------|---------|----------|
-| 2           | Ana Trujillo Emparedados y helados | Ana Trujillo | Avda. de la Constitución 2222 | México D.F. | 5021    | Mexico   |
-| 3           | Antonio Moreno Taquería  | Antonio Moreno | Mataderos 2312       | México D.F. | 5023    | Mexico   |
-| 4           | Around the Horn          | Thomas Hardy   | 120 Hanover Sq.      | London | WA1 1DP | UK       |
-| 5           | Berglunds snabbköp       | Christina B.   | Berguvsvägen 8       | Luleå  | S-95822 | Sweden   |
-
-Query di atas mengembalikan pelanggan yang telah melakukan pesanan di tabel **Pesanan**.
-
----
-
-## Operator NOT IN dengan Subquery
-
-Operator **NOT IN** dengan subquery digunakan untuk mengembalikan semua baris di mana nilai kolom **tidak** ada dalam hasil subquery.
-
-### Contoh Penggunaan NOT IN dengan Subquery
-
-Misalkan Anda ingin mengembalikan semua pelanggan yang **belum** melakukan pesanan apa pun di tabel **Pesanan**.
-
-**Penulisan Query**:
-```sql
-SELECT * 
-FROM Pelanggan 
-WHERE IDPelanggan NOT IN (SELECT IDPelanggan FROM Pesanan);
-```
-
-#### Hasil Tabel:
-
-| IDPelanggan | NamaPelanggan           | NamaKontak    | Alamat              | Kota    | KodePos | Negara   |
-|-------------|-------------------------|---------------|---------------------|---------|---------|----------|
-| 1           | Alfreds Futterkiste      | Maria Anders  | Obere Str. 57        | Berlin  | 12209   | Germany  |
-| 6           | Blauer See Delikatessen  | Hanna Moos    | Forsterstr. 57       | Mannheim| 68306   | Germany  |
-
-Query ini mengembalikan semua pelanggan yang belum memiliki pesanan di tabel **Pesanan**.
-
----
-
-Dengan materi ini, Anda bisa mempelajari cara menggunakan operator **IN** dan **NOT IN** dalam SQL untuk memfilter data berdasarkan nilai tertentu atau menggunakan subquery.
+### Latihan:
+1. Pilih data wisatawan yang hanya datang pada hari Senin dan Jumat.
+2. Pilih fasilitas yang memiliki status kelayakan Layak atau Tidak Layak.

@@ -1,110 +1,120 @@
-## Operator Aritmatika dalam SQL
+## OPERATOR ARITMATIKA  
+Operator aritmatika seperti `+`, `-`, `*`, dan `/` digunakan untuk melakukan operasi matematika pada nilai-nilai numerik dalam SQL. Misalnya, jika kita ingin menambahkan bonus 5000 ke setiap harga tiket, kita bisa menggunakan operator `+`.
 
-Operator aritmatika dalam SQL digunakan untuk melakukan operasi matematika pada data numerik. Operator ini berguna untuk menghitung, memproses data, dan mendapatkan hasil dari operasi seperti penjumlahan, pengurangan, perkalian, pembagian, dan modulo.
+### Daftar Operator Aritmatika:
+- `+` : Penjumlahan
+- `-` : Pengurangan
+- `*` : Perkalian
+- `/` : Pembagian
 
-### 1. Penambahan (+)
-Operator Penambahan (+) digunakan untuk menambahkan dua nilai numerik.
-
-#### Contoh:
-Misalkan Anda ingin menambahkan angka 30 dan 20.
-
-**Penulisan Query**:
+### Sintaks:
 ```sql
-SELECT 30 + 20 AS Hasil;
+SELECT kolom1 operator kolom2 FROM nama_tabel;
+```
+### Database 1
+
+Berikut adalah data dari tabel Biaya yang akan digunakan pada contoh 1:
+
+**Tabel Biaya**
+
+| id | hari  | wisatawan | harga  |
+|----|-------|-----------|--------|
+| 1  | Senin | Dewasa    | 50000  |
+| 2  | Selasa| Anak-Anak | 30000  |
+| 3  | Rabu  | Pelajar   | 40000  |
+| 4  | Kamis | Dewasa    | 55000  |
+| 5  | Jumat | Lansia    | 45000  |
+
+### Contoh 1:
+Hitung total biaya untuk dua pengunjung dewasa pada hari Senin.
+```sql
+SELECT harga * 2 AS total_biaya FROM biaya WHERE wisatawan = 'Dewasa' AND hari = 'Senin';
 ```
 
-**Hasil:**
+#### Hasil Query:
+| total_biaya |
+| ----------- |
+| 100000      |
 
-| Hasil |
-|-------|
-| 50    |
+### Database 2
 
-Query ini menghasilkan nilai 50 yang merupakan hasil dari penambahan 30 dan 20.
+Berikut adalah data dari tabel Fasilitas yang akan digunakan pada contoh 3:
 
----
+**Tabel Fasilitas**
 
-### 2. Pengurangan (-)
-Operator Pengurangan (-) digunakan untuk mengurangi satu nilai dari nilai lainnya.
+| id | nama             | jumlah | jenis             | status_kelayakan |
+|----|------------------|--------|-------------------|------------------|
+| 1  | Tempat Istirahat | 10     | Umum              | Layak            |
+| 2  | Toilet Umum      | 15     | Umum              | Layak            |
+| 3  | Jembatan Gantung | 1      | Fasilitas Khusus  | Tidak Layak      |
+| 4  | Tempat Sampah    | 20     | Umum              | Layak            |
+| 5  | Menara Pengamat  | 2      | Fasilitas Khusus  | Layak            |
 
-#### Contoh:
-Misalkan Anda ingin mengurangi 20 dari 30.
-
-**Penulisan Query**:
+### Contoh 2:
+Tambahkan jumlah fasilitas umum dengan fasilitas khusus.
 ```sql
-SELECT 30 - 20 AS Hasil;
+SELECT 
+  (SELECT SUM(jumlah) FROM fasilitas WHERE jenis = 'Umum') + 
+  (SELECT SUM(jumlah) FROM fasilitas WHERE jenis = 'Fasilitas Khusus') AS total_fasilitas;
 ```
 
-**Hasil:**
+#### Hasil Query:
+| total_fasilitas |
+| --------------- |
+| 48              |
 
-| Hasil |
-|-------|
-| 10    |
+### Database 3
 
-Query ini menghasilkan nilai 10 yang merupakan hasil dari pengurangan 30 dengan 20.
+Berikut adalah data dari tabel Tumbuhan yang akan digunakan pada contoh 3:
 
----
+**Tabel Tumbuhan**
+| id  | nama           | nama_latin              | habitat      | jumlah | status_konservasi |
+|-----|----------------|-------------------------|--------------|--------|-------------------|
+| 1   | Pohon Ulin     | Eusideroxylon zwageri    | Hutan Tropis | 150    | Terancam Punah     |
+| 2   | Meranti Merah  | Shorea leprosula         | Hutan Tropis | 200    | Dilindungi         |
+| 3   | Anggrek Hitam  | Coelogyne pandurata      | Tepi Hutan   | 100    | Terancam Punah     |
+| 4   | Bakau          | Rhizophora apiculata     | Pesisir      | 500    | Dilindungi         |
+| 5   | Ramin          | Gonystylus bancanus      | Hutan Rawa   | 80     | Langka             |
 
-### 3. Pembagian (/)
-Operator Pembagian (/) digunakan untuk membagi satu nilai dengan nilai lainnya.
-
-#### Contoh:
-Misalkan Anda ingin membagi 30 dengan 10.
-
-**Penulisan Query**:
+### Contoh 3:
+Kurangi jumlah tumbuhan Bakau dengan Anggrek Hitam.
 ```sql
-SELECT 30 / 10 AS Hasil;
+SELECT 
+  (SELECT jumlah FROM tumbuhan WHERE nama = 'Bakau') - 
+  (SELECT jumlah FROM tumbuhan WHERE nama = 'Anggrek Hitam') AS selisih_jumlah;
 ```
 
-**Hasil:**
+#### Hasil Query:
+| selisih_jumlah |
+| -------------- |
+| 400            |
 
-| Hasil |
-|-------|
-| 3     |
+### Database 4
 
-Query ini menghasilkan nilai 3 yang merupakan hasil dari pembagian 30 dengan 10.
+Berikut adalah data dari tabel Hewan yang akan digunakan pada contoh 4:
 
----
+**Tabel Hewan**
+| id  | nama                 | nama_latin              | jumlah | makanan         | habitat        | lama_hidup (tahun) | status_konservasi |
+|-----|----------------------|-------------------------|--------|-----------------|----------------|-------------------|-------------------|
+| 1   | Bekantan             | Nasalis larvatus        | 120    | Daun, Buah      | Hutan Mangrove | 13                | Terancam Punah     |
+| 2   | Orangutan Kalimantan | Pongo pygmaeus          | 90     | Buah            | Hutan Hujan    | 45                | Terancam Punah     |
+| 3   | Buaya Sinyulong      | Tomistoma schlegelii    | 40     | Ikan            | Sungai         | 70                | Terancam Punah     |
+| 4   | Kucing Hutan         | Prionailurus bengalensis| 30     | Daging          | Hutan Tropis   | 15                | Dilindungi         |
+| 5   | Rusa Sambar          | Rusa unicolor           | 60     | Rumput          | Padang Rumput  | 20                | Dilindungi         |
 
-### 4. Perkalian (*)
-Operator Perkalian (*) digunakan untuk mengalikan dua nilai.
-
-#### Contoh:
-Misalkan Anda ingin mengalikan 30 dengan 20.
-
-**Penulisan Query**:
+### Contoh 4:
+Hitung jumlah hewan Buaya Sinyulong yang dikurangi oleh hewan Kucing Hutan.
 ```sql
-SELECT 30 * 20 AS Hasil;
+SELECT 
+  (SELECT jumlah FROM hewan WHERE nama = 'Buaya Sinyulong') - 
+  (SELECT jumlah FROM hewan WHERE nama = 'Kucing Hutan') AS selisih_jumlah_hewan;
 ```
 
-**Hasil:**
+#### Hasil Query:
+| selisih_jumlah_hewan |
+| -------------------- |
+| 10                   |
 
-| Hasil |
-|-------|
-| 600   |
-
-Query ini menghasilkan nilai 600 yang merupakan hasil dari perkalian 30 dengan 20.
-
----
-
-### 5. Modulo (%)
-Operator Modulo (%) digunakan untuk mendapatkan sisa dari pembagian dua angka.
-
-#### Contoh:
-Misalkan Anda ingin mengetahui sisa pembagian 17 dengan 5.
-
-**Penulisan Query**:
-```sql
-SELECT 17 % 5 AS Hasil;
-```
-
-**Hasil:**
-
-| Hasil |
-|-------|
-| 2     |
-
-Query ini menghasilkan nilai 2 yang merupakan sisa dari pembagian 17 dengan 5.
-
----
-
-Dengan materi ini, Anda dapat memahami bagaimana menggunakan operator aritmatika dalam SQL untuk melakukan berbagai jenis perhitungan pada data numerik. Setiap operator memiliki fungsi khusus yang memudahkan dalam pengolahan dan analisis data.
+### Latihan:
+1. Kalikan harga tiket untuk anak-anak pada hari Selasa dengan 3.
+2. Jumlahkan total lama bekerja dari petugas Budi dan Rudi.

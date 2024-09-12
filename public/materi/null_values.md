@@ -1,62 +1,61 @@
-## SQL Null Values
+## NULL VALUES
 
-Sebuah field dengan nilai NULL adalah field tanpa nilai. Jika kolom dalam tabel bersifat opsional, Anda dapat menyisipkan data baru atau memperbarui data tanpa menambahkan nilai ke kolom ini. Kemudian, kolom akan disimpan dengan nilai NULL.
+Di SQL, `NULL` merepresentasikan nilai yang tidak ada atau tidak diketahui. `NULL` bukan berarti nilai kosong atau nol; itu adalah keadaan di mana data tidak ada sama sekali. Misalnya, dalam tabel petugas, mungkin ada kolom alamat, tetapi tidak semua petugas memiliki alamat yang tercatat. Ketika data tidak ada, SQL akan mengisinya dengan `NULL`.
 
-Nilai NULL berbeda dengan nilai nol atau kolom yang berisi spasi. Kolom dengan nilai NULL adalah kolom yang dibiarkan kosong selama pembuatan rekaman!
+Saat bekerja dengan `NULL`, penting untuk dipahami bahwa `NULL` tidak bisa dibandingkan secara langsung dengan operator perbandingan seperti `=` atau `!=`. Sebagai gantinya, kita harus menggunakan `IS NULL` atau `IS NOT NULL` untuk memeriksa apakah suatu nilai adalah `NULL`.
 
-Bagaimana cara menguji nilai NULL?
----
-Tidak mungkin menguji nilai NULL dengan operator perbandingan, seperti `=`, `<`, atau `<>`. Kita harus menggunakan operator `IS NULL` dan `IS NOT NULL` sebagai gantinya.
-
-#### Penulisan Query IS NULL:
+### Sintaks:
 ```sql
-SELECT column_names 
-FROM table_name 
-WHERE column_name IS NULL;
+SELECT kolom FROM nama_tabel WHERE kolom IS NULL;
+SELECT kolom FROM nama_tabel WHERE kolom IS NOT NULL;
+```
+### Database 1
+
+Berikut adalah data dari tabel Fasilitas yang akan digunakan pada contoh 1:
+
+**Tabel Fasilitas**
+
+| id | nama             | jumlah | jenis             | status_kelayakan |
+|----|------------------|--------|-------------------|------------------|
+| 1  | Tempat Istirahat | 10     | Umum              | Layak            |
+| 2  | Toilet Umum      | 15     | Umum              | Layak            |
+| 3  | Jembatan Gantung | 1      | Fasilitas Khusus  | Tidak Layak      |
+| 4  | Tempat Sampah    | 20     | Umum              | Layak            |
+| 5  | Menara Pengamat  | 2      | Fasilitas Khusus  | Layak            |
+
+
+### Contoh 1:
+Cari data pada tabel `fasilitas` di mana kolom `status_kelayakan` bernilai `NULL`.
+```sql
+SELECT * FROM fasilitas WHERE status_kelayakan IS NULL;
 ```
 
-#### Penulisan IS NOT NULL:
+**Hasil:**
+(Tidak ada data, karena tidak ada nilai `NULL` di kolom `status_kelayakan` pada tabel `fasilitas`.)
+
+### Database 2
+
+Berikut adalah data dari tabel Petugas yang akan digunakan pada contoh 2:
+
+**Tabel Petugas**
+
+| id | nama | tugas                | lama_bekerja (tahun) |
+|----|------|----------------------|----------------------|
+| 1  | Budi | Pemandu Wisata       | 5                    |
+| 2  | Siti | Penjaga Gerbang      | 3                    |
+| 3  | Agus | Perawat Hewan        | 7                    |
+| 4  | Wati | Teknisi Fasilitas    | 4                    |
+| 5  | Rudi | Administrasi         | 6                    |
+
+### Contoh 2:
+Cari data pada tabel `petugas` di mana kolom `lama_bekerja` bernilai `NULL`.
 ```sql
-SELECT column_names 
-FROM table_name 
-WHERE column_name IS NOT NULL;
+SELECT * FROM petugas WHERE lama_bekerja IS NULL;
 ```
 
-Berikut ini merupakan tabel Pelanggan yang digunakan dalam contoh yang akan diberikan:
-### Tabel Pelanggan
+**Hasil:**
+(Tidak ada data, karena tidak ada nilai `NULL` di kolom `lama_bekerja` pada tabel `petugas`.)
 
-| IDpelanggan| NamaPelanggan                                | NamaKontak   | Alamat                 | Kota         | KodePos | Negara |
-|------------|---------------------------------------------|---------------|--------------------------|--------------|------------|---------|
-| 1          | Alfreds Futterkiste                        | Maria Anders  | Obere Str. 57            | Berlin       | 12209      | Germany |
-| 2          | Ana Trujillo Emparedados y helados          | Ana Trujillo  | Avda. de la Constitución 2222 | México D.F. | 05021      | Mexico  |
-| 3          | Antonio Moreno Taquería                     | Antonio Moreno | Mataderos 2312           | México D.F.  | 05023      | Mexico  |
-| 4          | Around the Horn                            | Thomas Hardy  | 120 Hanover Sq.          | London       | WA1 1DP    | UK      |
-| 5          | Berglunds snabbköp                          | Christina Berglund | Berguvsvägen 8       | Luleå        | S-958 22   | Sweden  |
-
-Operator IS NULL
----
-Operator `IS NULL` digunakan untuk menguji nilai kosong (nilai NULL).
-
-Contoh:
-
-```sql
-SELECT NamaPelanggan, NamaKontak, Alamat 
-FROM Pelanggan 
-WHERE Alamat IS NULL;
-```
-
-SQL di atas akan menampilkan semua pelanggan dengan nilai NULL di kolom "Alamat".
-
-Operator IS NOT NULL
----
-Operator `IS NOT NULL` digunakan untuk menguji nilai yang tidak kosong (nilai NOT NULL).
-
-Contoh:
-
-```sql
-SELECT NamaPelanggan, NamaKontak, Alamat 
-FROM Pelanggan 
-WHERE Alamat IS NOT NULL;
-```
-
-SQL di atas akan menampilkan semua pelanggan dengan nilai di bidang "Alamat".
+### Latihan:
+1. Cari data pada tabel `biaya` di mana kolom `harga` bernilai `NULL`.
+2. Cari data pada tabel `tumbuhan` di mana kolom `status_konservasi` bernilai `NULL`.

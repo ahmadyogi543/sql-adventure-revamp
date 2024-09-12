@@ -1,64 +1,59 @@
-## SQL AND
+## AND
 
-Klausa `WHERE` dapat berisi satu atau banyak operator `AND`. Operator `AND` digunakan untuk memfilter data berdasarkan lebih dari satu kondisi.
+`AND` adalah operator yang digunakan untuk menggabungkan dua atau lebih kondisi di dalam klausa `WHERE`. Semua kondisi yang digabungkan dengan `AND` harus benar agar baris data ditampilkan. Misalnya, jika kita ingin menampilkan petugas yang memiliki lama bekerja lebih dari 5 tahun dan bertugas sebagai "Pemandu Wisata", kita bisa menggunakan `AND` untuk menggabungkan dua kondisi ini.
 
-Penulisan Query:
+### Sintaks:
 ```sql
-SELECT kolom1, kolom2, ...
-FROM nama_tabel
-WHERE condition1 AND condition2 AND condition3 ...;
+SELECT kolom1 FROM nama_tabel WHERE kondisi1 AND kondisi2;
 ```
-- `kolom1, kolom2, ...`: Kolom-kolom yang ingin ditampilkan dalam hasil query.
-- `nama_tabel`: Menentukan nama tabel dari mana data akan diambil.
-- `WHERE condition1 AND condition2 AND condition3 ...`: Menetapkan kondisi-kondisi yang harus dipenuhi untuk baris yang ingin ditampilkan. Kondisi-kondisi tersebut digabungkan dengan operator logika `AND`, yang berarti semua kondisi harus terpenuhi agar baris tersebut termasuk dalam hasil query.
+### Database 1
 
-### AND vs OR
+Berikut adalah data dari tabel Hewan yang akan digunakan pada contoh 1:
 
-- Operator `AND` menampilkan data jika semua kondisi BENAR.
-- Operator `OR` menampilkan data jika salah satu kondisi BENAR.
+**Tabel Hewan**
+| id  | nama                 | nama_latin              | jumlah | makanan         | habitat        | lama_hidup (tahun) | status_konservasi |
+|-----|----------------------|-------------------------|--------|-----------------|----------------|-------------------|-------------------|
+| 1   | Bekantan             | Nasalis larvatus        | 120    | Daun, Buah      | Hutan Mangrove | 13                | Terancam Punah     |
+| 2   | Orangutan Kalimantan | Pongo pygmaeus          | 90     | Buah            | Hutan Hujan    | 45                | Terancam Punah     |
+| 3   | Buaya Sinyulong      | Tomistoma schlegelii    | 40     | Ikan            | Sungai         | 70                | Terancam Punah     |
+| 4   | Kucing Hutan         | Prionailurus bengalensis| 30     | Daging          | Hutan Tropis   | 15                | Dilindungi         |
+| 5   | Rusa Sambar          | Rusa unicolor           | 60     | Rumput          | Padang Rumput  | 20                | Dilindungi         |
 
-Berikut ini merupakan tabel Pelanggan yang digunakan dalam contoh yang akan diberikan:
-
-### Tabel Pelanggan
-
-| IDpelanggan | NamaPelanggan                                | NamaKontak   | Alamat                 | Kota         | KodePos | Negara |
-|-------------|----------------------------------------------|--------------|------------------------|--------------|----------|--------|
-| 1           | Alfreds Futterkiste                         | Maria Anders | Obere Str. 57          | Berlin       | 12209    | Germany|
-| 2           | Ana Trujillo Emparedados y helados           | Ana Trujillo | Avda. de la Constitución 2222 | México D.F. | 05021    | Mexico |
-| 3           | Antonio Moreno Taquería                      | Antonio Moreno | Mataderos 2312        | México D.F.  | 05023    | Mexico |
-| 4           | Around the Horn                             | Thomas Hardy | 120 Hanover Sq.        | London       | WA1 1DP  | UK     |
-| 5           | Berglunds snabbköp                           | Christina Berglund | Berguvsvägen 8     | Luleå        | S-958 22 | Sweden |
-
-Semua Kondisi Harus Benar
----
-Pernyataan SQL berikut memilih semua bidang dari `Pelanggan` dimana Negara adalah "Germany" DAN Kota adalah "Berlin" DAN KodePos lebih tinggi dari 12000:
-
-**Kode SQL:**
+### Contoh 1:
+Ambil data dari tabel `hewan` di mana `jumlah` lebih dari 50 dan `status_konservasi` adalah "Dilindungi".
 ```sql
-SELECT * FROM Pelanggan
-WHERE Negara = 'Germany' AND Kota = 'Berlin' AND KodePos > 12000;
+SELECT * FROM hewan WHERE jumlah > 50 AND status_konservasi = 'Dilindungi';
 ```
 
 **Hasil:**
+| id  | nama         | nama_latin        | jumlah | makanan | habitat       | lama_hidup (tahun) | status_konservasi |
+|-----|--------------|-------------------|--------|---------|---------------|--------------------|-------------------|
+| 5   | Rusa Sambar  | Rusa unicolor      | 60     | Rumput  | Padang Rumput | 20                 | Dilindungi        |
 
-| IDpelanggan | NamaPelanggan         | NamaKontak | Alamat         | Kota  | KodePos | Negara |
-|-------------|-----------------------|------------|----------------|-------|---------|--------|
-| 1           | Alfreds Futterkiste   | Maria Anders | Obere Str. 57  | Berlin | 12209   | Germany|
+### Database 2
 
-Menggabungkan AND dan OR
----
-Pernyataan SQL berikut memilih semua pelanggan dari `Mexico` yang nama pelanggannya dimulai dengan "A" atau "B". Pastikan menggunakan tanda kurung untuk mendapatkan hasil yang benar.
+Berikut adalah data dari tabel Tumbuhan yang akan digunakan pada contoh 2:
 
-**Kode SQL:**
+**Tabel Tumbuhan**
+| id  | nama           | nama_latin              | habitat      | jumlah | status_konservasi |
+|-----|----------------|-------------------------|--------------|--------|-------------------|
+| 1   | Pohon Ulin     | Eusideroxylon zwageri    | Hutan Tropis | 150    | Terancam Punah     |
+| 2   | Meranti Merah  | Shorea leprosula         | Hutan Tropis | 200    | Dilindungi         |
+| 3   | Anggrek Hitam  | Coelogyne pandurata      | Tepi Hutan   | 100    | Terancam Punah     |
+| 4   | Bakau          | Rhizophora apiculata     | Pesisir      | 500    | Dilindungi         |
+| 5   | Ramin          | Gonystylus bancanus      | Hutan Rawa   | 80     | Langka             |
+
+### Contoh 2:
+Ambil data dari tabel `tumbuhan` di mana `habitat` adalah "Hutan Tropis" dan `status_konservasi` adalah "Dilindungi".
 ```sql
-SELECT * FROM Pelanggan
-WHERE Negara = 'Mexico' AND (NamaPelanggan LIKE 'A%' OR NamaPelanggan LIKE 'B%');
+SELECT * FROM tumbuhan WHERE habitat = 'Hutan Tropis' AND status_konservasi = 'Dilindungi';
 ```
 
 **Hasil:**
+| id  | nama           | nama_latin            | habitat       | jumlah | status_konservasi |
+|-----|----------------|-----------------------|---------------|--------|-------------------|
+| 2   | Meranti Merah  | Shorea leprosula       | Hutan Tropis  | 200    | Dilindungi        |
 
-| IDpelanggan | NamaPelanggan            | NamaKontak   | Alamat       | Kota        | KodePos | Negara |
-|-------------|--------------------------|--------------|--------------|-------------|---------|--------|
-| 2           | Ana Trujillo Emparedados y helados | Ana Trujillo | Avda. de la Constitución 2222 | México D.F. | 05021   | Mexico |
-| 3           | Antonio Moreno Taquería  | Antonio Moreno | Mataderos 2312 | México D.F.  | 05023   | Mexico |
-
+### Latihan:
+1. Ambil data dari tabel `hewan` di mana `habitat` adalah "Hutan Tropis" dan `lama_hidup` lebih dari 10 tahun.
+2. Ambil data dari tabel `tumbuhan` di mana `jumlah` lebih dari 100 dan `status_konservasi` adalah "Terancam Punah".

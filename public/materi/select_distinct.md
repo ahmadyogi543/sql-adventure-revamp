@@ -1,83 +1,64 @@
-## SELECT DISTINCT
+## DISTINCT
 
-Pernyataan `SELECT DISTINCT` digunakan untuk mengembalikan nilai yang berbeda saja. Di dalam tabel, kolom sering kali berisi banyak nilai duplikat; dan terkadang Anda hanya ingin mencantumkan nilai yang berbeda.
+Perintah `DISTINCT` digunakan bersama dengan `SELECT` untuk menghilangkan duplikasi data dalam hasil. Jika ada nilai yang muncul lebih dari sekali di dalam satu kolom, `DISTINCT` akan memastikan bahwa hanya satu nilai unik yang ditampilkan. Misalnya, jika kamu memiliki tabel wisatawan yang menyimpan jenis wisatawan, seperti "Dewasa", "Anak-anak", dan beberapa entri memiliki nilai yang sama, `DISTINCT` akan menghapus duplikat tersebut dan hanya menampilkan nilai unik.
 
-Penulisan query:
+### Sintaks:
 ```sql
-SELECT DISTINCT kolom1, kolom2, ...
-FROM nama_tabel;
+SELECT DISTINCT kolom1 FROM nama_tabel;
 ```
-- `kolom1, kolom2, ...` adalah nama kolom dari tabel yang ingin Anda ambil datanya.
-- `nama_tabel` adalah nama tabel tempat data diambil.
+### Database 1
 
-### Contoh Database
+Berikut adalah data dari tabel Tumbuhan yang akan digunakan pada contoh 1:
 
-Berikut adalah contoh data dari tabel Pelanggan yang akan digunakan:
+**Tabel Tumbuhan**
+| id  | nama           | nama_latin              | habitat      | jumlah | status_konservasi |
+|-----|----------------|-------------------------|--------------|--------|-------------------|
+| 1   | Pohon Ulin     | Eusideroxylon zwageri    | Hutan Tropis | 150    | Terancam Punah     |
+| 2   | Meranti Merah  | Shorea leprosula         | Hutan Tropis | 200    | Dilindungi         |
+| 3   | Anggrek Hitam  | Coelogyne pandurata      | Tepi Hutan   | 100    | Terancam Punah     |
+| 4   | Bakau          | Rhizophora apiculata     | Pesisir      | 500    | Dilindungi         |
+| 5   | Ramin          | Gonystylus bancanus      | Hutan Rawa   | 80     | Langka             |
 
-### Tabel Pelanggan
 
-| IDpelanggan | NamaPelanggan                                | NamaKontak   | Alamat                 | Kota         | KodePos | Negara |
-|-------------|----------------------------------------------|--------------|------------------------|--------------|----------|--------|
-| 1           | Alfreds Futterkiste                         | Maria Anders | Obere Str. 57          | Berlin       | 12209    | Germany|
-| 2           | Ana Trujillo Emparedados y helados           | Ana Trujillo | Avda. de la Constitución 2222 | México D.F. | 05021    | Mexico |
-| 3           | Antonio Moreno Taquería                      | Antonio Moreno | Mataderos 2312        | México D.F.  | 05023    | Mexico |
-| 4           | Around the Horn                             | Thomas Hardy | 120 Hanover Sq.        | London       | WA1 1DP  | UK     |
-| 5           | Berglunds snabbköp                           | Christina Berglund | Berguvsvägen 8     | Luleå        | S-958 22 | Sweden |
-
-Penggunaan DISTINCT
----
-Contoh:
-
-Pilih semua negara yang berbeda dari tabel "Pelanggan":
+### Contoh 1:
+Ambil data unik dari kolom `habitat` di tabel `tumbuhan`.
 ```sql
-SELECT DISTINCT Negara FROM Pelanggan;
+SELECT DISTINCT habitat FROM tumbuhan;
 ```
 
 **Hasil:**
+| habitat       |
+|---------------|
+| Hutan Tropis  |
+| Tepi Hutan    |
+| Pesisir       |
+| Hutan Rawa    |
 
-| Negara  |
-|---------|
-| Germany |
-| Mexico  |
-| UK      |
-| Sweden  |
+### Database 2
 
-Perintah ini akan menampilkan daftar negara yang berbeda dari tabel Pelanggan.
+Berikut adalah data dari tabel Hewan yang akan digunakan pada contoh 2:
 
-SELECT Tanpa DISTINCT
----
-Jika kita menghilangkan `DISTINCT`, pernyataan SQL akan mengembalikan nilai "Negara" dari semua data yang ada di kolom Negara pada tabel "Pelanggan".
+**Tabel Hewan**
+| id  | nama                 | nama_latin              | jumlah | makanan         | habitat        | lama_hidup (tahun) | status_konservasi |
+|-----|----------------------|-------------------------|--------|-----------------|----------------|-------------------|-------------------|
+| 1   | Bekantan             | Nasalis larvatus        | 120    | Daun, Buah      | Hutan Mangrove | 13                | Terancam Punah     |
+| 2   | Orangutan Kalimantan | Pongo pygmaeus          | 90     | Buah            | Hutan Hujan    | 45                | Terancam Punah     |
+| 3   | Buaya Sinyulong      | Tomistoma schlegelii    | 40     | Ikan            | Sungai         | 70                | Terancam Punah     |
+| 4   | Kucing Hutan         | Prionailurus bengalensis| 30     | Daging          | Hutan Tropis   | 15                | Dilindungi         |
+| 5   | Rusa Sambar          | Rusa unicolor           | 60     | Rumput          | Padang Rumput  | 20                | Dilindungi         |
 
-Contoh:
+### Contoh 2:
+Ambil data unik dari kolom `status_konservasi` di tabel `hewan`.
 ```sql
-SELECT Negara FROM Pelanggan;
+SELECT DISTINCT status_konservasi FROM hewan;
 ```
 
 **Hasil:**
+| status_konservasi |
+|-------------------|
+| Terancam Punah    |
+| Dilindungi        |
 
-| Negara  |
-|---------|
-| Germany |
-| Mexico  |
-| Mexico  |
-| UK      |
-| Sweden  |
-
-Perintah ini akan mengembalikan semua nilai di kolom Negara, termasuk duplikat.
-
-COUNT DISTINCT
----
-Dengan menggunakan `DISTINCT` kata kunci dalam fungsi yang disebut `COUNT`, kita dapat mengembalikan jumlah negara yang berbeda.
-
-Contoh:
-```sql
-SELECT COUNT(DISTINCT Negara) FROM Pelanggan;
-```
-
-**Hasil:**
-
-| COUNT(DISTINCT Negara) |
-|------------------------|
-| 4                      |
-
-Dengan perintah ini, setiap negara yang muncul lebih dari satu kali hanya akan dihitung satu kali, dan hasilnya adalah jumlah total negara berbeda yang tercatat dalam tabel Pelanggan.
+### Latihan:
+1. Ambil data unik dari kolom `makanan` di tabel `hewan`.
+2. Ambil data unik dari kolom `status_konservasi` di tabel `tumbuhan`.

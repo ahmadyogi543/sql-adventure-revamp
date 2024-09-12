@@ -1,89 +1,69 @@
-## Fungsi GROUP BY
+## GROUP BY  
+`GROUP BY` digunakan untuk mengelompokkan baris dengan nilai yang sama ke dalam kelompok. Ini sering digunakan bersama dengan fungsi agregat seperti `COUNT`, `SUM`, `AVG`, dll. Misalnya, jika kita ingin menghitung jumlah petugas berdasarkan tugas mereka, kita bisa menggunakan `GROUP BY`.
 
-Fungsi **GROUP BY** dalam SQL digunakan untuk mengelompokkan baris-baris yang memiliki nilai yang sama ke dalam baris-baris ringkasan. Ini sering digunakan bersama dengan fungsi agregat (seperti `COUNT()`, `MAX()`, `MIN()`, `SUM()`, `AVG()`) untuk mengelompokkan hasil berdasarkan satu atau lebih kolom.
-
-### Penulisan Query
-
+### Sintaks:
 ```sql
-SELECT nama_kolom, AGGREGATE_FUNCTION(nama_kolom) 
-FROM nama_tabel 
-GROUP BY nama_kolom 
-ORDER BY nama_kolom;
+SELECT kolom, fungsi_agregasi(kolom) FROM nama_tabel GROUP BY kolom;
 ```
 
-- **nama_kolom**: Nama kolom yang digunakan untuk pengelompokan.
-- **AGGREGATE_FUNCTION(nama_kolom)**: Fungsi agregat yang diterapkan pada kolom.
-- **nama_tabel**: Nama tabel dari mana data akan diambil.
-- **ORDER BY nama_kolom**: (Opsional) Mengurutkan hasil berdasarkan kolom tertentu.
+### Database 1
 
-### Contoh Database
+Berikut adalah data dari tabel Petugas yang akan digunakan pada contoh 1:
 
-Berikut adalah contoh data dari tabel **Pelanggan** yang akan digunakan:
+**Tabel Petugas**
 
-#### Tabel Pelanggan
+| id | nama | tugas                | lama_bekerja (tahun) |
+|----|------|----------------------|----------------------|
+| 1  | Budi | Pemandu Wisata       | 5                    |
+| 2  | Siti | Penjaga Gerbang      | 3                    |
+| 3  | Agus | Perawat Hewan        | 7                    |
+| 4  | Wati | Teknisi Fasilitas    | 4                    |
+| 5  | Rudi | Administrasi         | 6                    |
 
-| IDPelanggan | NamaPelanggan                       | ContactName   | Alamat                    | Kota         | KodePos | Negara |
-|-------------|-------------------------------------|---------------|---------------------------|--------------|---------|--------|
-| 1           | Alfreds Futterkiste                 | Maria Anders  | Obere Str. 57             | Berlin       | 12209   | Germany|
-| 2           | Ana Trujillo Emparedados y helados | Ana Trujillo  | Avda. de la Constitución 2222 | México D.F. | 5021    | Mexico |
-| 3           | Antonio Moreno Taquería            | Antonio Moreno | Mataderos 2312            | México D.F.  | 5023    | Mexico |
-| 4           | Around the Horn                     | Thomas Hardy  | 120 Hanover Sq.           | London       | WA1 1DP | UK     |
-| 5           | Berglunds snabbköp                  | Christina Berglund | Berguvsvägen 8         | Luleå        | S-958 22| Sweden |
-
----
-
-### 1. Mengelompokkan Data Berdasarkan Kolom dan Menghitung Jumlah
-
-Fungsi **GROUP BY** dapat digunakan untuk mengelompokkan data berdasarkan satu kolom dan menghitung jumlah baris dalam setiap grup menggunakan fungsi agregat seperti `COUNT()`.
-
-#### Contoh:
-Misalkan Anda ingin mengetahui jumlah pelanggan di setiap negara.
-
-**Penulisan Query**:
+### Contoh 1:
+Hitung jumlah petugas berdasarkan tugas.
 ```sql
-SELECT Negara, COUNT(IdPelanggan) 
-FROM Pelanggan 
-GROUP BY Negara;
+SELECT tugas, COUNT(*) AS jumlah_petugas FROM petugas GROUP BY tugas;
 ```
 
-**Hasil:**
+#### Hasil Query:
+| tugas            | jumlah_petugas |
+| ---------------- | -------------- |
+| Pemandu Wisata   | 1              |
+| Penjaga Gerbang  | 1              |
+| Perawat Hewan    | 1              |
+| Teknisi Fasilitas| 1              |
+| Administrasi     | 1              |
 
-| Negara  | COUNT(IdPelanggan) |
-|---------|--------------------|
-| Germany | 1                  |
-| Mexico  | 2                  |
-| UK      | 1                  |
-| Sweden  | 1                  |
+### Database 2
 
-Query ini mengelompokkan data berdasarkan negara dan menghitung jumlah pelanggan di setiap negara. Hasilnya menunjukkan berapa banyak pelanggan yang berasal dari masing-masing negara.
+Berikut adalah data dari tabel Biaya yang akan digunakan pada contoh 2:
 
----
+**Tabel Biaya**
 
-### 2. Mengelompokkan Data dengan Fungsi Agregat Lain
+| id | hari  | wisatawan | harga  |
+|----|-------|-----------|--------|
+| 1  | Senin | Dewasa    | 50000  |
+| 2  | Selasa| Anak-Anak | 30000  |
+| 3  | Rabu  | Pelajar   | 40000  |
+| 4  | Kamis | Dewasa    | 55000  |
+| 5  | Jumat | Lansia    | 45000  |
 
-Anda dapat menggunakan **GROUP BY** dengan berbagai fungsi agregat lain seperti `MAX()`, `MIN()`, `SUM()`, atau `AVG()` untuk mendapatkan ringkasan data berdasarkan grup.
-
-#### Contoh:
-Misalkan Anda ingin mengetahui ID pelanggan tertinggi di setiap negara.
-
-**Penulisan Query**:
+### Contoh 2:
+Hitung total harga berdasarkan hari di tabel biaya.
 ```sql
-SELECT Negara, MAX(IdPelanggan) 
-FROM Pelanggan 
-GROUP BY Negara;
+SELECT hari, SUM(harga) AS total_harga FROM biaya GROUP BY hari;
 ```
 
-**Hasil:**
+#### Hasil Query:
+| hari   | total_harga |
+| ------ | ----------- |
+| Senin  | 50000       |
+| Selasa | 30000       |
+| Rabu   | 40000       |
+| Kamis  | 55000       |
+| Jumat  | 45000       |
 
-| Negara  | MAX(IdPelanggan) |
-|---------|------------------|
-| Germany | 1                |
-| Mexico  | 3                |
-| UK      | 4                |
-| Sweden  | 5                |
-
-Query ini mengelompokkan data berdasarkan negara dan mencari ID pelanggan tertinggi dalam setiap grup.
-
----
-
-Dengan materi ini, Anda dapat memahami cara menggunakan fungsi **GROUP BY** dalam SQL untuk mengelompokkan data berdasarkan kolom tertentu dan menggunakan fungsi agregat untuk meringkas hasil. Ini membantu dalam analisis data dengan cara yang terstruktur dan informatif.
+### Latihan:
+1. Hitung jumlah fasilitas berdasarkan `status_kelayakan`.
+2. Hitung total jumlah tumbuhan berdasarkan `status_konservasi`.

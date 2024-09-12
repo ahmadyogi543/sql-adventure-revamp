@@ -1,60 +1,72 @@
-## SQL DELETE
+## DELETE  
+`DELETE` adalah perintah SQL yang digunakan untuk menghapus data dari tabel. Perintah ini sering dilengkapi dengan klausa `WHERE` untuk menentukan baris mana yang ingin dihapus. Jika klausa `WHERE` tidak digunakan, semua baris dalam tabel akan dihapus.
 
-Pernyataan SQL `DELETE` digunakan untuk menghapus data dari tabel.
-
-Penulisan Query:
-
+### Sintaks:
 ```sql
 DELETE FROM nama_tabel WHERE kondisi;
 ```
-- nama_tabel: Nama tabel dari mana data akan dihapus.
-- kondisi: Kondisi yang harus dipenuhi untuk menghapus baris yang sesuai.
 
-Berikut ini merupakan tabel Pelanggan yang digunakan dalam contoh yang akan diberikan:
+### Database 1
 
-#### Tabel Pelanggan
+Berikut adalah data dari tabel Petugas yang akan digunakan pada contoh 1:
 
-| IDPelanggan | NamaPelanggan                         | NamaKontak      | Alamat                     | Kota        | KodePos | Negara |
-|-------------|--------------------------------------|-----------------|----------------------------|-------------|---------|--------|
-| 1           | Alfreds Futterkiste                  | Maria Anders    | Obere Str. 57              | Berlin      | 12209   | Germany|
-| 2           | Ana Trujillo Emparedados y helados  | Ana Trujillo    | Avda. de la Constitución 2222 | México D.F.| 5021    | Mexico |
-| 3           | Antonio Moreno Taquería             | Antonio Moreno  | Mataderos 2312             | México D.F. | 5023    | Mexico |
-| 4           | Around the Horn                      | Thomas Hardy    | 120 Hanover Sq.            | London      | WA1 1DP | UK     |
-| 5           | Berglunds snabbköp                    | Christina Berglund | Berguvsvägen 8          | Luleå       | S-958 22| Sweden |
+**Tabel Petugas**
 
-### Contoh SQL DELETE
+| id | nama | tugas                | lama_bekerja (tahun) |
+|----|------|----------------------|----------------------|
+| 1  | Budi | Pemandu Wisata       | 5                    |
+| 2  | Siti | Penjaga Gerbang      | 3                    |
+| 3  | Agus | Perawat Hewan        | 7                    |
+| 4  | Wati | Teknisi Fasilitas    | 4                    |
+| 5  | Rudi | Administrasi         | 6                    |
 
-Menghapus Baris Tertentu
----
-Pernyataan SQL berikut ini menghapus pelanggan "Alfreds Futterkiste" dari tabel `Pelanggan`:
 
-   ```sql
-   DELETE FROM Pelanggan WHERE NamaPelanggan = 'Alfreds Futterkiste';
-   ```
+### Contoh 1:
+Hapus data **Rudi** dari tabel **petugas**.
+```sql
+DELETE FROM petugas WHERE nama = 'Rudi';
+```
 
-Setelah pernyataan ini dijalankan, tabel `Pelanggan` akan terlihat seperti berikut:
+#### Hasil Tabel **petugas** setelah query:
+| id  | nama  | tugas             | lama_bekerja |
+| --- | ----- | ----------------- | ------------ |
+| 1   | Budi  | Pemandu Wisata    | 5            |
+| 2   | Siti  | Penjaga Gerbang   | 3            |
+| 3   | Agus  | Perawat Hewan     | 8            |
+| 4   | Wati  | Teknisi Fasilitas | 4            |
 
-   | IDPelanggan | NamaPelanggan                         | NamaKontak      | Alamat                     | Kota        | KodePos | Negara |
-   |-------------|--------------------------------------|-----------------|----------------------------|-------------|---------|--------|
-   | 2           | Ana Trujillo Emparedados y helados  | Ana Trujillo    | Avda. de la Constitución 2222 | México D.F.| 5021    | Mexico |
-   | 3           | Antonio Moreno Taquería             | Antonio Moreno  | Mataderos 2312             | México D.F. | 5023    | Mexico |
-   | 4           | Around the Horn                      | Thomas Hardy    | 120 Hanover Sq.            | London      | WA1 1DP | UK     |
-   | 5           | Berglunds snabbköp                    | Christina Berglund | Berguvsvägen 8          | Luleå       | S-958 22| Sweden |
+**Petugas** dengan nama ‘Rudi’ telah terhapus dari tabel.
 
-Menghapus Semua Baris
----
-Untuk menghapus semua baris dalam tabel tanpa menghapus struktur tabel, gunakan pernyataan berikut:
+### Database 2
 
-   ```sql
-   DELETE FROM Pelanggan;
-   ```
+Berikut adalah data dari tabel Biaya yang akan digunakan pada contoh 2:
 
-Menghapus Tabel
----
+**Tabel Biaya**
 
-Untuk menghapus tabel sepenuhnya, gunakan pernyataan `DROP TABLE`:
+| id | hari  | wisatawan | harga  |
+|----|-------|-----------|--------|
+| 1  | Senin | Dewasa    | 50000  |
+| 2  | Selasa| Anak-Anak | 30000  |
+| 3  | Rabu  | Pelajar   | 40000  |
+| 4  | Kamis | Dewasa    | 55000  |
+| 5  | Jumat | Lansia    | 45000  |
 
-   ```sql
-   DROP TABLE Pelanggan;
-   ```
+### Contoh 2:
+Hapus data pada tabel **biaya** untuk wisatawan **Lansia**.
+```sql
+DELETE FROM biaya WHERE wisatawan = 'Lansia';
+```
 
+#### Hasil Tabel **biaya** setelah query:
+| id  | hari  | wisatawan  | harga |
+| --- | ----- | ---------- | ----- |
+| 1   | Senin | Dewasa     | 50000 |
+| 2   | Selasa| Anak-Anak  | 30000 |
+| 3   | Rabu  | Pelajar    | 40000 |
+| 4   | Kamis | Dewasa     | 55000 |
+
+**Biaya** dengan jenis wisatawan ‘Lansia’ telah terhapus dari tabel.
+
+### Latihan:
+1. Hapus data pada tabel **tumbuhan** yang memiliki **status_konservasi** 'Langka'.
+2. Hapus data dari tabel **hewan** di mana **jumlah** hewan kurang dari 50.

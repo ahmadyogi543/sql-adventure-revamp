@@ -1,148 +1,67 @@
-## SQL Aliases
+## ALIAS  
+ALIAS digunakan untuk memberikan nama sementara pada kolom atau tabel dalam kueri SQL. Ini berguna ketika kita ingin menampilkan hasil dengan nama kolom yang lebih mudah dipahami atau saat bekerja dengan beberapa tabel yang memiliki nama kolom yang sama. Misalnya, kita bisa memberi alias pada kolom "nama" menjadi "Nama Petugas".
 
-Alias dalam SQL digunakan untuk memberi nama sementara pada tabel atau kolom dalam tabel. Alias sering digunakan untuk membuat nama kolom lebih mudah dibaca atau untuk memberikan nama alternatif pada tabel. Alias hanya berlaku selama query tersebut dijalankan dan dibuat dengan menggunakan kata kunci **AS**.
-
-### Penulisan Query
-- **Alias untuk Kolom:**
-  ```sql
-  SELECT nama_kolom AS nama_alias 
-  FROM nama_tabel;
-  ```
-
-- **Alias untuk Tabel:**
-  ```sql
-  SELECT nama_kolom 
-  FROM nama_tabel AS nama_alias;
-  ```
-
-### Contoh Database
-
-Berikut adalah contoh data dari tabel **Pelanggan** yang akan digunakan:
-
-#### Tabel Pelanggan
-
-| IdPelanggan | NamaPelanggan | Alamat              | Kodepos | Kota     | Negara  |
-|-------------|---------------|---------------------|---------|----------|---------|
-| 1           | Alice         | Jl. Merdeka 1       | 12345   | Jakarta  | Indonesia |
-| 2           | Bob           | Jl. Merdeka 2       | 12346   | Bandung  | Indonesia |
-| 3           | Charlie       | Jl. Merdeka 3       | 12347   | Surabaya | Indonesia |
-| 4           | Diana         | Jl. Merdeka 4       | 12348   | Medan    | Indonesia |
-| 5           | Eva           | Jl. Merdeka 5       | 12349   | Makassar | Indonesia |
-
----
-
-### 1. Alias untuk Kolom
-
-Pernyataan SQL berikut membuat dua alias: satu untuk kolom **IdPelanggan** dan satu untuk kolom **NamaPelanggan**.
-
-**Penulisan Query:**
+### Sintaks:
 ```sql
-SELECT IdPelanggan AS Id, NamaPelanggan AS Pelanggan 
-FROM Pelanggan;
+SELECT kolom AS alias_nama FROM nama_tabel;
 ```
 
-**Hasil:**
+### Database 1
 
-| Id | Pelanggan |
-|----|-----------|
-| 1  | Alice     |
-| 2  | Bob       |
-| 3  | Charlie   |
-| 4  | Diana     |
-| 5  | Eva       |
+Berikut adalah data dari tabel Biaya yang akan digunakan pada contoh 1:
 
-Perintah ini menampilkan kolom **IdPelanggan** dengan alias **Id** dan kolom **NamaPelanggan** dengan alias **Pelanggan**. Hasilnya adalah tabel dengan nama kolom yang lebih mudah dibaca.
+**Tabel Biaya**
 
----
+| id | hari  | wisatawan | harga  |
+|----|-------|-----------|--------|
+| 1  | Senin | Dewasa    | 50000  |
+| 2  | Selasa| Anak-Anak | 30000  |
+| 3  | Rabu  | Pelajar   | 40000  |
+| 4  | Kamis | Dewasa    | 55000  |
+| 5  | Jumat | Lansia    | 45000  |
 
-### 2. Menggunakan Alias dengan Karakter Spasi
-
-Jika alias berisi satu atau lebih spasi, Anda dapat menggunakan tanda kurung siku atau tanda kutip ganda.
-
-#### Menggunakan Tanda Kurung Siku:
-**Penulisan Query:**
+### Contoh 1:
+Berikan alias **Harga Tiket** untuk kolom harga pada tabel biaya.
 ```sql
-SELECT NamaPelanggan AS [Nama Pelanggan] 
-FROM Pelanggan;
+SELECT harga AS 'Harga Tiket' FROM biaya;
 ```
 
-**Hasil:**
+#### Hasil Query:
+| Harga Tiket |
+| ----------- |
+| 50000       |
+| 30000       |
+| 40000       |
+| 55000       |
+| 45000       |
 
-| Nama Pelanggan |
-|----------------|
-| Alice          |
-| Bob            |
-| Charlie        |
-| Diana          |
-| Eva            |
+### Database 2
 
-#### Menggunakan Tanda Kutip Ganda:
-**Penulisan Query:**
+Berikut adalah data dari tabel Petugas yang akan digunakan pada contoh 2:
+
+**Tabel Petugas**
+
+| id | nama | tugas                | lama_bekerja (tahun) |
+|----|------|----------------------|----------------------|
+| 1  | Budi | Pemandu Wisata       | 5                    |
+| 2  | Siti | Penjaga Gerbang      | 3                    |
+| 3  | Agus | Perawat Hewan        | 7                    |
+| 4  | Wati | Teknisi Fasilitas    | 4                    |
+| 5  | Rudi | Administrasi         | 6                    |
+
+### Contoh 2:
+Berikan alias **Petugas** untuk kolom nama pada tabel petugas.
 ```sql
-SELECT NamaPelanggan AS "Nama Pelanggan" 
-FROM Pelanggan;
+SELECT nama AS 'Petugas', tugas FROM petugas;
 ```
 
-**Hasil:**
+#### Hasil Query:
+| Petugas | tugas            |
+| ------- | ---------------- |
+| Budi    | Pemandu Wisata    |
+| Siti    | Penjaga Gerbang   |
+| Agus    | Perawat Hewan     |
 
-| Nama Pelanggan |
-|----------------|
-| Alice          |
-| Bob            |
-| Charlie        |
-| Diana          |
-| Eva            |
-
-Perintah ini menunjukkan bagaimana menggunakan tanda kurung siku atau tanda kutip ganda untuk alias dengan spasi.
-
----
-
-### 3. Menggabungkan Kolom dengan Alias
-
-Pernyataan SQL berikut membuat alias bernama **Alamat** yang menggabungkan kolom **Alamat**, **Kodepos**, **Kota**, dan **Negara**.
-
-**Penulisan Query:**
-```sql
-SELECT NamaPelanggan, CONCAT(Alamat, ', ', Kodepos, ', ', Kota, ', ', Negara) AS Alamat 
-FROM Pelanggan;
-```
-
-**Hasil:**
-
-| NamaPelanggan | Alamat                          |
-|---------------|---------------------------------|
-| Alice         | Jl. Merdeka 1, 12345, Jakarta, Indonesia |
-| Bob           | Jl. Merdeka 2, 12346, Bandung, Indonesia |
-| Charlie       | Jl. Merdeka 3, 12347, Surabaya, Indonesia |
-| Diana         | Jl. Merdeka 4, 12348, Medan, Indonesia |
-| Eva           | Jl. Merdeka 5, 12349, Makassar, Indonesia |
-
-Perintah ini menggabungkan kolom **Alamat**, **Kodepos**, **Kota**, dan **Negara** menjadi satu kolom dengan alias **Alamat**.
-
----
-
-### 4. Alias untuk Tabel
-
-Pernyataan SQL berikut memberikan alias **Orang** untuk tabel **Pelanggan**.
-
-**Penulisan Query:**
-```sql
-SELECT * 
-FROM Pelanggan AS Orang;
-```
-
-**Hasil:**
-
-| IdPelanggan | NamaPelanggan | Alamat              | Kodepos | Kota     | Negara  |
-|-------------|---------------|---------------------|---------|----------|---------|
-| 1           | Alice         | Jl. Merdeka 1       | 12345   | Jakarta  | Indonesia |
-| 2           | Bob           | Jl. Merdeka 2       | 12346   | Bandung  | Indonesia |
-| 3           | Charlie       | Jl. Merdeka 3       | 12347   | Surabaya | Indonesia |
-| 4           | Diana         | Jl. Merdeka 4       | 12348   | Medan    | Indonesia |
-| 5           | Eva           | Jl. Merdeka 5       | 12349   | Makassar | Indonesia |
-
-Perintah ini menampilkan seluruh kolom dari tabel **Pelanggan** dengan alias **Orang**. Alias ini memungkinkan Anda untuk menggunakan nama alternatif untuk tabel dalam query.
-
----
-
-Dengan materi ini, Anda dapat memahami bagaimana menggunakan alias dalam SQL untuk memberikan nama sementara pada kolom atau tabel, serta cara menggabungkan kolom dan menggunakan alias dengan spasi.
+### Latihan:
+1. Berikan alias **Konservasi** untuk kolom `status_konservasi` pada tabel hewan.
+2. Berikan alias **Fasilitas Umum** untuk kolom `nama` pada tabel fasilitas.

@@ -1,58 +1,63 @@
-## Fungsi LIMIT
+## LIMIT  
+LIMIT digunakan untuk membatasi jumlah baris yang ditampilkan dalam hasil kueri. Ini sangat berguna ketika kita hanya ingin melihat sebagian kecil dari data, seperti 5 baris pertama dari tabel. Misalnya, jika kita ingin menampilkan 3 petugas pertama dari tabel petugas, kita bisa menggunakan LIMIT.
 
-Fungsi **LIMIT** dalam SQL digunakan untuk membatasi jumlah baris yang dikembalikan oleh pernyataan `SELECT`. Ini berguna saat Anda hanya ingin mengambil sebagian data dari tabel, misalnya, untuk menampilkan data dalam paginasi atau mengambil sampel data.
-
-### Penulisan Query
-
+### Sintaks:
 ```sql
-SELECT * 
-FROM nama_tabel 
-LIMIT jumlah_baris;
+SELECT kolom FROM nama_tabel LIMIT jumlah_baris;
 ```
 
-- **nama_tabel**: Nama tabel dari mana data akan diambil.
-- **jumlah_baris**: Jumlah baris yang ingin ditampilkan dari hasil query.
+### Database 1
 
-### Contoh Database
+Berikut adalah data dari tabel Biaya yang akan digunakan pada contoh 1:
 
-Berikut adalah contoh data dari tabel **Pelanggan** yang akan digunakan:
+**Tabel Biaya**
 
-#### Tabel Pelanggan
+| id | hari  | wisatawan | harga  |
+|----|-------|-----------|--------|
+| 1  | Senin | Dewasa    | 50000  |
+| 2  | Selasa| Anak-Anak | 30000  |
+| 3  | Rabu  | Pelajar   | 40000  |
+| 4  | Kamis | Dewasa    | 55000  |
+| 5  | Jumat | Lansia    | 45000  |
 
-| IDPelanggan | NamaPelanggan                       | ContactName   | Alamat                    | Kota         | KodePos | Negara |
-|-------------|-------------------------------------|---------------|---------------------------|--------------|---------|--------|
-| 1           | Alfreds Futterkiste                 | Maria Anders  | Obere Str. 57             | Berlin       | 12209   | Germany|
-| 2           | Ana Trujillo Emparedados y helados | Ana Trujillo  | Avda. de la Constitución 2222 | México D.F. | 5021    | Mexico |
-| 3           | Antonio Moreno Taquería            | Antonio Moreno | Mataderos 2312            | México D.F.  | 5023    | Mexico |
-| 4           | Around the Horn                     | Thomas Hardy  | 120 Hanover Sq.           | London       | WA1 1DP | UK     |
-| 5           | Berglunds snabbköp                  | Christina Berglund | Berguvsvägen 8         | Luleå        | S-958 22| Sweden |
-
----
-
-### 1. Mengambil Data Teratas dengan LIMIT
-
-Operator **LIMIT** digunakan untuk mengambil sejumlah baris teratas dari hasil query. Ini berguna untuk menampilkan data yang relevan atau sampel data.
-
-#### Contoh:
-Misalkan Anda ingin mengambil 3 data pertama dari tabel **Pelanggan**.
-
-**Penulisan Query**:
+### Contoh 1:
+Tampilkan 3 baris pertama dari tabel biaya.
 ```sql
-SELECT * 
-FROM Pelanggan 
-LIMIT 3;
+SELECT * FROM biaya LIMIT 3;
 ```
 
-**Hasil:**
+#### Hasil Query:
+| id  | hari   | wisatawan  | harga |
+| --- | ------ | ---------- | ----- |
+| 1   | Senin  | Dewasa     | 50000 |
+| 2   | Selasa | Anak-Anak  | 30000 |
+| 3   | Rabu   | Pelajar    | 40000 |
 
-| IDPelanggan | NamaPelanggan                       | ContactName   | Alamat                    | Kota         | KodePos | Negara |
-|-------------|-------------------------------------|---------------|---------------------------|--------------|---------|--------|
-| 1           | Alfreds Futterkiste                 | Maria Anders  | Obere Str. 57             | Berlin       | 12209   | Germany|
-| 2           | Ana Trujillo Emparedados y helados | Ana Trujillo  | Avda. de la Constitución 2222 | México D.F. | 5021    | Mexico |
-| 3           | Antonio Moreno Taquería            | Antonio Moreno | Mataderos 2312            | México D.F.  | 5023    | Mexico |
+### Database 2
 
-Query ini mengembalikan 3 baris pertama dari tabel **Pelanggan**, yaitu data pelanggan dengan ID 1, 2, dan 3.
+Berikut adalah data dari tabel Tumbuhan yang akan digunakan pada contoh 2:
 
----
+**Tabel Tumbuhan**
+| id  | nama           | nama_latin              | habitat      | jumlah | status_konservasi |
+|-----|----------------|-------------------------|--------------|--------|-------------------|
+| 1   | Pohon Ulin     | Eusideroxylon zwageri    | Hutan Tropis | 150    | Terancam Punah     |
+| 2   | Meranti Merah  | Shorea leprosula         | Hutan Tropis | 200    | Dilindungi         |
+| 3   | Anggrek Hitam  | Coelogyne pandurata      | Tepi Hutan   | 100    | Terancam Punah     |
+| 4   | Bakau          | Rhizophora apiculata     | Pesisir      | 500    | Dilindungi         |
+| 5   | Ramin          | Gonystylus bancanus      | Hutan Rawa   | 80     | Langka             |
 
-Dengan materi ini, Anda dapat memahami cara menggunakan fungsi **LIMIT** dalam SQL untuk membatasi jumlah baris yang dikembalikan oleh pernyataan `SELECT`. Ini membantu dalam pengelolaan dan penampilan data secara efisien, terutama ketika bekerja dengan tabel yang memiliki banyak data.
+### Contoh 2:
+Tampilkan 2 baris pertama dari tabel tumbuhan.
+```sql
+SELECT * FROM tumbuhan LIMIT 2;
+```
+
+#### Hasil Query:
+| id  | nama          | nama_latin          | habitat      | jumlah | status_konservasi |
+| --- | ------------- | ------------------- | ------------ | ------ | ----------------- |
+| 1   | Pohon Ulin    | Eusideroxylon zwageri| Hutan Tropis | 150    | Terancam Punah    |
+| 2   | Meranti Merah | Shorea leprosula    | Hutan Tropis | 200    | Dilindungi        |
+
+### Latihan:
+1. Tampilkan 4 baris pertama dari tabel petugas.
+2. Tampilkan 1 baris pertama dari tabel fasilitas.

@@ -1,145 +1,58 @@
-## Fungsi SUM()
+# SUM  
+SUM digunakan untuk menjumlahkan nilai numerik dalam suatu kolom. Misalnya, jika kita ingin menghitung total harga dari semua tiket yang terjual, kita bisa menggunakan SUM pada kolom harga di tabel biaya.
 
-Fungsi **SUM()** digunakan untuk menghitung jumlah total dari sebuah kolom numerik.
+## Sintaks:
+SELECT SUM(kolom) FROM nama_tabel;
 
-#### Penulisan Query:
+### Database 1
+
+Berikut adalah data dari tabel Biaya yang akan digunakan pada contoh 1:
+
+**Tabel Biaya**
+
+| id | hari  | wisatawan | harga  |
+|----|-------|-----------|--------|
+| 1  | Senin | Dewasa    | 50000  |
+| 2  | Selasa| Anak-Anak | 30000  |
+| 3  | Rabu  | Pelajar   | 40000  |
+| 4  | Kamis | Dewasa    | 55000  |
+| 5  | Jumat | Lansia    | 45000  |
+
+## Contoh 1:
+Hitung total harga dari semua baris pada tabel biaya.
 ```sql
-SELECT SUM(nama_kolom) 
-FROM nama_tabel 
-WHERE kondisi;
+SELECT SUM(harga) FROM biaya;
 ```
+### Hasil Query:
 
-- **nama_kolom**: Nama kolom yang ingin dijumlahkan.
-- **nama_tabel**: Nama tabel dari mana data akan diambil.
-- **kondisi**: Kondisi yang harus dipenuhi untuk menjumlahkan data (opsional).
+|SUM(harga)|
+|----------|
+|220000    |
 
-### Contoh Database
+### Database 2
 
-Berikut adalah contoh data dari tabel **DetailPesanan** yang akan digunakan:
+Berikut adalah data dari tabel Tumbuhan yang akan digunakan pada contoh 2:
 
-#### Tabel DetailPesanan
+**Tabel Tumbuhan**
+| id  | nama           | nama_latin              | habitat      | jumlah | status_konservasi |
+|-----|----------------|-------------------------|--------------|--------|-------------------|
+| 1   | Pohon Ulin     | Eusideroxylon zwageri    | Hutan Tropis | 150    | Terancam Punah     |
+| 2   | Meranti Merah  | Shorea leprosula         | Hutan Tropis | 200    | Dilindungi         |
+| 3   | Anggrek Hitam  | Coelogyne pandurata      | Tepi Hutan   | 100    | Terancam Punah     |
+| 4   | Bakau          | Rhizophora apiculata     | Pesisir      | 500    | Dilindungi         |
+| 5   | Ramin          | Gonystylus bancanus      | Hutan Rawa   | 80     | Langka             |
 
-| ID_Pesanan | ID_Produk | Jumlah |
-|------------|-----------|--------|
-| 1          | 10        | 5      |
-| 2          | 11        | 8      |
-| 3          | 11        | 7      |
-| 4          | 12        | 3      |
-| 5          | 10        | 6      |
-
----
-
-### 1. Mengembalikan Jumlah Total Kolom
-
-Untuk menjumlahkan semua nilai dari kolom **Jumlah** dalam tabel **DetailPesanan**, gunakan perintah berikut:
-
-#### Contoh:
-#### Penulisan Query:
+## Contoh 2:
+Hitung total jumlah pada tabel tumbuhan.
 ```sql
-SELECT SUM(Jumlah) 
-FROM DetailPesanan;
+SELECT SUM(jumlah) FROM tumbuhan;
 ```
+### Hasil Query:
 
-**Hasil:**
+|SUM(jumlah)|
+|-----------|
+|1030       |
 
-| SUM(Jumlah) |
-|-------------|
-| 29          |
-
-Perintah ini akan mengembalikan jumlah total dari kolom **Jumlah** di tabel **DetailPesanan**, yaitu **29**.
-
----
-
-### 2. Menambahkan Klausa WHERE
-
-Anda dapat menambahkan klausa **WHERE** untuk menentukan kondisi spesifik, misalnya hanya menjumlahkan nilai untuk produk dengan **ID_Produk** tertentu.
-
-#### Contoh:
-#### Penulisan Query:
-```sql
-SELECT SUM(Jumlah) 
-FROM DetailPesanan 
-WHERE ID_Produk = 11;
-```
-
-**Hasil:**
-
-| SUM(Jumlah) |
-|-------------|
-| 15          |
-
-Perintah ini akan mengembalikan jumlah total dari kolom **Jumlah** untuk produk dengan **ID_Produk = 11**, yaitu **15**.
-
----
-
-### 3. Menggunakan Alias
-
-Anda bisa memberi nama pada kolom hasil perhitungan dengan menggunakan kata kunci **AS**. Ini berguna untuk memberi nama kolom yang lebih deskriptif dalam hasil keluaran.
-
-#### Contoh:
-#### Penulisan Query:
-```sql
-SELECT SUM(Jumlah) AS total 
-FROM DetailPesanan;
-```
-
-**Hasil:**
-
-| total |
-|-------|
-| 29    |
-
-Perintah ini akan mengembalikan jumlah total dari kolom **Jumlah** dan menamainya sebagai **total**.
-
----
-
-### 4. Menggunakan SUM() dengan GROUP BY
-
-Anda bisa menggunakan fungsi **SUM()** bersama dengan klausa **GROUP BY** untuk mengelompokkan hasil berdasarkan kolom tertentu, misalnya untuk menghitung jumlah produk pada setiap pesanan.
-
-#### Contoh:
-#### Penulisan Query:
-```sql
-SELECT ID_Pesanan, SUM(Jumlah) AS [Total Jumlah] 
-FROM DetailPesanan 
-GROUP BY ID_Pesanan;
-```
-
-**Hasil:**
-
-| ID_Pesanan | Total Jumlah |
-|------------|--------------|
-| 1          | 5            |
-| 2          | 8            |
-| 3          | 7            |
-| 4          | 3            |
-| 5          | 6            |
-
-Perintah ini akan mengelompokkan hasil berdasarkan **ID_Pesanan** dan menampilkan total **Jumlah** untuk setiap pesanan.
-
----
-
-### 5. SUM() dengan Ekspresi
-
-Anda juga bisa menggunakan ekspresi di dalam fungsi **SUM()**, seperti menghitung total pendapatan dengan mengalikan setiap jumlah dengan nilai tertentu.
-
-#### Contoh:
-Misalnya, jika setiap produk di tabel **DetailPesanan** berharga 10 dolar, kita bisa menemukan total pendapatan dengan mengalikan **Jumlah** dengan **10**.
-
-#### Penulisan Query:
-```sql
-SELECT SUM(Jumlah * 10) AS TotalPendapatan 
-FROM DetailPesanan;
-```
-
-**Hasil:**
-
-| TotalPendapatan |
-|-----------------|
-| 290             |
-
-Perintah ini akan mengembalikan total pendapatan dalam dolar, yaitu **290**.
-
----
-
-Dengan materi ini, Anda dapat mempelajari berbagai cara untuk menjumlahkan data numerik dalam SQL menggunakan fungsi **SUM()**, baik dengan menghitung total keseluruhan, menambahkan kondisi spesifik, atau menggunakan alias dan klausa **GROUP BY** untuk pengelompokan.
+## Latihan:
+1. Hitung total lama_hidup dari semua hewan di tabel hewan.
+2. Hitung total jumlah fasilitas di tabel fasilitas.
