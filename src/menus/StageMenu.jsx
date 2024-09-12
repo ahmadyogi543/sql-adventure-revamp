@@ -5,6 +5,7 @@ import { useAuthContext } from "../context/AuthContext";
 import { useEffect, useState } from "react";
 import { getStageData } from "../api/progress";
 import { Link } from "react-router-dom";
+import objectives from "../data/objective.json"; // Import objective.json
 
 const StageMenu = () => {
   const { token, user } = useAuthContext();
@@ -12,10 +13,19 @@ const StageMenu = () => {
   const [data, setData] = useState([]);
   const [tampilkanModal, setTampilkanModal] = useState(false);
   const [stageTerpilih, setStageTerpilih] = useState(null);
+  const [tujuan, setTujuan] = useState("");
 
   useEffect(() => {
+    // Mengambil data stage dari API
     getStageData(token, user.id)
-      .then((data) => setData(data))
+      .then((data) => {
+        // Gabungkan data stage dengan tujuan dari objective.json
+        const dataWithObjectives = data.map((stage) => {
+          const objective = objectives.find((obj) => obj.id === stage.id);
+          return { ...stage, tujuan: objective?.tujuan || "Tidak ada tujuan." };
+        });
+        setData(dataWithObjectives);
+      })
       .catch((err) => {
         alert("Kesalahan: terjadi gangguan pada sistem!");
         console.error(err);
@@ -25,6 +35,7 @@ const StageMenu = () => {
   const handleKlikStage = (stage) => {
     if (stage.unlock) {
       setStageTerpilih(stage);
+      setTujuan(stage.tujuan); // Set tujuan dari stage yang diklik
       setTampilkanModal(true);
     } else {
       alert("Topik ini belum terbuka!");
@@ -56,7 +67,7 @@ const StageMenu = () => {
                     key={`star-card-${k}`}
                     width={24}
                     src="/images/stage-cards/star.png"
-                    alt=""
+                    alt="star"
                   />
                 ))}
               </div>
@@ -67,9 +78,11 @@ const StageMenu = () => {
         {/* Modal untuk memilih Belajar atau Bermain */}
         <Modal show={tampilkanModal} onHide={handleTutup} centered>
           <Modal.Header closeButton>
-            <Modal.Title>Pilih Aksi</Modal.Title>
+            <Modal.Title>{stageTerpilih?.title || "Informasi Topik"}</Modal.Title>
           </Modal.Header>
-          <Modal.Body className="mx-auto">
+          <Modal.Body className="mx-auto text-center"> {/* Menambahkan text-center */}
+            {/* Menampilkan tujuan dari stage yang dipilih */}
+            {tujuan && <p className="mb-4">{tujuan}</p>}
             <p>Apakah Anda ingin belajar atau bermain?</p>
           </Modal.Body>
           <Modal.Footer className="mx-auto">
