@@ -14,6 +14,24 @@ export function checkAnswer(
   check,
   validate
 ) {
+  if (userQuery.trim() === "") {
+    return getCheckAnswerResult(
+      false,
+      null,
+      "Maaf, perintah tidak boleh kosong!",
+      userQuery
+    );
+  }
+
+  if (userQuery.trim().charAt(userQuery.trim().length - 1) !== ";") {
+    return getCheckAnswerResult(
+      false,
+      null,
+      "Maaf, perintah harus diakhiri karakter titik koma!",
+      userQuery
+    );
+  }
+
   // check the user query, only for SELECT, INSERT, UPDATE and DELETE
   const regex = /^(SELECT|INSERT|UPDATE|DELETE)\b/i;
   if (!regex.test(userQuery)) {
@@ -88,6 +106,8 @@ export function checkAnswer(
       );
     }
 
+    console.log(userResult);
+
     // compare the columns of dialog and user query result
     if (
       JSON.stringify(userResult.data.columns)
@@ -105,8 +125,14 @@ export function checkAnswer(
       );
     }
 
+    const filteredUserResultDataValues = userResult.data.values.filter(
+      (value) => value !== null
+    );
+    const filteredDialogResultDataValues = dialogResult.data.values.filter(
+      (value) => value !== null
+    );
     // compare the number of rows of dialog and user query result
-    if (userResult.data.values.length < dialogResult.data.values.length) {
+    if (filteredUserResultDataValues < filteredDialogResultDataValues) {
       return getCheckAnswerResult(
         false,
         userResult.data,
@@ -115,7 +141,7 @@ export function checkAnswer(
       );
     }
 
-    if (userResult.data.values.length > dialogResult.data.values.length) {
+    if (filteredUserResultDataValues > filteredDialogResultDataValues) {
       return getCheckAnswerResult(
         false,
         userResult.data,
