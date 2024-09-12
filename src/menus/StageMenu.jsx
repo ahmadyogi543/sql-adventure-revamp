@@ -24,10 +24,10 @@ const StageMenu = () => {
 
   const handleKlikStage = (stage) => {
     if (stage.unlock) {
-      setStageTerpilih(stage); 
-      setTampilkanModal(true); 
+      setStageTerpilih(stage);
+      setTampilkanModal(true);
     } else {
-      alert("Stage ini belum terbuka!");
+      alert("Topik ini belum terbuka!");
     }
   };
 
@@ -69,21 +69,21 @@ const StageMenu = () => {
           <Modal.Header closeButton>
             <Modal.Title>Pilih Aksi</Modal.Title>
           </Modal.Header>
-          <Modal.Body>
+          <Modal.Body className="mx-auto">
             <p>Apakah Anda ingin belajar atau bermain?</p>
           </Modal.Body>
-          <Modal.Footer>
+          <Modal.Footer className="mx-auto">
             <Link to={`/learn`}>
-              <Button variant="primary">Belajar</Button>
+              <Button variant="outline-primary">BELAJAR</Button>
             </Link>
             <Button
-              variant="success"
+              variant="outline-primary"
               onClick={() => {
                 toGameplayMenu({ data: stageTerpilih });
                 handleTutup();
               }}
             >
-              Bermain
+              BERMAIN
             </Button>
           </Modal.Footer>
         </Modal>
