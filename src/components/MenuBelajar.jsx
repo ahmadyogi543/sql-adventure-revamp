@@ -1,14 +1,17 @@
 import { Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import backgroundImage from '../../src/assets/images/button.jpg';
+import backgroundImage from '../../src/assets/images/home.jpg';
 
 const MenuButton = ({ href, icon, onClick, title }) => {
   return (
     <Card className="text-secondary flex-grow-1 py-2" style={{
       backgroundImage: `url(${backgroundImage})`,
-      backgroundSize: "cover",
+      backgroundSize: "contain",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+      backgroundColor: "transparent"
     }}>
-      <Card.Body className="mx-auto flex-center flex-column">
+      <Card.Body className="mx-auto flex-center flex-column p-4">
         <div
           className="bg-secondary text-primary rounded-circle flex-center mx-auto mb-4"
           style={{

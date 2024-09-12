@@ -8,6 +8,7 @@ import {
 
 import HomeLayout from "../../layouts/HomeLayout";
 import MenuButton from "../../components/MenuButton";
+import MenuBelajar from "../../components/MenuBelajar";
 import { useAuthContext } from "../../context/AuthContext";
 import { Navigate } from "react-router-dom";
 
@@ -24,7 +25,7 @@ const HomeRootPage = () => {
       <div className="d-flex flex-column flex-grow-1">
         <Row className="mb-2 d-flex flex-column flex-grow-1">
           <Col className="d-flex flex-column flex-grow-1">
-            <MenuButton
+            <MenuBelajar
               href="/gameplay"
               icon={
                 <IoLogoGameControllerA
