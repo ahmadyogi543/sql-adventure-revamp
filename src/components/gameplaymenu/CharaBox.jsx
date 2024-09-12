@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Button, OverlayTrigger, Popover, Spinner } from "react-bootstrap";
 
 import { useGameStateContext } from "../../context/GameStateContext";
-import { useMenuContext } from "../../context/MenuContext";
 import { attemptStage } from "../../api/progress";
 import { useAuthContext } from "../../context/AuthContext";
 import Joyride, { STATUS } from "react-joyride";
@@ -22,12 +21,6 @@ const STEPS = [
   {
     target: "#output",
     content: "Di sini akan tampil output dari perintah yang kamu ketikkan",
-    disableBeacon: true,
-  },
-  {
-    target: "#root",
-    content:
-      "Bagus! Setelah mengenal bagian antarmuka dan komponen permainan, mari kita mulai!",
     disableBeacon: true,
   },
 ];
@@ -53,7 +46,7 @@ export default function CharaBox({ id, title, missions }) {
   const { setDialog } = useGameStateContext();
   const { score, decrementScore, incrementScore, resetDecrementScore } =
     useGameStateContext();
-  const { toStageMenu } = useMenuContext();
+  const { realIncrementScore, setRealIncrementScore } = useGameStateContext();
   const [showJoyride, setShowJoyride] = useState(false);
 
   const mission = missions[missionIndex];
@@ -63,10 +56,24 @@ export default function CharaBox({ id, title, missions }) {
   const isMissionIndexAtLast = missionIndex === missions.length - 1;
   const isDialogIndexAtLast = dialogIndex === dialogs.length - 1;
 
+  useEffect(() => {
+    let instructionCount = 0;
+
+    missions.forEach((mission) => {
+      mission.dialogs.forEach((dialog) => {
+        if (dialog.type === "instruction") {
+          instructionCount++;
+        }
+      });
+    });
+
+    setRealIncrementScore(100 / instructionCount);
+  }, [missions]);
+
   // this useEffect will trigger to detect if the dialog is the last one
   // then it will set a timer 2 or 3 seconds or so to change to the next mission
   useEffect(() => {
-    if (id === 1 && dialogIndex === 1) {
+    if (id === 1 && missionIndex === 0 && dialogIndex === 1) {
       setShowJoyride(true);
     }
 
@@ -120,40 +127,14 @@ export default function CharaBox({ id, title, missions }) {
     incrementDialogIndex();
     narration();
 
-    // increment score
-    let instructionCount = 0;
-
-    missions.forEach((mission) => {
-      mission.dialogs.forEach((dialog) => {
-        if (dialog.type === "instruction") {
-          instructionCount++;
-        }
-      });
-    });
-
-    incrementScore(100 / instructionCount - decrementScore);
-    resetDecrementScore(0);
-  }, [state]);
-
-  useEffect(() => {
-    // add score
-    let instructionCount = 0;
-
-    missions.forEach((mission) => {
-      mission.dialogs.forEach((dialog) => {
-        if (dialog.type === "instruction") {
-          instructionCount++;
-        }
-      });
-    });
-
-    if (Math.floor(100 / instructionCount - decrementScore) <= 0) {
-      alert(
-        "ALERT: Maaf kamu terlalu banyak melakukan kesalahan, silahkan ulang kembali!"
-      );
-      toStageMenu();
+    if (realIncrementScore - decrementScore <= 0) {
+      incrementScore(realIncrementScore / 5);
+    } else {
+      incrementScore(realIncrementScore - decrementScore);
     }
-  }, [decrementScore]);
+
+    resetDecrementScore();
+  }, [state]);
 
   return (
     <div className="flex-grow-1 position-relative">
