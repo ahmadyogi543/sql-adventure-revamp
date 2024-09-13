@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import remarkGfm from "remark-gfm";
 import ReactMarkdown from "react-markdown";
 import GameplayMenuLayout from "../../layouts/GameplayMenuLayout";
-import { Button } from "react-bootstrap";
+import { Button, Table } from "react-bootstrap";
 
 const LearnSlugPage = () => {
   const { slug } = useParams();
@@ -32,6 +32,7 @@ const LearnSlugPage = () => {
         <ReactMarkdown
           children={md}
           className="bg-white p-5 rounded border"
+          components={{ table: ({ ...props }) => <Table {...props} striped /> }}
           remarkPlugins={[remarkGfm]}
         />
       </div>
