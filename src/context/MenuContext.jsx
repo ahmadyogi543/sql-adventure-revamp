@@ -5,7 +5,7 @@ import MENUS from "../constants/menus";
 const MenuContext = createContext();
 
 export function MenuContextProvider({ children }) {
-  const [menu, setMenu] = useState(MENUS.COMPLETE);
+  const [menu, setMenu] = useState(MENUS.STAGE);
   const [payload, setPayload] = useState({});
 
   const setMenuAndPayload = (menu, payload) => {

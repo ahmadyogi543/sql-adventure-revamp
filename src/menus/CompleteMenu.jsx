@@ -10,9 +10,7 @@ import GameplayMenuLayout from "../layouts/GameplayMenuLayout";
 
 export default function CompleteMenu() {
   const { payload, toGameplayMenu, toStageMenu } = useMenuContext();
-  // const { score, stageId } = payload.data;
-  const score = 100;
-  const stageId = 1;
+  const { score, stageId } = payload.data;
 
   return (
     <GameplayMenuLayout title="SELESAI">
