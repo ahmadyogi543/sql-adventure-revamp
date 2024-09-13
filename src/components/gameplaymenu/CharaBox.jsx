@@ -23,6 +23,12 @@ const STEPS = [
     content: "Di sini akan tampil output dari perintah yang kamu ketikkan",
     disableBeacon: true,
   },
+  {
+    target: "#log",
+    content:
+      "Jika kamu lupa dengan perintah atau dialog sebelumnya, riwayat dialog dapat diakses di sini!",
+    disableBeacon: true,
+  },
 ];
 
 const TIMEOUT = 5000;
