@@ -24,7 +24,7 @@ const HomeLayout = ({ children }) => {
     <Container fluid className="bg-primary-dark flex-column-grow">
       <Row className="flex-grow-1">
         <Col className="bg-primary flex-center flex-column p-5" md={5}>
-          <img className="d-block mb-4" width={320} src={Logo} alt="logo" />
+          <img className="d-block mb-4" width={280} src={Logo} alt="logo" />
           <div className="bg-secondary rounded px-4 py-4 text-center text-primary">
             <p className="fw-bold m-0">++ Game Edukasi dengan Materi SQL ++</p>
             <p className="small m-0">
@@ -32,7 +32,7 @@ const HomeLayout = ({ children }) => {
             </p>
           </div>
           {authenticated ? (
-            <div className="mt-4 bg-primary-dark p-4 px-5 rounded">
+            <div className="mt-4 mb-3 bg-primary-dark py-4 px-5 rounded">
               <p className="text-white m-0">
                 Selamat datang, {user ? user.name : "Pengguna"}!
               </p>
@@ -47,7 +47,7 @@ const HomeLayout = ({ children }) => {
           ) : (
             <>
               <div className="mt-4">
-                {location.pathname === "/" ? (
+                {location.pathname === "/" && (
                   <>
                     <Link to="/login">
                       <Button className="me-2" variant="secondary">
@@ -61,17 +61,16 @@ const HomeLayout = ({ children }) => {
                       </Button>
                     </Link>
                   </>
-                ) : (
-                  <>
-                    <Link to="/">
-                      <Button variant="outline-secondary">
-                        <small className="fw-bold">KEMBALI</small>
-                      </Button>
-                    </Link>
-                  </>
                 )}
               </div>
             </>
+          )}
+          {location.pathname !== "/" && (
+            <Link to="/">
+              <Button variant="outline-secondary">
+                <small className="fw-bold">KEMBALI</small>
+              </Button>
+            </Link>
           )}
         </Col>
         <Col className="d-flex flex-column bg-secondary text-primary p-5">

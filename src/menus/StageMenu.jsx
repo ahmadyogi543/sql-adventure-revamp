@@ -50,9 +50,16 @@ const StageMenu = () => {
   return (
     <GameplayMenuLayout title="PILIH TOPIK">
       <Container className="p-5">
-        <Row className="g-4 gap-2">
+        <Row className="g-5">
           {data.map((d) => (
-            <Col className="flex-center flex-column" key={`stage-menu-${d.id}`}>
+            <Col
+              className="flex-center flex-column"
+              key={`stage-menu-${d.id}`}
+              sm={6}
+              md={4}
+              lg={3}
+              xl={2}
+            >
               <img
                 onClick={() => handleKlikStage(d)}
                 className={`d-block rounded ${

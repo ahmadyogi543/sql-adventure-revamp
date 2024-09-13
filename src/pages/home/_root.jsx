@@ -3,8 +3,8 @@ import {
   IoIosJournal,
   IoIosListBox,
   IoLogoGameControllerA,
-  IoMdSettings,
 } from "react-icons/io";
+import { FaExclamationCircle } from "react-icons/fa";
 
 import HomeLayout from "../../layouts/HomeLayout";
 import MenuButton from "../../components/MenuButton";
@@ -47,16 +47,18 @@ const HomeRootPage = () => {
           </Col>
           <Col md={4}>
             <MenuButton
-              href="/settings"
-              icon={<IoMdSettings className="m-0" style={{ fontSize: 48 }} />}
-              title="Pengaturan"
+              href="/leaderboard"
+              icon={<IoIosListBox className="m-0" style={{ fontSize: 42 }} />}
+              title="Leaderboard"
             />
           </Col>
           <Col md={4}>
             <MenuButton
-              href="/leaderboard"
-              icon={<IoIosListBox className="m-0" style={{ fontSize: 42 }} />}
-              title="Leaderboard"
+              href="/about"
+              icon={
+                <FaExclamationCircle className="m-0" style={{ fontSize: 48 }} />
+              }
+              title="Tentang"
             />
           </Col>
         </Row>
