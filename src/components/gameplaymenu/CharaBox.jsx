@@ -53,6 +53,7 @@ export default function CharaBox({ id, title, missions }) {
   const { score, decrementScore, incrementScore, resetDecrementScore } =
     useGameStateContext();
   const { realIncrementScore, setRealIncrementScore } = useGameStateContext();
+  const { appendDialogs, clearDialogs } = useGameStateContext();
   const [showJoyride, setShowJoyride] = useState(false);
 
   const mission = missions[missionIndex];
@@ -89,6 +90,7 @@ export default function CharaBox({ id, title, missions }) {
       if (!isMissionIndexAtLast) {
         resetDialogIndex();
         incrementMissionIndex();
+        clearDialogs();
       } else {
         done();
 
@@ -108,6 +110,7 @@ export default function CharaBox({ id, title, missions }) {
   useEffect(() => {
     if (isStateStart) return;
 
+    appendDialogs(dialog.text);
     if (dialog.type === "narration") narration();
     else if (dialog.type === "instruction") instruction();
   }, [dialogIndex]);
@@ -154,7 +157,7 @@ export default function CharaBox({ id, title, missions }) {
         show={(isStateNarration || isStateInstruction) && !showJoyride}
         placement="right"
         overlay={
-          <Popover id="popover-basic">
+          <Popover id="popover-basic" className="z-2">
             <Popover.Body>
               <p>{dialog.text}</p>
               <div className="d-flex align-items-center justify-content-between">

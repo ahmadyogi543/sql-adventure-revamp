@@ -17,6 +17,10 @@ export function GameStateContextProvider({ children }) {
   const [dialog, setDialog] = useState({ query: "", type: "", validation: "" });
   const [results, setResults] = useState([]);
 
+  const [dialogs, setDialogs] = useState([]);
+  const appendDialogs = (dialog) => setDialogs((prev) => [...prev, dialog]);
+  const clearDialogs = () => setDialogs([]);
+
   // index of mission and dialog for each topic
   const [index, setIndex] = useState({
     mission: 0,
@@ -73,6 +77,11 @@ export function GameStateContextProvider({ children }) {
         // dialog
         dialog,
         setDialog,
+
+        // dialogs
+        dialogs,
+        appendDialogs,
+        clearDialogs,
 
         // score
         score,
