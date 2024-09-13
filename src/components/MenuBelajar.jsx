@@ -16,7 +16,7 @@ const MenuButton = ({ href, icon, onClick, title }) => {
     >
       <Card.Body className="mx-auto flex-center flex-column p-4">
         <div
-          className="bg-secondary text-primary rounded-circle flex-center mx-auto mb-4"
+          className="bg-custom-blue-light text-white rounded-circle flex-center mx-auto mb-4"
           style={{
             width: 96,
             height: 96,
@@ -25,8 +25,8 @@ const MenuButton = ({ href, icon, onClick, title }) => {
           {icon}
         </div>
         <Link to={href}>
-          <Button className="px-4" variant="secondary" onClick={onClick}>
-            <span className="small fw-bold text-primary">
+          <Button className="px-4" variant="custom-blue-light" onClick={onClick}>
+            <span className="small fw-bold text-white">
               {title.toUpperCase()}
             </span>
           </Button>
