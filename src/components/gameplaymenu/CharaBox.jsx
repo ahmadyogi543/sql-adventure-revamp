@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, OverlayTrigger, Popover, Spinner } from "react-bootstrap";
+import remarkGfm from "remark-gfm";
+import ReactMarkdown from "react-markdown";
 
 import { useGameStateContext } from "../../context/GameStateContext";
 import { attemptStage } from "../../api/progress";
@@ -159,7 +161,9 @@ export default function CharaBox({ id, title, missions }) {
         overlay={
           <Popover id="popover-basic" className="z-2">
             <Popover.Body>
-              <p>{dialog.text}</p>
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                {dialog.text}
+              </ReactMarkdown>
               <div className="d-flex align-items-center justify-content-between">
                 <span>
                   {dialogIndex + 1}/{dialogs.length}
