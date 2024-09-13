@@ -1,42 +1,52 @@
 [
-    {
-      "id": 1,
-      "tujuan": "Melatih penggunaan SELECT ALL yang dikombinasikan dengan query WHERE, NOT, DISTINCT serta Operator Aritmatika untuk menampilkan seluruh data pada tabel."
-    },
-    {
-      "id": 2,
-      "tujuan": "Memperdalam  penggunaan SELECT ALL yang dikombinasikan dengan query WHERE, dengan Operator Aritmatika dan Operator Perbandingan untuk menampilkan seluruh data pada tabel."
-    },
-    {
-      "id": 3,
-      "tujuan": "Melakukan operasi aritmatika dan  sub-query sederhana pada kolom menggunakan query SELECT ALL."
-    },
-    {
-      "id": 4,
-      "tujuan": "Menggunakan WHERE dengan berbagai operator seperti BETWEEN, LIKE, dan NOT untuk menyaring data lebih kompleks."
-    },
-    {
-      "id": 5,
-      "tujuan": "Menerapkan ORDER BY untuk mengurutkan data berdasarkan kolom tertentu, serta menggunakan LIMIT untuk menampilkan hasil terbatas."
-    },
-    {
-      "id": 6,
-      "tujuan": "Menggunakan fungsi agregat seperti MAX, MIN, AVG, SUM, dan COUNT untuk menganalisis data tumbuhan."
-    },
-    {
-      "id": 7,
-      "tujuan": "Menerapkan fungsi agregat dan filter WHERE untuk menghitung dan menganalisis data biaya masuk wisatawan."
-    },
-    {
-      "id": 8,
-      "tujuan": "Menggunakan GROUP BY dan ORDER BY untuk mengelompokkan dan mengurutkan data hewan berdasarkan kategori seperti makanan dan status konservasi."
-    },
-    {
-      "id": 9,
-      "tujuan": "Mempelajari cara melakukan operasi INSERT, UPDATE, dan DELETE pada tabel SQL untuk memperbarui dan mengelola data."
-    },
-    {
-      "id": 10,
-      "tujuan": "Mengasah keterampilan mengelola data dengan operasi INSERT, UPDATE, dan DELETE, termasuk penghapusan data spesifik berdasarkan kondisi tertentu."
-    }
-  ]
+  {
+    "id": 1,
+    "title": "Menjelajahi Pulau Kembang",
+    "tujuan": "Melatih penggunaan SELECT ALL yang dikombinasikan dengan query WHERE, NOT, DISTINCT serta Operator Aritmatika untuk menampilkan seluruh data pada tabel."
+  },
+  {
+    "id": 2,
+    "title": "Memahami Populasi Tumbuhan",
+    "tujuan": "Memperdalam  penggunaan SELECT ALL yang dikombinasikan dengan query WHERE, dengan Operator Aritmatika dan Operator Perbandingan untuk menampilkan seluruh data pada tabel."
+  },
+  {
+    "id": 3,
+    "title": "Memahami Populasi Hewan",
+    "tujuan": "Melakukan operasi aritmatika dan  sub-query sederhana pada kolom menggunakan query SELECT ALL."
+  },
+  {
+    "id": 4,
+    "title": "Eksplorasi Lanjutan Pulau Kembang",
+    "tujuan": "Menggunakan WHERE dengan berbagai operator seperti BETWEEN, LIKE, dan NOT untuk menyaring data lebih kompleks."
+  },
+  {
+    "id": 5,
+    "title": "Mengurutkan Data Pulau Kembang",
+    "tujuan": "Menerapkan ORDER BY untuk mengurutkan data berdasarkan kolom tertentu, serta menggunakan LIMIT untuk menampilkan hasil terbatas."
+  },
+  {
+    "id": 6,
+    "title": "Menganalisis Data Tumbuhan",
+    "tujuan": "Menggunakan fungsi agregat seperti MAX, MIN, AVG, SUM, dan COUNT untuk menganalisis data tumbuhan."
+  },
+  {
+    "id": 7,
+    "title": "Biaya Masuk Wisatawan",
+    "tujuan": "Menerapkan fungsi agregat dan filter WHERE untuk menghitung dan menganalisis data biaya masuk wisatawan."
+  },
+  {
+    "id": 8,
+    "title": "Menganalisis Data Hewan",
+    "tujuan": "Menggunakan GROUP BY dan ORDER BY untuk mengelompokkan dan mengurutkan data hewan berdasarkan kategori seperti makanan dan status konservasi."
+  },
+  {
+    "id": 9,
+    "title": "Pengelolaan Data Pulau Kembang",
+    "tujuan": "Mempelajari cara melakukan operasi INSERT, UPDATE, dan DELETE pada tabel SQL untuk memperbarui dan mengelola data."
+  },
+  {
+    "id": 10,
+    "title": "Peningkatan Pengelolaan Data",
+    "tujuan": "Mengasah keterampilan mengelola data dengan operasi INSERT, UPDATE, dan DELETE, termasuk penghapusan data spesifik berdasarkan kondisi tertentu."
+  }
+]

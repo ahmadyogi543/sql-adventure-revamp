@@ -21,7 +21,11 @@ const StageMenu = () => {
       .then((data) => {
         const dataWithObjectives = data.map((stage) => {
           const objective = objectives.find((obj) => obj.id === stage.id);
-          return { ...stage, tujuan: objective?.tujuan || "Tidak ada tujuan." };
+          return {
+            ...stage,
+            tujuan: objective?.tujuan || "Tidak ada tujuan.",
+            title: objective.title || "Informasi Topik",
+          };
         });
         setData(dataWithObjectives);
       })
@@ -76,17 +80,16 @@ const StageMenu = () => {
 
         {/* Modal untuk memilih Belajar atau Bermain */}
         <Modal show={tampilkanModal} onHide={handleTutup} centered>
-          <Modal.Header closeButton>
-            <Modal.Title>
-              {stageTerpilih?.title || "Informasi Topik"}
+          <Modal.Header className="mx-auto">
+            <Modal.Title className="p-2 fw-bold text-center">
+              {stageTerpilih?.title.toUpperCase() || "Informasi Topik"}
             </Modal.Title>
           </Modal.Header>
           <Modal.Body className="mx-auto text-center">
-            {" "}
             {/* Menambahkan text-center */}
             {/* Menampilkan tujuan dari stage yang dipilih */}
-            {tujuan && <p className="mb-4">{tujuan}</p>}
-            <p>Apakah Anda ingin belajar atau bermain?</p>
+            <p className="fw-bold">TUJUAN:</p>
+            {tujuan && <p className="mb-0">{tujuan}</p>}
           </Modal.Body>
           <Modal.Footer className="mx-auto">
             <Link to={`/learn`}>
