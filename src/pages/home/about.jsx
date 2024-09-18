@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import HomeLayout from "../../layouts/HomeLayout";
+import GameplayMenuLayout from "../../layouts/GameplayMenuLayout";
 import { Button, Card, Container, Row, Col } from "react-bootstrap";
 
 // Import komponen yang telah dibuat
@@ -10,8 +10,8 @@ import SumberDataInfo from "../../components/about/sumberDataInfo";
 
 // Konstanta untuk tab yang tersedia
 const tabs = [
-  { id: "game", label: "Tentang Game" },
-  { id: "peneliti", label: "Tentang Peneliti" },
+  { id: "game", label: "Game" },
+  { id: "peneliti", label: "Peneliti" },
   { id: "sumber", label: "Sumber Data" }
 ];
 
@@ -33,15 +33,14 @@ const HomeSettingsPage = () => {
   };
 
   return (
-    <HomeLayout>
-      <Container>
+    <GameplayMenuLayout title="TENTANG">
+      <Container className="p-3">
         <Row className="justify-content-center">
-          <Col md={12}> {/* Menyesuaikan ukuran Col menjadi maksimal 12 */}
-            {/* Tombol navigasi untuk mengubah konten */}
+          <Col md={12}> 
             <div className="d-flex justify-content-between mb-4 gap-2">
               {tabs.map((tab) => (
                 <Button
-                  key={tab.id} // Menambahkan key pada elemen yang di-loop
+                  key={tab.id}
                   className="w-100"
                   variant={activeTab === tab.id ? "primary" : "outline-primary"}
                   onClick={() => setActiveTab(tab.id)}
@@ -50,17 +49,15 @@ const HomeSettingsPage = () => {
                 </Button>
               ))}
             </div>
-
-            {/* Box untuk menampilkan konten dengan scroll */}
             <Card>
-              <Card.Body className="overflow-auto" style={{ maxHeight: '450px' , maxWidth: '100%'}}>
+              <Card.Body>
                 {renderContent()}
               </Card.Body>
             </Card>
           </Col>
         </Row>
       </Container>
-    </HomeLayout>
+    </GameplayMenuLayout>
   );
 };
 
