@@ -741,7 +741,7 @@
           },
           {
             "type": "instruction",
-            "text": "Tampilkan *nama* tumbuhan dan *jumlah terbanyak* yang ditemukan di data **tumbuhan**. Petunjuk : Buat data jumlah terbanyak dengan alias.",
+            "text": "Tampilkan **nama** tumbuhan dan **jumlah terbanyak** yang ditemukan di data **tumbuhan**. Petunjuk : Buat data jumlah terbanyak dengan alias.",
             "sql": {
               "type": "exec",
               "query": "SELECT nama, MAX(jumlah) AS jumlah_terbanyak FROM tumbuhan;"
@@ -767,7 +767,7 @@
           },
           {
             "type": "instruction",
-            "text": "Cari tumbuhan dengan *jumlah* paling sedikit dan tampilkan **nama** serta **jumlah terkecil** dari data **tumbuhan**. Petunjuk : Buat data jumlah terbanyak dengan alias.",
+            "text": "Cari tumbuhan dengan **jumlah** paling sedikit dan tampilkan **nama** serta **jumlah terkecil** dari data **tumbuhan**. Petunjuk : Buat data jumlah terbanyak dengan alias.",
             "sql": {
               "type": "exec",
               "query": "SELECT nama, MIN(jumlah) AS jumlah_terkecil FROM tumbuhan;"
