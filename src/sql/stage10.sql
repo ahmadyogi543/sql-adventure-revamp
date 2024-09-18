@@ -7,14 +7,22 @@ CREATE TABLE IF NOT EXISTS petugas (
 );
 
 -- memasukan beberapa data ke dalam tabel
-INSERT INTO 'petugas' ('nama', 'tugas', 'lama_bekerja') VALUES
-('Bambang', 'Petugas kebersihan', 1),
-('Ratna', 'Penjaga loket', 1),
-('Cahya', 'Penjaga loket', 1),
+INSERT INTO petugas (nama, tugas, lama_bekerja) VALUES
+('Bambang', 'Petugas kebersihan', 5),
+('Ratna', 'Penjaga loket', 10),
+('Cahya', 'Penjaga loket', 5),
+('Arif', 'Penjaga loket', 1),
+('Rio', 'Penjaga loket', 2),
 ('Rahmat', 'Keamanan', 1),
 ('Udin', 'Keamanan', 2),
 ('Rika', 'Petugas kebersihan', 2),
-('Agung', 'Pemandu wisata', 4),
+('Agung', 'Pemandu wisata', 10),
+('Imas', 'Pemandu wisata', 4),
+('Siti', 'Pemandu wisata', 15),
+('Burhan', 'Pemandu wisata', 8),
+('Aluh', 'Pemandu wisata', 11),
+('Ela', 'Pemandu wisata', 4),
+('Zaleha', 'Pemandu wisata', 7),
 ('Tiwi', 'Pemandu wisata', 4);
 
 -- membuat tabel biaya
@@ -26,23 +34,11 @@ CREATE TABLE IF NOT EXISTS biaya (
 );
 
 -- memasukan beberapa data ke dalam tabel
-INSERT INTO 'biaya' ('hari', 'wisatawan', 'harga') VALUES
-('Senin', 'Lokal', '5000'),
-('Selasa', 'Lokal', '5000'),
-('Rabu', 'Lokal', '5000'),
-('Kamis', 'Lokal', '5000'),
-('Jum''at', 'Lokal', '5000'),
-('Sabtu', 'Lokal', '10000'),
-('Minggu', 'Lokal', '10000'),
-('Hari Libur Nasional', 'Lokal', '10000'),
-('Senin', 'Mancanegara', '100000'),
-('Selasa', 'Mancanegara', '100000'),
-('Rabu', 'Mancanegara', '100000'),
-('Kamis', 'Mancanegara', '100000'),
-('Jum''at', 'Mancanegara', '100000'),
-('Sabtu', 'Mancanegara', '150000'),
-('Minggu', 'Mancanegara', '150000'),
-('Hari Libur Nasional', 'Mancanegara', '150000');
+INSERT INTO biaya (hari, wisatawan, harga) VALUES
+('Hari Kerja', 'Lokal', 5000),
+('Hari Libur', 'Lokal', 7500),
+('Hari Kerja', 'Mancanegara', 100000),
+('Hari Libur', 'Mancanegara', 150000);
 
 -- membuat tabel fasilitas
 CREATE TABLE IF NOT EXISTS fasilitas (
@@ -54,19 +50,18 @@ CREATE TABLE IF NOT EXISTS fasilitas (
     );
 
 -- memasukan beberapa data ke dalam tabel
-INSERT INTO fasilitas ('nama', 'jumlah', 'jenis', 'status_kelayakan') VALUES
+INSERT INTO fasilitas (nama, jumlah, jenis, status_kelayakan) VALUES
 ('Dermaga', 1, 'Fasilitas Transportasi', 'Layak'),
-('Pusat Informasi', 1, 'Fasilitas Umum', 'Layak'),
-('Anjungan Banjar', 1, 'Fasilitas Wisata', 'Layak'),
-('Rumah Jaga', 1, 'Fasilitas Umum', 'Layak'),
-('Shelter', 3, 'Fasilitas Umum', 'Layak'),
+('Pusat Informasi', 2, 'Fasilitas Umum', 'Tidak Layak'),
+('Kantor Kehutanan', 1, 'Fasilitas Pegawai', 'Layak'),
 ('Warung Makan Minum', 3, 'Fasilitas Umum', 'Layak'),
-('Pondok Pandang', 2, 'Fasilitas Umum', 'Layak'),
-('Jembatan', 3, 'Fasilitas Umum', 'Layak'),
-('Altar Tempat Beribadah', 1, 'Fasilitas Umum', 'Layak'),
-('Toilet', 5, 'Fasilitas Umum', 'Layak'),
+('Pendopo', 2, 'Fasilitas Umum', 'Tidak Layak'),
+('Jembatan', 4, 'Fasilitas Umum', 'Layak'),
+('Altar', 1, 'Fasilitas Umum', 'Layak'),
+('Toilet', 2, 'Fasilitas Umum', 'Layak'),
 ('Spot Foto', 6, 'Fasilitas Umum', 'Layak'),
-('Tempat Mandi', 4, 'Fasilitas Umum', 'Layak');
+('Mushola', 1, 'Fasilitas Umum', 'Layak');
+('Loket', 1, 'Fasilitas Umum', 'Layak');
 
 
 
