@@ -2,7 +2,7 @@
   {
     "id": 1,
     "title": "Menjelajahi Pulau Kembang",
-    "introduction": "Selamat datang di Pulau Kembang! Kamu baru saja tiba di pulau yang penuh dengan keanekaragaman hayati dan berbagai fasilitas menarik. Sebagai pengunjung, kamu akan melakukan perjalanan untuk mengenali berbagai elemen penting di pulau ini.",
+    "introduction": "Selamat datang di Taman Wisata Alam Pulau Kembang! Pulau ini terletak di tengah Sungai Barito dan merupakan kawasan konservasi yang penting untuk menjaga ekosistem hutan rawa mangrove serta satwa yang hidup di dalamnya. Pulau Kembang menjadi rumah bagi berbagai flora dan fauna khas lahan basah. Dalam perjalanan ini, kamu akan mempelajari lebih dalam tentang lingkungan yang unik dan langkah-langkah pelestariannya.",
     "missions": [
       {
         "id": 1,
@@ -18,15 +18,15 @@
           },
           {
             "type": "narration",
-            "text": "Mengetahui biaya kunjungan sangat penting agar kamu dapat memasuki Pulau Kembang."
+            "text": ": Sebelum mulai menjelajahi Pulau Kembang, penting untuk mengetahui biaya kunjungan."
           },
           {
             "type": "narration",
-            "text": "Mari kita lihat biaya yang dikenakan untuk mengunjungi Pulau Kembang."
+            "text": "Kawasan konservasi ini menerima pengunjung lokal dan mancanegara, dengan tarif yang berbeda termasuk tarif khusus pada hari-hari libur."
           },
           {
             "type": "instruction",
-            "text": "Ketikan query untuk menampilkan informasi tentang biaya kunjungan untuk berbagai hari dan jenis wisatawan yang ada di tabel biaya.",
+            "text": "Ayo kita lihat semua harga tiket masuk untuk berbagai kategori pengunjung di Pulau Kembang dari data **biaya**.",
             "sql": {
               "type": "exec",
               "query": "SELECT * FROM biaya;"
@@ -34,7 +34,7 @@
           },
           {
             "type": "narration",
-            "text": "Bagus! Kamu sekarang tahu biaya yang dikenakan untuk mengunjungi Pulau Kembang."
+            "text": " Bagus! Kamu sekarang tahu biaya yang dikenakan untuk mengunjungi Pulau Kembang, termasuk tarif khusus untuk hari libur dan wisatawan mancanegara."
           }
         ]
       },
@@ -44,15 +44,15 @@
         "dialogs": [
           {
             "type": "narration",
-            "text": "Pulau Kembang memiliki berbagai peran petugas yang berbeda-beda."
+            "text": "Taman Wisata Alam Pulau Kembang memerlukan petugas yang bertugas menjaga kawasan ini agar tetap nyaman bagi para pengunjung."
           },
           {
             "type": "narration",
-            "text": "Sekarang, mari kita lihat peran petugas yang ada di pulau ini."
+            "text": "Pulau Kembang memiliki berbagai peran petugas yang berbeda-beda."
           },
           {
             "type": "instruction",
-            "text": "Ketikkan query untuk menampilkan semua peran petugas yang berbeda dari tabel petugas. Gunakan operator DISTINCT untuk menampilkan data tanpa duplikasi.",
+            "text": "Ayo cek semua jenis **tugas** petugas di Pulau Kembang. Pastikan tidak ada duplikasi pada data yang ditampilkan dari data **petugas**.",
             "sql": {
               "type": "exec",
               "query": "SELECT DISTINCT tugas FROM petugas;"
@@ -70,11 +70,11 @@
         "dialogs": [
           {
             "type": "narration",
-            "text": "Pulau Kembang memiliki berbagai fasilitas, namun tidak semuanya dalam kondisi baik."
+            "text": "Pulau Kembang dilengkapi dengan berbagai fasilitas yang mendukung aktivitas wisatawan, seperti pusat informasi dan tempat istirahat. "
           },
           {
             "type": "instruction",
-            "text": "Mulailah dengan melihat semua fasilitas pada tabel fasilitas.",
+            "text": "Mari kita lihat semua fasilitas yang ada di Pulau Kembang pada data **fasilitas**.",
             "sql": {
               "type": "exec",
               "query": "SELECT * FROM fasilitas;"
@@ -82,23 +82,7 @@
           },
           {
             "type": "narration",
-            "text": "Kamu telah melihat semua fasilitas di Pulau Kembang."
-          },
-          {
-            "type": "narration",
-            "text": "Sekarang, mari kita cari fasilitas yang tidak layak digunakan untuk pengalaman yang lebih nyaman."
-          },
-          {
-            "type": "instruction",
-            "text": "Ketikkan query untuk menampilkan fasilitas yang tidak layak di Pulau Kembang. Gunakan operator NOT untuk melakukan pencarian ini.",
-            "sql": {
-              "type": "exec",
-              "query": "SELECT * FROM fasilitas WHERE NOT status_kelayakan = 'Layak';"
-            }
-          },
-          {
-            "type": "narration",
-            "text": "Bagus! Kamu kini tahu fasilitas yang tidak layak"
+            "text": "Bagus! Kamu sekarang tahu semua fasilitas yang ada di Pulau Kembang."
           }
         ]
       },
@@ -108,15 +92,19 @@
         "dialogs": [
           {
             "type": "narration",
-            "text": "Pulau Kembang dikenal dengan keanekaragaman tumbuhannya."
+            "text": "Pulau Kembang merupakan representasi ekosistem lahan basah yang unik dengan berbagai jenis tumbuhan."
           },
           {
             "type": "narration",
-            "text": "Untuk memulai petualanganmu, mari kita lihat semua jenis tumbuhan yang menghiasi pulau ini."
+            "text": "Tumbuhan seperti rambai, pandan, dan nipah tumbuh subur di pulau ini."
+          },
+          {
+            "type": "narration",
+            "text": "Sehingga menciptakan lingkungan yang ideal bagi flora dan fauna untuk berkembang."
           },
           {
             "type": "instruction",
-            "text": "Ketikan query untuk menampilkan Semua jenis tumbuhan di Pulau Kembang yang sudah terangkum pada tabel tumbuhan.",
+            "text": "Sekarang, coba lihat daftar semua jenis tumbuhan yang ada di Pulau Kembang dari data **tumbuhan**.",
             "sql": {
               "type": "exec",
               "query": "SELECT * FROM tumbuhan;"
@@ -125,6 +113,30 @@
           {
             "type": "narration",
             "text": "Bagus sekali! Kamu sekarang mengetahui berbagai jenis tumbuhan yang ada di Pulau Kembang."
+          },
+          {
+            "type": "narration",
+            "text": "Beberapa tumbuhan di Pulau Kembang memiliki status konservasi yang berbeda-beda."
+          },
+          {
+            "type": "narration",
+            "text": "Sekarang, mari kita fokus pada tumbuhan yang tidak termasuk dalam kategori 'Near Threatened' untuk melihat status lain yang ada."
+          },
+          {
+            "type": "instruction",
+            "text": "Tampilkan data **tumbuhan** yang **status konservasinya bukan** Near Threatened.",
+            "sql": {
+              "type": "exec",
+              "query": "SELECT * FROM tumbuhan WHERE NOT status_konservasi = 'Near Threatened';"
+            }
+          },
+          {
+            "type": "narration",
+            "text": "Bagus sekali! Kamu telah menemukan tumbuhan dengan status konservasi selain 'Near Threatened'."
+          },
+          {
+            "type": "narration",
+            "text": "Informasi ini penting untuk memahami kondisi konservasi flora yang ada di Pulau Kembang."
           }
         ]
       },
@@ -138,11 +150,15 @@
           },
           {
             "type": "narration",
-            "text": "Sekarang, mari kita lihat apa saja hewan yang ada di pulau ini."
+            "text": "Hewan seperti bekantan dan berbagai jenis burung menjadikan pulau ini tempat tinggal mereka."
+          },
+          {
+            "type": "narration",
+            "text": "Ini menunjukkan pentingnya kawasan ini bagi keanekaragaman hayati."
           },
           {
             "type": "instruction",
-            "text": "Ketikkan query untuk menampilkan semua data dari tabel hewan. Ini akan membantu kamu mengetahui berbagai spesies yang mungkin kamu temui selama perjalanan.",
+            "text": "Tampilkan semua isi dari data **hewan** untuk mengetahui berbagai spesies yang bisa kamu temui di pulau ini.",
             "sql": {
               "type": "exec",
               "query": "SELECT * FROM hewan;"
@@ -150,7 +166,7 @@
           },
           {
             "type": "instruction",
-            "text": "Sekarang tugas kamu adalah menampilkan hewan yang lama hidupnya kurang dari 5 tahun. Gunakan operator perbandingan < untuk melakukan pencarian ini.",
+            "text": "Coba cari data **hewan** yang memiliki **lama hidup** di bawah 5 tahun. Petunjuk : Sesuaikan penulisan dengan nama kolom di data hewan. ",
             "sql": {
               "type": "exec",
               "query": "SELECT * FROM hewan WHERE lama_hidup < 5;"
@@ -169,7 +185,7 @@
   {
     "id": 2,
     "title": "Memahami Populasi Tumbuhan",
-    "introduction": "Selamat datang kembali di Pulau Kembang! Setelah sudah mengenal keragaman hayati yang ada di Pulau kembang di stage sebelumnya, kamu akan berperan sebagai peneliti yang bertugas memonitor dan melindungi tumbuhan di Pulau Kembang. Setiap misi yang kamu selesaikan akan membantu menjaga keseimbangan ekosistem dan memastikan kelangsungan hidup tumbuhan-tumbuhan penting ini. Bersiaplah untuk memulai perjalananmu dalam upaya konservasi yang mulia ini!",
+    "introduction": "Selamat datang kembali di Pulau Kembang! Setelah mengenal keragaman hayati yang ada di Pulau kembang di stage sebelumnya, kamu akan berperan sebagai peneliti yang bertugas memonitor dan melindungi tumbuhan di Pulau Kembang. Setiap misi yang kamu selesaikan akan membantu menjaga keseimbangan ekosistem dan memastikan kelangsungan hidup tumbuhan-tumbuhan penting ini. Bersiaplah untuk memulai perjalananmu dalam upaya konservasi yang mulia ini!",
     "missions": [
       {
         "id": 1,
@@ -181,7 +197,7 @@
           },
           {
             "type": "instruction",
-            "text": "Sekarang ketikkan perintah SQL untuk memilih tumbuhan dengan jumlah lebih dari 25. Gunakan operator perbandingan > untuk melakukan pencarian ini.",
+            "text": "Temukan semua tumbuhan yang memiliki **jumlah** lebih dari 25 di data **tumbuhan**. ",
             "sql": {
               "type": "exec",
               "query": "SELECT * FROM Tumbuhan WHERE jumlah > 25;"
@@ -199,11 +215,11 @@
         "dialogs": [
           {
             "type": "narration",
-            "text": "Temukan tumbuhan dengan status konservasi 'Near Threatened' di Pulau Kembang agar kita bisa memberi perhatian khusus pada konservasi mereka."
+            "text": "Lahan basah sering menjadi habitat bagi spesies tumbuhan yang rentan terhadap perubahan lingkungan. "
           },
           {
             "type": "instruction",
-            "text": "Ketikkan perintah SQL untuk memilih tumbuhan dengan status konservasi 'Near Threatened'. Gunakan operator perbandingan = untuk melakukan pencarian ini.",
+            "text": "Temukan data **tumbuhan** dengan *status konservasi** yaitu **Near Threatened** agar kita dapat memberikan perhatian khusus pada mereka. Petunjuk : Sesuaikan penulisan isi data dan kolom dengan tabel tumbuhan.",
             "sql": {
               "type": "exec",
               "query": "SELECT * FROM Tumbuhan WHERE status_konservasi = 'Near Threatened';"
@@ -211,7 +227,7 @@
           },
           {
             "type": "narration",
-            "text": "Kamu telah menemukan tumbuhan dengan status konservasi 'Near Threatened'."
+            "text": "Tumbuhan dengan status 'Near Threatened' yang kamu temukan membutuhkan upaya pelestarian khusus agar dapat bertahan di lahan basah yang terus berubah."
           }
         ]
       },
@@ -221,11 +237,15 @@
         "dialogs": [
           {
             "type": "narration",
-            "text": "Identifikasi tumbuhan yang jumlahnya kurang dari atau sama dengan 15 di Pulau Kembang untuk memastikan kelangsungan hidup mereka."
+            "text": "Spesies dengan populasi kecil sering kali rentan terhadap kepunahan."
+          },
+          {
+            "type": "narration",
+            "text": "Identifikasi tumbuhan yang jumlahnya 15 atau kurang untuk memastikan kelangsungan hidup mereka di lahan basah Pulau Kembang."
           },
           {
             "type": "instruction",
-            "text": "Ketikkan perintah SQL untuk memilih tumbuhan dengan jumlah kurang dari atau sama dengan 15.",
+            "text": "Cari semua tumbuhan yang memiliki **jumlah** sebanyak kurang dari sama dengan 15 pada data **tumbuhan**. ",
             "sql": {
               "type": "exec",
               "query": "SELECT * FROM Tumbuhan WHERE jumlah <= 15;"
@@ -243,11 +263,11 @@
         "dialogs": [
           {
             "type": "narration",
-            "text": "Cari tumbuhan dengan jumlah minimal 30 di Pulau Kembang untuk mengetahui seberapa banyak tumbuhan yang memiliki populasi sedang dan lebih."
+            "text": "Populasi tumbuhan yang besar berperan penting dalam stabilitas ekosistem lahan basah. "
           },
           {
             "type": "instruction",
-            "text": "Ketikkan perintah SQL untuk memilih tumbuhan dengan jumlah minimal 30. Gunakan operator perbandingan >= untuk melakukan pencarian ini.",
+            "text": "Cari tumbuhan dengan **jumlah** sebanyak lebih dari sama dengan 30 pada data **tumbuhan** untuk melihat spesies yang mendominasi wilayah ini.",
             "sql": {
               "type": "exec",
               "query": "SELECT * FROM Tumbuhan WHERE jumlah >= 30;"
@@ -255,7 +275,11 @@
           },
           {
             "type": "narration",
-            "text": "Kamu telah menemukan tumbuhan dengan jumlah minimal 30."
+            "text": "Kamu telah menemukan tumbuhan dengan populasi besar."
+          },
+          {
+            "type": "narration",
+            "text": "Keberadaan mereka sangat penting dalam menjaga fungsi ekosistem lahan basah, terutama dalam hal siklus air dan penyerapan karbon."
           }
         ]
       },
@@ -265,11 +289,11 @@
         "dialogs": [
           {
             "type": "narration",
-            "text": "Temukan tumbuhan dengan status konservasi selain 'Least Concern' agar kita bisa fokus pada upaya pelestarian mereka."
+            "text": "Untuk upaya konservasi yang lebih efektif, kita perlu fokus pada tumbuhan dengan status konservasi selain Least Concern."
           },
           {
             "type": "instruction",
-            "text": "Ketikkan perintah SQL untuk memilih tumbuhan dengan status konservasi bukan 'Least Concern'. Gunakan operator perbandingan <> untuk melakukan pencarian ini.",
+            "text": "Mari kita temukan data **tumbuhan** yang **status konservasi**nya bukan **Least Concern**. <br>Petunjuk : Sesuaikan penulisan isi data dan kolom dengan data tumbuhan. Gunakan operator perbandingan",
             "sql": {
               "type": "exec",
               "query": "SELECT * FROM Tumbuhan WHERE status_konservasi <> 'Least Concern';"
@@ -287,7 +311,7 @@
   },
   {
     "id": 3,
-    "title": "Analisa Populasi Hewan",
+    "title": "Memahami Populasi Hewan",
     "introduction": "Kali ini kamu bertugas memonitor dan menganalisa populasi hewan di Pulau Kembang. Setiap misi yang kamu selesaikan akan membantu kita memahami dan melestarikan keanekaragaman hayati pulau ini. Bersiaplah untuk mengaplikasikan operasi aritmatika dalam analisis datamu!",
     "missions": [
       {
@@ -304,7 +328,7 @@
           },
           {
             "type": "instruction",
-            "text": "Ketikkan perintah SQL untuk menghitung total populasi Elang Laut Perut Putih setelah penambahan 5 individu. Gunakan operator aritmatika + untuk menyelesaikan misi ini.",
+            "text": "Hitung **jumlah** populasi **Elang Laut Perut Putih** pada data **hewan** setelah menambahkan 5 elang yang baru di Pulau Kembang.",
             "sql": {
               "type": "exec",
               "query": "SELECT jumlah + 5 FROM hewan WHERE nama = 'Elang Laut Perut Putih';"
@@ -326,7 +350,7 @@
           },
           {
             "type": "instruction",
-            "text": "Ketikkan perintah SQL untuk mengurangi 5 kera dari jumlah populasi Kera Ekor Panjang. Gunakan operator aritmatika - untuk menyelesaikan misi ini.",
+            "text": "Tampilkan **jumlah** populasi **Kera Ekor Panjang** setelah mengurangi 5 Kera Ekor Panjang di data **hewan**.",
             "sql": {
               "type": "exec",
               "query": "SELECT jumlah - 5 FROM hewan WHERE nama = 'Kera Ekor Panjang';"
@@ -344,11 +368,15 @@
         "dialogs": [
           {
             "type": "narration",
-            "text": "Untuk memahami potensi pertumbuhan populasi, mari kita hitung perkiraan populasi Elang Bondol dalam 5 tahun jika populasinya bertambah dua kali lipat setiap tahun."
+            "text": "Untuk merencanakan upaya pelestarian, kita harus memprediksi pertumbuhan populasi."
+          },
+          {
+            "type": "narration",
+            "text": "Mari kita hitung potensi pertumbuhan Elang Bondol dalam 5 tahun jika populasinya berlipat ganda setiap tahun."
           },
           {
             "type": "instruction",
-            "text": "Ketikkan perintah SQL untuk mengalikan jumlah populasi Elang Bondol menjadi dua kali lipat setiap tahun dalam 5 tahun.  Gunakan operator aritmatika * untuk menyelesaikan misi ini.",
+            "text": "Tampilkan **jumlah** populasi **Elang Bondol** pada data **hewan** yang meningkat dua kali lipat setiap tahun selama 5 tahun. ",
             "sql": {
               "type": "exec",
               "query": "SELECT jumlah * 2 * 5 FROM hewan WHERE nama = 'Elang Bondol';"
@@ -366,11 +394,11 @@
         "dialogs": [
           {
             "type": "narration",
-            "text": "Untuk memahami perbedaan populasi antara dua spesies hewan, mari kita bandingkan jumlah populasi spesies 'Bekantan' dan 'Musang Luwak'."
+            "text": "Untuk memahami perbedaan populasi antara dua spesies hewan, mari kita bandingkan jumlah populasi spesies Bekantan dan Musang Luwak."
           },
           {
             "type": "narration",
-            "text": "Dengan membagi populasi 'Bekantan' dengan 'Musang Luwak', kita dapat mengetahui seberapa besar populasi 'Bekantan' dibandingkan dengan 'Musang Luwak'"
+            "text": "Dengan membagi populasi Bekantan dengan Musang Luwak, kita dapat mengetahui seberapa besar populasi Bekantan dibandingkan dengan Musang Luwak"
           },
           {
             "type": "narration",
@@ -378,7 +406,7 @@
           },
           {
             "type": "instruction",
-            "text": "Ketikkan perintah SQL untuk membagi populasi 'Bekantan' dengan 'Musang Luwak' dengan memanggil atribut jumlah dari tabel hewan. Gunakan operator aritmatika / untuk misi ini.",
+            "text": "Bagi **jumlah** populasi spesies **Bekantan** dengan jumlah populasi spesies **Musang Luwak** yang ada pada data **hewan**. <br>Petunjuk : Gunakan subquery dan sesuaikan penulisan dengan isi data hewan.",
             "sql": {
               "type": "exec",
               "query": "SELECT (SELECT jumlah FROM hewan WHERE nama = 'Bekantan') / (SELECT jumlah FROM hewan WHERE nama = 'Musang Luwak')"
@@ -386,7 +414,7 @@
           },
           {
             "type": "narration",
-            "text": "Kamu telah berhasil mengetahui perbandingan populasi 'Bekantan' dengan 'Musang Luwak'!"
+            "text": "Kamu telah berhasil mengetahui perbandingan populasi Bekantan dengan Musang Luwak!"
           }
         ]
       },
@@ -396,15 +424,15 @@
         "dialogs": [
           {
             "type": "narration",
-            "text": "Untuk program penangkaran 'Bekantan', kita perlu membagi populasi mereka menjadi kelompok yang lebih kecil untuk memudahkan pengelolaan."
+            "text": "Untuk program penangkaran Bekantan, kita perlu membagi populasi mereka menjadi kelompok yang lebih kecil untuk memudahkan pengelolaan."
           },
           {
             "type": "narration",
-            "text": "Mari kita hitung sisa populasi 'Bekantan' setelah dibagi dengan 5 untuk melihat apakah populasinya dapat dibagi rata ke dalam lima kelompok penangkaran."
+            "text": "Mari kita hitung sisa populasi Bekantan setelah dibagi dengan 5 untuk melihat apakah populasinya dapat dibagi rata ke dalam lima kelompok penangkaran."
           },
           {
             "type": "instruction",
-            "text": "Ketikkan perintah SQL untuk menghitung sisa populasi 'Bekantan' setelah dibagi dengan 5. Gunakan operator aritmatika % untuk menyelesaikan misi ini.",
+            "text": "Hitung sisa **jumlah** populasi **Bekantan** di data **hewan** setelah di bagi dengan 5 untuk melihat apakah populasinya dapat dibagi rata ke dalam lima kelompok penangkaran.",
             "sql": {
               "type": "exec",
               "query": "SELECT jumlah % 5 FROM hewan WHERE nama = 'Bekantan';"
@@ -412,7 +440,11 @@
           },
           {
             "type": "narration",
-            "text": "Kamu telah menghitung sisa populasi 'Bekantan' setelah dibagi dengan 5."
+            "text": "Kamu telah menghitung sisa populasi Bekantan setelah dibagi dengan 5."
+          },
+          {
+            "type": "narration",
+            "text": "Ini akan membantu kita merencanakan kelompok penangkaran dengan lebih baik dan memastikan populasi dapat dikelola secara efektif."
           }
         ]
       }
@@ -423,7 +455,7 @@
   {
     "id": 4,
     "title": "Eksplorasi Lanjutan Pulau Kembang",
-    "introduction": "Selamat datang di Eksplorasi Lanjutan Pulau Kembang! Dalam tahap ini, kamu akan menjelajahi data dan informasi yang lebih mendalam tentang berbagai aspek di Pulau Kembang. Setiap misi dirancang untuk meningkatkan pemahaman kamu tentang ekosistem dan pengelolaan Pulau Kembang. Mari kita mulai petualangan ini dan temukan informasi berharga yang bisa membantu dalam pelestarian pulau.",
+    "introduction": "Selamat datang di Eksplorasi Lanjutan Pulau Kembang! Pada tahap ini, kamu akan mendalami data dan informasi yang lebih mendetail mengenai berbagai aspek di Pulau Kembang. Setiap misi dirancang untuk meningkatkan pemahamanmu tentang ekosistem dan pengelolaan pulau ini. Mari kita mulai petualangan ini dan temukan informasi berharga yang akan membantu dalam pelestarian pulau.",
     "missions": [
       {
         "id": 1,
@@ -435,11 +467,11 @@
           },
           {
             "type": "narration",
-            "text": "Sekarang, mari kita fokus pada hewan-hewan yang jumlah populasinya berada dalam direntang 10 dan 30."
+            "text": "Sekarang, kita akan fokus pada hewan-hewan yang populasinya berada dalam rentang 10 hingga 30."
           },
           {
             "type": "instruction",
-            "text": "Ketikkan query untuk menampilkan hewan-hewan yang jumlahnya diantara 10 dan 30. Gunakan operator BETWEEN untuk menyelesaikan misi ini.",
+            "text": "Tampilkan data **hewan** yang **jumlah** populasinya berada antara 10 dan 30.",
             "sql": {
               "type": "exec",
               "query": "SELECT * FROM hewan WHERE jumlah BETWEEN 10 AND 30;"
@@ -447,7 +479,7 @@
           },
           {
             "type": "narration",
-            "text": "Bagus sekali! Kamu sekarang tahu hewan-hewan yang populasinya berada dalam rentang yang sudah  ditentukan."
+            "text": "Bagus sekali! Kamu sekarang tahu hewan-hewan yang populasinya berada dalam rentang yang sudah ditentukan."
           }
         ]
       },
@@ -457,11 +489,11 @@
         "dialogs": [
           {
             "type": "narration",
-            "text": "Kamu ingin mengetahui lebih lanjut tentang hewan-hewan di Pulau Kembang yang tidak termasuk dalam kategori 'Least concern' untuk fokus pada spesies yang lebih membutuhkan perhatian."
+            "text": "Kamu ingin mengetahui lebih lanjut tentang hewan-hewan di Pulau Kembang yang tidak termasuk dalam kategori Least concern, untuk fokus pada spesies yang lebih membutuhkan perhatian konservasi."
           },
           {
             "type": "instruction",
-            "text": "Ketikkan perintah SQL untuk menampilkan hewan-hewan yang status konservasinya tidak termasuk dalam kategori 'Least Concern'. Gunakan operator NOT untuk menyelesaikan misi ini.",
+            "text": "Tampilkan data **hewan** yang **status konservasi**nya bukan **Least Concern**. <br> Petunjuk : Sesuaikan penulisan isi data dan kolom dengan tabel tumbuhan.",
             "sql": {
               "type": "exec",
               "query": "SELECT * FROM hewan WHERE NOT status_konservasi = 'Least Concern';"
@@ -487,7 +519,7 @@
           },
           {
             "type": "instruction",
-            "text": "Ketikkan perintah SQL untuk menemukan semua tumbuhan yang habitatnya mengandung kata 'pantai'. Gunakan operator LIKE dengan tanda % untuk menyelesaikan misi ini.",
+            "text": "Temukan semua **tumbuhan** dengan **habitat** yang mengandung kata **pantai**.",
             "sql": {
               "type": "exec",
               "query": "SELECT * FROM tumbuhan WHERE habitat LIKE '%pantai%';"
@@ -505,15 +537,15 @@
         "dialogs": [
           {
             "type": "narration",
-            "text": "Saat melakukan pencatatan, kamu lupa nama lengkap tumbuhan tetapi kamu ingat bahwa nama tumbuhan tersebut terdiri dari empat huruf dengan akhirannya adalah 'ai'."
+            "text": "Saat melakukan pencatatan, kamu lupa nama lengkap tumbuhan tetapi ingat bahwa nama tumbuhan tersebut terdiri dari empat huruf dengan akhiran ai."
           },
           {
             "type": "narration",
-            "text": "Mari kita lakukan pencarian berdasarkan akhiran nama tersebut dengan menggunakan wildcard _."
+            "text": "Mari kita cari tumbuhan dengan kriteria tersebut."
           },
           {
             "type": "instruction",
-            "text": "Ketikkan perintah SQL untuk menemukan semua tumbuhan yang namanya terdiri dari empat huruf dengan akhirannya adalah 'ai'. Gunakan operator LIKE dengan tanda _ untuk menyelesaikan misi ini",
+            "text": "Temukan semua **tumbuhan** yang **nama**nya terdiri dari empat huruf dengan akhiran **ai**",
             "sql": {
               "type": "exec",
               "query": "SELECT * FROM tumbuhan WHERE nama LIKE '__ai';"
@@ -521,40 +553,48 @@
           },
           {
             "type": "narration",
-            "text": "Bagus! Kamu sekarang tahu fasilitas yang status kelayakannya 'Layak' atau 'Tidak layak'."
+            "text": "Bagus! Kamu sekarang tahu nama-nama tumbuhan yang sesuai dengan kriteria yang telah ditentukan."
           }
         ]
       },
       {
         "id": 5,
-        "title": "Menemukan Nama Latin Tumbuhan",
+        "title": "Menemukan Lama Hidup Hewan",
         "dialogs": [
           {
             "type": "narration",
-            "text": "Untuk mengenali tumbuhan yang nama latinnya mengandung huruf 'an' di posisi kedua dan ketiga, mari kita lakukan pencarian berdasarkan beberapa huruf yang kita ingat."
+            "text": "Mengidentifikasi hewan dengan rentang lama hidup tertentu sangat penting dalam upaya konservasi."
+          },
+          {
+            "type": "narration",
+            "text": "Hewan yang memiliki lama hidup antara 7 hingga 14 tahun sering kali menjadi fokus dalam program konservasi, karena mereka umumnya berada pada tahap reproduktif atau masa dewasa."
           },
           {
             "type": "instruction",
-            "text": "Ketikkan perintah SQL untuk menemukan semua tumbuhan yang nama latinnya memiliki huruf 'an' di urutan kedua dan ketiga. Gunakan operator LIKE dengan tanda _ dan % untuk menyelesaikan misi ini.",
+            "text": "Temukan semua **hewan** yang **lama hidup** berada dalam rentang 7 hingga 14 tahun. <br>Petunjuk : Sesuaikan penulisan nama kolom dengan yang ada pada data tumbuhan. ",
             "sql": {
               "type": "exec",
-              "query": "SELECT * FROM tumbuhan WHERE nama_latin LIKE '_an%';"
+              "query": "SELECT * FROM hewan WHERE lama_hidup BETWEEN 7 AND 14;"
             }
           },
           {
             "type": "narration",
-            "text": "Kamu telah berhasil menemukan semua tumbuhan yang nama latinnya memiliki huruf 'an' di urutan kedua dan ketiga."
+            "text": "Luar biasa! Kamu telah berhasil menemukan semua hewan yang lama hidupnya berada dalam rentang 7 hingga 14 tahun."
+          },
+          {
+            "type": "narration",
+            "text": "Informasi ini sangat berguna untuk membantu dalam program konservasi, karena spesies ini berada dalam fase penting untuk kelangsungan hidup dan pemulihan populasi."
           }
         ]
       }
     ],
-    "closing": "Selamat! Kamu telah berhasil menyelesaikan semua misi dalam Eksplorasi Lanjutan Pulau Kembang. Semua informasi ini sangat berharga untuk memahami dan melestarikan Pulau Kembang dengan lebih baik. Teruslah menjelajah dan belajar lebih banyak tentang lingkungan sekitar kamu!",
+    "closing": "Selamat! Kamu telah berhasil menyelesaikan semua misi dalam Eksplorasi Lanjutan Pulau Kembang. Semua informasi ini sangat berharga untuk memahami dan melestarikan Pulau Kembang dengan lebih baik. Teruslah menjelajah dan belajar lebih banyak tentang lingkungan di sekitarmu!",
     "filepath": "stage4.db"
   },
   {
     "id": 5,
-    "title": "Penataan Pulau Kembang",
-    "introduction": "Dalam stage ini, kamu akan membantu mengelola berbagai aspek di Pulau Kembang. Kamu akan ditugaskan untuk mengatur data terkait tumbuhan, petugas, biaya, fasilitas, dan hewan untuk memastikan kesejahteraan dan efisiensi pengelolaan pulau. Setiap misi memiliki tujuan khusus yang penting bagi keberlangsungan konservasi dan pengelolaan Pulau Kembang.",
+    "title": "Mengurutkan Data Pulau Kembang",
+    "introduction": "Dalam stage ini, kamu akan membantu mengelola berbagai aspek di Pulau Kembang, sebuah kawasan konservasi hutan mangrove di Kalimantan Selatan yang menjadi habitat bagi flora seperti rambai dan nipah serta fauna langka seperti bekantan. Kamu akan ditugaskan untuk mengatur data terkait tumbuhan, petugas, biaya, fasilitas, dan hewan demi kesejahteraan dan efisiensi pengelolaan pulau. Setiap misi memiliki tujuan khusus yang penting bagi kelestarian lingkungan Pulau Kembang, memastikan ekosistem tetap terjaga bagi keanekaragaman hayati dan pengunjung.",
     "missions": [
       {
         "id": 1,
@@ -562,15 +602,15 @@
         "dialogs": [
           {
             "type": "narration",
-            "text": "Pengunjung sering tertarik untuk mengetahui berbagai jenis tumbuhan yang ada di Pulau Kembang."
+            "text": "Pengunjung Pulau Kembang tertarik dengan keanekaragaman flora yang ada, seperti pohon rambai dan jambu. "
           },
           {
             "type": "narration",
-            "text": "Mengurutkan nama tumbuhan dari A ke Z akan memudahkan dalam penyampaian informasi dan dokumentasi."
+            "text": "Untuk memudahkan, susunlah data nama tumbuhan dari A ke Z."
           },
           {
             "type": "instruction",
-            "text": "Ketikkan perintah SQL untuk mengurutkan nama tumbuhan dari A ke Z. Gunakan ORDER BY dan ASC untuk menyelesaikan misi ini.",
+            "text": "Tampilkan data **tumbuhan** dengan **nama** yang diurutkan dari A ke Z.",
             "sql": {
               "type": "exec",
               "query": "SELECT * FROM tumbuhan ORDER BY nama ASC;"
@@ -578,7 +618,7 @@
           },
           {
             "type": "narration",
-            "text": "Kamu telah berhasil menyusun nama tumbuhan dari A ke Z!"
+            "text": "Kamu telah berhasil menyusun nama tumbuhan dari A ke Z, memudahkan pendataan tumbuhan di Pulau Kembang."
           }
         ]
       },
@@ -588,15 +628,15 @@
         "dialogs": [
           {
             "type": "narration",
-            "text": "Untuk memastikan fasilitas di Pulau Kembang selalu dalam kondisi baik, kita perlu mengetahui jumlah fasilitas yang ada."
+            "text": "Untuk menjaga fasilitas wisata seperti tempat istirahat di Pulau Kembang, penting untuk mengetahui jumlah setiap fasilitas."
           },
           {
             "type": "narration",
-            "text": "Mengurutkan data berdasarkan jumlah fasilitas dari terbesar ke terkecil akan membantu dalam pengelolaan dan pemeliharaan fasilitas."
+            "text": "Dengan data ini, pemeliharaan fasilitas di kawasan konservasi mangrove ini dapat dilakukan secara efisien."
           },
           {
             "type": "instruction",
-            "text": "Ketikkan perintah SQL untuk mengurutkan fasilitas berdasarkan jumlah dari terbesar ke terkecil.Gunakan ORDER BY dan DESC untuk menyelesaikan misi ini.",
+            "text": "Urutkan data **fasilitas** berdasarkan **jumlah** dari terbesar ke terkecil.",
             "sql": {
               "type": "exec",
               "query": "SELECT * FROM fasilitas ORDER BY jumlah DESC;"
@@ -604,7 +644,7 @@
           },
           {
             "type": "narration",
-            "text": "Kamu telah berhasil mengurutkan fasilitas berdasarkan jumlah dari terbesar ke terkecil."
+            "text": "Kamu telah mengurutkan fasilitas dari terbesar ke terkecil, mendukung pengelolaan sarana di Pulau Kembang."
           }
         ]
       },
@@ -614,15 +654,15 @@
         "dialogs": [
           {
             "type": "narration",
-            "text": "Untuk keperluan penelitian dan konservasi, kita perlu mengetahui tumbuhan apa yang paling banyak jumlahnya di Pulau Kembang."
+            "text": " Sebagai hutan mangrove, Pulau Kembang memiliki banyak tumbuhan khas."
           },
           {
             "type": "narration",
-            "text": "Mengetahui jumlah terbesar akan membantu dalam fokus konservasi."
+            "text": "Menemukan tumbuhan yang paling banyak jumlahnya sangat penting untuk fokus konservasi."
           },
           {
             "type": "instruction",
-            "text": "Ketikkan perintah SQL untuk mengurutkan tumbuhan berdasarkan jumlah dari terbesar ke terkecil dan batasi hasilnya menjadi 1 teratas. Gunakan ORDER BY, DESC, dan LIMIT",
+            "text": "Urutkan data **tumbuhan** berdasarkan **jumlah** dari terbesar ke terkecil dan batasi hasilnya menjadi 1 teratas.",
             "sql": {
               "type": "exec",
               "query": "SELECT * FROM tumbuhan ORDER BY jumlah DESC LIMIT 1;"
@@ -630,7 +670,7 @@
           },
           {
             "type": "narration",
-            "text": "Kamu telah menemukan tumbuhan dengan jumlah paling banyak."
+            "text": "Kamu telah menemukan tumbuhan dengan jumlah terbanyak, membantu fokus upaya konservasi di pulau ini."
           }
         ]
       },
@@ -640,15 +680,11 @@
         "dialogs": [
           {
             "type": "narration",
-            "text": "Pengunjung sering mencari hari dengan biaya terendah untuk berkunjung."
-          },
-          {
-            "type": "narration",
-            "text": "Dengan mengetahui hari-hari tersebut, kita bisa mengatur promosi dan strategi marketing yang lebih efektif."
+            "text": "Pengunjung Pulau Kembang sering mencari hari dengan biaya terendah untuk merencanakan kunjungan mereka."
           },
           {
             "type": "instruction",
-            "text": "Ketikkan query SQL untuk mengurutkan biaya berdasarkan harga terkecil ke terbesar untuk wisatawan lokal, batasi hasil jadi 1 teratas. Gunakan ORDER BY, DESC, LIMIT",
+            "text": "Urutkan data **biaya** berdasarkan **harga** dari terkecil ke terbesar untuk wisatawan **lokal** dan batasi hasilnya menjadi 1 teratas.",
             "sql": {
               "type": "exec",
               "query": "SELECT * FROM biaya WHERE wisatawan = 'Lokal' ORDER BY harga LIMIT 1;"
@@ -666,15 +702,15 @@
         "dialogs": [
           {
             "type": "narration",
-            "text": "Untuk memastikan kesejahteraan hewan, kita perlu mengetahui hewan yang paling banyak jumlahnya."
+            "text": " Pulau Kembang terkenal dengan fauna endemiknya, termasuk bekantan dan elang laut."
           },
           {
             "type": "narration",
-            "text": "Ini penting untuk memastikan habitat dan makanan yang cukup untuk hewan-hewan tersebut."
+            "text": "Penting untuk mengetahui hewan mana yang paling banyak jumlahnya untuk memastikan habitat yang tepat dan keseimbangan ekosistem tetap terjaga."
           },
           {
             "type": "instruction",
-            "text": "Ketikkan perintah SQL untuk mengurutkan hewan berdasarkan jumlah dari terbesar ke terkecil dan batasi hasilnya menjadi 1 teratas. Gunakan ORDER BY, DESC, dan LIMIT",
+            "text": "Urutkan data **hewan** berdasarkan **jumlah** dari terbesar ke terkecil dan batasi hasilnya menjadi 1 teratas ",
             "sql": {
               "type": "exec",
               "query": "SELECT * FROM hewan ORDER BY jumlah DESC LIMIT 1;"
@@ -687,13 +723,13 @@
         ]
       }
     ],
-    "closing": "Selamat! Kamu telah berhasil menyelesaikan semua misi dalam stage ini. Dengan menyusun dan mengelola data tumbuhan, fasilitas, biaya, dan hewan, kamu telah berkontribusi besar dalam menjaga kesejahteraan dan efisiensi pengelolaan Pulau Kembang.",
+    "closing": "Selamat! Kamu telah menyelesaikan semua misi dalam stage ini. Dengan mengelola data tumbuhan, fasilitas, biaya, dan hewan, kamu telah berperan penting dalam menjaga kelestarian Pulau Kembang yang berharga. Teruskan upaya ini untuk melindungi flora dan fauna langka di hutan mangrove yang unik ini!",
     "filepath": "stage5.db"
   },
   {
     "id": 6,
-    "title": "Analisis Populasi Tumbuhan",
-    "introduction": "Pada tahap ini, kamu akan menganalisis data tentang tumbuhan di Pulau Kembang. Setiap analisis yang kamu lakukan akan membantu kita memahami lebih dalam mengenai jumlah dan distribusi tumbuhan yang ada di pulau ini. Siap untuk menggali data dan mendapatkan wawasan lebih mendalam tentang flora Pulau Kembang?",
+    "title": "Menganalisis Data Tumbuhan",
+    "introduction": "Pada tahap ini, kamu akan menganalisis data populasi tumbuhan di Pulau Kembang, yang merupakan kawasan konservasi dengan keanekaragaman flora seperti pohon rambai, nipah, dan tancang. Analisis ini akan membantu kita memahami distribusi dan jumlah setiap spesies, yang sangat penting untuk menjaga keseimbangan ekosistem pulau ini. Siap untuk menggali data dan mendapatkan wawasan lebih mendalam tentang flora unik Pulau Kembang?",
     "missions": [
       {
         "id": 1,
@@ -701,11 +737,11 @@
         "dialogs": [
           {
             "type": "narration",
-            "text": "Untuk memahami tumbuhan mana yang paling dominan di Pulau Kembang, kita perlu mengetahui tumbuhan dengan jumlah terbanyak."
+            "text": "Di Pulau Kembang, beberapa tumbuhan mendominasi hutan mangrove. Mengetahui tumbuhan yang paling banyak jumlahnya akan membantu kita fokus dalam usaha pelestarian."
           },
           {
             "type": "instruction",
-            "text": "Ketikkan query SQL untuk menemukan tumbuhan dengan jumlah terbanyak dengan operator MAX dan hasilnya hanya kolom nama dan jumlah_terbanyak. Ubah kolom jumlah menjadi jumlah_terbanyak dengan AS",
+            "text": "Tampilkan *nama* tumbuhan dan *jumlah terbanyak* yang ditemukan di data *tumbuhan.<br> **Petunjuk* : Buat data jumlah terbanyak dengan alias.",
             "sql": {
               "type": "exec",
               "query": "SELECT nama, MAX(jumlah) AS jumlah_terbanyak FROM tumbuhan;"
@@ -713,7 +749,7 @@
           },
           {
             "type": "narration",
-            "text": "Selamat! kamu telah berhasil menemukan tumbuhan dengan jumlah maksimum di Pulau Kembang."
+            "text": "Selamat! Kamu telah menemukan tumbuhan dengan jumlah terbanyak di Pulau Kembang. Ini akan menjadi informasi penting dalam perencanaan konservasi."
           }
         ]
       },
@@ -723,11 +759,15 @@
         "dialogs": [
           {
             "type": "narration",
-            "text": "Sekarang, mari kita cari tahu tumbuhan dengan jumlah paling sedikit di Pulau Kembang."
+            "text": "Selain spesies dominan, penting juga untuk mengetahui spesies tumbuhan yang jarang ditemukan di Pulau Kembang, seperti tumbuhan dengan populasi yang paling sedikit."
+          },
+          {
+            "type": "narration",
+            "text": "Informasi ini akan membantu kita memperhatikan spesies tumbuhan yang mungkin membutuhkan perhatian lebih dalam konservasi di Pulau Kembang."
           },
           {
             "type": "instruction",
-            "text": "Ketikkan query untuk menemukan tumbuhan dengan jumlah terkecil dengan operator MIN dan hasilnya hanya kolom nama dan jumlah_terkecil. Ubah nama jumlah menjadi jumlah_terkecil dengan AS.",
+            "text": "Cari tumbuhan dengan *jumlah* paling sedikit dan tampilkan *nama* serta *jumlah terkecil* dari data *tumbuhan.<br> **Petunjuk* : Buat data jumlah terbanyak dengan alias.",
             "sql": {
               "type": "exec",
               "query": "SELECT nama, MIN(jumlah) AS jumlah_terkecil FROM tumbuhan;"
@@ -735,7 +775,7 @@
           },
           {
             "type": "narration",
-            "text": "Hebat! Kamu telah menemukan tumbuhan dengan jumlah minimum. Ini membantu kita memahami keberagaman flora di pulau ini."
+            "text": "Hebat! Kamu telah menemukan tumbuhan dengan jumlah paling sedikit di Pulau Kembang."
           }
         ]
       },
@@ -745,15 +785,11 @@
         "dialogs": [
           {
             "type": "narration",
-            "text": "Selanjutnya, kita akan mencari tahu rata-rata jumlah tumbuhan di Pulau Kembang."
-          },
-          {
-            "type": "narration",
-            "text": "Ini akan memberi kita gambaran umum tentang distribusi tumbuhan di pulau."
+            "text": "Untuk mendapatkan gambaran umum mengenai distribusi tumbuhan di Pulau Kembang, mari kita hitung rata-rata jumlah populasi tiap spesies yang ada."
           },
           {
             "type": "instruction",
-            "text": "Ketikkan query untuk menghitung rata-rata jumlah tumbuhan dengan menggunakan operator AVG.",
+            "text": "Hitung rata-rata *jumlah* tumbuhan yang ada di data tumbuhan! <br> *Petunjuk* : Gunakan operator SQL untuk menghitungnya.",
             "sql": {
               "type": "exec",
               "query": "SELECT AVG(jumlah) FROM tumbuhan;"
@@ -761,7 +797,7 @@
           },
           {
             "type": "narration",
-            "text": "Hebat! kamu kini memiliki informasi tentang rata-rata jumlah hewan di Pulau Kembang."
+            "text": "Luar biasa! Kamu kini memiliki informasi tentang rata-rata populasi tumbuhan di Pulau Kembang, yang membantu memahami keseimbangan flora di sana."
           }
         ]
       },
@@ -771,11 +807,11 @@
         "dialogs": [
           {
             "type": "narration",
-            "text": "Selanjutnya, kita akan menghitung jumlah keseluruhan semua tumbuhan di Pulau Kembang untuk memahami total keanekaragaman flora."
+            "text": "Penting bagi kita untuk mengetahui jumlah keseluruhan tumbuhan yang ada di Pulau Kembang, guna memahami keanekaragaman flora yang ada di seluruh area pulau."
           },
           {
             "type": "instruction",
-            "text": "Ketikkan query untuk menghitung jumlah keseluruhan tumbuhan dengan menggunakan operator SUM.",
+            "text": "Hitunglah total keseluruhan jumlah tumbuhan di Pulau Kembang! <br> *Petunjuk* : Gunakan operator SQL untuk menghitungnya.",
             "sql": {
               "type": "exec",
               "query": "SELECT SUM(jumlah) FROM tumbuhan;"
@@ -783,25 +819,21 @@
           },
           {
             "type": "narration",
-            "text": "Bagus sekali! Kamu telah menghitung jumlah keseluruhan tumbuhan di Pulau Kembang."
+            "text": "Bagus sekali! Kamu telah menghitung jumlah semua tumbuhan di Pulau Kembang, memberikan kita gambaran tentang skala keanekaragaman flora di pulau ini."
           }
         ]
       },
       {
         "id": 5,
-        "title": "Menghitung Jumlah Flora yang Ada",
+        "title": "Menghitung Jumlah Jenis Tumbuhan",
         "dialogs": [
           {
             "type": "narration",
-            "text": "Terakhir, kita akan menghitung berapa banyak jenis tumbuhan yang berbeda di Pulau Kembang."
-          },
-          {
-            "type": "narration",
-            "text": "Dengan mengetahui jumlah jenis tumbuhan yang berbeda, kita bisa memahami lebih baik keragaman flora di pulau ini."
+            "text": "Dengan menghitung banyak jenis tumbuhan yang berbeda di Pulau Kembang, kita dapat memahami seberapa besar variasi spesies tumbuhan di hutan mangrove ini, yang penting bagi ekosistemnya."
           },
           {
             "type": "instruction",
-            "text": "Ketikkan query untuk menghitung jumlah tumbuhan yang ada dengan menggunakan operator COUNT.",
+            "text": "Hitunglah *banyak* seluruh tumbuhan yang ada di data *tumbuhan*!",
             "sql": {
               "type": "exec",
               "query": "SELECT COUNT(*) FROM tumbuhan;"
@@ -809,18 +841,18 @@
           },
           {
             "type": "narration",
-            "text": "Luar biasa! Kamu telah berhasil mengidentifikasi jumlah jenis tumbuhan yang berbeda di Pulau Kembang."
+            "text": "Luar biasa! Kamu telah berhasil mengidentifikasi banyaknya spesies tumbuhan yang ada di Pulau Kembang. Informasi ini sangat penting untuk memahami keragaman flora dan membantu dalam perencanaan konservasi."
           }
         ]
       }
     ],
-    "closing": "Luar biasa! Kamu telah berhasil menganalisis data tumbuhan di Pulau Kembang. Setiap langkah yang kamu ambil telah memberikan wawasan penting mengenai kekayaan flora di pulau ini. Pengetahuan ini sangat berharga untuk memahami kondisi ekosistem dan merencanakan upaya konservasi di masa depan.",
+    "closing": "Selamat! Kamu telah sukses menganalisis data tumbuhan di Pulau Kembang. Setiap langkah yang kamu lakukan memberikan wawasan penting mengenai populasi tumbuhan di pulau ini. Pengetahuan ini sangat berharga untuk memastikan kelangsungan ekosistem Pulau Kembang, membantu menjaga keseimbangan antara flora, fauna, dan habitat mereka. Teruskan usaha ini demi kelestarian lingkungan yang kita cintai!",
     "filepath": "stage6.db"
   },
   {
     "id": 7,
-    "title": "Biaya Masuk Wisatawan",
-    "introduction": "Dalam tahap ini, kamu akan menganalisis biaya masuk ke Pulau Kembang untuk dua kategori wisatawan: lokal dan mancanegara. Kamu akan mengerjakan misi-misi terpisah untuk masing-masing kategori untuk mendapatkan wawasan yang lebih jelas tentang biaya yang dibayar. Ayo mulai eksplorasi data biaya untuk memahami perbedaan antara wisatawan lokal dan mancanegara!",
+    "title": "Menghitung Biaya Wisata",
+    "introduction": "Dalam tahap ini, kamu akan menganalisis biaya masuk ke Pulau Kembang untuk dua kategori wisatawan: lokal dan mancanegara. Kamu akan mengerjakan misi-misi terpisah untuk masing-masing kategori untuk mendapatkan wawasan yang lebih jelas tentang biaya yang dibayar. Ayo mulai eksplorasi data biaya!",
     "missions": [
       {
         "id": 1,
@@ -828,15 +860,11 @@
         "dialogs": [
           {
             "type": "narration",
-            "text": "Kita akan memulai dengan menemukan harga termurah yang dibayar oleh wisatawan lokal."
-          },
-          {
-            "type": "narration",
-            "text": "Ini akan membantu kita memahami biaya minimum yang dikeluarkan oleh wisatawan lokal."
+            "text": "Kita akan memulai dengan mencari harga termurah yang dibayar oleh wisatawan lokal. Ini akan membantu kita memahami biaya minimum yang dikeluarkan oleh wisatawan lokal."
           },
           {
             "type": "instruction",
-            "text": "Sekarang ketikkan perintah SQL untuk menemukan harga termurah dari data biaya untuk wisatawan lokal. Gunakan operator MIN untuk menyelesaikan misi ini dengan benar.",
+            "text": "Temukan *harga* termurah dari data *biaya* untuk wisatawan *Lokal. <br> **Petunjuk* : Sesuaikan penulisan dengan data biaya.",
             "sql": {
               "type": "exec",
               "query": "SELECT MIN(harga) FROM biaya WHERE wisatawan = 'Lokal';"
@@ -844,33 +872,33 @@
           },
           {
             "type": "narration",
-            "text": "Kamu telah menemukan harga terendah yang dibayar oleh wisatawan lokal."
+            "text": "Kamu telah menemukan harga termurah yang dibayar oleh wisatawan lokal."
           }
         ]
       },
       {
         "id": 2,
-        "title": "Total Biaya untuk Wisatawan Mancanegara",
+        "title": "Total Biaya untuk Wisatawan Mancanegara pada Hari Libur",
         "dialogs": [
           {
             "type": "narration",
-            "text": "Sekarang, mari kita hitung total biaya yang dibayar oleh wisatawan mancanegara."
+            "text": "Mari kita hitung total biaya yang dibayar oleh wisatawan mancanegara selama hari libur (Sabtu dan Minggu). "
           },
           {
             "type": "narration",
-            "text": "Ini akan menunjukkan total pengeluaran untuk semua hari yang tercatat untuk wisatawan mancanegara."
+            "text": "Informasi ini akan membantu mengetahui pengeluaran dari wisatawan mancanegara yang mengunjungi Pulau Kembang pada akhir pekan."
           },
           {
             "type": "instruction",
-            "text": "Ketikkan query SQL untuk menghitung total biaya dari data biaya untuk wisatawan mancanegara. Gunakan operator SUM untuk misi ini dan ubah nama kolom menjadi total_biaya dengan AS.",
+            "text": "Hitung *total biaya* masuk dari data *biaya* untuk wisatawan *Mancanegara* yang berkunjung pada *Hari Libur. <br> **Petunjuk* : Buat data total biaya dengan alias serta gunakan operator SQL untuk menghitungnya.",
             "sql": {
               "type": "exec",
-              "query": "SELECT SUM(harga) AS total_biaya FROM biaya WHERE wisatawan = 'Mancanegara';"
+              "query": "SELECT SUM(harga) AS total_biaya FROM biaya WHERE wisatawan = 'Mancanegara' AND hari = 'Hari Libur';"
             }
           },
           {
             "type": "narration",
-            "text": "Kamu telah berhasil menghitung total biaya yang dibayar oleh wisatawan mancanegara."
+            "text": "Kamu telah berhasil menghitung total biaya yang dibayar oleh wisatawan mancanegara pada hari libur."
           }
         ]
       },
@@ -888,7 +916,7 @@
           },
           {
             "type": "instruction",
-            "text": "Ketikkan perintah SQL untuk menemukan harga tertinggi dari data biaya untuk wisatawan lokal. Gunakan operator MAX untuk menyelesaikan misi ini",
+            "text": "Temukan *harga* tertinggi dari data *biaya* untuk wisatawan *Lokal! <br> **Petunjuk* : Sesuaikan penulisan dengan data biaya.",
             "sql": {
               "type": "exec",
               "query": "SELECT MAX(harga) FROM biaya WHERE wisatawan = 'Lokal';"
@@ -896,7 +924,7 @@
           },
           {
             "type": "narration",
-            "text": "Kamu telah menemukan harga tertinggi yang dibayar oleh wisatawan lokal."
+            "text": "Kamu telah menemukan harga tertinggi yang dibayar oleh wisatawan lokal"
           }
         ]
       },
@@ -914,7 +942,7 @@
           },
           {
             "type": "instruction",
-            "text": "Ketikkan perintah SQL untuk menghitung rata-rata biaya dari data biaya untuk wisatawan mancanegara. Gunakan operator AVG untuk menyelesaikan misi ini.",
+            "text": "Hitung rata-rata *harga* dari data *biaya* untuk wisatawan *Mancanegara.  **Petunjuk* : Sesuaikan penulisan dengan data biaya.",
             "sql": {
               "type": "exec",
               "query": "SELECT AVG(harga) FROM biaya WHERE wisatawan = 'Mancanegara';"
@@ -940,7 +968,7 @@
           },
           {
             "type": "instruction",
-            "text": "Ketikkan query SQL untuk menghitung jumlah biaya yang berbeda di data biaya. Gunakan operator COUNT dan DISTINCT dan ubah nama kolom hasil menjadi jumlah_biaya_berbeda dengan AS.",
+            "text": "Hitung banyaknya *harga* yang berbeda di data *biaya* dan tampilkan hasilnya dengan nama *jumlah biaya berbeda*.",
             "sql": {
               "type": "exec",
               "query": "SELECT COUNT(DISTINCT harga) AS jumlah_biaya_berbeda FROM biaya;"
@@ -953,13 +981,13 @@
         ]
       }
     ],
-    "closing": "Luar biasa! Dengan analisis ini, kita sekarang memiliki pemahaman yang lebih baik tentang biaya masuk untuk wisatawan lokal dan mancanegara di Pulau Kembang. Terima kasih atas usaha dan dedikasimu dalam menggali informasi dari data biaya ini!",
+    "closing": "Luar biasa! Dengan analisis ini, kita sekarang memiliki pemahaman yang lebih baik tentang biaya masuk untuk wisatawan lokal dan mancanegara di Pulau Kembang. Terima kasih atas usahamu dalam menggali informasi dari data biaya ini!",
     "filepath": "stage7.db"
   },
   {
     "id": 8,
-    "title": "Analisis Data Hewan",
-    "introduction": "Di sini, kamu akan mempelajari cara menganalisis dan mengelompokkan data hewan di Pulau Kembang. Misi-misi ini akan membantu kamu memahami informasi penting tentang hewan yang ada di pulau.",
+    "title": "Menganalisis Data Hewan",
+    "introduction": "Di tahap ini, kamu akan menganalisis data hewan yang tinggal di Pulau Kembang. Lahan basah di Pulau Kembang berperan penting sebagai habitat alami bagi berbagai spesies hewan, dan pemahaman tentang data ini akan membantu dalam upaya pelestarian ekosistem.",
     "missions": [
       {
         "id": 1,
@@ -967,15 +995,15 @@
         "dialogs": [
           {
             "type": "narration",
-            "text": "Untuk memulai, mari kita lihat semua data hewan yang tersedia."
+            "text": "Untuk memulai, kita akan melihat semua data hewan yang tersedia di Pulau Kembang."
           },
           {
             "type": "narration",
-            "text": "Ini akan memberi kita gambaran umum tentang informasi yang ada."
+            "text": "Setiap hewan memainkan peran penting dalam menjaga keseimbangan ekosistem lahan basah."
           },
           {
             "type": "instruction",
-            "text": "Ketikkan perintah SQL untuk menampilkan seluruh data hewan dari tabel hewan",
+            "text": "Tampilkan seluruh hewan dari data *hewan*",
             "sql": {
               "type": "exec",
               "query": "SELECT * FROM hewan;"
@@ -993,11 +1021,11 @@
         "dialogs": [
           {
             "type": "narration",
-            "text": "Sekarang, kita akan mengurutkan nama-nama hewan secara alfabetis untuk memudahkan pencarian dan identifikasi."
+            "text": "Sekarang, kita akan mengurutkan nama-nama hewan secara alfabet untuk memudahkan pencarian dan identifikasi."
           },
           {
             "type": "instruction",
-            "text": "Ketikkan perintah SQL untuk menampilkan nama-nama hewan dari tabel hewan secara berurutan dari A hingga Z. Pastikan kamu menggunakan ORDER BY pada kolom nama.",
+            "text": "Tampilkan semua *nama* hewan dari data *hewan* secara berurutan dari A hingga Z.",
             "sql": {
               "type": "exec",
               "query": "SELECT * FROM hewan ORDER BY nama;"
@@ -1011,18 +1039,22 @@
       },
       {
         "id": 3,
-        "title": "Menampilkan Jenis Makanan dan Menghitung Jumlah Hewan pada Jenis Makanan",
+        "title": "Menemukan Hewan dengan Lama Hidup di Atas Rata-Rata",
         "dialogs": [
           {
             "type": "narration",
-            "text": "Sekarang, mari kita tampilkan jenis-jenis makanan yang dikonsumsi oleh hewan dan hitung jumlah hewan yang mengonsumsi setiap jenis makanan."
+            "text": "Sekarang, kita akan fokus pada hewan yang memiliki lama hidup di atas rata-rata."
+          },
+          {
+            "type": "narration",
+            "text": "Hewan-hewan ini dapat memberikan wawasan lebih lanjut tentang faktor-faktor yang mendukung kelangsungan hidup di Pulau Kembang."
           },
           {
             "type": "instruction",
-            "text": "Ketikkan query SQL untuk menampilkan jenis makanan dan jumlah hewan yang mengkonsumsi setiap jenis makanan. Gunakan operator COUNT dan GROUP BY pada kolom makanan",
+            "text": "Tampilkan *nama* hewan dari data *hewan* yang memiliki *lama hidup* di atas rata-rata. <br> *Petunjuk* : Gunakan subquery dan sesuaikan penulisan dengan isi data hewan",
             "sql": {
               "type": "exec",
-              "query": "SELECT makanan, COUNT(*) FROM hewan GROUP BY makanan;"
+              "query": "SELECT nama, lama_hidup FROM hewan WHERE lama_hidup > (SELECT AVG(lama_hidup) FROM hewan);"
             }
           },
           {
@@ -1033,19 +1065,19 @@
       },
       {
         "id": 4,
-        "title": "Mengelompokkan Hewan Berdasarkan Status Konservasi",
+        "title": "Mengelompokkan dan Mengurutkan Hewan Berdasarkan Status Konservasi",
         "dialogs": [
           {
             "type": "narration",
-            "text": "Tugas berikutnya adalah mengelompokkan hewan berdasarkan status konservasi mereka dan mengurutkannya dari yang paling banyak ke yang paling sedikit."
+            "text": "Sekarang kita akan mengelompokkan hewan berdasarkan status konservasinya dan mengurutkan dari yang paling banyak hingga paling sedikit."
           },
           {
             "type": "narration",
-            "text": "Ini akan memberikan gambaran tentang biaya rata-rata yang dikeluarkan per hari untuk wisatawan mancanegara."
+            "text": "Informasi ini penting untuk memahami ancaman yang dihadapi oleh spesies yang menghuni lahan basah di Pulau Kembang."
           },
           {
             "type": "instruction",
-            "text": "Ketikkan query SQL untuk mengelompokkan hewan berdasarkan status konservasi dan urutkan hasilnya berdasarkan jumlah hewan tiap status dari terbesar ke terkecil. Gunakan GROUP BY dan ORDER BY dengan urutan DESC.",
+            "text": "Kelompokkan data *hewan* berdasarkan *status konservasi* dan urutkan hasilnya berdasarkan *jumlah* hewan dalam masing-masing status dari yang paling banyak ke sedikit. Ubah juga nama kolom hasil dengan jumlah.",
             "sql": {
               "type": "exec",
               "query": "SELECT status_konservasi, COUNT(*) AS jumlah FROM hewan GROUP BY status_konservasi ORDER BY jumlah DESC;"
@@ -1053,25 +1085,21 @@
           },
           {
             "type": "narration",
-            "text": "Kamu telah berhasil mengelompokkan dan mengurutkan hewan berdasarkan status konservasi mereka."
+            "text": "Kamu telah berhasil mengelompokkan dan mengurutkan hewan berdasarkan status konservasi mereka. Ini memberikan gambaran jelas tentang prioritas konservasi."
           }
         ]
       },
       {
         "id": 5,
-        "title": "Mengurutkan Hewan Berdasarkan Lama Hidup",
+        "title": "Mengurutkan Hewan Berdasarkan Lama Hidup dari yang Terpendek",
         "dialogs": [
           {
             "type": "narration",
-            "text": "Terakhir, mari kita urutkan hewan berdasarkan lama hidup mereka dari yang terpendek hingga terpanjang."
-          },
-          {
-            "type": "narration",
-            "text": "Ini membantu kita memahami rentang umur di antara hewan."
+            "text": "Terakhir, kita akan mengurutkan hewan berdasarkan lama hidup mereka. Pengetahuan tentang umur rata-rata hewan membantu memahami siklus hidup mereka."
           },
           {
             "type": "instruction",
-            "text": "Ketikkan perintah SQL untuk menampilkan nama hewan dan lama hidup mereka, diurutkan dari lama hidup terpendek ke terpanjang. Gunakan ORDER BY pada kolom lama_hidup dan ASC",
+            "text": "Tampilkan *nama* dan *lama hidup* hewan dari data *hewan*, yang diurutkan dari lama hidup terpendek hingga terpanjang.",
             "sql": {
               "type": "exec",
               "query": "SELECT nama, lama_hidup FROM hewan ORDER BY lama_hidup ASC;"
@@ -1079,7 +1107,7 @@
           },
           {
             "type": "narration",
-            "text": "Kamu telah berhasil mengurutkan hewan berdasarkan lama hidup mereka."
+            "text": "Kamu telah berhasil mengurutkan hewan berdasarkan lama hidup mereka. Ini memberikan wawasan tentang umur rata-rata hewan di pulau."
           }
         ]
       }
@@ -1089,8 +1117,8 @@
   },
   {
     "id": 9,
-    "title": "Pembaruan Data",
-    "introduction": "Selamat datang di tahap ini, Petualang! Di sini, Anda akan mengasah kemampuan untuk memperbarui dan menambahkan data di database. Melalui misi-misi berikut, Anda akan meningkatkan keahlian dalam mengelola informasi yang penting untuk menjaga kelancaran operasional Pulau Kembang. Siap untuk tantangan ini? Mari kita mulai!",
+    "title": "Pengelolaan Data Pulau Kembang",
+    "introduction": "Di sini, kamu akan meningkatkan keterampilan penting dalam menjaga dan memperbarui informasi yang mendukung kelestarian Pulau Kembang. Setiap misi yang kamu selesaikan akan berkontribusi langsung pada pelestarian pulau dan kelangsungan ekosistem lahan basah. Apakah kamu siap menghadapi tantangan ini? Ayo kita mulai dengan penuh semangat!",
     "missions": [
       {
         "id": 1,
@@ -1098,24 +1126,24 @@
         "dialogs": [
           {
             "type": "narration",
-            "text": "Pulau Kembang membutuhkan lebih banyak petugas untuk menjaga dan melayani pengunjung."
+            "text": "Pulau Kembang sedang berkembang dan membutuhkan lebih banyak petugas untuk menjaga ekosistem dan melayani pengunjung."
           },
           {
             "type": "narration",
-            "text": "Kamu menemukan petugas baru bernama 'Wisnu' yang bertugas sebagai pemandu wisata."
+            "text": "Kamu bertemu dengan Fatimah, seorang petugas baru yang bergabung sebagai pemandu wisata di pulau ini."
           },
           {
             "type": "instruction",
-            "text": "Tugas Anda adalah memasukkan informasi petugas baru ke dalam tabel Petugas. Petugas baru bernama Wisnu dan bertugas sebagai pemandu wisata.",
+            "text": "Tugasmu adalah memasukkan informasi petugas yang memiliki *nama* Fatimah. Ia memiliki *tugas* sebagai Pemandu Wisata.",
             "sql": {
               "type": "run",
-              "query": "INSERT INTO petugas (nama, tugas) VALUES ('Wisnu', 'Pemandu wisata')",
-              "validation": "SELECT * FROM petugas WHERE id = last_insert_rowid() AND nama = 'Wisnu' AND tugas = 'Pemandu wisata'"
+              "query": "INSERT INTO Petugas (nama, tugas) VALUES ('Fatimah', 'Pemandu wisata');",
+              "validation": "SELECT * FROM petugas WHERE id = last_insert_rowid() AND nama = 'Fatimah' AND tugas = 'Pemandu Wisata'"
             }
           },
           {
             "type": "narration",
-            "text": "Luar biasa! Kamu telah sukses menambahkan 'Wisnu' sebagai pemandu wisata, pengunjung akan mendapatkan pengalaman yang lebih baik dan pelayanan yang lebih optimal di Pulau Kembang."
+            "text": "Kerja bagus! Dengan kehadiran Fatimah sebagai pemandu wisata, pengunjung kini bisa mendapatkan informasi yang lebih mendalam"
           }
         ]
       },
@@ -1125,24 +1153,24 @@
         "dialogs": [
           {
             "type": "narration",
-            "text": "Fasilitas baru telah dibuka untuk meningkatkan pengalaman pengunjung di tempat ini."
+            "text": "Musholla di Pulau Kembang sudah lama tersedia, tetapi datanya belum dimasukkan untuk pendataan fasilitas."
           },
           {
             "type": "narration",
-            "text": "Fasilitas tersebut adalah Toko Souvenir, yang menyediakan berbagai macam barang kenang-kenangan."
+            "text": "Sekarang, saatnya memperbarui informasi ini agar tercatat dengan benar."
           },
           {
             "type": "instruction",
-            "text": "Nah, tugas kamu sekarang adalah memasukkan informasi fasilitas baru ke dalam tabel fasilitas. Adapun fasilitas bernama ‘Toko Souvenir’ berjenis Pendukung Pariwisata, dengan jumlah sebanyak 1 buah dan status kelayakan layak.",
+            "text": "Nah, sekarang masukkan informasi musholla ke data *fasilitas. Adapun **nama* fasilitasnya Musholla, *jumlah* 1 buah, dengan *jenis* Fasilitas Umum, dan *status kelayakan* Layak.",
             "sql": {
               "type": "run",
-              "query": "INSERT INTO fasilitas (nama, jumlah, jenis, status_kelayakan) VALUES ('Toko Souvenir', 1, 'Pendukung Pariwisata', 'Layak')",
-              "validation": "SELECT * FROM fasilitas WHERE id = last_insert_rowid() AND nama = 'Toko Souvenir' AND jumlah = 1 AND jenis = 'Pendukung Pariwisata' AND status_kelayakan = 'Layak'"
+              "query": "INSERT INTO fasilitas (nama, jumlah, jenis, status_kelayakan) VALUES ('Musholla', 1, 'Fasilitas Umum', 'Layak');)",
+              "validation": "SELECT * FROM fasilitas WHERE id = last_insert_rowid() AND nama = 'Musholla' AND jumlah = 1 AND jenis = 'Fasilitas Umum' AND status_kelayakan = 'Layak'"
             }
           },
           {
             "type": "narration",
-            "text": "Anda telah berhasil menambahkan data fasilitas baru."
+            "text": "Anda telah berhasil menambahkan data fasilitas baru. Dengan informasi ini, pengunjung dapat mengetahui adanya Musholla."
           }
         ]
       },
@@ -1152,14 +1180,14 @@
         "dialogs": [
           {
             "type": "narration",
-            "text": "Kamu menemukan bahwa jumlah Nipah di Pulau Kembang meningkat dari 19 menjadi 25."
+            "text": "Ketika melakukan pengamatan di lahan basah, kamu menemukan bahwa populasi tumbuhan Nipah spesies penting bagi ekosistem meningkat dari 34 menjadi 41."
           },
           {
             "type": "instruction",
-            "text": "Sekarang mari kita perbarui datanya! Ketikkan perintah SQL untuk memperbarui jumlah Nipah dari 19 menjadi 25 pada tabel tumbuhan di kolom jumlah.",
+            "text": "Sekarang, perbarui data *tumbuhan* ini dengan memperbarui *jumlah* Nipah menjadi 41.",
             "sql": {
               "type": "run",
-              "query": "UPDATE tumbuhan SET jumlah = 25 WHERE nama = 'Nipah'",
+              "query": "UPDATE tumbuhan SET jumlah = 41 WHERE nama = 'Nipah';",
               "validation": "SELECT * FROM tumbuhan WHERE nama = 'Nipah' AND jumlah = 25"
             }
           },
@@ -1175,19 +1203,15 @@
         "dialogs": [
           {
             "type": "narration",
-            "text": "Petugas 'Cahya' yang sebelumnya bertugas sebagai 'Penjaga loket' kini dipindahkan ke posisi 'Petugas kebersihan'."
-          },
-          {
-            "type": "narration",
-            "text": "Ini akan memberikan gambaran tentang biaya rata-rata yang dikeluarkan per hari untuk wisatawan mancanegara."
+            "text": "Cahya, seorang petugas yang sebelumnya bertugas sebagai Penjaga Loket, kini dipindahkan ke posisi baru sebagai Petugas Kebersihan"
           },
           {
             "type": "instruction",
-            "text": "Ketikkan perintah SQL untuk memperbarui  tugas Cahya menjadi Petugas kebersihan pada tabel petugas di kolom tugas",
+            "text": "Perbarui *tugas* Cahya sebagai Petugas Kebersihan di data *petugas* agar sesuai dengan tugas barunya.",
             "sql": {
               "type": "run",
-              "query": "UPDATE petugas SET tugas = 'Petugas kebersihan' WHERE nama = 'Cahya'",
-              "validation": "SELECT * FROM petugas WHERE nama = 'Cahya' AND tugas = 'Petugas kebersihan'"
+              "query": "UPDATE petugas SET tugas = 'Petugas Kebersihan' WHERE nama = 'Cahya';",
+              "validation": "SELECT * FROM petugas WHERE nama = 'Cahya' AND tugas = 'Petugas Kebersihan'"
             }
           },
           {
@@ -1198,35 +1222,35 @@
       },
       {
         "id": 5,
-        "title": "Memperbarui Harga Tiket Wisatawan Lokal di Hari Minggu",
+        "title": "Memperbarui Harga Tiket Wisatawan Lokal di Hari Libur",
         "dialogs": [
           {
             "type": "narration",
-            "text": "Harga tiket wisatawan lokal pada hari 'Minggu' akan dinaikkan dari '10000' menjadi '12000' untuk mendukung program konservasi."
+            "text": "Harga tiket wisatawan lokal pada Hari Libur akan dinaikkan dari ‘7500’ menjadi ‘10000’ untuk mendukung program konservasi."
           },
           {
             "type": "instruction",
-            "text": "Ayo perbarui harga tiketnya! Ketikkan perintah SQL untuk memperbarui harga tiket wisatawan lokal pada hari Minggu menjadi 12000 pada tabel biaya di kolom harga.",
+            "text": "Perbarui *harga* tiket wisatawan Lokal di *Hari Libur* menjadi 10000. Pastikan perubahan dilakukan pada data biaya.",
             "sql": {
               "type": "run",
-              "query": "UPDATE Biaya SET harga = 12000 WHERE hari = 'Minggu' AND wisatawan = 'Lokal'",
-              "validation": "SELECT * FROM biaya WHERE hari = 'Minggu' AND wisatawan = 'Lokal' AND harga = 12000"
+              "query": "UPDATE biaya SET harga = 10000 WHERE hari = 'Hari Libur' AND wisatawan = 'Lokal'; ",
+              "validation": "SELECT * FROM biaya WHERE hari = 'Hari Libur' AND wisatawan = 'Lokal' AND harga = 10000"
             }
           },
           {
             "type": "narration",
-            "text": "Bagus sekali! Harga tiket untuk wisatawan lokal pada hari Minggu telah diperbarui."
+            "text": "Bagus sekali! Harga tiket untuk wisatawan lokal pada hari Libur telah diperbarui."
           }
         ]
       }
     ],
-    "closing": "Luar biasa! kamu telah berhasil menyelesaikan semua misi di tahap ini. Kamu sekarang lebih mahir dalam memperbarui dan menambahkan data di database, keterampilan yang sangat penting untuk menjaga informasi tetap akurat dan terkini. Teruslah berlatih dan jangan berhenti belajar. Sampai jumpa di tahap berikutnya!",
+    "closing": "Luar biasa! Anda telah berhasil menyelesaikan semua misi di tahap ini. Anda sekarang lebih mahir dalam memperbarui dan menambahkan data di database, keterampilan yang sangat penting untuk menjaga informasi tetap akurat dan terkini. Teruslah berlatih dan jangan berhenti belajar. Sampai jumpa di tahap berikutnya!",
     "filepath": "stage9.db"
   },
   {
     "id": 10,
-    "title": "Mengelola Data",
-    "introduction": "Selamat datang di tahap berikutnya dalam petualangan Anda di Pulau Kembang. Di tahap ini, Anda akan belajar untuk mengelola data penting yang berhubungan dengan petugas, biaya tiket, dan fasilitas yang ada di pulau ini. Setiap misi akan memberikan Anda pengalaman langsung dalam menambahkan, memperbarui, dan menghapus data dari database. Mari kita mulai!",
+    "title": "Peningkatan Pengelolaan Data",
+    "introduction": "Selamat datang di tahap terakhir dalam petualangan Anda di Pulau Kembang. Pada tahap ini, Anda akan belajar cara mengelola data penting yang berhubungan dengan petugas, biaya tiket, dan fasilitas di pulau ini. Setiap misi akan memberikan Anda pengalaman langsung dalam menambahkan, memperbarui, dan menghapus data dari database, yang sangat penting untuk menjaga operasional pulau tetap efisien. Siap untuk memulai?",
     "missions": [
       {
         "id": 1,
@@ -1234,51 +1258,47 @@
         "dialogs": [
           {
             "type": "narration",
-            "text": "Terdapat petugas baru bernama 'Anis' yang akan bergabung dengan tim sebagai Petugas Kebersihan."
+            "text": "Seorang petugas baru bernama 'Anang' telah bergabung dengan tim sebagai Petugas Kebersihan."
           },
           {
             "type": "narration",
-            "text": "Tugas Anda adalah memasukkan informasi petugas baru ini ke dalam database."
+            "text": "Tugas Anda adalah menambahkan informasi petugas baru ini ke dalam database."
           },
           {
             "type": "instruction",
-            "text": "Tugas Anda adalah memasukkan informasi petugas baru ke dalam tabel Petugas. Petugas baru bernama Anis dan bertugas sebagai Petugas Kebersihan.",
+            "text": "Masukkan data *petugas* baru dengan *nama* Anang dengan *tugas* sebagai *Petugas Kebersihan* ke data petugas",
             "sql": {
               "type": "run",
-              "query": "INSERT INTO petugas (nama, tugas) VALUES ( 'Anis', 'Petugas kebersihan')",
-              "validation": "SELECT * FROM petugas WHERE id = last_insert_rowid() AND nama = 'Anis' AND tugas = 'Petugas kebersihan'"
+              "query": "INSERT INTO petugas (nama, tugas) VALUES ('Anang', 'Petugas Kebersihan');",
+              "validation": "SELECT * FROM petugas WHERE id = last_insert_rowid() AND nama = 'Anang' AND tugas = 'Petugas Kebersihan'"
             }
           },
           {
             "type": "narration",
-            "text": "Anda telah berhasil menambahkan data petugas baru ke dalam database."
+            "text": "Anda telah berhasil menambahkan petugas baru 'Anang' ke dalam database."
           }
         ]
       },
       {
         "id": 2,
-        "title": "Memperbarui Harga Tiket Wisatawan Lokal di Hari Minggu",
+        "title": "Memperbarui Harga Tiket Wisatawan Mancanegara di Hari Libur",
         "dialogs": [
           {
             "type": "narration",
-            "text": "Narasi: Harga tiket wisatawan lokal pada hari ‘Minggu’ akan dinaikkan dari ‘10000’ menjadi ‘12000’ untuk mendukung program konservasi."
-          },
-          {
-            "type": "narration",
-            "text": "Fasilitas tersebut adalah Toko Souvenir, yang menyediakan berbagai macam barang kenang-kenangan."
+            "text": "Harga tiket untuk wisatawan mancanegara pada Hari Libur akan dinaikkan dari '150000' menjadi '175000' untuk mendukung program konservasi di Pulau Kembang."
           },
           {
             "type": "instruction",
-            "text": "Ayo perbarui harga tiketnya! Ketikkan perintah SQL untuk memperbarui harga tiket wisatawan lokal pada hari Minggu menjadi 12000 pada tabel biaya di kolom harga",
+            "text": "Perbarui *harga* tiket wisatawan Mancanegara pada *Hari Libur* menjadi 175000 di data biaya.",
             "sql": {
               "type": "run",
-              "query": "UPDATE biaya SET harga = 12000 WHERE hari = 'Minggu' AND wisatawan = 'Lokal'",
-              "validation": "SELECT * FROM biaya WHERE hari = 'Minggu' AND wisatawan = 'Lokal' AND harga = 12000"
+              "query": "UPDATE biaya SET harga = 175000 WHERE hari = 'Hari Libur' AND wisatawan = 'Mancanegara';",
+              "validation": "SELECT * FROM biaya WHERE hari = 'Hari Libur' AND wisatawan = 'Mancanegara' AND harga = 175000"
             }
           },
           {
             "type": "narration",
-            "text": "Bagus sekali! Harga tiket untuk wisatawan lokal pada hari Minggu telah diperbarui."
+            "text": "Bagus sekali! Harga tiket untuk wisatawan mancanegara pada hari Libur telah berhasil diperbarui."
           }
         ]
       },
@@ -1288,15 +1308,11 @@
         "dialogs": [
           {
             "type": "narration",
-            "text": "Petugas yang bernama 'Tiwi' telah pindah tugas ke lokasi lain dan tidak lagi bekerja di Pulau Kembang."
-          },
-          {
-            "type": "narration",
-            "text": "Kamu perlu menghapus data petugas ini dari tabel petugas."
+            "text": " Petugas bernama 'Tiwi' telah dipindahkan ke lokasi lain dan tidak lagi bekerja di Pulau Kembang. Anda perlu menghapus data petugas ini"
           },
           {
             "type": "instruction",
-            "text": "Sekarang mari kita perbarui datanya! Ketikkan perintah SQL untuk memperbarui jumlah Nipah dari 19 menjadi 25 pada tabel tumbuhan di kolom jumlah.",
+            "text": "Hapuslah data *petugas* dengan *nama* Tiwi!",
             "sql": {
               "type": "run",
               "query": "DELETE FROM petugas WHERE nama = 'Tiwi'",
@@ -1305,29 +1321,29 @@
           },
           {
             "type": "narration",
-            "text": "Luar biasa! Kamu telah berhasil menghapus data 'Tiwi' dari database."
+            "text": "Luar biasa! Anda telah berhasil menghapus data Tiwi dari database. Ini memastikan bahwa data petugas tetap akurat dan terkini."
           }
         ]
       },
       {
         "id": 4,
-        "title": "Menghapus Data Biaya",
+        "title": "Menghapus Data Petugas yang Sakit",
         "dialogs": [
           {
             "type": "narration",
-            "text": "Tarif 'Hari Libur Nasional' untuk wisatawan lokal tidak lagi berlaku di Pulau Kembang."
+            "text": "Petugas bernama Burhan telah mengundurkan diri karena sakit dan tidak lagi bekerja di Pulau Kembang. "
           },
           {
             "type": "narration",
-            "text": "Kamu perlu menghapus data biaya ini dari tabel biaya."
+            "text": "Tugas kamu adalah menghapus data petugas ini dari database."
           },
           {
             "type": "instruction",
-            "text": "Ketikan perintah SQL untuk menghapus data pada tabel biaya pada kolom hari 'Hari Libur Nasional' dan kolom wisatawan 'Lokal' dari tabel biaya",
+            "text": "Hapuslah data *petugas* dengan *nama* Burhan!",
             "sql": {
               "type": "run",
-              "query": "DELETE FROM biaya WHERE hari = 'Hari Libur Nasional' AND wisatawan = 'Lokal'",
-              "validation": "SELECT * FROM biaya WHERE hari = 'Hari Libur Nasional' AND wisatawan = 'Lokal'"
+              "query": "DELETE FROM petugas WHERE nama = 'Burhan';",
+              "validation": "SELECT * FROM petugas WHERE nama = 'Burhan'"
             }
           },
           {
@@ -1342,29 +1358,26 @@
         "dialogs": [
           {
             "type": "narration",
-            "text": "Fasilitas 'Pondok Pandang' sudah tidak ada lagi di Pulau Kembang."
-          },
-          {
-            "type": "narration",
-            "text": "Kamu perlu menghapus data fasilitas ini dari tabel fasilitas."
+            "text": " Fasilitas Kantor Kehutanan sudah tidak aktif lagi di Pulau Kembang. Anda perlu menghapus data fasilitas ini."
           },
           {
             "type": "instruction",
-            "text": "Ketikan perintah SQL untuk menghapus data fasilitas pada kolom nama dengan nama fasilitas ‘Pondok Pandang’ dari tabel fasilitas:",
+            "text": "Hapus data *fasilitas* dengan *nama* 'Kantor Kehutanan' dari data fasilitas.",
             "sql": {
               "type": "run",
-              "query": "DELETE FROM fasilitas WHERE nama = 'Pondok Pandang'",
-              "validation": "SELECT * FROM fasilitas WHERE nama = 'Pondok Pandang'"
+              "query": "DELETE FROM fasilitas WHERE nama = 'Kantor Kehutanan'",
+              "validation": "SELECT * FROM fasilitas WHERE nama = 'Kantor Kehutanan'"
             }
           },
           {
             "type": "narration",
-            "text": "Bagus sekali! Kamu telah berhasil menghapus data 'Pondok Pandang' dari database."
+            "text": "Bagus sekali! Kamu telah berhasil menghapus data 'Kantor Kehutanan' dari database."
           }
         ]
       }
     ],
-    "closing": "Luar biasa! Anda telah menyelesaikan semua misi dalam tahap ini dengan sukses. Anda telah belajar bagaimana menambahkan, memperbarui, dan menghapus data dalam database, keterampilan penting yang akan membantu dalam menjaga informasi tetap akurat dan terkini. Teruslah berlatih dan tingkatkan kemampuan Anda dalam mengelola data.",
+    "closing": "Luar biasa! Anda telah menyelesaikan semua misi dalam tahap ini dengan sukses. Anda telah belajar cara menambahkan, memperbarui, dan menghapus data dalam database, keterampilan penting untuk menjaga informasi tetap akurat. Teruslah berlatih dan tingkatkan kemampuan Anda dalam mengelola data untuk mendukung kelancaran operasional di Pulau Kembang.",
     "filepath": "stage10.db"
   }
 ]
+
