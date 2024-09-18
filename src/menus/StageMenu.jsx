@@ -55,7 +55,7 @@ const StageMenu = () => {
             <Col
               className="flex-center flex-column"
               key={`stage-menu-${d.id}`}
-              sm={6}
+              xs={6}
               md={4}
               lg={3}
               xl={2}
