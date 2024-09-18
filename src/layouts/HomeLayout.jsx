@@ -43,6 +43,15 @@ const HomeLayout = ({ children }) => {
                 <MdLogout className="me-2" size={20} />
                 KELUAR
               </Button>
+              <a
+                href="https://forms.gle/toAJRdiJaLycTLfs8"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button className="d-block mx-auto mt-3" variant="outline-secondary">
+                  <small className="fw-bold">ADUAN</small>
+                </Button>
+              </a>
             </div>
           ) : (
             <>
@@ -56,10 +65,20 @@ const HomeLayout = ({ children }) => {
                     </Link>
 
                     <Link to="/register">
-                      <Button variant="outline-secondary">
+                      <Button className="me-2" variant="outline-secondary">
                         <small className="fw-bold">DAFTAR</small>
                       </Button>
                     </Link>
+
+                    <a
+                      href="https://forms.gle/toAJRdiJaLycTLfs8"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Button variant="outline-secondary">
+                        <small className="fw-bold">ADUAN</small>
+                      </Button>
+                    </a>
                   </>
                 )}
               </div>

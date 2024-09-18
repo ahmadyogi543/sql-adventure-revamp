@@ -18,7 +18,7 @@
           },
           {
             "type": "narration",
-            "text": ": Sebelum mulai menjelajahi Pulau Kembang, penting untuk mengetahui biaya kunjungan."
+            "text": "Sebelum mulai menjelajahi Pulau Kembang, penting untuk mengetahui biaya kunjungan."
           },
           {
             "type": "narration",
@@ -219,7 +219,7 @@
           },
           {
             "type": "instruction",
-            "text": "Temukan data **tumbuhan** dengan *status konservasi** yaitu **Near Threatened** agar kita dapat memberikan perhatian khusus pada mereka. Petunjuk : Sesuaikan penulisan isi data dan kolom dengan tabel tumbuhan.",
+            "text": "Temukan data **tumbuhan** dengan **status konservasi** yaitu **Near Threatened**. **Petunjuk** : Sesuaikan penulisan isi data dan kolom dengan tabel tumbuhan.",
             "sql": {
               "type": "exec",
               "query": "SELECT * FROM Tumbuhan WHERE status_konservasi = 'Near Threatened';"
@@ -293,7 +293,7 @@
           },
           {
             "type": "instruction",
-            "text": "Mari kita temukan data **tumbuhan** yang **status konservasi**nya bukan **Least Concern**. <br>Petunjuk : Sesuaikan penulisan isi data dan kolom dengan data tumbuhan. Gunakan operator perbandingan",
+            "text": "Temukan data **tumbuhan** yang **status konservasi**nya bukan **Least Concern**. Petunjuk : Sesuaikan penulisan isi data dan kolom dengan data tumbuhan dan gunakan operator perbandingan",
             "sql": {
               "type": "exec",
               "query": "SELECT * FROM Tumbuhan WHERE status_konservasi <> 'Least Concern';"
@@ -406,7 +406,7 @@
           },
           {
             "type": "instruction",
-            "text": "Bagi **jumlah** populasi spesies **Bekantan** dengan jumlah populasi spesies **Musang Luwak** yang ada pada data **hewan**. <br>Petunjuk : Gunakan subquery dan sesuaikan penulisan dengan isi data hewan.",
+            "text": "Bagi **jumlah** populasi **Bekantan** dengan populasi **Musang Luwak** yang ada di data **hewan**. Petunjuk : Gunakan subquery dan sesuaikan penulisan dengan isi data hewan.",
             "sql": {
               "type": "exec",
               "query": "SELECT (SELECT jumlah FROM hewan WHERE nama = 'Bekantan') / (SELECT jumlah FROM hewan WHERE nama = 'Musang Luwak')"
@@ -493,7 +493,7 @@
           },
           {
             "type": "instruction",
-            "text": "Tampilkan data **hewan** yang **status konservasi**nya bukan **Least Concern**. <br> Petunjuk : Sesuaikan penulisan isi data dan kolom dengan tabel tumbuhan.",
+            "text": "Tampilkan data **hewan** yang **status konservasi**nya bukan **Least Concern**. Petunjuk : Sesuaikan penulisan isi data dan kolom dengan tabel tumbuhan.",
             "sql": {
               "type": "exec",
               "query": "SELECT * FROM hewan WHERE NOT status_konservasi = 'Least Concern';"
@@ -511,7 +511,7 @@
         "dialogs": [
           {
             "type": "narration",
-            "text": "Kamu ingin menemukan tumbuhan yang habitatnya mengandung kata 'pantai'."
+            "text": "Kamu ingin menemukan tumbuhan yang habitatnya mengandung kata pantai."
           },
           {
             "type": "narration",
@@ -567,11 +567,11 @@
           },
           {
             "type": "narration",
-            "text": "Hewan yang memiliki lama hidup antara 7 hingga 14 tahun sering kali menjadi fokus dalam program konservasi, karena mereka umumnya berada pada tahap reproduktif atau masa dewasa."
+            "text": "Hewan yang memiliki lama hidup 7 hingga 14 tahun sering menjadi fokus dalam program konservasi, karena mereka umumnya berada pada tahap reproduktif"
           },
           {
             "type": "instruction",
-            "text": "Temukan semua **hewan** yang **lama hidup** berada dalam rentang 7 hingga 14 tahun. <br>Petunjuk : Sesuaikan penulisan nama kolom dengan yang ada pada data tumbuhan. ",
+            "text": "Temukan semua **hewan** yang **lama hidup** berada dalam rentang 7 hingga 14 tahun. Petunjuk : Sesuaikan penulisan nama kolom dengan yang ada pada data tumbuhan. ",
             "sql": {
               "type": "exec",
               "query": "SELECT * FROM hewan WHERE lama_hidup BETWEEN 7 AND 14;"
@@ -741,7 +741,7 @@
           },
           {
             "type": "instruction",
-            "text": "Tampilkan *nama* tumbuhan dan *jumlah terbanyak* yang ditemukan di data *tumbuhan.<br> **Petunjuk* : Buat data jumlah terbanyak dengan alias.",
+            "text": "Tampilkan *nama* tumbuhan dan *jumlah terbanyak* yang ditemukan di data **tumbuhan**. Petunjuk : Buat data jumlah terbanyak dengan alias.",
             "sql": {
               "type": "exec",
               "query": "SELECT nama, MAX(jumlah) AS jumlah_terbanyak FROM tumbuhan;"
@@ -767,7 +767,7 @@
           },
           {
             "type": "instruction",
-            "text": "Cari tumbuhan dengan *jumlah* paling sedikit dan tampilkan *nama* serta *jumlah terkecil* dari data *tumbuhan.<br> **Petunjuk* : Buat data jumlah terbanyak dengan alias.",
+            "text": "Cari tumbuhan dengan *jumlah* paling sedikit dan tampilkan **nama** serta **jumlah terkecil** dari data **tumbuhan**. Petunjuk : Buat data jumlah terbanyak dengan alias.",
             "sql": {
               "type": "exec",
               "query": "SELECT nama, MIN(jumlah) AS jumlah_terkecil FROM tumbuhan;"
@@ -789,7 +789,7 @@
           },
           {
             "type": "instruction",
-            "text": "Hitung rata-rata *jumlah* tumbuhan yang ada di data tumbuhan! <br> *Petunjuk* : Gunakan operator SQL untuk menghitungnya.",
+            "text": "Hitung rata-rata **jumlah** tumbuhan yang ada di data tumbuhan! Petunjuk : Gunakan operator SQL untuk menghitungnya.",
             "sql": {
               "type": "exec",
               "query": "SELECT AVG(jumlah) FROM tumbuhan;"
@@ -811,7 +811,7 @@
           },
           {
             "type": "instruction",
-            "text": "Hitunglah total keseluruhan jumlah tumbuhan di Pulau Kembang! <br> *Petunjuk* : Gunakan operator SQL untuk menghitungnya.",
+            "text": "Hitunglah total keseluruhan **jumlah** dari data **tumbuhan** di Pulau Kembang! Petunjuk : Gunakan operator SQL untuk menghitungnya.",
             "sql": {
               "type": "exec",
               "query": "SELECT SUM(jumlah) FROM tumbuhan;"
@@ -833,7 +833,7 @@
           },
           {
             "type": "instruction",
-            "text": "Hitunglah *banyak* seluruh tumbuhan yang ada di data *tumbuhan*!",
+            "text": "Hitunglah **banyak** seluruh tumbuhan yang ada di data **tumbuhan**!",
             "sql": {
               "type": "exec",
               "query": "SELECT COUNT(*) FROM tumbuhan;"
@@ -864,7 +864,7 @@
           },
           {
             "type": "instruction",
-            "text": "Temukan *harga* termurah dari data *biaya* untuk wisatawan *Lokal. <br> **Petunjuk* : Sesuaikan penulisan dengan data biaya.",
+            "text": "Temukan **harga** termurah dari data **biaya** untuk wisatawan **Lokal**. Petunjuk: Sesuaikan penulisan dengan data biaya.",
             "sql": {
               "type": "exec",
               "query": "SELECT MIN(harga) FROM biaya WHERE wisatawan = 'Lokal';"
@@ -890,7 +890,7 @@
           },
           {
             "type": "instruction",
-            "text": "Hitung *total biaya* masuk dari data *biaya* untuk wisatawan *Mancanegara* yang berkunjung pada *Hari Libur. <br> **Petunjuk* : Buat data total biaya dengan alias serta gunakan operator SQL untuk menghitungnya.",
+            "text": "Hitung **total biaya** masuk dari data **biaya** untuk wisatawan **Mancanegara** yang berkunjung pada **Hari Libur**. Petunjuk: Buat data total biaya dengan alias serta gunakan operator SQL untuk menghitungnya.",
             "sql": {
               "type": "exec",
               "query": "SELECT SUM(harga) AS total_biaya FROM biaya WHERE wisatawan = 'Mancanegara' AND hari = 'Hari Libur';"
@@ -916,7 +916,7 @@
           },
           {
             "type": "instruction",
-            "text": "Temukan *harga* tertinggi dari data *biaya* untuk wisatawan *Lokal! <br> **Petunjuk* : Sesuaikan penulisan dengan data biaya.",
+            "text": "Temukan **harga** tertinggi dari data **biaya** untuk wisatawan **Lokal**! Petunjuk : Sesuaikan penulisan dengan data biaya.",
             "sql": {
               "type": "exec",
               "query": "SELECT MAX(harga) FROM biaya WHERE wisatawan = 'Lokal';"
@@ -942,7 +942,7 @@
           },
           {
             "type": "instruction",
-            "text": "Hitung rata-rata *harga* dari data *biaya* untuk wisatawan *Mancanegara.  **Petunjuk* : Sesuaikan penulisan dengan data biaya.",
+            "text": "Hitung rata-rata **harga** dari data **biaya** untuk wisatawan **Mancanegara**. Petunjuk: Sesuaikan penulisan dengan data biaya.",
             "sql": {
               "type": "exec",
               "query": "SELECT AVG(harga) FROM biaya WHERE wisatawan = 'Mancanegara';"
@@ -968,7 +968,7 @@
           },
           {
             "type": "instruction",
-            "text": "Hitung banyaknya *harga* yang berbeda di data *biaya* dan tampilkan hasilnya dengan nama *jumlah biaya berbeda*.",
+            "text": "Hitung banyaknya **harga** yang berbeda di data **biaya** dan tampilkan hasilnya dengan nama **jumlah biaya berbeda**.",
             "sql": {
               "type": "exec",
               "query": "SELECT COUNT(DISTINCT harga) AS jumlah_biaya_berbeda FROM biaya;"
@@ -1003,7 +1003,7 @@
           },
           {
             "type": "instruction",
-            "text": "Tampilkan seluruh hewan dari data *hewan*",
+            "text": "Tampilkan seluruh hewan dari data **hewan**",
             "sql": {
               "type": "exec",
               "query": "SELECT * FROM hewan;"
@@ -1025,7 +1025,7 @@
           },
           {
             "type": "instruction",
-            "text": "Tampilkan semua *nama* hewan dari data *hewan* secara berurutan dari A hingga Z.",
+            "text": "Tampilkan semua **nama** hewan dari data **hewan** secara berurutan dari A hingga Z.",
             "sql": {
               "type": "exec",
               "query": "SELECT * FROM hewan ORDER BY nama;"
@@ -1051,7 +1051,7 @@
           },
           {
             "type": "instruction",
-            "text": "Tampilkan *nama* hewan dari data *hewan* yang memiliki *lama hidup* di atas rata-rata. <br> *Petunjuk* : Gunakan subquery dan sesuaikan penulisan dengan isi data hewan",
+            "text": "Tampilkan **nama** hewan dari data **hewan** yang memiliki **lama hidup** di atas rata-rata. Petunjuk: Gunakan subquery dan sesuaikan penulisan dengan isi data hewan",
             "sql": {
               "type": "exec",
               "query": "SELECT nama, lama_hidup FROM hewan WHERE lama_hidup > (SELECT AVG(lama_hidup) FROM hewan);"
@@ -1077,7 +1077,7 @@
           },
           {
             "type": "instruction",
-            "text": "Kelompokkan data *hewan* berdasarkan *status konservasi* dan urutkan hasilnya berdasarkan *jumlah* hewan dalam masing-masing status dari yang paling banyak ke sedikit. Ubah juga nama kolom hasil dengan jumlah.",
+            "text": "Kelompokkan data **hewan** berdasarkan **status konservasi** dan urutkan hasilnya berdasarkan **jumlah** hewan dalam masing-masing status dari yang paling banyak ke sedikit. Ubah juga nama kolom hasil dengan jumlah.",
             "sql": {
               "type": "exec",
               "query": "SELECT status_konservasi, COUNT(*) AS jumlah FROM hewan GROUP BY status_konservasi ORDER BY jumlah DESC;"
@@ -1099,7 +1099,7 @@
           },
           {
             "type": "instruction",
-            "text": "Tampilkan *nama* dan *lama hidup* hewan dari data *hewan*, yang diurutkan dari lama hidup terpendek hingga terpanjang.",
+            "text": "Tampilkan **nama** dan **lama hidup** hewan dari data **hewan**, yang diurutkan dari lama hidup terpendek hingga terpanjang.",
             "sql": {
               "type": "exec",
               "query": "SELECT nama, lama_hidup FROM hewan ORDER BY lama_hidup ASC;"
@@ -1134,7 +1134,7 @@
           },
           {
             "type": "instruction",
-            "text": "Tugasmu adalah memasukkan informasi petugas yang memiliki *nama* Fatimah. Ia memiliki *tugas* sebagai Pemandu Wisata.",
+            "text": "Tugasmu adalah memasukkan informasi petugas yang memiliki **nama** Fatimah. Ia memiliki **tugas** sebagai Pemandu Wisata.",
             "sql": {
               "type": "run",
               "query": "INSERT INTO Petugas (nama, tugas) VALUES ('Fatimah', 'Pemandu wisata');",
@@ -1161,7 +1161,7 @@
           },
           {
             "type": "instruction",
-            "text": "Nah, sekarang masukkan informasi musholla ke data *fasilitas. Adapun **nama* fasilitasnya Musholla, *jumlah* 1 buah, dengan *jenis* Fasilitas Umum, dan *status kelayakan* Layak.",
+            "text": "Nah, sekarang masukkan informasi musholla ke data **fasilitas**. Adapun **nama** fasilitasnya Musholla, **jumlah** 1 buah, dengan **jenis** Fasilitas Umum, dan **status kelayakan** Layak.",
             "sql": {
               "type": "run",
               "query": "INSERT INTO fasilitas (nama, jumlah, jenis, status_kelayakan) VALUES ('Musholla', 1, 'Fasilitas Umum', 'Layak');)",
@@ -1184,7 +1184,7 @@
           },
           {
             "type": "instruction",
-            "text": "Sekarang, perbarui data *tumbuhan* ini dengan memperbarui *jumlah* Nipah menjadi 41.",
+            "text": "Sekarang, perbarui data **tumbuhan** ini dengan memperbarui **jumlah** Nipah menjadi 41.",
             "sql": {
               "type": "run",
               "query": "UPDATE tumbuhan SET jumlah = 41 WHERE nama = 'Nipah';",
@@ -1207,7 +1207,7 @@
           },
           {
             "type": "instruction",
-            "text": "Perbarui *tugas* Cahya sebagai Petugas Kebersihan di data *petugas* agar sesuai dengan tugas barunya.",
+            "text": "Perbarui **tugas** Cahya sebagai Petugas Kebersihan di data **petugas** agar sesuai dengan tugas barunya.",
             "sql": {
               "type": "run",
               "query": "UPDATE petugas SET tugas = 'Petugas Kebersihan' WHERE nama = 'Cahya';",
@@ -1226,11 +1226,11 @@
         "dialogs": [
           {
             "type": "narration",
-            "text": "Harga tiket wisatawan lokal pada Hari Libur akan dinaikkan dari ‘7500’ menjadi ‘10000’ untuk mendukung program konservasi."
+            "text": "Harga tiket wisatawan lokal pada Hari Libur akan dinaikkan dari 7500 menjadi 10000 untuk mendukung program konservasi."
           },
           {
             "type": "instruction",
-            "text": "Perbarui *harga* tiket wisatawan Lokal di *Hari Libur* menjadi 10000. Pastikan perubahan dilakukan pada data biaya.",
+            "text": "Perbarui **harga** tiket wisatawan **Lokal** di **Hari Libur** menjadi 10000. Pastikan perubahan dilakukan pada data biaya.",
             "sql": {
               "type": "run",
               "query": "UPDATE biaya SET harga = 10000 WHERE hari = 'Hari Libur' AND wisatawan = 'Lokal'; ",
@@ -1266,7 +1266,7 @@
           },
           {
             "type": "instruction",
-            "text": "Masukkan data *petugas* baru dengan *nama* Anang dengan *tugas* sebagai *Petugas Kebersihan* ke data petugas",
+            "text": "Masukkan data **petugas** baru dengan **nama** Anang dengan **tugas** sebagai **Petugas Kebersihan** ke data petugas",
             "sql": {
               "type": "run",
               "query": "INSERT INTO petugas (nama, tugas) VALUES ('Anang', 'Petugas Kebersihan');",
@@ -1289,7 +1289,7 @@
           },
           {
             "type": "instruction",
-            "text": "Perbarui *harga* tiket wisatawan Mancanegara pada *Hari Libur* menjadi 175000 di data biaya.",
+            "text": "Perbarui **harga** tiket wisatawan **Mancanegara** pada **Hari Libur** menjadi **175000** di data **biaya**.",
             "sql": {
               "type": "run",
               "query": "UPDATE biaya SET harga = 175000 WHERE hari = 'Hari Libur' AND wisatawan = 'Mancanegara';",
@@ -1308,11 +1308,11 @@
         "dialogs": [
           {
             "type": "narration",
-            "text": " Petugas bernama 'Tiwi' telah dipindahkan ke lokasi lain dan tidak lagi bekerja di Pulau Kembang. Anda perlu menghapus data petugas ini"
+            "text": " Petugas bernama Tiwi telah dipindahkan ke lokasi lain dan tidak lagi bekerja di Pulau Kembang. Anda perlu menghapus data petugas ini"
           },
           {
             "type": "instruction",
-            "text": "Hapuslah data *petugas* dengan *nama* Tiwi!",
+            "text": "Hapuslah data **petugas** dengan **nama** Tiwi!",
             "sql": {
               "type": "run",
               "query": "DELETE FROM petugas WHERE nama = 'Tiwi'",
@@ -1339,7 +1339,7 @@
           },
           {
             "type": "instruction",
-            "text": "Hapuslah data *petugas* dengan *nama* Burhan!",
+            "text": "Hapuslah data **petugas** dengan **nama** Burhan!",
             "sql": {
               "type": "run",
               "query": "DELETE FROM petugas WHERE nama = 'Burhan';",
@@ -1348,7 +1348,7 @@
           },
           {
             "type": "narration",
-            "text": "Luar biasa! Kamu telah berhasil menghapus data 'Hari Libur Nasional' untuk wisatawan lokal dari database."
+            "text": "Luar biasa! Kamu telah berhasil menghapus data Hari Libur Nasional untuk wisatawan lokal dari database."
           }
         ]
       },
@@ -1362,7 +1362,7 @@
           },
           {
             "type": "instruction",
-            "text": "Hapus data *fasilitas* dengan *nama* 'Kantor Kehutanan' dari data fasilitas.",
+            "text": "Hapus data **fasilitas** dengan **nama** Kantor Kehutanan dari data **fasilitas**.",
             "sql": {
               "type": "run",
               "query": "DELETE FROM fasilitas WHERE nama = 'Kantor Kehutanan'",
@@ -1371,7 +1371,7 @@
           },
           {
             "type": "narration",
-            "text": "Bagus sekali! Kamu telah berhasil menghapus data 'Kantor Kehutanan' dari database."
+            "text": "Bagus sekali! Kamu telah berhasil menghapus data Kantor Kehutanan dari database."
           }
         ]
       }
