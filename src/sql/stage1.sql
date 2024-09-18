@@ -61,7 +61,6 @@ INSERT INTO fasilitas (nama, jumlah, jenis, status_kelayakan) VALUES
 ('Altar', 1, 'Fasilitas Umum', 'Layak'),
 ('Toilet', 2, 'Fasilitas Umum', 'Layak'),
 ('Spot Foto', 6, 'Fasilitas Umum', 'Layak'),
-('Mushola', 1, 'Fasilitas Umum', 'Layak');
 ('Loket', 1, 'Fasilitas Umum', 'Layak');
 
 -- membuat tabel tumbuhan
