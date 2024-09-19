@@ -11,8 +11,11 @@ const HomeLearnPage = () => {
       <Container className="p-5">
         <Row className="mb-3 g-4">
           {MATERI.map((materi) => (
-            <Col key={`materi-item-${materi.id}`} md={3}>
-              <Link className="text-decoration-none" to={`/learn/${materi.slug}`}>
+            <Col key={`materi-item-${materi.id}`} xs={6} md={4} lg={3} xl={2}>
+              <Link
+                className="text-decoration-none"
+                to={`/learn/${materi.slug}`}
+              >
                 <LearnItem title={materi.title} imageUrl={materi.imageUrl} />
               </Link>
             </Col>
