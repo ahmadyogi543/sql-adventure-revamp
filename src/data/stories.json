@@ -1137,7 +1137,7 @@
             "text": "Tugasmu adalah memasukkan informasi petugas yang memiliki **nama** Fatimah. Ia memiliki **tugas** sebagai Pemandu Wisata.",
             "sql": {
               "type": "run",
-              "query": "INSERT INTO Petugas (nama, tugas) VALUES ('Fatimah', 'Pemandu wisata');",
+              "query": "INSERT INTO Petugas (nama, tugas) VALUES ('Fatimah', 'Pemandu Wisata');",
               "validation": "SELECT * FROM petugas WHERE id = last_insert_rowid() AND nama = 'Fatimah' AND tugas = 'Pemandu Wisata'"
             }
           },
@@ -1188,7 +1188,7 @@
             "sql": {
               "type": "run",
               "query": "UPDATE tumbuhan SET jumlah = 41 WHERE nama = 'Nipah';",
-              "validation": "SELECT * FROM tumbuhan WHERE nama = 'Nipah' AND jumlah = 25"
+              "validation": "SELECT * FROM tumbuhan WHERE nama = 'Nipah' AND jumlah = 41"
             }
           },
           {
