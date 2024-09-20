@@ -348,7 +348,7 @@ const SumberDataInfo = () => {
       jumlah: 2,
       jenis: "Fasilitas Umum",
       status_kelayakan: "Tidak Layak",
-      gambar: "photo-pusat-informasi-url",
+      gambar: "/images/about/fasilitas/informasi.JPG",
       keterangan: "Pusat informasi yang ada memerlukan perbaikan untuk pelayanan optimal."
     },
     {
@@ -364,7 +364,7 @@ const SumberDataInfo = () => {
       jumlah: 3,
       jenis: "Fasilitas Umum",
       status_kelayakan: "Layak",
-      gambar: "photo-warung-makan-url",
+      gambar: "/images/about/fasilitas/makanminum.JPG",
       keterangan: "Tempat makan dan minum yang menyediakan berbagai menu untuk pengunjung."
     },
     {
@@ -372,7 +372,7 @@ const SumberDataInfo = () => {
       jumlah: 2,
       jenis: "Fasilitas Umum",
       status_kelayakan: "Tidak Layak",
-      gambar: "photo-pendopo-url",
+      gambar: "/images/about/fasilitas/pendopo.JPG",
       keterangan: "Pendopo memerlukan renovasi untuk meningkatkan kenyamanan bagi pengunjung."
     },
     {
@@ -380,7 +380,7 @@ const SumberDataInfo = () => {
       jumlah: 4,
       jenis: "Fasilitas Umum",
       status_kelayakan: "Layak",
-      gambar: "photo-jembatan-url",
+      gambar: "/images/about/fasilitas/jembatan.JPG",
       keterangan: "Jembatan yang menghubungkan berbagai area di lokasi dan dalam kondisi baik."
     },
     {
@@ -388,7 +388,7 @@ const SumberDataInfo = () => {
       jumlah: 1,
       jenis: "Fasilitas Umum",
       status_kelayakan: "Layak",
-      gambar: "photo-altar-url",
+      gambar: "/images/about/fasilitas/altar.JPG",
       keterangan: "Altar digunakan untuk kegiatan peribadatan dan memerlukan pemeliharaan rutin."
     },
     {
@@ -412,7 +412,7 @@ const SumberDataInfo = () => {
       jumlah: 1,
       jenis: "Fasilitas Umum",
       status_kelayakan: "Layak",
-      gambar: "photo-loket-url",
+      gambar: "/images/about/fasilitas/loket.JPG",
       keterangan: "Loket yang digunakan untuk transaksi tiket atau layanan lainnya."
     }
   ];
