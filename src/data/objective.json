@@ -2,7 +2,7 @@
   {
     "id": 1,
     "title": "Menjelajahi Pulau Kembang",
-    "tujuan": "Melatih penggunaan SELECT ALL yang dikombinasikan dengan query WHERE, NOT, DISTINCT serta Operator Aritmatika untuk menampilkan seluruh data pada tabel."
+    "tujuan": "Melatih penggunaan SELECT ALL yang dikombinasikan dengan query WHERE, NOT, DISTINCT serta Operator Perbandingan untuk menampilkan seluruh data pada tabel."
   },
   {
     "id": 2,

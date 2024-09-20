@@ -175,7 +175,7 @@ const SumberDataInfo = () => {
       habitat: "Biasa ditemukan di pohon rambai atau pepohonan berbiji dekat tepian sungai",
       lama_hidup: 23,
       status_konservasi: "Endangered",
-      gambar: "photo-bekantan-url",
+      gambar: "/images/about/hewan/bekantan.jpg",
       keterangan: "Bekantan adalah hewan endemik Kalimantan yang dikenal dengan hidung panjangnya."
     },
     {
@@ -186,7 +186,7 @@ const SumberDataInfo = () => {
       habitat: "Biasa ditemui disekitar pemukiman, serta berkeliaran di atas pepohonan",
       lama_hidup: 10,
       status_konservasi: "Least concern",
-      gambar: "photo-musang-url",
+      gambar: "/images/about/hewan/musangLuwak.jpg",
       keterangan: "Musang luwak dikenal karena peranannya dalam produksi kopi luwak."
     },
     {
@@ -197,7 +197,7 @@ const SumberDataInfo = () => {
       habitat: "Sarangnya ditemukan di atas pepohonan yang tinggi, biasa bertengger di puncak pohon",
       lama_hidup: 12,
       status_konservasi: "Endangered",
-      gambar: "photo-elang-bondol-url",
+      gambar: "/images/about/hewan/elangBondol.jpg",
       keterangan: "Elang Bondol adalah burung yang menjadi maskot DKI Jakarta."
     },
     {
@@ -208,7 +208,7 @@ const SumberDataInfo = () => {
       habitat: "Dapat dijumpai di kawasan hutan dan hutan pantai seperti di kawasan hutan nipah dan bakau",
       lama_hidup: 14,
       status_konservasi: "Endangered",
-      gambar: "photo-kera-ekor-panjang-url",
+      gambar: "/images/about/hewan/kera.jpg",
       keterangan: "Kera ini mudah beradaptasi dengan lingkungan yang dekat manusia."
     },
     {
@@ -219,7 +219,7 @@ const SumberDataInfo = () => {
       habitat: "Paling banyak ditemui di ladang atau persawahan",
       lama_hidup: 4,
       status_konservasi: "Least concern",
-      gambar: "photo-pipit-url",
+      gambar: "/images/about/hewan/pipit.jpg",
       keterangan: "Pipit sering terlihat berkelompok dan terbang rendah di persawahan."
     },
     {
@@ -230,7 +230,7 @@ const SumberDataInfo = () => {
       habitat: "Umumnya menghuni tepi-tepi sungai atau saluran air, tepian danau, pantai, dan rawa-rawa termasuk rawa bakau",
       lama_hidup: 16,
       status_konservasi: "Least concern",
-      gambar: "photo-biawak-url",
+      gambar: "/images/about/hewan/biawak.jpg",
       keterangan: "Biawak adalah reptil besar yang hidup di daerah perairan dan rawa."
     },
     {
@@ -241,7 +241,7 @@ const SumberDataInfo = () => {
       habitat: "Seiring ke sungai besar, hutan bakau dan tepi pantai, bertengger pada dahan mati di atas air",
       lama_hidup: 6,
       status_konservasi: "Least concern",
-      gambar: "photo-raja-udang-url",
+      gambar: "/images/about/hewan/rajaUdang.jpg",
       keterangan: "Raja Udang memiliki warna cerah dan sering terlihat di dekat perairan."
     },
     {
@@ -252,7 +252,7 @@ const SumberDataInfo = () => {
       habitat: "Sarangnya ditemukan di atas pepohonan yang tinggi, biasa bertengger di puncak pohon",
       lama_hidup: 8,
       status_konservasi: "Least concern",
-      gambar: "photo-alap-alap-url",
+      gambar: "/images/about/hewan/alapAlap.jpg",
       keterangan: "Alap-alap adalah salah satu burung pemangsa tercepat di dunia."
     },
     {
@@ -263,7 +263,7 @@ const SumberDataInfo = () => {
       habitat: "Biasa banyak dijumpai di kawasan hutan dan berkeliaran di atas pepohonan",
       lama_hidup: 4,
       status_konservasi: "Least concern",
-      gambar: "photo-bajing-tanah-url",
+      gambar: "/images/about/hewan/bajingTanah.jpg",
       keterangan: "Bajing Tanah adalah hewan pengerat yang hidup di hutan dan sering terlihat di pohon."
     },
     {
@@ -274,7 +274,7 @@ const SumberDataInfo = () => {
       habitat: "Hidup di hutan bakau, hutan daratan rendah hingga hutan dataran tinggi",
       lama_hidup: 13,
       status_konservasi: "Vulnerable",
-      gambar: "photo-lutung-url",
+      gambar: "/images/about/hewan/lutung.jpeg",
       keterangan: "Lutung adalah monyet endemik yang hidup di kawasan hutan tropis."
     },
     {
@@ -285,7 +285,7 @@ const SumberDataInfo = () => {
       habitat: "Lahan pertanian, lahan basah",
       lama_hidup: 10,
       status_konservasi: "Least concern",
-      gambar: "photo-elang-laut-url",
+      gambar: "/images/about/hewan/elangLaut.jpg",
       keterangan: "Elang Laut dikenal karena keahliannya dalam menangkap ikan dari udara."
     },
     {
@@ -296,7 +296,7 @@ const SumberDataInfo = () => {
       habitat: "Tepi hutan, perkebunan",
       lama_hidup: 20,
       status_konservasi: "Least concern",
-      gambar: "photo-elang-hitam-url",
+      gambar: "/images/about/hewan/elangHitam.jpeg",
       keterangan: "Elang Hitam adalah burung pemangsa besar yang hidup di daerah hutan dan perkebunan."
     },
     {
@@ -307,7 +307,7 @@ const SumberDataInfo = () => {
       habitat: "Dataran terbuka",
       lama_hidup: 7,
       status_konservasi: "Least concern",
-      gambar: "photo-elang-tikus-url",
+      gambar: "/images/about/hewan/elangTikus.jpg",
       keterangan: "Elang Tikus sering terlihat berburu di dataran terbuka."
     },
     {
@@ -318,7 +318,7 @@ const SumberDataInfo = () => {
       habitat: "Pepohonan berstruktur tinggi",
       lama_hidup: 13,
       status_konservasi: "Least concern",
-      gambar: "photo-elang-bido-url",
+      gambar: "/images/about/hewan/elangBido.jpg",
       keterangan: "Elang Bido adalah burung pemangsa yang sering terlihat di atas pohon-pohon tinggi."
     },
     {
@@ -329,7 +329,7 @@ const SumberDataInfo = () => {
       habitat: "Semak belukar, ladang",
       lama_hidup: 4,
       status_konservasi: "Least concern",
-      gambar: "photo-burung-madu-url",
+      gambar: "/images/about/hewan/burungMadu.jpg",
       keterangan: "Burung Madu Kelapa memiliki warna cerah dan sering terlihat mencari nektar di ladang."
     }
   ];
@@ -340,7 +340,7 @@ const SumberDataInfo = () => {
       jumlah: 1,
       jenis: "Fasilitas Transportasi",
       status_kelayakan: "Layak",
-      gambar: "photo-dermaga-url",
+      gambar: "/images/about/fasilitas/dermaga.JPG",
       keterangan: "Dermaga ini digunakan untuk proses naik-turun penumpang dan barang."
     },
     {
@@ -356,7 +356,7 @@ const SumberDataInfo = () => {
       jumlah: 1,
       jenis: "Fasilitas Pegawai",
       status_kelayakan: "Layak",
-      gambar: "photo-kantor-kehutanan-url",
+      gambar: "/images/about/fasilitas/kantorKehutanan.JPG",
       keterangan: "Kantor ini berfungsi sebagai pusat administrasi dan manajemen kehutanan."
     },
     {
@@ -396,7 +396,7 @@ const SumberDataInfo = () => {
       jumlah: 2,
       jenis: "Fasilitas Umum",
       status_kelayakan: "Layak",
-      gambar: "photo-toilet-url",
+      gambar: "/images/about/fasilitas/toilet.JPG",
       keterangan: "Toilet yang tersedia dalam kondisi bersih dan layak untuk digunakan pengunjung."
     },
     {
@@ -404,7 +404,7 @@ const SumberDataInfo = () => {
       jumlah: 6,
       jenis: "Fasilitas Umum",
       status_kelayakan: "Layak",
-      gambar: "photo-spot-foto-url",
+      gambar: "/images/about/fasilitas/spotFoto.JPG",
       keterangan: "Area khusus yang disediakan untuk pengunjung mengambil foto dengan latar yang menarik."
     },
     {
@@ -563,23 +563,40 @@ const SumberDataInfo = () => {
           <td>{hewan.habitat}</td>
           <td>{hewan.lama_hidup}</td>
           <td>{hewan.status_konservasi}</td>
-          <td>{hewan.gambar}</td>
+          <td>
+            <img src={hewan.gambar} alt={hewan.nama} style={{ width: '150px', height: 'auto' }} />
+          </td>
         </tr>
       ))}
     </tbody>
   </Table>
   <h3>Sumber Data Hewan</h3>
+    <ul>
+      <li><a href="https://ejournal.undiksha.ac.id/index.php/JJPG/article/view/23045" target="_blank" rel="noopener noreferrer">E-Journal Undiksha</a></li>
+      <li><a href="https://jurnal.usk.ac.id/JIPI/article/view/10814" target="_blank" rel="noopener noreferrer">Jurnal USK</a></li>
+      <li><a href="https://ejournal.unuja.ac.id/index.php/jeecom/article/view/4464" target="_blank" rel="noopener noreferrer">E-Journal UNUJA</a></li>
+      <li><a href="https://ejournal2.undip.ac.id/index.php/pentana/article/view/11601" target="_blank" rel="noopener noreferrer">Jurnal Diponegoro</a></li>
+      <li><a href="http://jbioua.fmipa.unand.ac.id/index.php/jbioua/article/view/34/31" target="_blank" rel="noopener noreferrer">JBI OUA</a></li>
+      <li><a href="https://www.iucnredlist.org/" target="_blank" rel="noopener noreferrer">IUCN Red List</a></li>
+      <li><a href="https://jurnalfkip.unram.ac.id/index.php/JBT/article/view/4748" target="_blank" rel="noopener noreferrer">Jurnal FKIP UNRAM</a></li>
+      <li><a href="https://ojs.unud.ac.id/index.php/metamorfosa/article/view/47291/28808" target="_blank" rel="noopener noreferrer">OJS UNUD</a></li>
+      <li><a href="https://journal.ipb.ac.id/index.php/actavetindones/article/view/36728" target="_blank" rel="noopener noreferrer">Jurnal IPB</a></li>
+      <li><a href="https://www.rekoforest.org/id/warta-lapangan/elang-tikus-salah-satu-yang-terpantau-dalam-raptor-watch-2021/" target="_blank" rel="noopener noreferrer">Rekoforest</a></li>
+      <li><a href="https://elibrary.unikom.ac.id/id/eprint/5984/8/UNIKOM_Iqbal%20Asyam%20Zulfikar_BAB%20II.pdf" target="_blank" rel="noopener noreferrer">E-Library UNIKOM</a></li>
+      <li><a href="https://animaldiversity.org/accounts/Nasalis_larvatus/" target="_blank" rel="noopener noreferrer">Animal Diversity</a></li>
+  </ul>
+
 
   <h2>Data Fasilitas</h2>
   <p><b>DISCLAIMER</b> data fasilitas pada penelitian ini didapat dari hasil observasi ke Pulau Kembang, yang didapatkan  data berupa fasilitas, status kelayakan, dan gambar. Data dummy berupa jumlah dan jenis ditambahkan untuk keperluan game.</p>
   <Table striped bordered hover>
     <thead>
       <tr>
-        <th>Nama</th>
-        <th>Jumlah</th>
-        <th>Jenis</th>
-        <th>Status Kelayakan</th>
-        <th>Gambar</th>
+        <th className="text-center">Nama</th>
+        <th className="text-center">Jumlah</th>
+        <th className="text-center">Jenis</th>
+        <th className="text-center">Status Kelayakan</th>
+        <th className="text-center">Gambar</th>
       </tr>
     </thead>
     <tbody>
@@ -589,7 +606,9 @@ const SumberDataInfo = () => {
           <td>{fasilitas.jumlah}</td>
           <td>{fasilitas.jenis}</td>
           <td>{fasilitas.status_kelayakan}</td>
-          <td>{fasilitas.gambar}</td>
+          <td>
+            <img src={fasilitas.gambar} alt={fasilitas.nama} style={{ width: '200px', height: 'auto' }} />
+          </td>
         </tr>
       ))}
     </tbody>
