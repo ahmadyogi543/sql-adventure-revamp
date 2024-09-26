@@ -412,7 +412,7 @@ const SumberDataInfo = () => {
       jumlah: 1,
       jenis: "Fasilitas Umum",
       status_kelayakan: "Layak",
-      gambar: "/images/about/fasilitas/loket.JPG",
+      gambar: "/images/about/fasilitas/loket.jpg",
       keterangan: "Loket yang digunakan untuk transaksi tiket atau layanan lainnya."
     }
   ];
