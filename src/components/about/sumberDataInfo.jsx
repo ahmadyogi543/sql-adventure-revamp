@@ -496,7 +496,6 @@ const SumberDataInfo = () => {
       <tr>
         <th className="text-center">Nama</th>
         <th className="text-center">Nama Latin</th>
-        <th className="text-center">Jumlah</th>
         <th className="text-center">Makanan</th>
         <th className="text-center">Habitat</th>
         <th className="text-center">Status Konservasi</th>
@@ -508,7 +507,6 @@ const SumberDataInfo = () => {
         <tr key={index}>
           <td className="text-center">{hewan.nama}</td>
           <td className="text-center">{hewan.nama_latin}</td>
-          <td className="text-center">{hewan.jumlah}</td>
           <td className="text-center">{hewan.makanan}</td>
           <td className="text-center">{hewan.habitat}</td>
           <td className="text-center">{hewan.status_konservasi}</td>
