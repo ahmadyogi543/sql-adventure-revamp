@@ -151,7 +151,6 @@ const SumberDataInfo = () => {
     {
       nama: "Bekantan",
       nama_latin: "Nasalis larvatus",
-      jumlah: 25,
       makanan: "Biji-bijian dan buah-buahan",
       habitat: "Biasa ditemukan di pohon rambai atau pepohonan berbiji dekat tepian sungai",
       status_konservasi: "Endangered",
@@ -161,7 +160,6 @@ const SumberDataInfo = () => {
     {
       nama: "Musang Luwak",
       nama_latin: "Paradoxurus hermaphroditus",
-      jumlah: 15,
       makanan: "Buah-buahan",
       habitat: "Biasa ditemui disekitar pemukiman, serta berkeliaran di atas pepohonan",
       status_konservasi: "Least concern",
@@ -171,7 +169,6 @@ const SumberDataInfo = () => {
     {
       nama: "Elang Bondol",
       nama_latin: "Haliastur indus",
-      jumlah: 8,
       makanan: "Ikan, daging tikus",
       habitat: "Sarangnya ditemukan di atas pepohonan yang tinggi, biasa bertengger di puncak pohon",
       status_konservasi: "Endangered",
@@ -181,7 +178,6 @@ const SumberDataInfo = () => {
     {
       nama: "Kera Ekor Panjang",
       nama_latin: "Macaca fascicularis",
-      jumlah: 150,
       makanan: "Buah-buahan",
       habitat: "Dapat dijumpai di kawasan hutan dan hutan pantai seperti di kawasan hutan nipah dan bakau",
       status_konservasi: "Endangered",
@@ -191,7 +187,6 @@ const SumberDataInfo = () => {
     {
       nama: "Pipit",
       nama_latin: "Lonchura sp",
-      jumlah: 40,
       makanan: "Biji padi",
       habitat: "Paling banyak ditemui di ladang atau persawahan",
       status_konservasi: "Least concern",
@@ -201,7 +196,6 @@ const SumberDataInfo = () => {
     {
       nama: "Biawak",
       nama_latin: "Varanus salvator",
-      jumlah: 20,
       makanan: "Beragam hewan hidup",
       habitat: "Umumnya menghuni tepi-tepi sungai atau saluran air, tepian danau, pantai, dan rawa-rawa termasuk rawa bakau",
       status_konservasi: "Least concern",
@@ -211,7 +205,6 @@ const SumberDataInfo = () => {
     {
       nama: "Raja Udang",
       nama_latin: "Pelargopsis capensis",
-      jumlah: 100,
       makanan: "Ikan, katak, kepiting",
       habitat: "Seiring ke sungai besar, hutan bakau dan tepi pantai, bertengger pada dahan mati di atas air",
       status_konservasi: "Least concern",
@@ -221,7 +214,6 @@ const SumberDataInfo = () => {
     {
       nama: "Alap-alap",
       nama_latin: "Peregrine falcon",
-      jumlah: 10,
       makanan: "Hewan yang dianggap lebih lemah",
       habitat: "Sarangnya ditemukan di atas pepohonan yang tinggi, biasa bertengger di puncak pohon",
       status_konservasi: "Least concern",
@@ -231,7 +223,6 @@ const SumberDataInfo = () => {
     {
       nama: "Bajing Tanah",
       nama_latin: "Lariscus insignis",
-      jumlah: 18,
       makanan: "Buah-buahan",
       habitat: "Biasa banyak dijumpai di kawasan hutan dan berkeliaran di atas pepohonan",
       status_konservasi: "Least concern",
@@ -241,7 +232,6 @@ const SumberDataInfo = () => {
     {
       nama: "Hirangan/Lutung",
       nama_latin: "Presbytis frontata",
-      jumlah: 12,
       makanan: "Daun dan buah",
       habitat: "Hidup di hutan bakau, hutan daratan rendah hingga hutan dataran tinggi",
       status_konservasi: "Vulnerable",
@@ -251,7 +241,6 @@ const SumberDataInfo = () => {
     {
       nama: "Elang Laut Perut Putih",
       nama_latin: "Haliaeetus leucogaster",
-      jumlah: 15,
       makanan: "Ikan",
       habitat: "Lahan pertanian, lahan basah",
       status_konservasi: "Least concern",
@@ -261,7 +250,6 @@ const SumberDataInfo = () => {
     {
       nama: "Elang Hitam",
       nama_latin: "Ictinaetus malayensis",
-      jumlah: 12,
       makanan: "Mamalia kecil",
       habitat: "Tepi hutan, perkebunan",
       status_konservasi: "Least concern",
@@ -271,7 +259,6 @@ const SumberDataInfo = () => {
     {
       nama: "Elang Tikus",
       nama_latin: "Elanus caeruleus",
-      jumlah: 20,
       makanan: "Jangkrik, belalang, kadal dan tikus",
       habitat: "Dataran terbuka",
       status_konservasi: "Least concern",
@@ -281,7 +268,6 @@ const SumberDataInfo = () => {
     {
       nama: "Elang Bido",
       nama_latin: "Spilornis cheela",
-      jumlah: 22,
       makanan: "Ular kecil, kadal, katak",
       habitat: "Pepohonan berstruktur tinggi",
       status_konservasi: "Least concern",
@@ -291,7 +277,6 @@ const SumberDataInfo = () => {
     {
       nama: "Burung Madu Kelapa",
       nama_latin: "Cinnyris jugularis",
-      jumlah: 35,
       makanan: "Nektar bunga atau buah-buahan",
       habitat: "Semak belukar, ladang",
       status_konservasi: "Least concern",
