@@ -6,166 +6,147 @@ const SumberDataInfo = () => {
       nama: "Rambai",
       nama_latin: "Baccaurea motleyana",
       habitat: "Tumbuh pada tanah lumpur yang dalam, sepanjang sungai mulai dari bagian hulu, serta area yang masih didominasi oleh air tawar",
-      jumlah: 47,
       status_konservasi: "Least Concern",
-      gambar: "photo-1-url",
+      gambar: "/images/about/tumbuhan/rambai.png",
       keterangan: "Tumbuhan ini sering dijumpai di sekitar sungai dengan tanah berlumpur.",
     },
     {
       nama: "Jarak",
       nama_latin: "Jatropha curcas",
       habitat: "Tumbuh liar di hutan, tanah kosong, sepanjang pantai atau di tanam sebagai komoditi perkebunan",
-      jumlah: 21,
       status_konservasi: "Least Concern",
-      gambar: "photo-2-url",
+      gambar: "/images/about/tumbuhan/jarak.png",
       keterangan: "Digunakan sebagai bahan baku bioenergi.",
     },
     {
       nama: "Nipah",
       nama_latin: "Nypa fruticans",
       habitat: "Daerah rawa yang berair payau atau daerah pasang surut di dekat pantai",
-      jumlah: 34,
       status_konservasi: "Least Concern",
-      gambar: "photo-3-url",
+      gambar: "/images/about/tumbuhan/nipah.png",
       keterangan: "Banyak ditemukan di daerah pasang surut dekat pantai.",
     },
     {
       nama: "Pandan",
       nama_latin: "Pandanus sp",
       habitat: "Tumbuh pada tanah rawa sedikit berkapur dengan serasah tipis",
-      jumlah: 58,
       status_konservasi: "Least Concern",
-      gambar: "photo-4-url",
+      gambar: "/images/about/tumbuhan/pandan.jpeg",
       keterangan: "Sering dijumpai pada tanah rawa dengan kandungan kapur.",
     },
     {
       nama: "Bakung",
       nama_latin: "Crinum asiaticum L",
       habitat: "Dijumpai sepanjang pantai berpasir dan teduh, tempat-tempat yang lembab pada dataran rendah dan asosiasi mangrove",
-      jumlah: 42,
       status_konservasi: "Least Concern",
-      gambar: "photo-5-url",
+      gambar: "/images/about/tumbuhan/bakung.jpeg",
       keterangan: "Ditemukan di pantai berpasir serta dataran rendah.",
     },
     {
       nama: "Piai",
       nama_latin: "Acrosticum aureum",
       habitat: "Tumbuh di mangrove dan pematang tambak, sepanjang kali dan sungai payau serta saluran",
-      jumlah: 85,
       status_konservasi: "Least Concern",
-      gambar: "photo-6-url",
+      gambar: "/images/about/tumbuhan/piai.png",
       keterangan: "Sering tumbuh di daerah pematang tambak.",
     },
     {
       nama: "Panggang",
       nama_latin: "Ficus microcarpa",
       habitat: "Tumbuh alami di hutan mangrove, rawa, rawa gambut dan di hutan dataran rendah hingga pegunungan bawah",
-      jumlah: 33,
       status_konservasi: "Least Concern",
-      gambar: "photo-7-url",
+      gambar: "/images/about/tumbuhan/panggang.png",
       keterangan: "Banyak dijumpai di hutan mangrove dan rawa gambut.",
     },
     {
       nama: "Pulutan",
       nama_latin: "Barringtonia sp",
       habitat: "Tumbuh pada pantai berpasir atau dataran koral-pasir di sepanjang pantai atau rawa mangrove",
-      jumlah: 76,
       status_konservasi: "Least Concern",
-      gambar: "photo-8-url",
+      gambar: "/images/about/tumbuhan/pulutan.png",
       keterangan: "Dijumpai di daerah pantai berpasir atau rawa mangrove.",
     },
     {
       nama: "Waru",
       nama_latin: "Hibicus tiliaceus",
       habitat: "Hidup di sepanjang pinggiran sungai di kawasan dataran rendah",
-      jumlah: 55,
       status_konservasi: "Least Concern",
-      gambar: "photo-9-url",
+      gambar: "/images/about/tumbuhan/waru.png",
       keterangan: "Tumbuh di sepanjang sungai di dataran rendah.",
     },
     {
       nama: "Rengas",
       nama_latin: "Gluta renghas",
       habitat: "Tumbuh di tepi daratan hutan mangrove dan mungkin juga menempati bagian tepi atau berdekatan dengan hutan rendah",
-      jumlah: 8,
       status_konservasi: "Near Threatened",
-      gambar: "photo-10-url",
+      gambar: "/images/about/tumbuhan/rengas.png",
       keterangan: "Termasuk tumbuhan yang langka dan terancam.",
     },
     {
       nama: "Karamunting",
       nama_latin: "Melastoma malabathricum L",
       habitat: "Tumbuh di berbagai tipe tanah",
-      jumlah: 29,
       status_konservasi: "Least Concern",
-      gambar: "photo-11-url",
+      gambar: "/images/about/tumbuhan/karamunting.jpeg",
       keterangan: "Bisa tumbuh di berbagai jenis tanah.",
     },
     {
       nama: "Api-Api",
       nama_latin: "Avicennia marina",
       habitat: "Garis pantai (hutan bakau)",
-      jumlah: 127,
       status_konservasi: "Least Concern",
-      gambar: "photo-12-url",
+      gambar: "/images/about/tumbuhan/api-api.png",
       keterangan: "Sering ditemukan di garis pantai.",
     },
     {
       nama: "Bakau",
       nama_latin: "Rizophora mucronnata",
       habitat: "Tumbuh dalam kelompok pada pematang sungai surut dan di muara sungai, jarang sekali tumbuh pada daerah yang jauh dari air pasang surut",
-      jumlah: 38,
       status_konservasi: "Least Concern",
-      gambar: "photo-13-url",
+      gambar: "/images/about/tumbuhan/bakau.png",
       keterangan: "Tumbuhan ini hidup di daerah pematang sungai.",
     },
     {
       nama: "Jambu",
       nama_latin: "Eugenia sp",
       habitat: "Daerah tropis dan subtropis",
-      jumlah: 27,
       status_konservasi: "Least Concern",
-      gambar: "photo-14-url",
+      gambar: "/images/about/tumbuhan/jambu.jpeg",
       keterangan: "Banyak ditemukan di daerah tropis dan subtropis.",
     },
     {
       nama: "Tancang",
       nama_latin: "Bruguiera gymnorrhiza",
       habitat: "Bagian tengah sampai tepi mangrove, sepanjang tanggul tambak, dan di pinggir sungai kecil",
-      jumlah: 11,
       status_konservasi: "Least Concern",
-      gambar: "photo-15-url",
+      gambar: "/images/about/tumbuhan/tancang.png",
       keterangan: "Banyak tumbuh di bagian tepi mangrove.",
     },
     {
       nama: "Jeruju",
       nama_latin: "Acanthus ilicifolius",
       habitat: "Tumbuh di hutan bakau, daerah air tawar murni atau tergenang air, dan di lahan kering",
-      jumlah: 41,
       status_konservasi: "Least Concern",
-      gambar: "photo-16-url",
+      gambar: "/images/about/tumbuhan/jeruju.png",
       keterangan: "Ditemukan di daerah hutan bakau.",
     },
     {
       nama: "Dungun",
       nama_latin: "Heretiera littoralis",
       habitat: "Garis pantai (hutan bakau, pantai berpasir, pantai berbatu), daratan (sungai)",
-      jumlah: 25,
       status_konservasi: "Least Concern",
-      gambar: "photo-17-url",
+      gambar: "/images/about/tumbuhan/dungun.png",
       keterangan: "Sering ditemukan di garis pantai atau sungai.",
     },
     {
       nama: "Bintaro",
       nama_latin: "Cerbera manghas",
       habitat: "Pantai atau hutan bakau",
-      jumlah: 92,
       status_konservasi: "Least Concern",
-      gambar: "photo-18-url",
+      gambar: "/images/about/tumbuhan/bintaro.jpeg",
       keterangan: "Banyak ditemukan di pantai dan hutan bakau.",
     },
   ];
-
   const hewanData = [
     {
       nama: "Bekantan",
@@ -173,7 +154,6 @@ const SumberDataInfo = () => {
       jumlah: 25,
       makanan: "Biji-bijian dan buah-buahan",
       habitat: "Biasa ditemukan di pohon rambai atau pepohonan berbiji dekat tepian sungai",
-      lama_hidup: 23,
       status_konservasi: "Endangered",
       gambar: "/images/about/hewan/bekantan.jpg",
       keterangan: "Bekantan adalah hewan endemik Kalimantan yang dikenal dengan hidung panjangnya."
@@ -184,7 +164,6 @@ const SumberDataInfo = () => {
       jumlah: 15,
       makanan: "Buah-buahan",
       habitat: "Biasa ditemui disekitar pemukiman, serta berkeliaran di atas pepohonan",
-      lama_hidup: 10,
       status_konservasi: "Least concern",
       gambar: "/images/about/hewan/musangLuwak.jpg",
       keterangan: "Musang luwak dikenal karena peranannya dalam produksi kopi luwak."
@@ -195,7 +174,6 @@ const SumberDataInfo = () => {
       jumlah: 8,
       makanan: "Ikan, daging tikus",
       habitat: "Sarangnya ditemukan di atas pepohonan yang tinggi, biasa bertengger di puncak pohon",
-      lama_hidup: 12,
       status_konservasi: "Endangered",
       gambar: "/images/about/hewan/elangBondol.jpg",
       keterangan: "Elang Bondol adalah burung yang menjadi maskot DKI Jakarta."
@@ -206,7 +184,6 @@ const SumberDataInfo = () => {
       jumlah: 150,
       makanan: "Buah-buahan",
       habitat: "Dapat dijumpai di kawasan hutan dan hutan pantai seperti di kawasan hutan nipah dan bakau",
-      lama_hidup: 14,
       status_konservasi: "Endangered",
       gambar: "/images/about/hewan/kera.jpg",
       keterangan: "Kera ini mudah beradaptasi dengan lingkungan yang dekat manusia."
@@ -217,7 +194,6 @@ const SumberDataInfo = () => {
       jumlah: 40,
       makanan: "Biji padi",
       habitat: "Paling banyak ditemui di ladang atau persawahan",
-      lama_hidup: 4,
       status_konservasi: "Least concern",
       gambar: "/images/about/hewan/pipit.jpg",
       keterangan: "Pipit sering terlihat berkelompok dan terbang rendah di persawahan."
@@ -228,7 +204,6 @@ const SumberDataInfo = () => {
       jumlah: 20,
       makanan: "Beragam hewan hidup",
       habitat: "Umumnya menghuni tepi-tepi sungai atau saluran air, tepian danau, pantai, dan rawa-rawa termasuk rawa bakau",
-      lama_hidup: 16,
       status_konservasi: "Least concern",
       gambar: "/images/about/hewan/biawak.jpg",
       keterangan: "Biawak adalah reptil besar yang hidup di daerah perairan dan rawa."
@@ -239,7 +214,6 @@ const SumberDataInfo = () => {
       jumlah: 100,
       makanan: "Ikan, katak, kepiting",
       habitat: "Seiring ke sungai besar, hutan bakau dan tepi pantai, bertengger pada dahan mati di atas air",
-      lama_hidup: 6,
       status_konservasi: "Least concern",
       gambar: "/images/about/hewan/rajaUdang.jpg",
       keterangan: "Raja Udang memiliki warna cerah dan sering terlihat di dekat perairan."
@@ -250,7 +224,6 @@ const SumberDataInfo = () => {
       jumlah: 10,
       makanan: "Hewan yang dianggap lebih lemah",
       habitat: "Sarangnya ditemukan di atas pepohonan yang tinggi, biasa bertengger di puncak pohon",
-      lama_hidup: 8,
       status_konservasi: "Least concern",
       gambar: "/images/about/hewan/alapAlap.jpg",
       keterangan: "Alap-alap adalah salah satu burung pemangsa tercepat di dunia."
@@ -261,7 +234,6 @@ const SumberDataInfo = () => {
       jumlah: 18,
       makanan: "Buah-buahan",
       habitat: "Biasa banyak dijumpai di kawasan hutan dan berkeliaran di atas pepohonan",
-      lama_hidup: 4,
       status_konservasi: "Least concern",
       gambar: "/images/about/hewan/bajingTanah.jpg",
       keterangan: "Bajing Tanah adalah hewan pengerat yang hidup di hutan dan sering terlihat di pohon."
@@ -272,7 +244,6 @@ const SumberDataInfo = () => {
       jumlah: 12,
       makanan: "Daun dan buah",
       habitat: "Hidup di hutan bakau, hutan daratan rendah hingga hutan dataran tinggi",
-      lama_hidup: 13,
       status_konservasi: "Vulnerable",
       gambar: "/images/about/hewan/lutung.jpeg",
       keterangan: "Lutung adalah monyet endemik yang hidup di kawasan hutan tropis."
@@ -283,7 +254,6 @@ const SumberDataInfo = () => {
       jumlah: 15,
       makanan: "Ikan",
       habitat: "Lahan pertanian, lahan basah",
-      lama_hidup: 10,
       status_konservasi: "Least concern",
       gambar: "/images/about/hewan/elangLaut.jpg",
       keterangan: "Elang Laut dikenal karena keahliannya dalam menangkap ikan dari udara."
@@ -294,7 +264,6 @@ const SumberDataInfo = () => {
       jumlah: 12,
       makanan: "Mamalia kecil",
       habitat: "Tepi hutan, perkebunan",
-      lama_hidup: 20,
       status_konservasi: "Least concern",
       gambar: "/images/about/hewan/elangHitam.jpeg",
       keterangan: "Elang Hitam adalah burung pemangsa besar yang hidup di daerah hutan dan perkebunan."
@@ -305,7 +274,6 @@ const SumberDataInfo = () => {
       jumlah: 20,
       makanan: "Jangkrik, belalang, kadal dan tikus",
       habitat: "Dataran terbuka",
-      lama_hidup: 7,
       status_konservasi: "Least concern",
       gambar: "/images/about/hewan/elangTikus.jpg",
       keterangan: "Elang Tikus sering terlihat berburu di dataran terbuka."
@@ -316,7 +284,6 @@ const SumberDataInfo = () => {
       jumlah: 22,
       makanan: "Ular kecil, kadal, katak",
       habitat: "Pepohonan berstruktur tinggi",
-      lama_hidup: 13,
       status_konservasi: "Least concern",
       gambar: "/images/about/hewan/elangBido.jpg",
       keterangan: "Elang Bido adalah burung pemangsa yang sering terlihat di atas pohon-pohon tinggi."
@@ -327,7 +294,6 @@ const SumberDataInfo = () => {
       jumlah: 35,
       makanan: "Nektar bunga atau buah-buahan",
       habitat: "Semak belukar, ladang",
-      lama_hidup: 4,
       status_konservasi: "Least concern",
       gambar: "/images/about/hewan/burungMadu.jpg",
       keterangan: "Burung Madu Kelapa memiliki warna cerah dan sering terlihat mencari nektar di ladang."
@@ -517,7 +483,6 @@ const SumberDataInfo = () => {
         <th>Nama</th>
         <th>Nama Latin</th>
         <th>Habitat</th>
-        <th>Jumlah</th>
         <th>Status Konservasi</th>
         <th>Gambar</th>
       </tr>
@@ -528,9 +493,10 @@ const SumberDataInfo = () => {
           <td>{tumbuhan.nama}</td>
           <td>{tumbuhan.nama_latin}</td>
           <td>{tumbuhan.habitat}</td>
-          <td>{tumbuhan.jumlah}</td>
           <td>{tumbuhan.status_konservasi}</td>
-          <td>{tumbuhan.gambar}</td>
+          <td className="text-center">
+            <img src={tumbuhan.gambar} alt={tumbuhan.nama} style={{ width: '150px', height: 'auto' }} />
+          </td>
         </tr>
       ))}
     </tbody>
@@ -543,27 +509,25 @@ const SumberDataInfo = () => {
   <Table striped bordered hover>
     <thead>
       <tr>
-        <th>Nama</th>
-        <th>Nama Latin</th>
-        <th>Jumlah</th>
-        <th>Makanan</th>
-        <th>Habitat</th>
-        <th>Lama Hidup (Tahun)</th>
-        <th>Status Konservasi</th>
-        <th>Gambar</th>
+        <th className="text-center">Nama</th>
+        <th className="text-center">Nama Latin</th>
+        <th className="text-center">Jumlah</th>
+        <th className="text-center">Makanan</th>
+        <th className="text-center">Habitat</th>
+        <th className="text-center">Status Konservasi</th>
+        <th className="text-center">Gambar</th>
       </tr>
     </thead>
     <tbody>
       {hewanData.map((hewan, index) => (
         <tr key={index}>
-          <td>{hewan.nama}</td>
-          <td>{hewan.nama_latin}</td>
-          <td>{hewan.jumlah}</td>
-          <td>{hewan.makanan}</td>
-          <td>{hewan.habitat}</td>
-          <td>{hewan.lama_hidup}</td>
-          <td>{hewan.status_konservasi}</td>
-          <td>
+          <td className="text-center">{hewan.nama}</td>
+          <td className="text-center">{hewan.nama_latin}</td>
+          <td className="text-center">{hewan.jumlah}</td>
+          <td className="text-center">{hewan.makanan}</td>
+          <td className="text-center">{hewan.habitat}</td>
+          <td className="text-center">{hewan.status_konservasi}</td>
+          <td className="text-center">
             <img src={hewan.gambar} alt={hewan.nama} style={{ width: '150px', height: 'auto' }} />
           </td>
         </tr>
@@ -602,11 +566,11 @@ const SumberDataInfo = () => {
     <tbody>
       {fasilitasData.map((fasilitas, index) => (
         <tr key={index}>
-          <td>{fasilitas.nama}</td>
-          <td>{fasilitas.jumlah}</td>
-          <td>{fasilitas.jenis}</td>
-          <td>{fasilitas.status_kelayakan}</td>
-          <td>
+          <td className="text-center">{fasilitas.nama}</td>
+          <td className="text-center">{fasilitas.jumlah}</td>
+          <td className="text-center">{fasilitas.jenis}</td>
+          <td className="text-center">{fasilitas.status_kelayakan}</td>
+          <td className="text-center">
             <img src={fasilitas.gambar} alt={fasilitas.nama} style={{ width: '200px', height: 'auto' }} />
           </td>
         </tr>
@@ -619,17 +583,17 @@ const SumberDataInfo = () => {
   <Table striped bordered hover>
     <thead>
       <tr>
-        <th>Nama</th>
-        <th>Tugas</th>
-        <th>Lama Bekerja</th>
+        <th className="text-center">Nama</th>
+        <th className="text-center">Tugas</th>
+        <th className="text-center">Lama Bekerja</th>
       </tr>
     </thead>
     <tbody>
       {petugasData.map((petugas, index) => (
         <tr key={index}>
-          <td>{petugas.nama}</td>
-          <td>{petugas.tugas}</td>
-          <td>{petugas.lama_bekerja}</td>
+          <td className="text-center">{petugas.nama}</td>
+          <td className="text-center">{petugas.tugas}</td>
+          <td className="text-center">{petugas.lama_bekerja}</td>
         </tr>
       ))}
     </tbody>
@@ -640,17 +604,17 @@ const SumberDataInfo = () => {
   <Table striped bordered hover>
     <thead>
       <tr>
-        <th>Hari</th>
-        <th>Wisatawan</th>
-        <th>Harga</th>
+        <th className="text-center">Hari</th>
+        <th className="text-center">Wisatawan</th>
+        <th className="text-center">Harga</th>
       </tr>
     </thead>
     <tbody>
       {biayaData.map((biaya, index) => (
         <tr key={index}>
-          <td>{biaya.hari}</td>
-          <td>{biaya.wisatawan}</td>
-          <td>{biaya.harga}</td>
+          <td className="text-center">{biaya.hari}</td>
+          <td className="text-center">{biaya.wisatawan}</td>
+          <td className="text-center">{biaya.harga}</td>
         </tr>
       ))}
     </tbody>
